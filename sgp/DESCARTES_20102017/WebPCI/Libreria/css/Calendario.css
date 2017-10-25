@@ -1,0 +1,10 @@
+﻿
+.calendario_Fecha {
+	background: #FFFFFF repeat-x;
+	border: solid 1px #C0C0C0;
+	border-radius: 5px;
+	color: #333;
+	font-family: Tahoma, Arial, Sans-Serif;
+	font-size: 0.8em;
+	padding: 2px;
+}

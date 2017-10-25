@@ -1,0 +1,178 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="Site" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>BIENVENIDO</title>
+    <link href="Libreria/js/jquery-ui-1.10.3.custom/css/jqueryUI-MDY/jquery-ui-1.9.2.custom.css" rel="stylesheet" />
+<%--    <script src="Libreria/js/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.js"></script>--%>
+	
+	<script src="Libreria/js/jquery-ui-1.10.3.custom/jquery-ui-1.10.3.custom.js"></script>
+	<script src="Libreria/js/jquery-ui-1.10.3.custom/jquery-ui-1.10.3.custom.min.js"></script>
+
+    <script src="Libreria/js/jquery-ui-1.10.3.custom/js/jquery-1.9.1.js"></script>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+    <%--Bootstrap 3.3.5--%>
+    <link href="Libreria/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <%--font awesome--%>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+
+    <link href="Libreria/js/messiAlert/css/messi.css" rel="stylesheet" />
+    <script src="Libreria/js/messiAlert/js/messi.min.js"></script>
+
+    <script src="Libreria/js/Validador.js"></script>
+    <%--<script src="Libreria/js/jquery-ui-1.10.3.custom/js/jquery.numeric.js"></script>--%>
+    
+    <%--theme style--%>
+    <link href="Libreria/dist/css/AdminLTE.css" rel="stylesheet" />
+    <link href="Libreria/dist/css/skins/_all-skins.min.css" rel="stylesheet" />
+    <%--datos de la web--%>
+    <script src="Libreria/js/web.js"></script>
+    <link href="Libreria/css/Diseño_div.css" rel="stylesheet" />
+    <link href="Libreria/css/estilo_tabla.css" rel="stylesheet" />
+    <link href="Libreria/css/estilo_grilla.css" rel="stylesheet" />
+
+    <%--subir archivos--%>
+    <script src="Libreria/js/Subir_Archvio/jquery.ui.widget.js"></script>
+    <script src="Libreria/js/Subir_Archvio/jquery.iframe-transport.js"></script>
+    <script src="Libreria/js/Subir_Archvio/jquery.fileupload.js"></script>
+    <link href="Libreria/js/Subir_Archvio/jquery.fileupload-ui.css" rel="stylesheet" />
+    <link href="Libreria/js/Subir_Archvio/jquery.fileupload.css" rel="stylesheet" />
+
+    <script src="Libreria/js/jquery-ui-1.10.3.custom/js/jquery-ui.min.js"></script>
+
+    <link href="Libreria/js/Hora/jquery.timepicker.css" rel="stylesheet" />
+    <script src="Libreria/js/Hora/jquery.timepicker.min.js"></script>
+    
+</head>
+<body class="skin-blue sidebar-mini sidebar-collapse" >
+    <form id="form1" runat="server">
+    <div class="wrapper">
+        <header class="main-header" style="background-color:#d43f3a">
+            <a href="Frm_Principal.aspx" class="logo" style="background-color:#d43f3a">
+              <!-- mini logo for sidebar mini 50x50 pixels -->
+              <span class="logo-mini"></span>
+              <!-- logo for regular state and mobile devices -->
+              <span class="logo-lg"><b>PRINCIPAL</b></span>
+            </a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top" role="navigation" style="background-color:#d43f3a">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button" id="mia">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>               
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <!-- User Account: style can be found in dropdown.less -->
+                        <li>
+                            <div id="div_Fecha_Hora">
+                                <asp:Label ID="lblFecha" runat="server" CssClass="csstextReloj" Text="[ MM/DD/YYYY ]" ToolTip="Fecha" Font-Bold="true"></asp:Label>
+                            </div>
+                        </li>
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="libreria/dist/img/user2-160x160.jpg"  class="user-image" alt="User Image" />
+                                <span class="hidden-xs"> 
+                                        <asp:Label ID="lblPerfil" runat="server" CssClass="csstextReloj" Text="[ SIN PERFIL ]" ToolTip="Perfil"></asp:Label>
+                                    <%--<asp:Label ID="lblUser" runat="server" CssClass="csstextReloj" Text="[SIN USER]" ToolTip="Nombre Usuario"></asp:Label>--%>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- User image -->
+                                <li class="user-header" style="background-color:#d43f3a">
+                                    <img src="libreria/dist/img/user2-160x160.jpg" width="20" height="20" class="img-circle" alt="User Image" />
+                                    <p>
+                                        <asp:Label ID="lblPersonal" runat="server" CssClass="csstextReloj" Text="[SIN USER]" ToolTip="Nombre Usuario"></asp:Label>
+                                    </p>
+                                </li>
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+                                    <div class="pull-right">
+                                        <a href="#" class="btn btn-default btn-flat" onclick="JQ_Logout();">Salir</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="main-sidebar">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+                <!-- Sidebar user panel -->
+                <div class="user-panel">
+                    <div class="pull-left image">
+                        <img src="libreria/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+                    </div>
+                    <div class="pull-left info">
+                        <p><asp:Label ID="lbl_linea" runat="server" CssClass="csstextReloj" Text="[SIN USER]" ToolTip="En Linea"></asp:Label></p>
+                    </div><br />
+                </div>
+                <!-- /.search form -->
+                <!-- sidebar menu: : style can be found in sidebar.less -->
+                <div id="divMenu_Horiz"></div>
+            </section>
+            <!-- /.sidebar -->
+        </aside>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <div class="cssDivPrincipal" style="width:100%;float:left;height:auto;">
+                    <asp:ContentPlaceHolder id="CONTENEDOR" runat="server"  >
+							
+                    </asp:ContentPlaceHolder>
+                </div>
+            </section>
+            <!-- Main content -->
+            <div id="revelacion" style="position:absolute;top:640px;left:1350px;width:0px;height:0px;z-index:1;visibility:hidden;">             
+            </div>
+        </div><!-- /.content-wrapper -->
+        <div class="control-sidebar-bg"></div>
+    </div><!-- ./wrapper -->
+        <%--<script src="Libreria/plugins/jQuery/jQuery-2.1.4.min.js"></script>--%>
+        <script src="Libreria/bootstrap/js/bootstrap.js"></script>
+        <script src="Libreria/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <script src="Libreria/plugins/fastclick/fastclick.min.js"></script>
+        <script src="Libreria/dist/js/app.min.js"></script>
+        <script src="Libreria/dist/js/demo.js"></script>
+    </form>
+</body>
+</html>
+<div id="div_loading" class="se-pre-con"></div>
+<script>
+	$(window).load(function ()
+	{
+		// Animate loader off screen
+		$(".se-pre-con").fadeOut("slow");;
+	});
+
+</script>
+<style>
+				.no-js #loader { display: none;  }
+
+.js #loader { display: block; position: absolute; left: 100px; top: 0; }
+.se-pre-con {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url(images/gif/default.gif) center no-repeat #fff;
+}
+#mia:hover{
+    background-color: #AC3A22;
+}
+
+		</style>
+    <center>
+		

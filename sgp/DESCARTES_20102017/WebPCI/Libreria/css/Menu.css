@@ -1,0 +1,827 @@
+﻿.body {
+	margin: 0px;
+	background-color: #E5E5E5;
+	background-image: url(../imagenes/Cabecera/body_back_04.png);
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.ui-widget {
+	font-family: inherit !important;
+	font-size: inherit !important;
+}
+
+.frm {
+	margin: 0px;
+	background-image: url(../imagenes/BackgroundBody2.jpg);
+	background-repeat: repeat-x;
+}
+
+.FondoMenu {
+	background-image: url(../imagenes/BannerPrincipal.gif);
+	background-repeat: no-repeat;
+	height: 100px;
+	width: 1000px;
+}
+
+.FondoBanner {
+	background-image: url(../imagenes/Reclamos/Banner_.png);
+	background-repeat: no-repeat;
+	height: 100px;
+	width: 1000px;
+}
+
+.AnchoBody {
+	width: 1000px;
+	border: 1px;
+	border-style: solid;
+	border-color: #225643;
+	border-width: 0px;
+}
+
+.BordeBodyPrincipal {
+	border: 1px;
+	background-color: black;
+}
+
+.PiePagina {
+	/*background-image:url(./imagenes/PiePagina.gif);*/
+	height: 30px;
+	background-repeat: no-repeat;
+	text-align: center;
+	font-family: Tahoma;
+	font-weight: bold;
+	font-size: 10px;
+	color: #726868;
+}
+
+.PiePaginaW {
+	background-image: url(../imagenes/fondos/Footer_01.png);
+	height: 30px;
+	background-repeat: repeat-x;
+	text-align: center;
+	font-family: Tahoma;
+	font-weight: normal;
+	font-size: 8pt; /*color: #00338e;*/
+	color: #FFFFFF;
+	border-radius: 3px;
+}
+
+.CabeceraLogin {
+	padding-left: 10px;
+	height: 25px;
+	color: #15428B;
+	font-weight: bold;
+	font-family: Tahoma;
+	font-size: 12pt;
+}
+
+.btnLogin {
+	background-image: url(../imagenes/btnLogin1.gif);
+}
+
+	.btnLogin:hover {
+		background-image: url(../imagenes/btnLogin2.gif);
+		background-repeat: repeat;
+		background-position: left center;
+	}
+
+.OtroCaso {
+	/*background-image:url(./imagenes/Reclamos/bg_inset-hard_1x100.png) 50% 50% repeat-x;*/
+	background: url(../imagenes/Reclamos/bg_glass_1x400.png) 50% 50% repeat-x;
+	text-align: center;
+	vertical-align: text-bottom;
+}
+
+#TableLogin {
+	background-image: url(../imagenes/fondoLogin.gif);
+	background-repeat: no-repeat;
+	width: 360px;
+	height: 158px;
+	border: 0px;
+}
+
+#SubTableLogin {
+	background-image: url(../imagenes/subFondoLogin.gif);
+	background-repeat: no-repeat;
+	width: 340px;
+	height: 90px;
+}
+
+.EtiquetaNormal {
+	font-size: 10pt;
+	font-family: tahoma;
+	text-align: left;
+	padding-left: 5px;
+	height: 25px;
+}
+
+.estiloTexto {
+	font-size: 8pt;
+	font-family: tahoma;
+	text-align: left;
+	/*padding-left: 5px;
+	padding-right: 5px;*/
+	/*border-right: #726868 1px solid;
+	border-top: #726868 1px solid;
+	border-left: #726868 1px solid;
+	border-bottom: #726868 1px solid;*/
+	border: solid 1px #000000;
+}
+
+.texto {
+	font-size: 10px;
+	font-family: Arial;
+	color: navy;
+	text-align: left;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.textoField {
+	font-size: 10px;
+	font-family: Tahoma;
+	color: midnightblue;
+	text-align: left;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.textoNegrita {
+	font-size: 11px;
+	font-family: Arial;
+	color: navy;
+	text-align: right;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.tituloNegrita {
+	font-size: 14px;
+	font-family: Verdana;
+	color: darkolivegreen;
+	text-align: right;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-style: normal;
+}
+
+.estiloLSE {
+	font-size: 8pt;
+	font-family: tahoma;
+	text-align: left;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	color: #B71616;
+}
+
+.estilogrillaranking {
+	font-size: 8pt;
+	font-family: tahoma;
+	text-align: left;
+}
+
+.marginTableLogin {
+	margin-top: 15px;
+	padding-top: 15px;
+}
+
+
+/* Aquí modificamos el Contenedor*/
+#cont {
+	text-align: center;
+	padding: 5px;
+	margin: 0 auto;
+	width: 1000px;
+}
+/* Ahora la sombra */
+#sombra {
+	margin: 10px;
+	background: #CCCCCC; /* Color de la sombra */
+	border: solid 1px #CCCCCC; /* Color del borde */
+	width: 1000px;
+}
+/* Veamos el texto */
+#text {
+	border: solid 1px #726868;
+	margin: -10px 2px 2px -10px; /* Aqui están los famosos márgenes negativos*/
+	padding: 2px;
+	background: #FFFFFF; /* Le damos un color de fondo */
+}
+
+.cssMaster {
+	border: 1px solid #C0C0C0;
+	background-color: #ffffff;
+	/*border-radius: 10px;*/
+}
+
+.cssLogin {
+	border-radius: 5px;
+	border: 1px solid #009933;
+	background-color: #ffffff;
+}
+
+.csstabla {
+	background-position: center center;
+	border-radius: 5px;
+	border: 1px solid #009933;
+	background-color: #ffffff;
+	background-image: url('../imagenes/fondos/fondo_mdy.png');
+	background-repeat: no-repeat;
+	background-attachment: inherit;
+}
+/*
+.cssDivPrincipal {
+	background-position: center center;
+	float: left;
+	border: 1px solid #009933;
+	margin: 5px 1px 1px 5px;
+	width: 685px;
+	height: 550px;
+	overflow: auto;
+	border-radius: 6px;
+	background-image: url('../imagenes/Fondos/fondo_mdy.png');
+	background-repeat: no-repeat;
+}
+*/
+.cssRowGrid {
+	background-color: white;
+	font-family: Tahoma;
+	font-size: 8pt;
+	padding-left: 5px;
+}
+
+.cssRowGridAlterno {
+	font-family: Tahoma;
+	font-size: 8pt;
+	background-color: #ECF2F8;
+	padding-left: 5px;
+}
+
+.cssRowGrid2 {
+	background-color: white;
+	font-family: Tahoma;
+	font-size: 8pt;
+	height: 35px;
+	vertical-align: top;
+	padding-left: 5px;
+}
+
+.cssRowGridAlterno2 {
+	background-color: #ECF2F8;
+	font-family: Tahoma;
+	font-size: 8pt;
+	height: 35px;
+	vertical-align: top;
+}
+
+.cssGridItemStyle {
+	vertical-align: top;
+	text-align: left;
+	padding-left: 5px;
+	padding-top: 3px;
+}
+
+.cssRowGrid3 {
+	background-color: #e6e6fa;
+	font-family: Tahoma;
+	font-size: 8pt;
+	height: 20px;
+	vertical-align: top;
+}
+
+.cssRowGridAlterno3 {
+	background-color: #b0c4de;
+	font-family: Tahoma;
+	font-size: 8pt;
+	height: 20px;
+	vertical-align: top;
+}
+
+
+.cssceldaCabecera {
+	/*background-image: url('../imagenes/fondoCabeceraTabla.gif');*/
+	background-repeat: repeat-x;
+	color: #003300;
+	font-family: Tahoma, Algerian;
+	font-size: 12pt;
+	font-weight: bold;
+	height: 26px;
+	margin-left: 10px;
+	padding-left: 10px;
+	text-align: center;
+}
+
+.cssceldaCabecera_2 {
+	background-image: url('../imagenes/fondoCabeceraTabla_2.png');
+	background-repeat: repeat-x;
+	color: #404040;
+	font-family: Tahoma, Algerian;
+	font-size: 8pt;
+	font-weight: bold;
+	height: 26px;
+	margin-left: 10px;
+	padding-left: 10px;
+}
+
+.cssceldaCabecera_3 {
+	background-image: url('../imagenes/fondoCabeceraTabla_3.png');
+	background-repeat: repeat-x;
+	color: #15428B;
+	font-family: Tahoma, Algerian;
+	font-size: 8pt;
+	font-weight: bold;
+	height: 26px;
+	margin-left: 10px;
+	padding-left: 10px;
+}
+
+.cssceldaCabecera_4 {
+	background-image: url('../imagenes/fondoCabeceraTabla_4.png');
+	background-repeat: repeat-x;
+	color: #15428B;
+	font-family: Tahoma, Algerian;
+	font-size: 8pt;
+	font-weight: bold;
+	height: 26px;
+	margin-left: 10px;
+	padding-left: 10px;
+}
+
+.cssceldaCabecera_5 {
+	background-image: url('../imagenes/fondoCabeceraTabla_5.png');
+	background-repeat: repeat-x;
+	color: #15428B;
+	font-family: Tahoma, Algerian;
+	font-size: 8pt;
+	font-weight: bold;
+	height: 26px;
+	margin-left: 10px;
+	padding-left: 10px;
+}
+
+.cssceldaCabeceraX {
+	color: #ffffff;
+	font-family: Tahoma, Algerian;
+	font-size: 9pt;
+	font-weight: bold;
+	height: 26px;
+	margin-left: 10px;
+	padding-left: 10px;
+	background-color: #ff0000;
+	text-transform: uppercase;
+}
+
+.csstextReloj {
+	background-color: Transparent;
+	color: #ffffff;
+	font-family: Tahoma, Algerian;
+	font-size: 8.5pt;
+	font-weight: bold;
+	border: 0px;
+	width: 70px;
+}
+
+.csstextReloj_1 {
+	background-color: Transparent;
+	color: #ffffff;
+	font-family: Tahoma, Algerian;
+	font-size: 8pt;
+	font-weight: bold;
+	border: 0px;
+}
+
+.txtNormal {
+	background-color: #EEEEEE;
+	border-style: solid;
+	border-color: #C1C1C1;
+	border-width: 1px;
+	font-size: 8pt;
+	font-family: Tahoma;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.cssTituloPantalla {
+	padding-left: 5px;
+	color: black;
+	font-family: Tahoma;
+	font-size: 11px;
+	background: url(../imagenes/bg_head.jpg);
+	height: 30px;
+	text-align: left;
+	border-style: solid;
+	border-color: #C1C1C1;
+	border-width: 1px;
+	padding-top: 5px;
+	background-repeat: repeat-x;
+	font-weight: bold;
+}
+
+.css1erTabla {
+	background-color: #DDDDDD;
+	border-style: solid;
+	border-color: #C1C1C1;
+	border-width: 1px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.css2doTabla {
+	background-color: #EEEEEE;
+	border-style: solid;
+	border-color: #C1C1C1;
+	border-width: 1px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.Field {
+	font-family: Tahoma;
+	font-size: 8pt;
+	padding-left: 5px;
+	text-align: left;
+	height: 25px;
+}
+
+.textGrid {
+	font-family: Tahoma;
+	font-size: 8pt;
+	padding-left: 8px;
+	margin-left: 5px;
+	text-align: left;
+	height: 25px;
+}
+
+
+.cursor {
+	cursor: pointer;
+}
+
+.tooltipTitle {
+	font-weight: bold;
+	color: #15428B;
+	font-size: 10px;
+}
+
+#tooltip {
+	position: absolute;
+	padding: 4px;
+	color: #15428B;
+	font-family: Tahoma;
+	font-size: 9px;
+	display: none;
+	text-align: left;
+	background-color: #BEBEBE;
+	border-style: solid;
+	border-color: #726868;
+	border-width: 1px;
+}
+
+.CampoName {
+	font-size: 7pt;
+	font-weight: bold;
+	font-family: tahoma;
+	text-align: left;
+	padding-left: 5px;
+}
+
+.CampoNameCierre {
+	font-size: 7pt;
+	font-weight: bold;
+	font-family: tahoma;
+	text-align: left;
+	padding-left: 5px;
+	color: Red;
+}
+
+.tablaGestion {
+	background-color: #DADADA;
+}
+
+.BackPopUpCSS {
+	background-color: #CFCFCF;
+	filter: alpha(opacity=80);
+	opacity: 0.7;
+}
+
+/*====================================*/
+/*--- CALENDAR EXTENTED AJAX CSS -----*/
+/*====================================*/
+/*------------------------------------*/
+
+
+
+.cal_Theme1 .ajax__calendar_container {
+	background-color: #D9D9D9 /*#E6E6E6*/;
+	border: solid 1px #BFBFBF;
+}
+
+.cal_Theme1 .ajax__calendar_header {
+	background-color: #BFBFBF;
+	/*background-image:url(../imagenes/fondoCabeceraTabla.gif);*/
+	margin-bottom: 4px;
+	font-size: 13px;
+	padding-bottom: 5px;
+}
+
+.cal_Theme1 .ajax__calendar_title,
+.cal_Theme1 .ajax__calendar_next,
+.cal_Theme1 .ajax__calendar_prev {
+	color: #15428B;
+	font-size: 11px;
+	padding-top: 3px;
+}
+
+.cal_Theme1 .ajax__calendar_body {
+	background-color: #FFFFFF;
+	border: solid 1px #BFBFBF;
+}
+
+.cal_Theme1 .ajax__calendar_dayname {
+	text-align: center;
+	font-weight: bold;
+	margin-bottom: 4px;
+	margin-top: 2px;
+	padding-bottom: 5px;
+}
+
+.cal_Theme1 .ajax__calendar_day {
+	text-align: center;
+}
+
+.cal_Theme1 .ajax__calendar_hover .ajax__calendar_day,
+.cal_Theme1 .ajax__calendar_hover .ajax__calendar_month,
+.cal_Theme1 .ajax__calendar_hover .ajax__calendar_year,
+.cal_Theme1 .ajax__calendar_active {
+	color: #15428B;
+	font-weight: bold;
+	background-color: #BFBFBF;
+	border-color: black;
+}
+
+.cal_Theme1 .ajax__calendar_today {
+	font-weight: bold;
+	color: #15428B;
+	font-size: 08pt;
+	font-weight: bold;
+	border-color: black;
+}
+
+
+
+
+.cal_Theme1 .ajax__calendar_hover .ajax__calendar_today,
+.cal_Theme1 .ajax__calendar_hover .ajax__calendar_title {
+	color: Black;
+}
+
+.cal_Theme1 .ajax__calendar_other {
+	color: #cccccc;
+}
+
+/*====================================*/
+/*====================================*/
+
+.alt {
+	background-color: #ccc; /*alternate color  */
+}
+/*tr.page  */
+.sel {
+	background-color: #fff;
+}
+
+.bordeTabla_Blue {
+	text-align: left;
+	border-right: darkblue 1px solid;
+	border-top: darkblue 1px solid;
+	border-left: darkblue 1px solid;
+	border-bottom: darkblue 1px solid;
+}
+
+.tabla_Principal {
+	border-right: #708090 1.5px solid;
+	border-top: #708090 1.5px solid;
+	border-left: #708090 1.5px solid;
+	border-bottom: #708090 1.5px solid;
+}
+
+.fieldSet600 {
+	border-color: #708090;
+	width: 623px;
+	height: 186px;
+}
+
+
+.barUser {
+	background-image: url(../imagenes/Header/barUser_light.png);
+	background-repeat: repeat-x;
+}
+
+
+.barUser_2 {
+	background-image: url(../imagenes/Cabecera/barUser_luz_900x30.png);
+	background-repeat: repeat-x;
+	border-radius: 3px;
+}
+
+.punteroMentiroso {
+	cursor: pointer;
+}
+
+.bg_cabecera {
+	background: url(../imagenes/bg_cabecera.jpg);
+	font-family: Tahoma;
+	font-size: 12px;
+	color: White;
+	height: 35px;
+	border: 1px solid #2C4D9B;
+	font-weight: bold;
+}
+
+.bg_cabecera2 {
+	font-family: Tahoma;
+	font-size: 12px;
+	color: Red;
+	height: 35px;
+	border: 1px solid #2C4D9B;
+	font-weight: bold;
+}
+
+.bg_tdag1, .bg_tdag2 {
+	color: #2C4D9B;
+	font-family: Tahoma;
+	font-size: 11px;
+	background: #F5F5F5;
+	border-right: 1px solid #EFEFEF;
+	border-bottom: 1px solid #EFEFEF;
+	border-left: 1px solid #9A9A9A;
+	padding-left: 5px;
+	padding-right: 2px;
+}
+
+
+.txtUsuario {
+	border: 1px solid #5c9ec0;
+	font-size: 11px;
+	color: #336c89;
+}
+
+.txtTextboxes {
+	border: 1px solid ##21503E;
+	font-family: Arial;
+	font-size: 10px;
+	color: #1c3592;
+	/*width:110px;*/
+	text-transform: uppercase;
+}
+
+.FondoAplicacion {
+	background-color: Black;
+	filter: alpha(opacity=70);
+	opacity: 0.9;
+}
+
+.CajaDialogo {
+	background-color: #d4d0c8; /*99ffcc;*/
+	border-width: 4px;
+	border-style: outset;
+	border-color: green;
+	padding: 0px;
+	width: 275px;
+	font-weight: bold;
+	font-style: normal;
+	font-family: Arial;
+	font-size: 10px;
+	text-transform: uppercase;
+	color: #1c3592;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	border-style: none;
+	border-color: inherit;
+	border-width: 0;
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	/*vertical-align:inherit;*/
+}
+
+
+
+.ui-dialog .ui-dialog-titlebar-close span {
+	margin: -8px;
+}
+
+.ui-accordion .ui-accordion-header {
+	padding: 5px 10px 5px 25px;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+	background-color: #305239;
+}
+
+a {
+	text-decoration: none;
+}
+
+td {
+	vertical-align: middle;
+}
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+	background: repeat-x scroll 50% 50% #4B7658;
+	border: 1px solid #009933;
+	color: #ffffff;
+	font-weight: bold;
+}
+
+.ui-accordion .ui-accordion-content {
+	padding: 0.3em 0.7em;
+}
+
+.ui-widget-header {
+	text-transform: uppercase;
+}
+
+.ui-widget-overlay {
+	height: 100%;
+}
+
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
+	font-family: Tahoma, Arial, Sans-Serif;
+	font-size: 0.8em;
+}
+
+/*.ui-state-error, .ui-widget-content .ui-state-error, .ui-widget-header .ui-state-error{
+	background: red;
+	color: White;
+	font-weight: bold;
+	font-size: 20px;
+}*/
+
+.cssDivPrincipal {
+	background-position: center center;
+	float: left;
+	border: 1px solid #009933;
+	margin: 5px 1px 1px 5px;
+	width: 900px;
+	height: 530px;
+	overflow: auto;
+	border-radius: 6px;
+	background-image: url('../imagenes/Fondos/fondo_mdy.png');
+	background-repeat: no-repeat;
+}
+
+.barUser_2 {
+	background-image: url('../imagenes/Cabecera/barUser_luz_900x30.png');
+	background-repeat: repeat-x;
+	border-radius: 3px;
+}
+
+.PiePaginaW {
+	background-image: url('../imagenes/Cabecera/Footer_01.png');
+	height: 30px;
+	background-repeat: repeat-x;
+	text-align: center;
+	font-family: Tahoma;
+	font-weight: normal;
+	font-size: 8pt; /*color: #00338e;*/
+	color: #FFFFFF;
+	border-radius: 3px;
+}
+
+.cssMaster {
+	border: 1px solid #C0C0C0;
+	background-color: #ffffff;
+	/*border-radius: 10px;*/
+}
+
+.ui-accordion .ui-accordion-header {
+	padding: 5px 10px 5px 25px;
+}
+
+.ui-accordion .ui-accordion-content {
+	padding: 0.3em 0.7em;
+}
+
+.td_div {
+	background-position: left top;
+}

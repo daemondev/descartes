@@ -1,0 +1,67 @@
+﻿.progress {
+    background-color: #F5F5F5;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset;
+    height: 20px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+.bar {
+    height: 20px;
+    background: url("../Subir_Archvio/img/progressbar.gif");
+}
+
+.btn {
+    -moz-user-select: none;
+    background-image: none;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    /*font-size: 14px;*/
+    font-weight: normal;
+    line-height: 1.42857;
+    margin-bottom: 0;
+    padding: 4px 10px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+.btn:focus {
+    outline: thin dotted;
+    outline-offset: -2px;
+}
+.btn:hover, .btn:focus {
+    /*color: #333333;*/
+    text-decoration: none;
+    background:#47A447;
+}
+.btn:active, .btn.active {
+    background-image: none;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.125) inset;
+    outline: 0 none;
+    background:#47A447;
+}
+.btn-success {
+    background-color: #5CB85C;
+    border-color: #4CAE4C;
+    color: #FFFFFF;
+}
+.glyphicon {
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    position: relative;
+    top: 1px;
+}
+.glyphicon:empty {
+    width: 1em;
+}
+.glyphicon-asterisk:before {
+    content: "*";
+}
+.glyphicon-plus:before {
+    content: "+";
+}

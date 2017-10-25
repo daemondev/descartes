@@ -1,0 +1,89 @@
+﻿
+ input[type="text"], input[type="password"],textarea, select{
+    background: none repeat-x scroll 0% 0% rgb(255, 255, 255);
+    border: 1px solid rgb(192, 192, 192);
+    border-radius: 5px;
+    color: rgb(51, 51, 51);
+    font: 13px tahoma;
+    padding: 2px;
+}
+.ui-widget input, .ui-widget select, .ui-widget textarea {
+    font-family: Verdana,Arial,Sans-Serif;
+    font-size: 0.8em;
+}
+.Text_Area {
+background: none repeat-x scroll 0 0 #FFFFFF;
+border: 1px solid #C0C0C0;
+border-radius: 5px;
+color: #333333;
+font-family: Tahoma,Arial,Sans-Serif;
+font-size: 0.8em;
+padding: 2px;
+Width: 500px;
+height: 75px;
+}
+.txt_orden {
+background: none repeat-x scroll 0 0 #FFFFFF;
+border: 1px solid #C0C0C0;
+border-radius: 5px;
+color: #333333;
+font-family: Tahoma,Arial,Sans-Serif;
+font-size: 0.8em;
+padding: 2px;
+height: 13px;
+Width: 30px;
+}
+
+.Cajas_texto_SSI{
+    height: 18px;
+}
+
+/*Calendario*/
+#Fecha_Inicio{
+	background: #FFFFFF repeat-x;
+	border: solid 1px #C0C0C0;
+	border-radius: 5px;
+	color: #333;
+	font-family: Tahoma, Arial, Sans-Serif;
+	font-size: 0.8em;
+	padding: 2px;
+	width:80px;
+}
+
+#Fecha_Final
+{
+    background: #FFFFFF repeat-x;
+    border: solid 1px #C0C0C0;
+    border-radius: 5px;
+    color: #333;
+    font-family: Tahoma, Arial, Sans-Serif;
+    font-size: 0.8em;
+    padding: 2px;
+    width: 80px;
+}
+   /* .txt_observacion
+    {
+		background: none repeat-x scroll 0 0 #FFFFFF;
+		border: 1px solid #C0C0C0;
+		border-radius: 5px;
+		color: #333333;
+		font-family: Tahoma,Arial,Sans-Serif;
+		font-size: 0.8em;
+		padding: 2px;
+		Width:360px;
+		height:50px;
+    }   
+     
+select {
+	background: #FFFFFF repeat-x;
+	border: solid 1px #C0C0C0;
+	border-radius: 5px;
+	color: #444444; 
+	font-family: Tahoma, Arial, Sans-Serif;
+	font-size: 0.9em;
+	font: 12px Tahoma, Arial, Sans-Serif;
+	padding: 2px; 
+	transition: all 0.5s;
+	}
+*/
+

@@ -1,0 +1,107 @@
+﻿
+ .Etiqueta_Titulos
+	{
+		font-size: 10pt;
+		font-family: tahoma;
+		text-align:center;
+		padding-left:5px;
+		height:25px;
+		/*background:#669999;*/
+	}
+	
+	.Etiqueta_SubTitulos
+	{
+		font-size: 10pt;
+		font-family: tahoma;
+		text-align:left;
+		padding-left:5px;
+		height:25px;
+		/*background:#669999;*/
+	}
+
+  /* Diseño de Registro de Test */   
+ .txt_nombre
+    {
+		background: none repeat-x scroll 0 0 #FFFFFF;
+		border: 1px solid #C0C0C0;
+		border-radius: 5px;
+		color: #333333;
+		font-family: Tahoma,Arial,Sans-Serif;
+		font-size: 0.8em;
+		padding: 2px;
+		Width:189px;
+    }   
+    
+    .txt_nombre_1
+    {
+		background: none repeat-x scroll 0 0 #FFFFFF;
+		border: 1px solid #C0C0C0;
+		border-radius: 5px;
+		color: #333333;
+		font-family: Tahoma,Arial,Sans-Serif;
+		font-size: 0.8em;
+		padding: 2px;
+		Width:150px;
+    }   
+     
+     .txt_numero
+    {
+		background: none repeat-x scroll 0 0 #FFFFFF;
+		border: 1px solid #C0C0C0;
+		border-radius: 5px;
+		color: #333333;
+		font-family: Tahoma,Arial,Sans-Serif;
+		font-size: 0.8em;
+		padding: 2px;
+		Width:70px;
+    }  
+    
+    .txt_observacion
+    {
+		background: none repeat-x scroll 0 0 #FFFFFF;
+		border: 1px solid #C0C0C0;
+		border-radius: 5px;
+		color: #333333;
+		font-family: Tahoma,Arial,Sans-Serif;
+		font-size: 0.8em;
+		padding: 2px;
+		Width:360px;
+		height:50px;
+    }   
+     
+select {
+	background: #FFFFFF repeat-x;
+	border: solid 1px #C0C0C0;
+	border-radius: 5px;
+	color: #444444; 
+	font-family: Tahoma, Arial, Sans-Serif;
+	font-size: 0.9em;
+	font: 12px Tahoma, Arial, Sans-Serif;
+	padding: 2px; 
+	transition: all 0.5s;
+	}
+
+/*
+input[type="text"], input[type="password"], select{
+	background: #FFFFFF repeat-x;
+	/*border: solid 1px #C0C0C0;
+	border: solid 1px #C0C0C0;
+	border-radius: 5px;
+	color: #333;
+	font-family: Tahoma, Arial, Sans-Serif;
+	font-size: 0.8em;
+	padding: 2px;
+    width: 202px;
+}
+
+
+}*/
+
+
+.Formulario_Registro {
+    border-radius: 25px;
+    border: 2px solid #8AC007;
+    padding: 20px; 
+    width: 200px;
+    height: 150px; 
+}
