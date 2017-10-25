@@ -22,7 +22,7 @@ function ConsultarHistorial(p) {
 
     $('#div_historial').modal();
 
-    debugger;
+   // debugger;
     var objData = {};
     objData["indice"] = 1;
     objData["pagenum"] = p;
@@ -40,7 +40,7 @@ function ConsultarHistorial(p) {
         dataType: "json",
         contentType: "application/json; charset=utf-8",
         success: function (response) {
-            debugger;
+            //debugger;
             var data = (typeof response.d) == "string" ? eval("(" + response.d + ")") : response.d;
             var pageCount = 0;
             var StrPager = '';
@@ -49,7 +49,7 @@ function ConsultarHistorial(p) {
             //$('#'+vc_id_control+' tr:not(:first)').remove();
             if (data.length > 0) {
                 for (var i = 0; i <= data.length; i++) {
-                    debugger;
+                    //debugger;
 
                     if ((data.length) == i) {
 
@@ -84,7 +84,7 @@ function ConsultarHistorial(p) {
 						            "</tr>";
                     }
                 }
-                debugger;
+                //debugger;
                 $('#tb_historiaCliente').empty().html(strRows + StrPager);
 
                 //$("#" + vc_id_control + "").append(strRows + StrPager);
@@ -338,7 +338,7 @@ function fnc_EliminarNivel(id_nivel, in_dpndncia_idnivel)
 				var objData = {};
 				objData["indice"] = 4;
 				objData["id_nivel"] = id_nivel;
-				debugger;
+				//debugger;
 				var DTO = {};
 				DTO.objData = objData;
 				$.ajax({
@@ -351,14 +351,14 @@ function fnc_EliminarNivel(id_nivel, in_dpndncia_idnivel)
 					beforeSend: function () { },
 					success: function (response)
 					{
-						debugger;
+						//debugger;
 						var obj = response.d;
 
 						if (obj[0].in_result >= 1)
 						{
 							new Messi("Nivel eliminado", { modal: true, center: true, title: 'Informacion', titleClass: 'anim error', autoclose: 1500, buttons: [{ id: 0, label: 'Ok', val: 'X' }] });
 							var in_categoria = 0;
-							debugger;
+							//debugger;
 							in_categoria = $('#lbl_id_categoria').text()
 
 							GetNiveles((in_dpndncia_idnivel), 1, '/tb_' + in_dpndncia_idnivel + '/', '/reg/');
@@ -373,7 +373,7 @@ function fnc_EliminarNivel(id_nivel, in_dpndncia_idnivel)
 
 function fnc_nuevaCategoria(in_nivel, in_cate)
 {
-	debugger;
+	//debugger;
 
 	fnc_clear();
 	//alert(in_cate);
@@ -400,13 +400,13 @@ function fnc_nuevaCategoria(in_nivel, in_cate)
 
 function fnc_EditarNivel(id_nivel, in_cate, vc_titulo, vc_descripcion, vc_url_img, in_rpta, in_tipo_rpta, in_dpndncia_idnivel, vc_alerta)
 {
-	debugger;
+	//debugger;
 	if (vc_alerta == '/-/')
 	{
 		vc_alerta = '';
 	}
 
-	debugger;
+	//debugger;
 	//alert(vc_alerta);
 	$('#txtTitulo').val(JQ_reemplazar(vc_titulo));
 	$('#txtArea_desc').val(JQ_reemplazar(vc_descripcion));
@@ -507,7 +507,7 @@ $(document).ready(function ()
 function fnc_guardar(in_gestion, in_dpndncia_idnivel)
 {
 
-	debugger;
+	//debugger;
 	var id_nivel = 0;
 	if ($('#lbl_id_nivel').text() != '')
 	{
@@ -519,7 +519,7 @@ function fnc_guardar(in_gestion, in_dpndncia_idnivel)
 
 	} else
 	{
-		debugger;
+		//debugger;
 
 
 		var objData = {};
@@ -549,7 +549,7 @@ function fnc_guardar(in_gestion, in_dpndncia_idnivel)
 			beforeSend: function () { },
 			success: function (response)
 			{
-				debugger;
+				//debugger;
 				var obj = response.d;
 
 				if (obj[0].in_result >= 1)
@@ -566,7 +566,7 @@ function fnc_guardar(in_gestion, in_dpndncia_idnivel)
 						GetNiveles((in_dpndncia_idnivel), 1, '/tb_' + in_dpndncia_idnivel + '/', '/reg/');
 					}
 					var in_categoria = 0;
-					debugger;
+					//debugger;
 					$('#plazo').dialog("close");
 
 				}
@@ -583,7 +583,7 @@ function fnc_guardar(in_gestion, in_dpndncia_idnivel)
 
 function Carga_Img()
 {
-	debugger;
+	//debugger;
 	//alert('cargar imAG');
 	$("#fileupload").fileupload({
 		replaceFileInput: false,
@@ -601,7 +601,7 @@ function Carga_Img()
 					valid = false;
 				}
 			});
-			debugger;
+			//debugger;
 			if (valid)
 			{
 				//if ($("#hdCapaID").val() == "0") {
@@ -627,7 +627,7 @@ function Carga_Img()
 		},
 		done: function (e, data)
 		{
-			debugger;
+			//debugger;
 			$.each(data.result, function (index, file)
 			{
 				$('#dvProgressBarDown').fadeOut(400, function ()
@@ -767,7 +767,7 @@ function fnc_preview(id_nivel)
 
 function fnc_listar_niveles(in_listar, in_dpndncia_idnivel)
 {
-    debugger;
+    //debugger;
     if (inInicio == 0) {
         fnc_BuscarClie();
         inInicio++;
@@ -778,7 +778,7 @@ function fnc_listar_niveles(in_listar, in_dpndncia_idnivel)
 	//} else
 	//{
 	
-    debugger;
+    //debugger;
     var cadena = "#" + in_dpndncia_idnivel;
 	$('#tb_imagenes').hide();
 	$('#div_plazo').show();
@@ -923,14 +923,14 @@ function fnc_listar_niveles(in_listar, in_dpndncia_idnivel)
 				    //strRows += "<tr style='text-align:center'><td colspan='11' style='width:700px;text-align:left;'><div style='height: 150px; overflow-y: scroll;'>";
 				    for (var i = 0; i <= data.length - 1; i++)
 				    {
-				        debugger;
+				        //debugger;
 				        var url = data[i].vc_url_img.substr(12, data[i].vc_url_img.length);
 				        var in_rpta = data[i].in_rpta;
 				        var in_link = data[i].in_link;
 				        var img = '';
 				        
 				        //alert(data[i].in_link);
-				        debugger;
+				        //debugger;
 				        if (in_rpta == 2)
 				        {//<button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
 				            //if (numImagenes == 1) {
@@ -1044,7 +1044,7 @@ function fnc_listar_niveles(in_listar, in_dpndncia_idnivel)
 						 }
 
 						}//end for
-						debugger;
+						//debugger;
 						$('#tb_plazo').empty().html(strRows);
 						if (existencipasos != 0) {
 						    $('#tb_plazo').empty().html("<ul>"+contenidoul+"</ul>"+imagenespasos+strRows);
@@ -1078,7 +1078,7 @@ var urlnivel = "Frm_MantNivel.aspx/";
 var guardarpasosantessalto = "";
 var horaInicioantessalto = "";
 function saltoentreMatrices(milink) {
-	debugger;
+	//debugger;
 	var pasos = "";
 	for (var i = 0; i < 9999; i++) {
 		if ($('#href_v_' + i + '').length) {
@@ -1110,7 +1110,7 @@ function saltoentreMatrices(milink) {
 }
 
 function mititulo(miMatriz) {
-	debugger;
+	//debugger;
 	var objData = {};
 	objData["id_nivel"] = miMatriz;
 	var DTA = {};
@@ -1149,7 +1149,7 @@ function jq_shadow(id)
 var eltiempo;
 function fnc_solucion(in_gestion)
 {
-	debugger;
+	//debugger;
 	$('#div_resultado').show();
 	$('#div_resultado').modal();
 	var n = new Date();
@@ -1161,10 +1161,10 @@ function fnc_solucion(in_gestion)
 	var min;
 	var sec;
 	var horaactual;
-	debugger;
+	//debugger;
 	if (sessionStorage.getItem("hora") != null)
 	{
-		debugger;
+		//debugger;
 		var objPreg = sessionStorage.getItem("hora");
 		var objPreg = JSON.parse(objPreg);
 		hora = objPreg.hora;
@@ -1174,7 +1174,7 @@ function fnc_solucion(in_gestion)
 
 	}
 
-	debugger;
+	//debugger;
 	var d = new Date();
 	var tiempo = new Date();
 	tiempo = horaactual;
@@ -1264,7 +1264,7 @@ function fnc_close(vc_control)
 function fnc_BuscarClie()
 {
 	//alert($('#txt_codigo').val());
-	debugger;
+	//debugger;
 
 
 
@@ -1317,7 +1317,7 @@ function fnc_BuscarClie()
 
 
 
-	debugger;
+	//debugger;
 	var DTA = {};
 	DTA.objData = objData;
 
@@ -1330,7 +1330,7 @@ function fnc_BuscarClie()
 		contentType: "application/json; charset=utf-8",
 		success: function (response)
 		{
-			debugger;
+			//debugger;
 			var data = (typeof response.d) == "string" ? eval("(" + response.d + ")") : response.d;
 
 			if (data.length > 0)
@@ -1344,7 +1344,7 @@ function fnc_BuscarClie()
 			} else
 			{
 			    new Messi("Cliente nuevo", { modal: true, center: true, title: 'Informacion', titleClass: 'anim error', autoclose: 1500, buttons: [{ id: 0, label: 'Ok', val: 'X' }] });
-			    debugger;
+			    //debugger;
 			    $('#hiden_in_cliente').text(0);
 			    $('#lblCliente').text('Nuevo');
 			    $('#lblCod').text($('#txt_codigo').val());
@@ -1461,7 +1461,7 @@ $(document).ready(function ()
 function fnc_guardarSolucion()
 {
     var dametodo = new Date();
-	debugger;
+	//debugger;
 	$('#div_resultado').modal('hide');
 	//	$('#div_cod_incidencia').modal();
 	var vc_tipi = '';
@@ -1485,7 +1485,7 @@ function fnc_guardarSolucion()
 	objData["vc_duracion"] = mihora;
 	//objData["registro"] = dametodo;
 	
-	debugger;
+	//debugger;
 	var DTA = {};
 	DTA.objData = objData;
 
@@ -1498,7 +1498,7 @@ function fnc_guardarSolucion()
 		contentType: "application/json; charset=utf-8",
 		success: function (response)
 		{
-		    debugger;
+		    //debugger;
             
 		    var data = (typeof response.d) == "string" ? eval("(" + response.d + ")") : response.d;
 
@@ -1529,13 +1529,13 @@ function fnc_guardarSolucion()
 var cadenaAnterior = "";
 
 function muestrate(imagen) {
-    debugger;
+    //debugger;
     $('#div_secuencia').empty().html("");
     for (var i = 0; i < 999; i++) {
             $('#href_v_' + i + '').remove();
             $('#tr_ref_' + i + '').remove();
     }
-    debugger;
+    //debugger;
         $('#tb_imagenes').show();
         $('#div_plazo').hide();
         
@@ -1564,7 +1564,7 @@ function muestrate(imagen) {
 var mipaso = 0;
 var pasoAnterior = '';
 function muestraPaso(imagen) {//FALTA!!!!!!!!
-    debugger;
+    //debugger;
     var cadena = JQ_reemplazar(imagen);
     /*if (mipaso == 0) {
         $('#' + cadena + '').show();
@@ -1596,7 +1596,7 @@ function muestraPaso(imagen) {//FALTA!!!!!!!!
 
 var miimagen = 0;
 function muestraImagen(imagen) {
-    debugger;
+    //debugger;
     var cadena = JQ_reemplazar(imagen);
     if (miimagen == 0) {
         $('#' + cadena + '').show();
@@ -1615,7 +1615,7 @@ $(document).ready(function ()
 });
 
 function CrearHora(valor) {
-    debugger;
+    //debugger;
     inicioOperacion = new Date();
     var dia = inicioOperacion.getDate() + '';
     var mes = inicioOperacion.getMonth() + '';
@@ -1663,7 +1663,7 @@ var horaActual;
 var tituloProceso;
 function fnc_listar_matrices(in_listar, in_dpndncia_idnivel,titulo)
 {
-    debugger;
+    //debugger;
     horaActual = CrearHora(1);
     tituloProceso = titulo;
 	var objData = {};
@@ -1697,13 +1697,13 @@ function fnc_listar_matrices(in_listar, in_dpndncia_idnivel,titulo)
 				     var activacion = 1;
 					for (var i = 0; i <= data.length - 1; i++)
 					{
-						debugger;
+						//debugger;
 						var url = data[i].vc_url_img.substr(12, data[i].vc_url_img.length);
 						var in_rpta = data[i].in_rpta;
 						var in_link = data[i].in_link;
 						var img = '';
 
-						debugger; 
+						//debugger; 
 						if (in_rpta == 2)//border-radius:30px;border:2px solid #A7A7A7;;background-color:rgba(232, 232, 232,0.5) width='960px' height='400px'
 						{
 						    if (caraPrincipal == 0) {
@@ -1757,7 +1757,7 @@ function fnc_listar_matrices(in_listar, in_dpndncia_idnivel,titulo)
 					}//end for
 
 					//alert(strRows);
-					debugger;
+					//debugger;
 					$('#campañas').empty().html(strRowsc);
 					$('#tb_matricez').empty().html(strRows);
 					$('#tb_imagenes').empty().html(strRowsi);

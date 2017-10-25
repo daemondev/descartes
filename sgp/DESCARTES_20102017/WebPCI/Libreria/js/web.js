@@ -1,12 +1,14 @@
 ﻿/// <reference path="../../Service.svc" />
 $(document).ready(function () {
+    //disable temporarily
+    /*
     setInterval(function () {
         var minum = mensajesNoLeidos();
         if (minum != 0) {
             mostrarMensajes();
             $("#cantMsg").html(minum);
         }    
-    }, 5000);
+    }, 5000); /**/
     $("#closemsg").click(ocultate);
 });
 function ocultate() {
@@ -108,7 +110,7 @@ var GC_Web = (function (obj) {
                 var hijo_1 = data;
                 var nieto = data;
                 if (data.length > 0) {
-                    debugger;
+                    //debugger;
                     var item = "";
                     item += "<ul class='sidebar-menu'>";
                     //1° Nivel

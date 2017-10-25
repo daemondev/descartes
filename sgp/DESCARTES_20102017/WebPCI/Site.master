@@ -146,6 +146,8 @@
         <script src="Libreria/dist/js/demo.js"></script>
     </form>
 </body>
+<script src="assets/lib/react/react.min.js"></script>
+<script src="assets/lib/react/react-dom.min.js"></script>
 </html>
 <div id="div_loading" class="se-pre-con"></div>
 <script>
