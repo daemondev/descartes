@@ -4,7 +4,7 @@
 	<%--<script src="Libreria/js/jquery-ui-1.10.3.custom/js/jquery.number.js"></script>--%>
 
 	<script src="Libreria/js/Codigo_Web/manNiveles.js"></script>
-    <script src="assets/js/sgp.jsx"></script>
+    <script src="assets/js/sgp.jsx" type="text/javascript"></script>
     
 	<center>
 		<style>
@@ -372,7 +372,7 @@
 						<div class="modal-footer">
                       
 							<input type="button" value="Guardar" class="btn btn-primary btn-md" />
-<input type="button" value="Cerrar" onclick="fnc_close('div_resultado');" class="btn btn-primary btn-md" />
+                            <input type="button" value="Cerrar" onclick="fnc_close('div_resultado');" class="btn btn-primary btn-md" />
 							
                     </div>
 										

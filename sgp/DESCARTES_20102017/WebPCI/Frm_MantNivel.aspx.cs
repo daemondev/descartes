@@ -26,7 +26,7 @@ public partial class Frm_MantNivel : System.Web.UI.Page
 		Etb_Usuario entUsu = new Etb_Usuario();
 		entUsu = (Etb_Usuario)HttpContext.Current.Session["sessUsuario"];
 
-		 lst = neg.N_manNiveles(objData);
+		lst = neg.N_manNiveles(objData);
 
 		return lst;
 	}

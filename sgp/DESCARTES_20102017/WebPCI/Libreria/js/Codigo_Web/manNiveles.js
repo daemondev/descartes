@@ -306,94 +306,74 @@ function GetNiveles(in_dpndncia_idnivel, p, vc_id_control, vc_lst)
 		data: JSON.stringify(DTA),
 		dataType: "json",
 		contentType: "application/json; charset=utf-8",
-		success: function (response)
-		{
-			 ;
+		success: function (response){
+			
 			var data = (typeof response.d) == "string" ? eval("(" + response.d + ")") : response.d;
 			var pageCount = 0;
 			var StrPager = '';
 			var strRows = '';
 
 			//$('#'+vc_id_control+' tr:not(:first)').remove();
-			if (data.length > 0)
-			{
-				for (var i = 0; i <= data.length; i++)
-				{
-					 ;
+			if (data.length > 0) {
 
-					if ((data.length) == i)
-					{
-						 ;
+			    for (var i = 0; i <= data.length; i++) {
+
+                    //### step 001
+					if ((data.length) == i){
+						 
 						var pageCount = data[0].total;
 						var StrPager = "";
-						if (pageCount >= 1)
-						{
-							for (var x = 1; x <= pageCount; x++)
-							{
-								 ;
-								if (x == 1)
-								{
+
+						if (pageCount >= 1) { //### begin pagination {{
+
+							for (var x = 1; x <= pageCount; x++) {
+								 
+								if (x == 1) {
 									StrPager = "<tr class='pgr'><td colspan='12' style='text-align:left;padding:6px;'>";
 								}
+
 								StrPager = StrPager + "<label style='cursor:pointer;line-height: 12px;border-width: 0;padding: 0 6px;border-left: solid 1px #666;font-weight: bold;" + (x == pageCount ? "color: #63B46D;" : "color: #666666;") + "' onclick='GetNiveles(" + in_dpndncia_idnivel + ", " + x + ",/" + vc_id_control + "/,/pag/);'>" + x + "</label>";
-								if (x == pageCount)
-								{
+
+								if (x == pageCount) {
 									StrPager = StrPager + "</td></tr>";
 								}
 							}
 
-						} else
-						{
+						} else {
 							StrPager = "<tr  class='pgr'><td colspan='12' style='text-align:left;padding:10px;'></td></tr>";
-							 ;
+							 
 							if (i % 2 == 0) { strRows = strRows + "<tr>"; } else { strRows = strRows + "<tr class='alt'>"; }
-						}
-					} else
-					{
-						strRows += "<tr id='" + data[i].id_nivel + "'>" +
-"<td style='width:80px;' ><a id='href_" + data[i].id_nivel + "' href='javascript:GetNiveles(" + data[i].id_nivel + "," + 1 + ",/tb_" + data[i].id_nivel + "/,/" + "lst" + "/)'>" + (data[i].in_cate == 0 ? 'Principal' : (data[i].in_cate == 1 ? 'Categoria' : (data[i].in_cate == 2 ? 'Subcategoria' : 'Proceso'))) + "</a></td>" +
+						} //### end pagination }}
 
-								  "<td   style='text-align:center;width:100px; '>" + data[i].vc_titulo + "</td>" +
-								  "<td   style='text-align:center;width:100px; '>" + data[i].vc_descripcion + "</td>" +
-								  //"<td style='text-align:center;width:100px;'>" + data[i].vc_url_img + "</td>" +
-
-"<td style='text-align:center;width:5%;'>" + //external-link-symbol
-(data[i].in_rpta == 1 ? "<img src='Images/iconos/radio-on-button.png' width='18px' />" :
-					   (data[i].in_rpta == 2 ? "<img src='Images/iconos/image-square-button.png' width='18px'  />" :
-								   (data[i].in_rpta == 4 ? "<img src='Images/iconos/radio-on-button.png' width='18px' />" :
-											   (data[i].in_rpta == 5 ? "<img src='Images/iconos/radio-on-button.png' width='18px' />" :
-												   (data[i].in_rpta == 3 ? "<img src='Images/iconos/like.png' width='22px'  />" :
-																		   (data[i].in_rpta == 7 ? "<img src='Images/iconos/external-link-symbol.png' width='22px'  />" :
-																					(data[i].in_rpta == 8 ? "<img src='Libreria/imagenes/Botones/addControl.gif' onclick='JQ_Open_Contexto(" + data[i].id_nivel + ")' />" : "<img src='Images/iconos/image-square-button.png' width='18px'  />"))))))) + "</td>" +
-																			   //"<img src='Images/iconos/image-square-button.png' width='18px'  />")))))) + "</td>" +
-
-"<td style='text-align:center;width:100px;'>" + data[i].vc_alerta + "</td>" +
-//"<td style='text-align:center;width: 5%;' >" + (data[i].in_rpta == 5 ? "<a href='javascript:fnc_linkeo(" + data[i].id_nivel + ")'><img src='Images/iconos/external-link-symbol.png'  width='16px' /></a></a>" : "nolink") + "</td>" +
-"<td style='text-align:center;width:5%;'>" + (data[i].in_estado == 1 ? "<img style='cursor: pointer;' src='Images/iconos/checked.png'  width='18px' onclick='fnc_CambiarEstado(" + data[i].id_nivel + "," + data[i].in_estado + "," + data[i].in_dpndncia_idnivel + ")' />" : "<img style='cursor: pointer;' src='Images/iconos/unchecked.png'  width='18px' onclick='fnc_CambiarEstado(" + data[i].id_nivel + "," + data[i].in_estado + "," + in_dpndncia_idnivel + ")'/>") + "</td>" +
-
-"<td style='text-align:center;width:5%;'><img style='cursor: pointer;' src='Images/iconos/edit.png' width='18px' onclick='fnc_EditarNivel(" + data[i].id_nivel + "," + data[i].in_cate + ",/" + (data[i].vc_titulo == '' ? '-' : data[i].vc_titulo) + "/,/" + (data[i].vc_descripcion == '' ? '-' : data[i].vc_descripcion) + "/,/" + (data[i].vc_url_img == '' ? '-' : data[i].vc_url_img) + "/," + data[i].in_rpta + "," + data[i].in_tipo_rpta + "," + data[i].in_dpndncia_idnivel + ",/" + (data[i].vc_alerta == '' ? '-' : data[i].vc_alerta) + "/,/" + data[i].vc_color_alerta + "/)'/></td>" +
-
-"<td style='text-align:center;width:5%;'><img style='cursor: pointer;' id='img_add_" + data[i].id_nivel + "' src='Images/iconos/add.png' width='18px' onclick='fnc_nuevaCategoria(" + data[i].id_nivel + "," + data[i].in_cate + ")' /></td>" +
-
-"<td style='text-align:center;width:5%;'><img style='cursor: pointer;' src='Images/iconos/garbage.png' width='18px' onclick='fnc_EliminarNivel(" + data[i].id_nivel + "," + data[i].in_dpndncia_idnivel + ")'/></td>" +
-
-"<td style='text-align:center;width:5%;'>" + (data[i].in_dpndncia_idnivel == 0 ? " <a style='cursor: pointer;' href='javascript:fnc_preview(" + data[i].id_nivel + ")'><img src='Images/iconos/preview.png'  width='32px' /></a>" : "<input type='radio' name='rd_link' onclick='fnc_AsignarLink(" + data[i].id_nivel + ")' id='rd_link_" + data[i].id_nivel + "' style='visibility:hidden'/>") + "</td>" +
-
-								   "</tr><tr style='display:'><td colspan='12'>" +
-								   "<table  id='tab_" + data[i].id_nivel + "' style='width:98%;margin-left:2%;' >" +
-			   "<tbody id='tb_" + data[i].id_nivel + "' >" +
-			   "</tbody> " +
-								   "</table>" +
-								   "</td></tr>";
+					} else {
+					    strRows +=
+                            "<tr id='" + data[i].id_nivel + "'>" +
+                                "<td style='width:80px;' ><a id='href_" + data[i].id_nivel + "' href='javascript:GetNiveles(" + data[i].id_nivel + "," + 1 + ",/tb_" + data[i].id_nivel + "/,/" + "lst" + "/)'>" + (data[i].in_cate == 0 ? 'Principal' : (data[i].in_cate == 1 ? 'Categoria' : (data[i].in_cate == 2 ? 'Subcategoria' : 'Proceso'))) + "</a>" + "</td>" +
+	                            "<td   style='text-align:center;width:100px; '>" + data[i].vc_titulo + "</td>" +
+	                            "<td   style='text-align:center;width:100px; '>" + data[i].vc_descripcion + "</td>" +
+		                            //"<td style='text-align:center;width:100px;'>" + data[i].vc_url_img + "</td>" +
+                                "<td style='text-align:center;width:5%;'>" + getRptaIcon(data[i].in_rpta, data[i].id_nivel)  + "</td>" +
+                                "<td style='text-align:center;width:100px;'>" + data[i].vc_alerta + "</td>" +
+                                //"<td style='text-align:center;width: 5%;' >" + (data[i].in_rpta == 5 ? "<a href='javascript:fnc_linkeo(" + data[i].id_nivel + ")'><img src='Images/iconos/external-link-symbol.png'  width='16px' /></a></a>" : "nolink") + "</td>" +
+                                "<td style='text-align:center;width:5%;'>" + (data[i].in_estado == 1 ? "<img style='cursor: pointer;' src='Images/iconos/checked.png' width='18px' onclick='fnc_CambiarEstado(" + data[i].id_nivel + "," + data[i].in_estado + "," + data[i].in_dpndncia_idnivel + ")' />" : "<img style='cursor: pointer;' src='Images/iconos/unchecked.png'  width='18px' onclick='fnc_CambiarEstado(" + data[i].id_nivel + "," + data[i].in_estado + "," + in_dpndncia_idnivel + ")'/>") + "</td>" +
+                                "<td style='text-align:center;width:5%;'><img style='cursor: pointer;' src='Images/iconos/edit.png' width='18px' onclick='fnc_EditarNivel(" + data[i].id_nivel + "," + data[i].in_cate + ",/" + (data[i].vc_titulo == '' ? '-' : data[i].vc_titulo) + "/,/" + (data[i].vc_descripcion == '' ? '-' : data[i].vc_descripcion) + "/,/" + (data[i].vc_url_img == '' ? '-' : data[i].vc_url_img) + "/," + data[i].in_rpta + "," + data[i].in_tipo_rpta + "," + data[i].in_dpndncia_idnivel + ",/" + (data[i].vc_alerta == '' ? '-' : data[i].vc_alerta) + "/,/" + data[i].vc_color_alerta + "/)'/></td>" +
+                                "<td style='text-align:center;width:5%;'><img style='cursor: pointer;' id='img_add_" + data[i].id_nivel + "' src='Images/iconos/add.png' width='18px' onclick='fnc_nuevaCategoria(" + data[i].id_nivel + "," + data[i].in_cate + ")' /></td>" +
+                                "<td style='text-align:center;width:5%;'><img style='cursor: pointer;' src='Images/iconos/garbage.png' width='18px' onclick='fnc_EliminarNivel(" + data[i].id_nivel + "," + data[i].in_dpndncia_idnivel + ")'/></td>" +
+                                "<td style='text-align:center;width:5%;'>" + (data[i].in_dpndncia_idnivel == 0 ? " <a style='cursor: pointer;' href='javascript:fnc_preview(" + data[i].id_nivel + ")'><img src='Images/iconos/preview.png'  width='32px' /></a>" : "<input type='radio' name='rd_link' onclick='fnc_AsignarLink(" + data[i].id_nivel + ")' id='rd_link_" + data[i].id_nivel + "' style='visibility:hidden'/>") + "</td>" +
+                            "</tr>" +
+                            "<tr style='display:'>" +
+                                "<td colspan='12'>" +
+                                    "<table  id='tab_" + data[i].id_nivel + "' style='width:98%;margin-left:2%;' >" +
+	                                    "<tbody id='tb_" + data[i].id_nivel + "' ></tbody> " +
+                                    "</table>" +
+                                "</td>" +
+                            "</tr>";
 					}
-				}
-				 ;
+				}				 
 
 				$('#' + vc_id_control + '').empty().html(strRows + StrPager);
-
 				//$("#" + vc_id_control + "").append(strRows + StrPager);
-			} else
-			{
+			} else {
 				$('#' + vc_id_control + '').empty().html("<tr><td style='text-align:center;' colspan='10'>No hay Niveles registrados</td></tr>");
 				//$("#" + vc_id_control + "").append();
 			}
@@ -402,6 +382,23 @@ function GetNiveles(in_dpndncia_idnivel, p, vc_id_control, vc_lst)
 
 
 };
+
+var dictRptaIcon = {
+    1: "<img src='Images/iconos/radio-on-button.png' width='18px' />",
+    2: "<img src='Images/iconos/image-square-button.png' width='18px'  />",
+    3: "<img src='Images/iconos/like.png' width='22px'  />",
+    4: "<img src='Images/iconos/radio-on-button.png' width='18px' />",
+    5: "<img src='Images/iconos/radio-on-button.png' width='18px' />",
+    7: "<img src='Images/iconos/external-link-symbol.png' width='22px'  />",
+    8: "<img src='Libreria/imagenes/Botones/addControl.gif' onclick='JQ_Open_Contexto(|idNivel|)' />",
+    999: "<img src='Images/iconos/image-square-button.png' width='18px'  />"
+};
+
+function getRptaIcon(idRpta, idNivel) {
+    if  (! dictRptaIcon.hasOwnProperty(idRpta)) idRpta = 999;        
+    return dictRptaIcon[idRpta].replace("|idNivel|", idNivel);
+}
+
 function fnc_linkeo(in_nivel)
 {
 	//alert('link');
@@ -1072,21 +1069,17 @@ function muestraPaso(imagen)
 		$('#' + cadena + '').hide();
 		mipaso = 0;
 	}*/
-	if (cadena != pasoAnterior)
-	{
+	if (cadena != pasoAnterior)	{
 		$('#' + pasoAnterior + '').hide();
 		$('#' + pasoAnterior + 'li').css("background-color", "#959595");
 		$('#' + pasoAnterior + 'li').css("color", "black");
 		mipaso = 0;
-	}
-	if (mipaso == 0)
-	{
+	} if (mipaso == 0) {
 		$('#' + cadena + '').show();
 		$('#' + cadena + 'li').css("background-color", "#AF0808");
 		$('#' + cadena + 'li').css("color", "#fff");
 		mipaso = 1;
-	} else
-	{
+	} else {
 		$('#' + cadena + '').hide();
 		$('#' + cadena + 'li').css("background-color", "#959595");
 		$('#' + cadena + 'li').css("color", "black");
@@ -1097,16 +1090,13 @@ function muestraPaso(imagen)
 }
 
 var miimagen = 0;
-function muestraImagen(imagen)
-{
+function muestraImagen(imagen) {
 	 ;
 	var cadena = JQ_reemplazar(imagen);
-	if (miimagen == 0)
-	{
+	if (miimagen == 0) {
 		$('#' + cadena + '').show();
 		miimagen++;
-	} else
-	{
+	} else {
 		$('#' + cadena + '').hide();
 		miimagen = 0;
 	}

@@ -157,6 +157,26 @@
 		$(".se-pre-con").fadeOut("slow");;
 	});
 
+	$.ajaxSetup({
+	    type: 'POST',
+	    contentType: 'application/json; charset=utf-8',
+	    dataType: 'json',
+	    data: '{}'
+	});
+
+	var currentURL = "";
+	function ajax() {
+	    var config = {};
+	    if (arguments.length < 2) return;
+	    for (i = 0; i < arguments.length; i++) {
+	        if (typeof arguments[i] == "object") config['data'] = JSON.stringify(arguments[i])
+	        if (typeof arguments[i] == "string") config['url'] = (arguments[i].indexOf("/") > 0) ? arguments[i] : location.pathname.replace("/","") + '/' + arguments[i]
+	        if (typeof arguments[i] == "function") config['success'] = arguments[i]
+	        if (typeof arguments[i] == "boolean") config['async'] = arguments[i]
+	    }
+
+	    $.ajax(config);
+	}
 </script>
 <style>
 				.no-js #loader { display: none;  }
