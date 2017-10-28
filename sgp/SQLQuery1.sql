@@ -20,7 +20,7 @@ CREATE PROC [dbo].[USP_MANT_NIVEL]
 AS --*/
 
 --/* ### BEGIN DEBUG {{
-declare 
+declare
 @INDICE INT =0,
 @ID_NIVEL INT =0,
 @in_dpndncia_idnivel INT =0,
@@ -67,16 +67,16 @@ MOD_ESTA_NIVEL:
 		UPDATE TBL_NIVEL
 		SET in_estado=@IN_ESTADO
 		WHERE id_nivel=@ID_NIVEL
-		
+
 		--select * from TBL_NIVEL
 		update TBL_NIVEL
 		set in_estado=@IN_ESTADO
 		where in_dpndncia_idnivel=@ID_NIVEL
-		
+
 		IF @@ERROR <> 0 GOTO SALIR
 	goto SALIR
 LISTAR_TBL_NIVEL:
-	SELECT   
+	SELECT
 		ROW_NUMBER() OVER(ORDER BY N.id_nivel) N_REG,
 		N.id_nivel,
 		N.in_cate,
@@ -88,23 +88,23 @@ LISTAR_TBL_NIVEL:
 		N.in_dpndncia_idnivel,
 		N.vc_alerta,
 		1 as in_orden,
-		in_estado,	
+		in_estado,
 		N.in_link,
-		/*(case 
+		/*(case
 			when N.in_link=0 then (select 'No enlase')
 			else (select  NN.vc_titulo from TBL_NIVEL NN where NN.id_nivel=N.in_link)
 			end
 			) as vc_enlase,*/N.vc_color_alerta
-		INTO #LISTA_USUARIOS  
+		INTO #LISTA_USUARIOS
 	 FROM TBL_NIVEL N
-		
-	 where in_visible= 1 AND in_dpndncia_idnivel=@in_dpndncia_idnivel	
-	 order by in_orden asc 
-	  
-	  DECLARE @pageCount INT    
-	  SET @pageCount = (SELECT COUNT(*) FROM #LISTA_USUARIOS)    
-	  SET @pageCount=(SELECT CEILING(CAST(@pageCount AS DECIMAL(10,2))/CAST(@pagesize AS DECIMAL(10,2))))    
-	  
+
+	 where in_visible= 1 AND in_dpndncia_idnivel=@in_dpndncia_idnivel
+	 order by in_orden asc
+
+	  DECLARE @pageCount INT
+	  SET @pageCount = (SELECT COUNT(*) FROM #LISTA_USUARIOS)
+	  SET @pageCount=(SELECT CEILING(CAST(@pageCount AS DECIMAL(10,2))/CAST(@pagesize AS DECIMAL(10,2))))
+
 	   SELECT id_nivel,
 		in_cate,
 		vc_titulo,
@@ -116,17 +116,17 @@ LISTAR_TBL_NIVEL:
 		in_orden,
 		in_estado,in_link ,
 		/*vc_enlase,*/vc_color_alerta,
-		@pageCount total  
-	   FROM #LISTA_USUARIOS   
-	  WHERE N_REG > @pagesize *(@pagenum-1)   
-	  AND N_REG <= @pagesize * @pagenum    
-		 DROP TABLE #LISTA_USUARIOS         
+		@pageCount total
+	   FROM #LISTA_USUARIOS
+	  WHERE N_REG > @pagesize *(@pagenum-1)
+	  AND N_REG <= @pagesize * @pagenum
+		 DROP TABLE #LISTA_USUARIOS
 
-		   
+
 	IF @@ERROR <> 0 GOTO SALIR
 	goto SALIR
 INS_TBL_NIVEL:
-	IF NOT EXISTS (SELECT VC_TITULO FROM TBL_NIVEL WHERE 
+	IF NOT EXISTS (SELECT VC_TITULO FROM TBL_NIVEL WHERE
 					in_estado =1 AND in_visible=1 AND vc_titulo=@VC_TITULO
 					AND in_cate=@IN_CATE+1 AND in_dpndncia_idnivel=@in_dpndncia_idnivel)
 		BEGIN
@@ -150,12 +150,12 @@ INS_TBL_NIVEL:
 				@vc_url_img,
 				@in_rpta,
 				@in_dpndncia_idnivel,
-				@vc_alerta,1,1,1,1,@IN_ID_LINK,@vc_color_alerta,GETDATE())			
+				@vc_alerta,1,1,1,1,@IN_ID_LINK,@vc_color_alerta,GETDATE())
 		END
 	IF @@ERROR <> 0 GOTO SALIR
 	goto SALIR
 UPD_TBL_NIVEL:
-		
+
 		/*if (@in_rpta<>5 and @in_rpta<>2)
 			begin
 				SET @IN_ID_LINK=0
@@ -168,34 +168,34 @@ UPD_TBL_NIVEL:
 
 		if ( @vc_url_img<>'')
 			begin
-					
+
 				UPDATE TBL_NIVEL
 				SET in_cate=@IN_CATE+1,
 				vc_titulo=@VC_TITULO,
-				vc_descripcion=@vc_descripcion,		
-				in_rpta=@in_rpta,	
+				vc_descripcion=@vc_descripcion,
+				in_rpta=@in_rpta,
 				vc_url_img=@vc_url_img,
 				in_dpndncia_idnivel=@in_dpndncia_idnivel,
 				vc_alerta=@vc_alerta,
 				vc_color_alerta=@vc_color_alerta,
 				in_link=@IN_ID_LINK
 				WHERE id_nivel=@ID_NIVEL
-			end	
+			end
 		else
 			begin
 				UPDATE TBL_NIVEL
 				SET in_cate=@IN_CATE+1,
 				vc_titulo=@VC_TITULO,
-				vc_descripcion=@vc_descripcion,		
-				in_rpta=@in_rpta,	
+				vc_descripcion=@vc_descripcion,
+				in_rpta=@in_rpta,
 				in_dpndncia_idnivel=@in_dpndncia_idnivel,
 				vc_alerta=@vc_alerta,
 				vc_color_alerta=@vc_color_alerta,
 				in_link=@IN_ID_LINK
 				WHERE id_nivel=@ID_NIVEL
 			end
-	
-	
+
+
 	IF @@ERROR <> 0 GOTO SALIR
 	goto SALIR
 DEL_TBL_NIVEL:
@@ -208,3 +208,285 @@ SALIR:
 SET NOCOUNT OFF
 RETURN
 
+#-------------------------------------------------- BEGIN [sat second proc] - (28-10-2017 - 16:22:04) {{
+
+--sp_helptext sp_Mant_Usuario
+--/*
+alter proc [dbo].[sp_Mant_Usuario] --2,1,10,0,'','','','', 'Admin','123456'
+@in_Opc int,
+@in_NumPagina int = 0,
+@in_TamPagina int = 0,
+@in_UsuarioID int = 0,
+@vc_DNI varchar(20) = '',
+@vc_Nombre varchar(50) = '',
+@vc_ApePaterno varchar(50) = '',
+@vc_ApeMaterno varchar(50) = '',
+@vc_Usuario varchar(20) = '',
+@vc_Clave varchar(20) = '',
+@vc_Correo varchar(100) = '',
+@in_PerfilID int = 0,
+@in_SedeID int = 0,
+@in_CampaniaID int=0
+as --*/
+
+/*
+declare
+@in_Opc int,
+@in_NumPagina int = 0,
+@in_TamPagina int = 0,
+@in_UsuarioID int = 0,
+@vc_DNI varchar(20) = '',
+@vc_Nombre varchar(50) = '',
+@vc_ApePaterno varchar(50) = '',
+@vc_ApeMaterno varchar(50) = '',
+@vc_Usuario varchar(20) = '',
+@vc_Clave varchar(20) = '',
+@vc_Correo varchar(100) = '',
+@in_PerfilID int = 0,
+@in_SedeID int = 0,
+@in_CampaniaID int=0;
+
+select @in_Opc = 1, @vc_Usuario = 'admin', @vc_Clave = '123456'
+
+--*/
+set dateformat dmy
+set language N'Español'
+
+if (@in_Opc = 1) goto UserLogin
+if (@in_Opc = 2) goto ListUsuariosPag
+if (@in_Opc = 3) goto ListUsuario
+if (@in_Opc = 4) goto InsertUsuario
+if (@in_Opc = 5) goto CambiarClave
+if (@in_Opc = 6) goto CambiarEstado
+if (@in_Opc = 7) goto DeleteUsuario
+if (@in_Opc = 8) goto ListConectadosPag
+if (@in_Opc = 9) goto AdmConectados
+goto salir
+
+UserLogin:
+  select u.in_UsuarioID,
+  u.vc_DNI,
+   u.vc_Nombre,
+   u.vc_ApePaterno,
+    u.vc_ApeMaterno,
+    u.vc_Usuario,
+		ISNULL(u.vc_Correo,'') vc_Correo,
+		 u.vc_Clave,
+		u.in_PerfilID,
+		p.vc_Perfil,
+		u.in_SedeID,
+		(select S.vc_Sede from TB_SEDE S where S.in_SedeID=u.in_sedeID) as vc_Sede
+		,CONVERT(varchar(10),u.dt_FecRegistro, 103) dt_FecRegistro,
+		u.in_Estado,u.in_CampaniaID,
+		ISNULL((select vc_Campania from TB_CAMPANIA CC where CC.in_CampaniaID=u.in_CampaniaID),'')  as vc_Campania
+		, 1 as in_TotalRegistros
+  from TB_USUARIO u inner join TB_PERFIL p
+		on u.in_PerfilID = p.in_PerfilID
+  Where vc_Usuario = @vc_Usuario and vc_Clave = @vc_Clave and u.in_Estado = 1
+		and p.in_Estado = 1
+		update TB_USUARIO set EstadoConexion=1 where vc_Usuario=@vc_Usuario and vc_Clave=@vc_Clave;
+  if @@ERROR<>0 goto salir
+goto salir
+
+ListUsuariosPag:
+  select ROW_NUMBER() over(order by u.in_UsuarioID) nroReg,
+		 u.in_UsuarioID,
+		  u.vc_DNI,
+		   u.vc_Nombre,
+		   u.vc_ApePaterno,
+		u.vc_ApeMaterno,
+		u.vc_Usuario,
+		 ISNULL(u.vc_Correo,'') vc_Correo,
+		 u.vc_Clave,
+		  u.in_PerfilID,
+		  p.vc_Perfil,
+		  u.in_SedeID,
+		s.vc_Sede,
+		 CONVERT(varchar(10), u.dt_FecRegistro, 103) dt_FecRegistro,
+		  u.in_Estado,
+		  u.in_CampaniaID	,
+		ISNULL((select vc_Campania from TB_CAMPANIA CC where CC.in_CampaniaID=u.in_CampaniaID),'')  as vc_Campania
+		into #TM_USER
+  from TB_USUARIO u inner join TB_PERFIL p
+		on u.in_PerfilID = p.in_PerfilID inner join TB_SEDE s
+		on u.in_SedeID = s.in_SedeID
+  where (u.vc_DNI like @vc_DNI+'%' or u.vc_Nombre like @vc_DNI+'%' or u.vc_ApePaterno like @vc_DNI+'%' or
+		u.vc_ApeMaterno like @vc_DNI+'%')
+		--and u.in_PerfilID <> 3
+  order by u.vc_ApePaterno
+
+  DECLARE @pageCount INT
+  SET @pageCount = (SELECT COUNT(*) FROM #TM_USER)
+  SET @pageCount=(SELECT CEILING(CAST(@pageCount AS DECIMAL(10,2))/CAST(@in_TamPagina AS DECIMAL(10,2))))
+
+  SELECT in_UsuarioID,vc_DNI, vc_Nombre,vc_ApePaterno,vc_ApeMaterno,vc_Usuario,vc_Correo,
+		vc_Clave,in_PerfilID,vc_Perfil,in_SedeID,
+		vc_Sede,dt_FecRegistro,in_Estado,in_CampaniaID,vc_Campania
+		, @pageCount TOTAL_PAGE
+  FROM #TM_USER
+  WHERE nroReg > @in_TamPagina *(@in_NumPagina-1)
+  AND nroReg <= @in_TamPagina * @in_NumPagina
+  ORDER BY vc_ApePaterno
+
+  DROP TABLE #TM_USER
+
+  if @@error<>0 goto salir
+  goto salir
+
+ListUsuario:
+select
+	in_UsuarioID,vc_DNI,vc_Nombre,vc_ApePaterno,vc_ApeMaterno,vc_Usuario,
+	ISNULL(vc_Correo,'') vc_Correo,
+	u.vc_Clave,
+	in_PerfilID,
+	(select PP.vc_Perfil from TB_PERFIL PP where PP.in_PerfilID=U.in_PerfilID ) as vc_Perfil,
+	in_SedeID,
+	(select SS.vc_Sede from TB_SEDE SS where SS.in_SedeID= U.in_SedeID)  as vc_Sede,
+	CONVERT(varchar,u.dt_FecRegistro) as dt_FecRegistro,
+	u.in_Estado
+	,in_CampaniaID,
+	(select vc_Campania from TB_CAMPANIA CC where CC.in_CampaniaID=u.in_CampaniaID)  as vc_Campania,
+	0 as in_TotalRegistros
+
+from TB_USUARIO U where in_UsuarioID = @in_UsuarioID
+
+
+
+if @@error<>0 goto salir
+goto salir
+
+InsertUsuario:
+if (@in_UsuarioID = 0)
+  begin
+	if not exists (select vc_DNI from TB_USUARIO where vc_DNI = LTRIM(RTRIM(@vc_DNI)))
+	  begin
+		insert into TB_USUARIO(vc_DNI,vc_Nombre,vc_ApePaterno,vc_ApeMaterno,vc_Usuario,vc_Clave,
+								in_PerfilID,in_SedeID,dt_FecRegistro,in_Estado,in_CampaniaID)
+		values(UPPER(@vc_DNI),UPPER(@vc_Nombre),UPPER(@vc_ApePaterno),UPPER(@vc_ApeMaterno),UPPER(@vc_Usuario),
+					@vc_DNI, @in_PerfilID,@in_SedeID,GETDATE(), 1,@in_CampaniaID)
+	  end
+  end
+else
+  begin
+	if not exists (select vc_DNI from TB_USUARIO where vc_DNI = LTRIM(RTRIM(@vc_DNI))
+					and in_UsuarioID <> @in_UsuarioID)
+	  begin
+		update TB_USUARIO set vc_DNI = UPPER(@vc_DNI),
+								vc_Nombre = UPPER(@vc_Nombre),
+								vc_ApePaterno = UPPER(@vc_ApePaterno),
+								vc_ApeMaterno = UPPER(@vc_ApeMaterno),
+								vc_Usuario = UPPER(LTRIM(RTRIM(@vc_Usuario))),
+								in_PerfilID =  @in_PerfilID,
+								in_SedeID = @in_SedeID,
+								dt_FecRegistro = GETDATE()	,
+								in_CampaniaID=@in_CampaniaID
+		where in_UsuarioID = @in_UsuarioID
+	  end
+  end
+
+if @@ERROR<>0 goto salir
+goto salir
+
+CambiarClave:
+if (@vc_Clave = '')
+  begin
+	declare @pass varchar(10) = (select vc_DNI from TB_USUARIO where in_UsuarioID = @in_UsuarioID)
+	update TB_USUARIO set vc_Clave = @pass where in_UsuarioID = @in_UsuarioID
+  end
+else
+  begin
+	update TB_USUARIO set vc_Clave = @vc_Clave where in_UsuarioID = @in_UsuarioID
+  end
+
+if @@ERROR<>0 goto salir
+goto salir
+
+CambiarEstado:
+  declare @est int = (select case(in_Estado) when 1 then 0 else 1 end  from TB_USUARIO
+						where in_UsuarioID = @in_UsuarioID)
+  update TB_USUARIO set in_Estado = @est, dt_FecRegistro = GETDATE()
+  where in_UsuarioID = @in_UsuarioID
+
+if @@ERROR<>0 goto salir
+goto salir
+
+DeleteUsuario:
+delete from TB_USUARIO where in_UsuarioID = @in_UsuarioID
+
+if @@ERROR<>0 goto salir
+goto salir
+
+ListConectadosPag:
+  select ROW_NUMBER() over(order by u.EstadoConexion desc,u.vc_ApePaterno) nroReg,
+			u.in_UsuarioID,
+		   u.vc_Nombre,
+		   u.vc_ApePaterno,
+		u.vc_ApeMaterno,
+		u.vc_Usuario,
+		  p.vc_Perfil,
+		  u.EstadoConexion,
+		  (select count(*) from TB_MENSAJES where emisor = u.in_UsuarioID and visto = 1) msgs
+		into #TM_USER1
+  from TB_USUARIO u inner join TB_PERFIL p
+		on u.in_PerfilID = p.in_PerfilID
+  where (u.vc_DNI like @vc_DNI+'%' or u.vc_Nombre like @vc_DNI+'%' or u.vc_ApePaterno like @vc_DNI+'%' or
+		u.vc_ApeMaterno like @vc_DNI+'%') and u.in_PerfilID in (2)
+		--and u.in_PerfilID <> 3
+  order by u.EstadoConexion desc,u.vc_ApePaterno
+
+  DECLARE @pageCount1 INT
+  SET @pageCount1 = (SELECT COUNT(*) FROM #TM_USER1)
+  SET @pageCount1=(SELECT CEILING(CAST(@pageCount1 AS DECIMAL(10,2))/CAST(@in_TamPagina AS DECIMAL(10,2))))
+
+  SELECT in_UsuarioID,vc_Nombre,vc_ApePaterno,vc_ApeMaterno,vc_Usuario,
+		vc_Perfil,EstadoConexion,msgs
+		, @pageCount1 TOTAL_PAGE
+  FROM #TM_USER1
+  WHERE nroReg > @in_TamPagina *(@in_NumPagina-1)
+  AND nroReg <= @in_TamPagina * @in_NumPagina
+  ORDER BY EstadoConexion desc, vc_ApePaterno
+
+  DROP TABLE #TM_USER1
+
+  if @@error<>0 goto salir
+  goto salir
+
+AdmConectados:
+select ROW_NUMBER() over(order by u.EstadoConexion desc,u.vc_ApePaterno) nroReg,
+			u.in_UsuarioID,
+		   u.vc_Nombre,
+		   u.vc_ApePaterno,
+		u.vc_ApeMaterno,
+		u.vc_Usuario,
+		  p.vc_Perfil,
+		  u.EstadoConexion,
+		  (select count(*) from TB_MENSAJES where emisor = u.in_UsuarioID and visto = 1) msgs
+		into #TM_USER2
+  from TB_USUARIO u inner join TB_PERFIL p
+		on u.in_PerfilID = p.in_PerfilID
+  where (u.vc_DNI like @vc_DNI+'%' or u.vc_Nombre like @vc_DNI+'%' or u.vc_ApePaterno like @vc_DNI+'%' or
+		u.vc_ApeMaterno like @vc_DNI+'%') and u.in_PerfilID in (1)
+		--and u.in_PerfilID <> 3
+  order by u.EstadoConexion desc,u.vc_ApePaterno
+
+  DECLARE @pageCount2 INT
+  SET @pageCount2 = (SELECT COUNT(*) FROM #TM_USER2)
+  SET @pageCount2=(SELECT CEILING(CAST(@pageCount2 AS DECIMAL(10,2))/CAST(@in_TamPagina AS DECIMAL(10,2))))
+
+  SELECT in_UsuarioID,vc_Nombre,vc_ApePaterno,vc_ApeMaterno,vc_Usuario,
+		vc_Perfil,EstadoConexion,msgs
+		, @pageCount2 TOTAL_PAGE
+  FROM #TM_USER2
+  WHERE nroReg > @in_TamPagina *(@in_NumPagina-1)
+  AND nroReg <= @in_TamPagina * @in_NumPagina
+  ORDER BY EstadoConexion desc, vc_ApePaterno
+
+  DROP TABLE #TM_USER2
+
+  if @@error<>0 goto salir
+  goto salir
+salir:
+  set nocount off
+  return
+
+#-------------------------------------------------- END   [sat second proc] - (28-10-2017 - 16:22:04) }}
