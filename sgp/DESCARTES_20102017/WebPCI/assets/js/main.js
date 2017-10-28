@@ -1,4 +1,5 @@
-var DynamicSearch = React.createClass({
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+var DynamicSearch = React.createClass({displayName: "DynamicSearch",
 
   // sets initial state
   getInitialState: function(){
@@ -30,8 +31,8 @@ var DynamicSearch = React.createClass({
 
   render: function() {
 
-    //var countries = this.props.items;
-    var countries = this.state.items;
+    var countries = this.props.items;
+    //var countries = this.state.items;
     var searchString = this.state.searchString.trim().toLowerCase();
 
     // filter countries list by value from input box
@@ -42,12 +43,12 @@ var DynamicSearch = React.createClass({
     }
 
     return (
-      <div>
-        <input type="text" value={this.state.searchString} onChange={this.handleChange} placeholder="Search!" />
-        <ul>
-          { countries.map(function(country){ return <li>{country.name} | {country.total}</li> }) }
-        </ul>
-      </div>
+      React.createElement("div", null, 
+        React.createElement("input", {type: "text", value: this.state.searchString, onChange: this.handleChange, placeholder: "Search!"}), 
+        React.createElement("ul", null, 
+           countries.map(function(country){ return React.createElement("li", null, country.name, " | ", country.total) }) 
+        )
+      )
     )
   }
 
@@ -65,8 +66,9 @@ var countries = [
 ];
 
 ReactDOM.render(
-  //<DynamicSearch items={ countries } />,
+  React.createElement(DynamicSearch, {items:  countries }),
   //<DynamicSearch url="/items" pollInterval={2000} items={ countries }/>,
-  <DynamicSearch url="/items" pollInterval={2000} />,
-  document.getElementById('main')
+  //<DynamicSearch url="/items" pollInterval={2000} />,
+  document.getElementById('myReact')
 );
+},{}]},{},[1]);

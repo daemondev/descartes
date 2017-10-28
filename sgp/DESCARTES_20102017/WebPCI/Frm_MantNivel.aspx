@@ -4,9 +4,12 @@
 	<%--<script src="Libreria/js/jquery-ui-1.10.3.custom/js/jquery.number.js"></script>--%>
 
 	<script src="Libreria/js/Codigo_Web/manNiveles.js"></script>
-    <script src="assets/js/sgp.jsx" type="text/javascript"></script>
+    <script src="assets/lib/react/react.min.js"></script>
+    <script src="assets/lib/react/react-dom.min.js"></script>
+    <script src="assets/js/sgp.js" type="text/javascript"></script>
     
 	<center>
+        <div id="myReact"></div>
 		<style>
 			
 		</style>

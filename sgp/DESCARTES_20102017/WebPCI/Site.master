@@ -11,6 +11,7 @@
 	
 	<script src="Libreria/js/jquery-ui-1.10.3.custom/jquery-ui-1.10.3.custom.js"></script>
 	<script src="Libreria/js/jquery-ui-1.10.3.custom/jquery-ui-1.10.3.custom.min.js"></script>
+    
 
     <script src="Libreria/js/jquery-ui-1.10.3.custom/js/jquery-1.9.1.js"></script>
     <!-- Tell the browser to be responsive to screen width -->
@@ -146,8 +147,6 @@
         <script src="Libreria/dist/js/demo.js"></script>
     </form>
 </body>
-<script src="assets/lib/react/react.min.js"></script>
-<script src="assets/lib/react/react-dom.min.js"></script>
 </html>
 <div id="div_loading" class="se-pre-con"></div>
 <script>

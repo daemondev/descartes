@@ -12,12 +12,13 @@
     void Application_End(object sender, EventArgs e)
     {
         //  Código que se ejecuta al cerrarse la aplicación
-
+        HttpContext.Current.Session["ready"] = null;
     }
 
     void Application_Error(object sender, EventArgs e)
     {
         // Código que se ejecuta cuando se produce un error sin procesar
+        HttpContext.Current.Session["ready"] = null;
 
     }
 

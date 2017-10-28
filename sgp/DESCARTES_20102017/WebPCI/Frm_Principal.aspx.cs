@@ -47,6 +47,9 @@ public partial class Frm_Principal : System.Web.UI.Page
 
     }
 
+
+    
+
     protected void Page_Load(object sender, EventArgs e)
     {
         Entidad.Etb_Usuario Ent_usu = new Etb_Usuario();

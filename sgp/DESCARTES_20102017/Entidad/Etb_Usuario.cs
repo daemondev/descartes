@@ -5,6 +5,7 @@ using System.Text;
 
 namespace Entidad
 {
+    [Serializable]
     public class Etb_Usuario : E_VariablesGenerales
     {
         public int in_UsuarioID { get; set; }
