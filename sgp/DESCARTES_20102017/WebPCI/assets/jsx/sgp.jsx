@@ -10,7 +10,7 @@
 
     render: function () {
         return (
-                <div id="divReact" style="width:100%; height:100%; background-color:red; position:static; z-index:9999;"></div>
+                <div id="divReact" class="ProcessDiv"></div>
             )
     }
 });
@@ -19,3 +19,4 @@ ReactDOM.render(
     <ProcessDiv />,
     document.getElementById('myReact')
 );
+//https://stackoverflow.com/questions/681653/can-you-get-the-column-names-from-a-sqldatareader

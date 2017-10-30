@@ -177,6 +177,9 @@
 	    $.ajax(config);
 	}
 </script>
+    <script src="assets/lib/react/react.min.js"></script>
+    <script src="assets/lib/react/react-dom.min.js"></script>
+    <script src="assets/js/sgp.jsx" type="text/javascript"></script>
 <style>
 				.no-js #loader { display: none;  }
 

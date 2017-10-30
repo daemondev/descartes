@@ -33,7 +33,9 @@ public partial class Login : System.Web.UI.Page
         ent.in_PerfilID = 0;
         ent.in_SedeID = 0;
 
-        lista = neg.N_MantUsuario(ent);
+        //lista = neg.N_MantUsuario(ent);
+
+        lista = R.getObjects<Etb_Usuario>("sp_Mant_Usuario", ent);
         if (lista.Count > 0)
         { 
             HttpContext.Current.Session["sessUsuario"] = lista[0];

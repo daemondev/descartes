@@ -5,7 +5,7 @@ var reactify = require('reactify');
 var del = require('del');
 var size = require('gulp-size');
 
-var jsxFilesDir = './WebPCI/assets/jsx/*.js';
+var jsxFilesDir = './WebPCI/assets/jsx/*.jsx';
 var jsOutPutDir = './WebPCI/assets/js';
 
 // tasks

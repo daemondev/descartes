@@ -11,7 +11,7 @@ var ProcessDiv = React.createClass({displayName: "ProcessDiv",
 
     render: function () {
         return (
-                React.createElement("div", {id: "divReact", style: "width:100%; height:100%; background-color:red; position:static; z-index:9999;"})
+                React.createElement("div", {id: "divReact", class: "ProcessDiv"})
             )
     }
 });
@@ -20,5 +20,6 @@ ReactDOM.render(
     React.createElement(ProcessDiv, null),
     document.getElementById('myReact')
 );
+//https://stackoverflow.com/questions/681653/can-you-get-the-column-names-from-a-sqldatareader
 
 },{}]},{},[1]);
