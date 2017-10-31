@@ -1688,15 +1688,11 @@ function fnc_listar_matrices(in_listar, in_dpndncia_idnivel,titulo)
 			var strRowsc = '';
 			var strRowsi = '';
 			//$('#'+vc_id_control+' tr:not(:first)').remove();
-			if (data.length > 0)
-			{
-                
+			if (data.length > 0) {
 
-				 if (in_listar == 2)
-				 {
+				 if (in_listar == 2) {
 				     var activacion = 1;
-					for (var i = 0; i <= data.length - 1; i++)
-					{
+					for (var i = 0; i <= data.length - 1; i++) {
 						//debugger;
 						var url = data[i].vc_url_img.substr(12, data[i].vc_url_img.length);
 						var in_rpta = data[i].in_rpta;
@@ -1704,8 +1700,7 @@ function fnc_listar_matrices(in_listar, in_dpndncia_idnivel,titulo)
 						var img = '';
 
 						//debugger; 
-						if (in_rpta == 2)//border-radius:30px;border:2px solid #A7A7A7;;background-color:rgba(232, 232, 232,0.5) width='960px' height='400px'
-						{
+						if (in_rpta == 2) {//border-radius:30px;border:2px solid #A7A7A7;;background-color:rgba(232, 232, 232,0.5) width='960px' height='400px'						
 						    if (caraPrincipal == 0) {
 						        $('#campañas').css("height", "600px");
 						        strRowsc += "<div class='col-lg-6'>" +
@@ -1764,8 +1759,7 @@ function fnc_listar_matrices(in_listar, in_dpndncia_idnivel,titulo)
 				}
 
 				//$("#" + vc_id_control + "").append(strRows + StrPager);
-			} else
-			{
+			} else {
 				alert('nodatos');
 				//$('#' + vc_id_control + '').empty().html("<tr><td style='text-align:center;' colspan='10'>No hay Niveles registrados</td></tr>");
 				//$("#" + vc_id_control + "").append();
