@@ -9,59 +9,55 @@
 			
 	   <div style="background-color: #00A65A; border-radius: 5px;">
         <%--<h4 class="modal-title">Gestion de procesos</h4>--%>
-		   <div id="timer" class="shadow">
-            <div class="container">
-                <div id="hour">00</div>
-                <div class="divider">:</div>
-                <div id="minute">00</div>
-                <div class="divider">:</div>
-                <div id="second">00</div>       
+            <div id="timer" class="shadow">
+                <div class="container">
+                    <div id="hour">00</div>
+                    <div class="divider">:</div>
+                    <div id="minute">00</div>
+                    <div class="divider">:</div>
+                    <div id="second">00</div>       
                  
-            </div>
+                </div>
 <%--      <input type="button" id="btn-comenzar" value="Iniciar" onclick="fnc_stop2()"/>--%>
-			   <a onclick= "fnc_stop2()"><label id="lblEstado" >Comenzar</label></a>
-        </div>
+			    <a onclick= "fnc_stop2()"><label id="lblEstado" >Comenzar</label></a>
+            </div>
 		</div>
-		<div style="visibility:hidden"><p id="nombreMatriz"></p></div>
-		
-			<div style="float:initial;width:100%;" id="div_buscarCliente"> 
+		<div style="visibility:hidden"><p id="nombreMatriz"></p></div>		
+        <div style="float:initial;width:100%;" id="div_buscarCliente"> 
 			<br />			
 			<div style="margin-top:-20px;">
 				<!--<div  style="height:280px;width:600px;border-radius:15px;border-color:#B4886B" class="ui-accordion ui-widget ui-helper-reset" role="tablist" >-->
             <div id="campañas" class="row" style="overflow-y:scroll;"></div>
-                <div class="row" id="todo">
-                    <div class="col-lg-3" style="overflow-y:scroll;overflow-x:no-display ;height:550px">
-                            <div id="div_cabe_secuencia"><p style="margin-left:-55px;margin-top:-12px;font-weight:bold;font-size:24px">Secuencia</p></div>
-                            <p></p>
-                            <div id="div_secuencia" style="">
-	                        </div>							
+            <div class="row" id="todo"> <!--### begin div id=todo {{-->
+                <div class="col-lg-3" style="overflow-y:scroll;overflow-x:no-display ;height:550px">
+                        <div id="div_cabe_secuencia">
+                            <p style="margin-left:-55px;margin-top:-12px;font-weight:bold;font-size:24px">Secuencia</p>
+                        </div>
+                        <p></p>
+                        <div id="div_secuencia" style=""> </div>							
 					
+                </div>
+                <div class="col-lg-9">
+                    <ul id="tb_matricez" style="width:100%; text-align:left; margin-left:-120px;margin-right:-40px"></ul>
+                    <div id="tb_imagenes" style="margin-left:-10px;"></div>
+                    <div  id="div_plazo" style="width:100%;">
+                        <div style="margin-right:20px;margin-top:-5px;/*border-radius:30px;border:2px solid #A7A7A7;*/overflow-y:scroll;overflow-x:hidden;height:500px;/*background-color:rgba(232, 232, 232,0.5)*/" >
+					        <div style="width:100%; text-align:left;" id="tbl_nivel">				
+                                <br/>
+						        <!--<label id="lblDescripcion_plazo" style="font-size:24px;color:rgba(175, 8, 8,1);font-weight: bold;"></label>-->
+                                <br/>
+                                <br/>
+                                <div class="row" style="/*padding-left:20px;*/margin-top:-61px">
+								    <div id="div_alerta" style="border-radius:9px;" >
+										<label id="lblAlerta_plazo" style="margin-left:30px;font-size:16px;"></label>						
+									</div>
+									<div id="tb_plazo" style=""></div>
+                                </div>			
+		    				</div>
+				        </div>
                     </div>
-                    <div class="col-lg-9">
-
-                        <ul id="tb_matricez" style="width:100%; text-align:left; margin-left:-120px;margin-right:-40px"></ul>
-
-                        <div id="tb_imagenes" style="margin-left:-10px;"></div>
-
-                        <div  id="div_plazo" style="width:100%;">
-                            <div style="margin-right:20px;margin-top:-5px;/*border-radius:30px;border:2px solid #A7A7A7;*/overflow-y:scroll;overflow-x:hidden;height:500px;/*background-color:rgba(232, 232, 232,0.5)*/" >
-					            <div style="width:100%; text-align:left;" id="tbl_nivel">				
-                                    <br/>
-						            <!--<label id="lblDescripcion_plazo" style="font-size:24px;color:rgba(175, 8, 8,1);font-weight: bold;"></label>-->
-                                    <br/>
-                                    <br/>
-                                    <div class="row" style="/*padding-left:20px;*/margin-top:-61px">
-								        <div id="div_alerta" style="border-radius:9px;" >
-											<label id="lblAlerta_plazo" style="margin-left:30px;font-size:16px;"></label>						
-										</div>
-										<div id="tb_plazo" style="" >
-								        </div>
-                                    </div>			
-		    				    </div>
-				            </div>
-				       </div>
-                       </div>		
-				</div>	
+                </div>		
+            </div>	                 <!--### end div id=todo  }}-->
 		</div>
         </div>
 

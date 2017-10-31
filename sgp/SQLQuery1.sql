@@ -490,3 +490,65 @@ salir:
   return
 
 #-------------------------------------------------- END   [sat second proc] - (28-10-2017 - 16:22:04) }}
+#-------------------------------------------------- BEGIN [third proc] - (31-10-2017 - 18:07:31) {{
+
+--sp_helptext USP_ARMAR_preview
+
+--   USP_ARMAR_preview 2,164
+-- where in_dpndncia_idnivel=128
+
+/*
+alter PROC [dbo].[USP_ARMAR_preview]
+@indice int=0,
+@in_parametro int=0,
+@vc_UsuarioID nvarchar(20)='%'
+AS  --*/
+--/*
+declare
+@indice int=2,
+@in_parametro int=1152,
+@vc_UsuarioID nvarchar(20)='%'
+--*/
+
+
+IF @indice = 1 GOTO LST_NIVEL_CABE
+if @indice = 2 GOTO LST_NIVEL_SUB
+ELSE GOTO SALIR
+
+LST_NIVEL_CABE:
+
+	SELECT id_nivel,in_cate,vc_titulo,vc_descripcion,vc_url_img,in_rpta,in_dpndncia_idnivel, vc_alerta,in_link,vc_color_alerta
+	FROM TBL_NIVEL
+	WHERE id_nivel=@in_parametro
+	--where id_nivel=3117
+		and in_estado=1 and in_visible=1
+	IF @@ERROR <>0 GOTO SALIR
+	GOTO SALIR
+
+LST_NIVEL_SUB:
+
+	if @in_parametro=0 	begin
+		SELECT id_nivel,in_cate,vc_titulo,vc_descripcion,vc_url_img,in_rpta,in_dpndncia_idnivel, vc_alerta,in_link,vc_color_alerta
+			--SELECT *
+		FROM TBL_NIVEL
+		WHERE in_dpndncia_idnivel=@in_parametro
+			and in_estado=1 and in_visible=1
+			and id_nivel in  (
+				select N.in_nivel from TBL_DETALLE_CAMP_NIVEL N
+				where N.in_campannia in (select in_CampaniaID from TB_USUARIO where in_UsuarioID like @vc_UsuarioID)
+			)
+	end	else begin
+		SELECT id_nivel,in_cate,vc_titulo,vc_descripcion,vc_url_img,in_rpta,in_dpndncia_idnivel, vc_alerta,in_link,vc_color_alerta
+		FROM TBL_NIVEL
+		WHERE in_dpndncia_idnivel=@in_parametro
+			and in_estado=1 and in_visible=1
+	end
+
+	IF @@ERROR <>0 GOTO SALIR
+	GOTO SALIR
+
+SALIR:
+SET NOCOUNT OFF
+RETURN
+
+#-------------------------------------------------- END   [third proc] - (31-10-2017 - 18:07:31) }}

@@ -8,20 +8,17 @@ $(document).ready(function ()
 	$('#lbl_id_categoria').hide();
 	$('#lbl_id_nivel').text(0);
 	$('#lbl_id_categoria').text(0);
-	$('#plazo').hide();
+	$('#plazo').hide(); //### Modal Add Process/Category
 	$('#divAddItems').hide();
 	$('#lbl_id_nivel').hide();
 
 	$('#lblid_nivel').hide();
 
-	$("#ddl_rpta").change(function ()
-	{
-		if ($("#ddl_rpta option:selected").val() == 7)
-		{
+	$("#ddl_rpta").change(function () {
+		if ($("#ddl_rpta option:selected").val() == 7) {
 			traerMatrices();
 			$("#mismatrices").prop("disabled", false);
-		} else
-		{
+		} else {
 			$("#mismatrices").prop("disabled", true);
 			$("#mismatrices").html("<option value='0'>---seleccionar---</option>");
 			$("#misprocesos").prop("disabled", true);
@@ -29,28 +26,21 @@ $(document).ready(function ()
 		};
 	});
 
-	$("#mismatrices").change(function ()
-	{
+	$("#mismatrices").change(function () {
 		$("#misprocesos").prop("disabled", false);
 		$("#misprocesos").html("<option value='0'>---seleccionar---</option>");
 		traerProcesos(parseInt($("#mismatrices option:selected").val()));
 
 	})
 
-	$("#btn_grabar_Contenido").click(function ()
-	{
-		if ($("#Textarea_contenido").val() == "")
-		{
+	$("#btn_grabar_Contenido").click(function () {
+		if ($("#Textarea_contenido").val() == "") {
 			new Messi("Ingrese el contenido a Mostrar", { modal: true, center: true, title: 'Informacion', titleClass: 'anim error', autoclose: 1500, buttons: [{ id: 0, label: 'Ok', val: 'X' }] });
-		} else if ($("#ddl_color").val() == 0)
-		{
+		} else if ($("#ddl_color").val() == 0) {
 			new Messi("Seleccione el color del contenido", { modal: true, center: true, title: 'Informacion', titleClass: 'anim error', autoclose: 1500, buttons: [{ id: 0, label: 'Ok', val: 'X' }] });
-		} else if ($("#ddl_subrayodo").val() == 0)
-		{
+		} else if ($("#ddl_subrayodo").val() == 0) {
 			new Messi("Seleccione Si el contenido será subrayado", { modal: true, center: true, title: 'Informacion', titleClass: 'anim error', autoclose: 1500, buttons: [{ id: 0, label: 'Ok', val: 'X' }] });
-		}
-		else
-		{
+		} else {
 			Guarda_contenido(1,0);
 		}
 	})
@@ -59,9 +49,11 @@ $(document).ready(function ()
 $(document).tooltip();
 
 //**** REGISTRO DE LOS CONTENIDOS EN TABLA DE UN PROCESO
-function JQ_Open_Contexto(in_idnivel)
-{
-	$('#div_Contenido').modal();
+/*###
+    Open Modal of Content (x004)
+*/
+function JQ_Open_Contexto(in_idnivel) {
+    $('#div_Contenido').modal({width:800});
 	$('#hdIddescarte').val(in_idnivel);
 	$("#Textarea_contenido").val("");
 	$("#ddl_color").val("0");
@@ -70,8 +62,11 @@ function JQ_Open_Contexto(in_idnivel)
 	$("#hd_idcontenido").val("0");	
 }
 
-function Guarda_contenido(op,idcontenido)
-{
+
+/*###
+    Save content (x003)
+*/
+function Guarda_contenido(op,idcontenido) {
 	var objData = {};
 	objData["in_idcontenido"] = $("#hd_idcontenido").val();
 	objData["in_idnivel"] = $('#hdIddescarte').val();
@@ -85,20 +80,16 @@ function Guarda_contenido(op,idcontenido)
 		data: JSON.stringify(objData),
 		dataType: "json",
 		contentType: "application/json; charset=utf-8",
-		success: function (data)
-		{
-			 ;
+		success: function (data) {			 
 			var obj = data.d;
-			if (obj >= 1)
-			{
+			if (obj >= 1) {
 				new Messi("Registro Correctamente realizado", { modal: true, center: true, title: 'Informacion', titleClass: 'anim error', autoclose: 1500, buttons: [{ id: 0, label: 'Ok', val: 'X' }] });
 				$("#Textarea_contenido").val("");
 				$("#ddl_color").val("0");
 				$("#ddl_subrayodo").val("0");
 				//$("#dvUsuario").modal('hide');
 				GetGrid_Contenido(1, $('#hdIddescarte').val());
-			} else
-			{
+			} else {
 				new Messi("Error de Registro - No pueden haber dos usuarios iguales", { modal: true, center: true, title: 'Informacion', titleClass: 'anim error', autoclose: 1500, buttons: [{ id: 0, label: 'Ok', val: 'X' }] });
 			}//Fin condicion
 		}//Fin data
@@ -273,16 +264,16 @@ function traerMatrices()
 	});
 }
 
-function GetNiveles(in_dpndncia_idnivel, p, vc_id_control, vc_lst)
-{
-	vc_lst = JQ_reemplazar(vc_lst);
+/*
+Get data from DB and render
+*/
+function GetNiveles(in_dpndncia_idnivel, p, vc_id_control, vc_lst) {
 
-	 ;
+	vc_lst = JQ_reemplazar(vc_lst);
 	vc_id_control = JQ_reemplazar(vc_id_control);
 
 	//averiguar porque se puso >= 1
-	if (($('#' + JQ_reemplazar(vc_id_control) + ' >tr').length >= 1) && (vc_lst == 'lst'))
-	{
+	if (($('#' + JQ_reemplazar(vc_id_control) + ' >tr').length >= 1) && (vc_lst == 'lst')) {
 		$('#' + JQ_reemplazar(vc_id_control) + '').empty().html('');
 		return;
 	}
@@ -296,9 +287,7 @@ function GetNiveles(in_dpndncia_idnivel, p, vc_id_control, vc_lst)
 
 	var DTA = {};
 	DTA.objData = objData;
-	 ;
-
-	 ;
+	 
 	$.ajax({
 		async: false,
 		type: "POST",
@@ -399,8 +388,7 @@ function getRptaIcon(idRpta, idNivel) {
     return dictRptaIcon[idRpta].replace("|idNivel|", idNivel);
 }
 
-function fnc_linkeo(in_nivel)
-{
+function fnc_linkeo(in_nivel) {
 	//alert('link');
 	//alert($('#input_id_nivel').val());
 	$('#input_id_nivel').val(in_nivel);
@@ -409,18 +397,15 @@ function fnc_linkeo(in_nivel)
 	 ;
 	//alert(id_ref.substr(5, id_ref.length));
 	//PL
-	for (var i = 0; i < 9999; i++)
-	{
+	for (var i = 0; i < 9999; i++) {
 		//var id = id_ref.substr(5, id_ref.length);
-		if (i != in_nivel)
-		{
+		if (i != in_nivel) {
 			$('#rd_link_' + i + '').css("visibility", "visible");
 		}
 	}
 }
 
-function fnc_AsignarLink(in_link_nivel)
-{
+function fnc_AsignarLink(in_link_nivel) {
 	//alert(in_link_nivel);
 	//alert($('#input_id_nivel').val());
 	 ;
@@ -461,17 +446,14 @@ function fnc_AsignarLink(in_link_nivel)
 }
 
 
-function fnc_CambiarEstado(id_nivel, in_estado, in_dpndncia_idnivel)
-{
+function fnc_CambiarEstado(id_nivel, in_estado, in_dpndncia_idnivel) {
 	//alert(id_nivel);
 	//alert(in_estado);
 
 	new Messi('Al cambiar de estado también afectará a los subniveles', {
 		title: 'Confirmacion', titleClass: 'anim error', buttons: [{ id: 0, label: 'SI', class: 'btn-success', val: true }, { id: 1, label: 'NO', class: 'btn-danger', val: false }], callback: function (val)
 		{
-			if (val == true)
-			{
-				 ;
+			if (val == true) {				 
 				var objData = {};
 				objData["indice"] = 5;
 				objData["id_nivel"] = id_nivel;
@@ -487,13 +469,10 @@ function fnc_CambiarEstado(id_nivel, in_estado, in_dpndncia_idnivel)
 					dataType: "json",
 					contentType: "application/json; charset=utf-8",
 					beforeSend: function () { },
-					success: function (response)
-					{
-						 ;
+					success: function (response) {						 
 						var obj = response.d;
 
-						if (obj[0].in_result >= 1)
-						{
+						if (obj[0].in_result >= 1) {
 							new Messi("Nivel Actualizado", { modal: true, center: true, title: 'Informacion', titleClass: 'anim error', autoclose: 6 });
 							var in_categoria = 0;
 							 ;
@@ -508,23 +487,19 @@ function fnc_CambiarEstado(id_nivel, in_estado, in_dpndncia_idnivel)
 			} //endif (val == true)
 		} // Fin title
 	});    // Fin Messi
-
-
 }
 
 
-function fnc_EliminarNivel(id_nivel, in_dpndncia_idnivel)
-{
+function fnc_EliminarNivel(id_nivel, in_dpndncia_idnivel) {
 
 	new Messi('Desea Eliminar este nivel?', {
 		title: 'Confirmacion', titleClass: 'anim error', buttons: [{ id: 0, label: 'SI', class: 'btn-success', val: true }, { id: 1, label: 'NO', class: 'btn-danger', val: false }], callback: function (val)
 		{
-			if (val == true)
-			{
+			if (val == true) {
 				var objData = {};
 				objData["indice"] = 4;
 				objData["id_nivel"] = id_nivel;
-				 ;
+				 
 				var DTO = {};
 				DTO.objData = objData;
 				$.ajax({
@@ -535,13 +510,11 @@ function fnc_EliminarNivel(id_nivel, in_dpndncia_idnivel)
 					dataType: "json",
 					contentType: "application/json; charset=utf-8",
 					beforeSend: function () { },
-					success: function (response)
-					{
+					success: function (response) {
 						 ;
 						var obj = response.d;
 
-						if (obj[0].in_result >= 1)
-						{
+						if (obj[0].in_result >= 1) {
 							new Messi("Nivel eliminado", { modal: true, center: true, title: 'Informacion', titleClass: 'anim error', autoclose: 1500, buttons: [{ id: 0, label: 'Ok', val: 'X' }] });
 							var in_categoria = 0;
 							 ;
@@ -554,17 +527,17 @@ function fnc_EliminarNivel(id_nivel, in_dpndncia_idnivel)
 			} //endif (val == true)
 		} // Fin title
 	});    // Fin Messi
-
-
-
 }
 
-function fnc_nuevaCategoria(in_nivel, in_cate)
-{
-	 ;
+/*###
+    Open #plazo modal for both: Process/Category (x001)
+*/
+function fnc_nuevaCategoria(in_nivel, in_cate) {
+    //alert("in_nivel: [" + in_nivel + "] in_cate: [" + in_cate + "]");
 
-	fnc_clear();
-	//alert(in_cate);
+    var title = (in_nivel == in_cate && in_cate == 0) ? 'NUEVO PROCESO' : 'NUEVA CATEGORÍA';
+    fnc_clear();
+
 	$('#hdIddescarte').val(in_nivel);
 	$('#lbl_id_nivel').text(in_nivel);
 	$('#lbl_id_categoria').text(in_cate);
@@ -572,12 +545,11 @@ function fnc_nuevaCategoria(in_nivel, in_cate)
 
 
 	$('#plazo').dialog({
-		title: 'Nueva Categoria',
+		title: title,
 		/*buttons: buttons,		*/
 		buttons: [{
-			text: 'Guardar',
-			click: function ()
-			{
+			text: 'GUARDAR',
+			click: function () {
 				fnc_guardar(2, 0);
 			},
 			class: 'btn btn-primary btn-md'
@@ -586,27 +558,21 @@ function fnc_nuevaCategoria(in_nivel, in_cate)
 	});
 }
 
-function fnc_EditarNivel(id_nivel, in_cate, vc_titulo, vc_descripcion, vc_url_img, in_rpta, in_tipo_rpta, in_dpndncia_idnivel, vc_alerta, vc_color_alerta)
-{
-	 ;
-	if (vc_alerta == '/-/')
-	{
+function fnc_EditarNivel(id_nivel, in_cate, vc_titulo, vc_descripcion, vc_url_img, in_rpta, in_tipo_rpta, in_dpndncia_idnivel, vc_alerta, vc_color_alerta) {
+
+	if (vc_alerta == '/-/') {
 		vc_alerta = '';
 	}
 	//PL
 	vc_color_alerta = JQ_reemplazar(vc_color_alerta);
-	if (vc_color_alerta == 'green')
-	{
+	if (vc_color_alerta == 'green')	{
 		$('#chk_ve').prop("checked", true);
-	} else if (vc_color_alerta == 'yellow')
-	{
+	} else if (vc_color_alerta == 'yellow')  {
 		$('#chk_am').prop("checked", true);
-	} else if (vc_color_alerta == 'red')
-	{
+	} else if (vc_color_alerta == 'red')  {
 		$('#chk_ro').prop("checked", true);
 	}
-
-	 ;
+	 
 	//alert(vc_alerta);
 	$('#txtTitulo').val(JQ_reemplazar(vc_titulo));
 	$('#txtArea_desc').val(JQ_reemplazar(vc_descripcion));
@@ -637,8 +603,7 @@ function fnc_EditarNivel(id_nivel, in_cate, vc_titulo, vc_descripcion, vc_url_im
 		title: 'Editar nivel',
 		buttons: [{
 			text: 'Editar',
-			click: function ()
-			{
+			click: function () {
 				fnc_guardar(3, in_dpndncia_idnivel);
 			},
 			class: 'btn btn-primary btn-md'
@@ -646,12 +611,10 @@ function fnc_EditarNivel(id_nivel, in_cate, vc_titulo, vc_descripcion, vc_url_im
 		width: 500
 	});
 }
-function img_vista()
-{
+function img_vista() {
 	$('#output_img').dialog();
 }
-$(document).ready(function ()
-{
+$(document).ready(function () {
 	//document.getElementById('files').addEventListener('change', archivo, false);
 	$('#output_img').hide();
 	$("#menu").hide();
@@ -735,48 +698,36 @@ $(document).ready(function ()
 	}
 	*/
 
-function fnc_guardar(in_gestion, in_dpndncia_idnivel)
-{
+/*###
+    Save data into DB (x002)
+*/
+function fnc_guardar(in_gestion, in_dpndncia_idnivel) {
 
-	var color;
-	color = ($('#chk_am').prop('checked') ? 'yellow' :
-							($('#chk_ve').prop('checked') ? 'green' :
-								($('#chk_ro').prop('checked') ? 'red' :
-									($('#chk_az').prop('checked') ? 'blue' : 'noselected')
-								)
-							)
-			)
-
-
-	 ;
+    var color = $("input[name=rdColor]:checked").val() || 'noselected';    
+	
 	var id_nivel = 0;
-	if ($('#lbl_id_nivel').text() != '')
-	{
+	if ($('#lbl_id_nivel').text() != '') {
 		id_nivel = $('#lbl_id_nivel').text();
-	}
-	if ($('#txtTitulo').val() == '' || $('#txtarea_desc').val() == '')
-	{
+	} if ($('#txtTitulo').val() == '' || $('#txtarea_desc').val() == '') {
 		new Messi("Ingresar todos los datos", { modal: true, center: true, title: 'Informacion', titleClass: 'anim error', autoclose: 1500, buttons: [{ id: 0, label: 'Ok', val: 'X' }] });
-
-	} else
-	{
-		 ;
-
+	} else {
 		var objData = {};
 		objData["indice"] = in_gestion;
 		objData["in_cate"] = $('#lbl_id_categoria').text();
 		objData["vc_titulo"] = $('#txtTitulo').val();
 		objData["vc_descripcion"] = $("#txtArea_desc").val();
-		if ($("#fileupload").val() != '')
-		{
+
+		if ($("#fileupload").val() != '') {
 			objData["vc_url_img"] = $("#fileupload").val();
 		}
+
 		objData["in_rpta"] = $('#ddl_rpta').val();
-		if ($('#ddl_rpta').val() == 7)
-		{
+
+		if ($('#ddl_rpta').val() == 7) {
 			var ellink = parseInt($("#mismatrices").val()) * 1000000 + parseInt($("#misprocesos").val());
 			objData["in_link"] = ellink;
 		} else objData["in_link"] = 0;
+
 		objData["in_dpndncia_idnivel"] = (in_gestion == 2 ? $('#lbl_id_nivel').text() : in_dpndncia_idnivel);
 		objData["vc_alerta"] = $("#Textarea_alerta").val();
 		objData["id_nivel"] = id_nivel;
@@ -793,102 +744,75 @@ function fnc_guardar(in_gestion, in_dpndncia_idnivel)
 			dataType: "json",
 			contentType: "application/json; charset=utf-8",
 			beforeSend: function () { },
-			success: function (response)
-			{
-				 ;
+			success: function (response) {				 
 				var obj = response.d;
 
-				if (obj[0].in_result >= 1)
-				{
-					if (in_gestion == 2)
-					{
+				if (obj[0].in_result >= 1) {
+					if (in_gestion == 2) {
 						new Messi("Nivel registrado", { modal: true, center: true, title: 'Informacion', titleClass: 'anim error', autoclose: 1500, buttons: [{ id: 0, label: 'Ok', val: 'X' }] });
 						id_nivel = $('#lbl_id_nivel').text()
 						GetNiveles((id_nivel), 1, '/tb_' + $('#lbl_id_nivel').text() + '/', '/reg/');
-					} else
-					{
+					} else {
 						new Messi("Nivel Actualizado", { modal: true, center: true, title: 'Informacion', titleClass: 'anim error', autoclose: 1500, buttons: [{ id: 0, label: 'Ok', val: 'X' }] });
-
 						GetNiveles((in_dpndncia_idnivel), 1, '/tb_' + in_dpndncia_idnivel + '/', '/reg/');
 					}
-					var in_categoria = 0;
-					 ;
+					var in_categoria = 0;					 
 					$('#plazo').dialog("close");
-
 				}
 			}
 		});
-
-
 	}
-
-
-
-
 }
-function JQ_Grabar_Nivel(vc_filename)
-{
+
+function JQ_Grabar_Nivel(vc_filename) {
 	alert('grabando');
 }
-function Carga_Img()
-{
-	 ;
+
+function Carga_Img() {	 
 	//alert('cargar imAG');
 	$("#fileupload").fileupload({
 		replaceFileInput: false,
 		dataType: 'json',
 		url: 'UploadHandler.ashx',
-		add: function (e, data)
-		{
+		add: function (e, data) {
 			var valid = true;
 			//var re = /^.+\.((txt))$/i;
 			var re = /^.+\.((jpg)|(png)|(gif))$/i;
-			$.each(data.files, function (index, file)
-			{
-				if (!re.test(file.name))
-				{
+			$.each(data.files, function (index, file) {
+				if (!re.test(file.name)) {
 					valid = false;
 				}
 			});
-			 ;
-			if (valid)
-			{
+			 
+			if (valid) {
 				//if ($("#hdCapaID").val() == "0") {
 				//    new Messi("Se presento un error al cargar", { modal: true, center: true, title: 'Informacion', titleClass: 'anim error', autoclose: 1500, buttons: [{ id: 0, label: 'Ok', val: 'X' }] });
 				//    return false;
 				//}
 
-				$('#dvProgressBarDown').fadeIn(400, function ()
-				{
+				$('#dvProgressBarDown').fadeIn(400, function () {
 					document.getElementById("progressDown").className = "progress";
 					$('#dvProgressBarDown').css("display", "block");
 				});
 				data.submit();
-			}
-			else
-			{
-				$('#dvProgressBarDown').fadeOut(400, function ()
-				{
+			} else {
+				$('#dvProgressBarDown').fadeOut(400, function () {
 					$('#dvProgressBarDown').css("display", "none");
 				});
 				new Messi("Seleccionar Archivos txt con el formato correcto", { modal: true, center: true, title: 'Informacion', titleClass: 'anim error', autoclose: 1500, buttons: [{ id: 0, label: 'Ok', val: 'X' }] });
 			}
 		},
-		done: function (e, data)
-		{
+		done: function (e, data) {
 			 ;
-			$.each(data.result, function (index, file)
-			{
-				$('#dvProgressBarDown').fadeOut(400, function ()
-				{
+			$.each(data.result, function (index, file) {
+				$('#dvProgressBarDown').fadeOut(400, function () {
 					$('#dvProgressBarDown').css("display", "none");
 				});
 				setCargaAgentesFile(file.fileName);
 				//fnc_guardar(file.fileName);
 			});
 		},
-		progressall: function (e, data)
-		{
+		progressall: function (e, data) {
 			$(".se-pre-con").fadeOut("slow");;
 
 			var progress = parseInt(data.loaded / data.total * 100, 10);
@@ -898,19 +822,16 @@ function Carga_Img()
 			);
 			$("#lblProgressDown").text(progress + '%');
 		},
-		fail: function (e, data)
-		{
+		fail: function (e, data) {
 			$('#dvProgressBarDown').css("display", "none");
 			new Messi("Error al subir el archivo", { modal: true, center: true, title: 'Informacion', titleClass: 'anim error', autoclose: 1500, buttons: [{ id: 0, label: 'Ok', val: 'X' }] });
 		}
 	});
 };
 
-$(document).ready(function ()
-{
+$(document).ready(function () {
 
-	$("#fileupload").click("change", function ()
-	{
+	$("#fileupload").click("change", function () {
 		Carga_Img();
 	});
 
@@ -930,30 +851,25 @@ $(document).ready(function ()
 
 });
 /*<UTILITARIOS>*/
-function JQ_reemplazar(vc_cadena)
-{
+function JQ_reemplazar(vc_cadena) {
 
 	var result = "" + vc_cadena;
-	while (result.indexOf("/") != -1)
-	{
+	while (result.indexOf("/") != -1)  {
 		result = result.replace("/", "");
 	}
 	return result;
 }
 
-function JQ_reemplazarTbody(vc_cadena)
-{
+function JQ_reemplazarTbody(vc_cadena) {
 
 	var result = "" + vc_cadena;
-	while (result.indexOf("tbody#") != -1)
-	{
+	while (result.indexOf("tbody#") != -1) {
 		result = result.replace("tbody#", "");
 	}
 	return result;
 }
 
-function ajustar(id)
-{
+function ajustar(id) {
 	//alert(id);
 	var texto = document.getElementById(id);
 	var txt = texto.value;
@@ -961,17 +877,14 @@ function ajustar(id)
 
 	tamano *= 8.1; //el valor multiplicativo debe cambiarse dependiendo del tamaño de la fuente
 
-	if (tamano > 100)
-	{
+	if (tamano > 100) {
 		texto.style.width = tamano + "px";
-	} else
-	{
+	} else {
 		texto.style.width = "100px";
 	}
-
 }
-function fnc_clear()
-{
+
+function fnc_clear() {
 	$('#txtTitulo').val('');
 	$('#txtArea_desc').val('');
 	$('#Textarea_alerta').val('');
@@ -979,16 +892,14 @@ function fnc_clear()
 }
 /*</UTILITARIOS>*/
 
-$(document).ready(function ()
-{
+$(document).ready(function () {
 	$('#lbl_time').hide();
 });
 
 
 /*ARMAR VISTA PREVIA*/
 
-function fnc_preview(id_nivel)
-{
+function fnc_preview(id_nivel) {
 	$('#lblSecuencia').text('');
 	$('#div_plazo').modal();
 	$('#td_secuencia').empty().html;
@@ -1003,15 +914,12 @@ function fnc_preview(id_nivel)
 	//});
 	 ;
 
-	for (var i = 0; i < 9999; i++)
-	{
+	for (var i = 0; i < 9999; i++) {
 		//recorrer los controles de tipo href para eliminar los que son superirores al actual,
 		//ya que si estoy en un nivel superior(1,2,3,4,5,6,7,8,9,10)  y quiero regresar a un nivel inferior(2), el seguimiento de proceso
 		//debe indicar: 1,2, eliminando lo restante.		
 
-		if ($('#href_v_' + i + '').length)
-		{
-			 ;
+		if ($('#href_v_' + i + '').length)  {			 
 			$('#href_v_' + i + '').remove();
 			$('#tr_ref_' + i + '').remove();
 		}
@@ -1020,16 +928,13 @@ function fnc_preview(id_nivel)
 	fnc_listar_niveles(1, id_nivel);
 }
 
-function muestrate(imagen)
-{
-	 ;
+function muestrate(imagen) {	 
 	$('#div_secuencia').empty().html("");
-	for (var i = 0; i < 999; i++)
-	{
+	for (var i = 0; i < 999; i++) {
 		$('#href_v_' + i + '').remove();
 		$('#tr_ref_' + i + '').remove();
 	}
-	 ;
+	 
 	$('#tb_imagenes').show();
 	$('#div_plazo').hide();
 
@@ -1043,8 +948,7 @@ function muestrate(imagen)
 	$('#' + cadena + 'li').removeClass("desactivado");
 	$('#' + cadena + 'li').addClass("activado");
 
-	if (cadena != cadenaAnterior)
-	{
+	if (cadena != cadenaAnterior) {
 		//$('#' + cadenaAnterior + '').hide(); !!!!!!!!!!
 		$('#' + cadenaAnterior + '').css("visibility", "hidden");
 		$('#' + cadenaAnterior + '').css("width", "0px");
@@ -1058,8 +962,8 @@ function muestrate(imagen)
 }
 var mipaso = 0;
 var pasoAnterior = '';
-function muestraPaso(imagen)
-{//FALTA!!!!!!!!
+function muestraPaso(imagen){
+//FALTA!!!!!!!!
 	 ;
 	var cadena = JQ_reemplazar(imagen);
 	/*if (mipaso == 0) {
@@ -1107,8 +1011,8 @@ var caraPrincipal = 0;
 var inicioOperacion;
 var horaActual;
 var tituloProceso;
-function fnc_listar_niveles(in_listar, in_dpndncia_idnivel)
-{
+
+function fnc_listar_niveles(in_listar, in_dpndncia_idnivel) {
 	var cadena = "#" + in_dpndncia_idnivel;
 	$('#tb_imagenes').hide();
 	$("#div_contenido").hide();
@@ -1143,8 +1047,7 @@ function fnc_listar_niveles(in_listar, in_dpndncia_idnivel)
 		data: JSON.stringify(DTA),
 		dataType: "json",
 		contentType: "application/json; charset=utf-8",
-		success: function (response)
-		{
+		success: function (response) {
 			var data = (typeof response.d) == "string" ? eval("(" + response.d + ")") : response.d;
 			var pageCount = 0;
 			var StrPager = '';
@@ -1154,10 +1057,8 @@ function fnc_listar_niveles(in_listar, in_dpndncia_idnivel)
 			var existencipasos = 0;
 
 			//$('#'+vc_id_control+' tr:not(:first)').remove();
-			if (data.length > 0)
-			{
-				if (in_listar == 1)
-				{
+			if (data.length > 0) {
+				if (in_listar == 1) {
 					var valores;
 
 					//creando los link de secuencia:
@@ -1167,16 +1068,14 @@ function fnc_listar_niveles(in_listar, in_dpndncia_idnivel)
 
 					//						alert(id_ref.substr(5, id_ref.length));
 
-					for (var i = 0; i < 9999; i++)
-					{
+					for (var i = 0; i < 9999; i++) {
 						//recorrer los controles de tipo href para eliminar los que son superirores al actual,
 						//ya que si estoy en un nivel superior(1,2,3,4,5,6,7,8,9,10)  y quiero regresar a un nivel inferior(2), el seguimiento de proceso
 						//debe indicar: 1,2, eliminando lo restante.
 						$('#tr_ref_' + i + '').css("background-color", "#4C4A4A");
 						$('#tr_ref_' + i + '').css("border", "#4C4A4A");
 						var id = id_ref.substr(5, id_ref.length);
-						if (i >= id)
-						{
+						if (i >= id) {
 							$('#href_v_' + i + '').remove();
 							$('#tr_ref_' + i + '').remove();
 						}
@@ -1186,18 +1085,13 @@ function fnc_listar_niveles(in_listar, in_dpndncia_idnivel)
 
 					vc_secuencia += "<a id='href_v_" + data[0].id_nivel + "' href='javascript:fnc_listar_niveles(1," + data[0].id_nivel + ")' style='color:#fff;font-weight: bold;'><button id='tr_ref_" + data[0].id_nivel + "' type='button' class='btn btn-danger btn-lg btn-block' style='margin-bottom:3px'>" + data[0].vc_descripcion + "</button></a>";
 
-					if (data[0].id_nivel == "954")
-					{
-						for (var j = 1; j < 8; j++)
-						{
-							if (j == 1)
-							{
+					if (data[0].id_nivel == "954") {
+						for (var j = 1; j < 8; j++) {
+							if (j == 1) {
 								vc_secuencia += "<a href='javascript:fnc_listar_niveles(1,1133)' style='color:#fff;font-weight: bold;'><button id='tr_ref_" + data[0].id_nivel + j + "' type='button' class='btn btn-danger btn-lg btn-block' style='margin-bottom:3px;background-color:#4C4A4A;border:#4C4A4A'>Locucion " + j + "</button></a>";
-							} else if (j == 2)
-							{
+							} else if (j == 2) {
 								vc_secuencia += "<a href='javascript:fnc_listar_niveles(1,1134)' style='color:#fff;font-weight: bold;'><button id='tr_ref_" + data[0].id_nivel + j + "' type='button' class='btn btn-danger btn-lg btn-block' style='margin-bottom:3px;background-color:#4C4A4A;border:#4C4A4A'>Locucion " + j + "</button></a>";
-							} else
-							{
+							} else {
 								vc_secuencia += "<a style='color:#fff;font-weight: bold;'><button id='tr_ref_" + data[0].id_nivel + j + "' type='button' class='btn btn-danger btn-lg btn-block' style='margin-bottom:3px;background-color:#4C4A4A;border:#4C4A4A'>Locucion " + j + "</button></a>";
 							}
 						}
@@ -1219,38 +1113,34 @@ function fnc_listar_niveles(in_listar, in_dpndncia_idnivel)
 					$('#lblDescripcion_plazo').text(data[0].vc_descripcion);
 					$('#lblAlerta_plazo').text(data[0].vc_alerta);
 					$('#lblAlerta_plazo').css('color', '');
-					if (data[0].vc_alerta != '')
-					{
+					if (data[0].vc_alerta != '') {
 						$('#div_alerta').css('background-color', '' + data[0].vc_color_alerta + '');
-					} else
-					{
+					} else {
 						$('#div_alerta').css('background-color', 'transparent');
 					}
 					//alert(data[0].id_nivel);
-					if (data[0].vc_color_alerta == 'green' || data[0].vc_color_alerta == 'red')
-					{ $('#lblAlerta_plazo').css('color', 'white'); } else {
+					if (data[0].vc_color_alerta == 'green' || data[0].vc_color_alerta == 'red') {
+					    $('#lblAlerta_plazo').css('color', 'white');
+					} else {
 						$('#lblAlerta_plazo').css('color', 'black');
 					}
 					//$('#lblSecuencia').text($('#lblSecuencia').text() + ' > ' + $('#lblTitulo_plazo').text());
 
 					fnc_listar_niveles(2, data[0].id_nivel);
 
-				} else if (in_listar == 2)
-				{
-					for (var i = 0; i <= data.length - 1; i++)
-					{
+				} else if (in_listar == 2) {
+					for (var i = 0; i <= data.length - 1; i++) {
 						var url = data[i].vc_url_img.substr(12, data[i].vc_url_img.length);
 						var in_rpta = data[i].in_rpta;
 						var in_link = data[i].in_link;
 						var img = '';
 						//alert(data[i].in_link);
 						
-						if (in_rpta == 2)
-						{//<button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
+						if (in_rpta == 2) {
+						    //<button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
 							//if (numImagenes == 1) {
 							$("#div_contenido").hide();
-							if (data[i].vc_titulo == '(Ver imagen)')
-							{
+							if (data[i].vc_titulo == '(Ver imagen)') {
 								strRows += "<div class='col-lg-7' style='margin-left:150px'>" +
 									"<p style='cursor:pointer;color:#337ab7;font-weight:bold;font-size:18px;margin-top:-20px;margin-right:280px' onclick = 'muestraImagen(/div_" + data[i].id_nivel + "/)'>" + data[i].vc_titulo + "</p>" +
 									"<div id='div_" + data[i].id_nivel + "' class='thumbnail' ><script>$('#div_" + data[i].id_nivel + "').hide()</script>" +
@@ -1258,8 +1148,7 @@ function fnc_listar_niveles(in_listar, in_dpndncia_idnivel)
 									"</div>" +
 									"</div>" +
 									"</br>";
-							} else
-							{
+							} else {
 								strRows += "<div class='col-lg-12'>" +
 												"<b><SPAN>TITULO</SPAN>" + (i + 1) + " : </b>" + data[i].vc_titulo + "</br>" +
 												"<div class='thumbnail' id='div_" + data[i].id_nivel + "' style='border-radius:40px' >" +
@@ -1269,30 +1158,24 @@ function fnc_listar_niveles(in_listar, in_dpndncia_idnivel)
 									"</div>" +
 									"</br>";
 							}
-						} else if (in_rpta == 3)
-						{
+						} else if (in_rpta == 3) {
 							$("#div_contenido").hide();
-							if (data[i].vc_titulo == "Si")
-							{
+							if (data[i].vc_titulo == "Si") {
 								strRows += "<input type='radio' style='width:25px;height:25px;margin-left:40px' onclick='fnc_solucion(1);' name='1'/>" +
 										   "<label style='font-size:13px;vertical-align:middle;margin-top:-12px;padding-left:15px'> " + "hola" + "</label></br>";
-							} else
-							{
+							} else {
 								strRows += "<li class='si' style='display: inline-block; margin-left:250px;margin-top:5px;padding:20px 60px;border-radius:10px;font-size:32px;font-weight:bold'><span style='color:#fff;font-weight:bold;'>Finalizar</span></li>";
 							}
 							//$("#lblDescripcion_plazo").hide();
-						} else if (in_rpta == 4)
-						{
+						} else if (in_rpta == 4) {
 							$("#div_contenido").hide();
 							strRows += "<li class='si' onclick='fnc_listar_niveles(1," + (data[i].in_link == 0 ? data[i].id_nivel : data[i].in_link) + ");' style='display: inline-block; margin-left:100px;margin-top:5px;padding:20px 60px;border-radius:10px;font-size:32px;font-weight:bold'><span style='color:#fff;font-weight:bold;'>" + data[i].vc_titulo + "</span></li>";
 
-						} else if (in_rpta == 5)
-						{
+						} else if (in_rpta == 5) {
 							$("#div_contenido").hide();
 							strRows += "<li class='no' onclick='fnc_listar_niveles(1," + (data[i].in_link == 0 ? data[i].id_nivel : data[i].in_link) + ");' style='display: inline-block; margin-left:50px;margin-top:5px;padding:20px 50px;border-radius:10px;font-size:32px;font-weight:bold'><span style='color:#fff;font-weight:bold;'>" + data[i].vc_titulo + "</span></li>";
 
-						} else if (in_rpta == 6)
-						{
+						} else if (in_rpta == 6) {
 							$("#div_contenido").hide();
 							contenidoul += "<li id='div_" + data[i].id_nivel + "li' class='pasitos' style='display: inline-block;font-weight:bold;padding:10px 40px;font-size:12px;margin-right:3px;border-radius:5px;background-color:rgb(149,149,149);' onclick = 'muestraPaso(/div_" + data[i].id_nivel + "/)'>" + data[i].vc_titulo + "</li>"
 							imagenespasos += "<div class='col-lg-8 thumbnail' style='margin-left:40px;margin-top:-" + existencipasos * 20 + "px;' id='div_" + data[i].id_nivel + "'><script>$('#div_" + data[i].id_nivel + "').hide()</script>" +
@@ -1301,58 +1184,41 @@ function fnc_listar_niveles(in_listar, in_dpndncia_idnivel)
 								"</br>";
 
 							existencipasos++;
-						} else if (in_rpta == 8)
-						{
+						} else if (in_rpta == 8) {
 							$("#div_contenido").show();
 							//Cargar los comentarios
 							Armar_contenido_Nivel(data[i].id_nivel);
-						}
-
-						else
-						{
-							if (data[i].vc_titulo == "SI")
-							{
+						} else {
+							if (data[i].vc_titulo == "SI") {
 								//alert(data[i].in_id_link);
 								//"<li class='desactivado' role='presentation' onclick='fnc_listar_niveles(1," + (data[i].in_link == 0 ? data[i].id_nivel : data[i].in_link) + ");' style='display: inline-block; margin-right:5px;margin-top:5px;padding:10px 20px;border-radius:6px;font-size:18px'><span style='color:#fff;font-weight:bold;'>" + data[i].vc_titulo + "</span></li>";
 								strRows += "<li class='si' onclick='fnc_listar_niveles(1," + (data[i].in_link == 0 ? data[i].id_nivel : data[i].in_link) + ");' style='display: inline-block; margin-left:150px;margin-top:5px;padding:20px 60px;border-radius:10px;font-size:32px;font-weight:bold'><span style='color:#fff;font-weight:bold;'>" + data[i].vc_titulo + "</span></li>";
 
-							} else if (data[i].vc_titulo == "NO")
-							{
+							} else if (data[i].vc_titulo == "NO") {
 
 								strRows += "<li class='no' onclick='fnc_listar_niveles(1," + (data[i].in_link == 0 ? data[i].id_nivel : data[i].in_link) + ");' style='display: inline-block; margin-left:90px;margin-top:5px;padding:20px 50px;border-radius:10px;font-size:32px;font-weight:bold'><span style='color:#fff;font-weight:bold;'>" + data[i].vc_titulo + "</span></li>";
 
-							} else if (data[i].vc_titulo == "Crear Caso")
-							{
+							} else if (data[i].vc_titulo == "Crear Caso") {
 								strRows += "<li class='caso' onclick='fnc_listar_niveles(1," + (data[i].in_link == 0 ? data[i].id_nivel : data[i].in_link) + ");' style='display: inline-block; margin-left:100px;margin-top:5px;padding:20px 60px;border-radius:10px;border:2px solid black;font-size:18px;font-weight:bold'><span style='color:black;font-weight:bold;'>" + data[i].vc_titulo + "</span></li>";
-							} else if (data[i].vc_titulo == "Generar Reclamo")
-							{
+							} else if (data[i].vc_titulo == "Generar Reclamo") {
 								strRows += "<li class='reclamo' onclick='fnc_listar_niveles(1," + (data[i].in_link == 0 ? data[i].id_nivel : data[i].in_link) + ");' style='display: inline-block; margin-left:40px;margin-top:5px;padding:20px 50px;border-radius:10px;border:2px solid black;font-size:18px;font-weight:bold'><span style='color:black;font-weight:bold;'>" + data[i].vc_titulo + "</span></li>";
-							} else if (data[i].vc_titulo == "Interiores")
-							{
+							} else if (data[i].vc_titulo == "Interiores") {
 								strRows += "<li class='no' onclick='fnc_listar_niveles(1," + (data[i].in_link == 0 ? data[i].id_nivel : data[i].in_link) + ");' style='display: inline-block; margin-left:100px;margin-top:5px;padding:20px 50px;border-radius:10px;font-size:32px;border:2px solid black;font-weight:bold'><span style='color:#fff;font-weight:bold;'>" + data[i].vc_titulo + "</span></li>";
-							} else if (data[i].vc_titulo == "Exteriores")
-							{
+							} else if (data[i].vc_titulo == "Exteriores") {
 								strRows += "<li class='si' onclick='fnc_listar_niveles(1," + (data[i].in_link == 0 ? data[i].id_nivel : data[i].in_link) + ");' style='display: inline-block; margin-left:40px;margin-top:5px;padding:20px 50px;border-radius:10px;font-size:32px;border:2px solid black;font-weight:bold'><span style='color:#fff;font-weight:bold;'>" + data[i].vc_titulo + "</span></li>";
-							} else if (data[i].vc_titulo == "Si")
-							{
+							} else if (data[i].vc_titulo == "Si") {
 								strRows += "<li class='ultimosi' style='display: inline-block; margin-left:280px;margin-top:5px;padding:20px 60px;border-radius:10px;font-size:32px;font-weight:bold'><span style='color:#fff;font-weight:bold;'>" + data[i].vc_titulo + "</span></li>";
-							} else if (data[i].vc_titulo.substring(0, 8) == 'Locución')
-							{
+							} else if (data[i].vc_titulo.substring(0, 8) == 'Locución') {
 								strRows += "";
-							}
-
-							else
-							{
+							} else {
 								strRows += "<li class='si' onclick='fnc_listar_niveles(1," + (data[i].in_link == 0 ? data[i].id_nivel : data[i].in_link) + ");' style='display: inline-block; margin-left:250px;margin-top:5px;padding:20px 60px;border-radius:10px;border:2px solid black;font-size:32px;font-weight:bold'><span style='color:#fff;font-weight:bold;'>" + data[i].vc_titulo + "</span></li>";
 							}
 						}
 
 					}//end for
 
-					 ;
 					$('#tb_plazo').empty().html(strRows);
-					if (existencipasos != 0)
-					{
+					if (existencipasos != 0) {
 						$('#tb_plazo').empty().html("<ul>" + contenidoul + "</ul>" + imagenespasos + strRows);
 					}
 
@@ -1368,8 +1234,7 @@ function fnc_listar_niveles(in_listar, in_dpndncia_idnivel)
 				}
 
 				//$("#" + vc_id_control + "").append(strRows + StrPager);
-			} else
-			{
+			} else {
 				//alert('nodatos');
 				$('#tb_plazo').empty().html(strRows);
 				//$('#' + vc_id_control + '').empty().html("<tr><td style='text-align:center;' colspan='10'>No hay Niveles registrados</td></tr>");
@@ -1378,11 +1243,9 @@ function fnc_listar_niveles(in_listar, in_dpndncia_idnivel)
 
 		}//Fin Success
 	}); //Fin Ajax
-
 }
 
-function Armar_contenido_Nivel(in_idnivel)
-{
+function Armar_contenido_Nivel(in_idnivel) {
 
 	var objData = {};
 	objData["op"] = 6;
@@ -1395,38 +1258,30 @@ function Armar_contenido_Nivel(in_idnivel)
 		data: JSON.stringify(objData),
 		dataType: "json",
 		contentType: "application/json; charset=utf-8",
-		success: function (response)
-		{
+		success: function (response) {
 			var data = (typeof response.d) == "string" ? eval("(" + response.d + ")") : response.d;
 			var pageCount = 0;
 			var StrPager; var strRows;
 			$('#tb_contenido_nivel tr:not(:first)').remove();
-			if (data.length > 0)
-			{
-				for (var i = 0; i <= data.length; i++)
-				{
-					if (data.length == i)
-					{
+			if (data.length > 0) {
+				for (var i = 0; i <= data.length; i++) {
+					if (data.length == i) {
 						pageCount = data[0].total;
 						var StrPager = "";
-						if (pageCount > 1)
-						{
-							for (var x = 1; x <= pageCount; x++)
-							{
-								if (x == 1)
-								{
+						if (pageCount > 1) {
+							for (var x = 1; x <= pageCount; x++) {
+								if (x == 1) {
 									//StrPager = "<tr class='pgr'><td colspan='10' style='text-align:left;padding:6px;'>";
 								}
 								//StrPager = StrPager + "<label style='line-height: 12px;border-width: 0;padding: 0 6px;border-left: solid 1px #0A0A0A;font-weight: bold;" + (x == pgnum ? "color: #F4FAF4;" : "color: #080809;cursor:pointer;" + "'  onclick='GetGridUsuario(" + x + ");") + "'>" + x + "</label>";
-								if (x == pageCount)
-								{
+								if (x == pageCount) {
 									//StrPager = StrPager + "</td></tr>";
 								}
 							}
-						} else
-						{ StrPager = "<tr class='pgr'><td colspan='10' style='text-align:left;padding:10px;'></td></tr>"; }
-					} else
-					{
+						} else {
+						    StrPager = "<tr class='pgr'><td colspan='10' style='text-align:left;padding:10px;'></td></tr>";
+						}
+					} else {
 						if (i % 2 == 0) { strRows = strRows + "<tr>"; } else { strRows = strRows + "<tr class='alt'>"; }
 						strRows +=
 								   "<td><textarea id='txt_contenido'>" + data[i].vc_contexto + "</textarea></td>"
@@ -1438,16 +1293,14 @@ function Armar_contenido_Nivel(in_idnivel)
 				}
 				$("#tb_contenido_nivel").append(strRows + StrPager);
 
-			} else
-			{ $("#tb_contenido_nivel").append("<tr><td style='text-align:center;' colspan='10'>No hay datos para mostrar</td></tr>"); }
+			} else {
+			    $("#tb_contenido_nivel").append("<tr><td style='text-align:center;' colspan='10'>No hay datos para mostrar</td></tr>");
+			}
 		}//Fin Success
 	}); //Fin Ajax
 }
 
-
-function fnc_solucion(in_gestion)
-{
-	 ;
+function fnc_solucion(in_gestion) {	 
 	$('#div_resultado').show();
 	$('#div_resultado').modal();
 
@@ -1455,9 +1308,8 @@ function fnc_solucion(in_gestion)
 	var min;
 	var sec;
 	var horaactual;
-	 ;
-	if (sessionStorage.getItem("hora") != null)
-	{
+	 
+	if (sessionStorage.getItem("hora") != null) {
 		 ;
 		var objPreg = sessionStorage.getItem("hora");
 		var objPreg = JSON.parse(objPreg);
@@ -1467,8 +1319,7 @@ function fnc_solucion(in_gestion)
 		horaactual = objPreg.horaactual;
 
 	}
-
-	 ;
+	 
 	var d = new Date();
 	var tiempo = new Date();
 	tiempo = horaactual;
@@ -1499,8 +1350,7 @@ function fnc_solucion(in_gestion)
 	$('#txt_hora').text('');
 	$('#txt_date').text('');
 
-	if (in_gestion == 1)
-	{
+	if (in_gestion == 1) {
 		$('#lblSolucion').text('NO REQUIERE VISITA TECNICA');
 		$('#lblSolucion').css('color', 'black');
 		$('#txt_hora').prop('readonly', true);
@@ -1508,8 +1358,7 @@ function fnc_solucion(in_gestion)
 		$('#txt_date').prop('readonly', true);
 		$('#txt_date').css('background-color', '#B0B0B0');
 		$('#txtarea').focus();
-	} else
-	{
+	} else {
 		$('#lblSolucion').text('REQUIERE VISITA TECNICA');
 		$('#lblSolucion').css('color', 'red');
 		$('#txt_hora').prop('readonly', false);
@@ -1518,10 +1367,8 @@ function fnc_solucion(in_gestion)
 		$('#txt_date').css('background-color', 'white');
 		$('#txtarea').focus();
 	}
-
 }
-$(document).ready(function ()
-{
+$(document).ready(function () {
 	$('#div_resultado').hide();
 	$("#div_menu").hide();
 	$('#div_menu').hide();
@@ -1536,33 +1383,27 @@ $(document).ready(function ()
 	//});	
 
 
-	$(document).click(function (e)
-	{
-		if (e.button == 0)
-		{
+	$(document).click(function (e) {
+		if (e.button == 0) {
 			$("#div_menu").css("display", "none");
 		}
 	});
 
 	//si pulsamos escape, el menú desaparecerá
 
-	$(document).keydown(function (e)
-	{
-		if (e.keyCode == 27)
-		{
+	$(document).keydown(function (e) {
+		if (e.keyCode == 27) {
 			$("#div_menu").css("display", "none");
 		}
 	});
 });
 
-function fnc_close(vc_control)
-{
+function fnc_close(vc_control) {
 	//alert(vc_control);
 	$('#' + vc_control + '').modal('hide');
 }
-function fnc_click(id_nivel)
-{
-	 ;
+function fnc_click(id_nivel) {
+	 
 	$('#div_menu').show();
 	$('#div_menu').modal();
 
@@ -1585,19 +1426,14 @@ function fnc_click(id_nivel)
 	//});
 }
 
-function jq_shadow(id)
-{
+function jq_shadow(id) {
 	//alert(id);
 	//PLL
 	var vc_id_div = JQ_reemplazar(id);
-	if ($('#' + vc_id_div + '').hasClass("shadow"))
-	{
+	if ($('#' + vc_id_div + '').hasClass("shadow"))	{
 		$('#' + vc_id_div + '').removeClass("shadow");
-	} else
-	{
+	} else {
 		$('#' + vc_id_div + '').addClass("shadow");
 	}
-
-
 }
 /*END ARMAR VISTA PREVIA*/

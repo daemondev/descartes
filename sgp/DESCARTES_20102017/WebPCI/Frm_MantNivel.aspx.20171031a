@@ -5,11 +5,11 @@
 
 	<script src="Libreria/js/Codigo_Web/manNiveles.js"></script>
 
-    
+
 	<center>
         <div id="myReact" class="background-color:red; width:100%;height:100%; position:absolute;z-index:99999;"></div>
 		<style>
-			
+
 		</style>
 	    <div style="background-color: #d43f3a;color:white; border-radius: 5px;">
         <h4 class="modal-title">MATENIMIENTO DE PROCESOS</h4>
@@ -26,27 +26,27 @@
                 <td>
                     <%--<select id="ddlSedes" class="form-control" style="width: 200px;"></select>--%>
                 </td>
-                
+
                 <td style="text-align: right;">
                     <button type="button" class="btn btn-primary btn-md" onclick="fnc_nuevaCategoria(0,0);">Nuevo Registro</button>
                 </td>
-			<%-- 
-				<td style="width: 50px;" colspan="3">					
-					<a href='javascript:fnc_preview(0)'>					
-					<img src='Images/iconos/preview.png'  width='32px' /></a>				
+			<%--
+				<td style="width: 50px;" colspan="3">
+					<a href='javascript:fnc_preview(0)'>
+					<img src='Images/iconos/preview.png'  width='32px' /></a>
 				</td>
 				--%>
 	<%--			<td><input type="button" value="click" id="btnclick" onclick="fnc_click()"/></td>--%>
             </tr>
         </table>
 
-<div style=" overflow-y: scroll;height:445px;width:1100px; margin-left:18px;">			
-	<table id="tbCampanias" class="mGrid" style="width:98%;"> 
-			  
+<div style=" overflow-y: scroll;height:445px;width:1100px; margin-left:18px;">
+	<table id="tbCampanias" class="mGrid" style="width:98%;">
+
                 <thead>
-                    <tr>				
+                    <tr>
                         <th style="text-align:center;width:100px;" >GRUPO</th>
-					
+
 						<th style="text-align:center;">TITULO</th>
                         <th style="text-align:center;">DESCRIPCION</th>
                         <th style="text-align:center;width:5%;">RESPUESTA</th>
@@ -56,26 +56,26 @@
                         <%--<th style="text-align:center;width: 5%;">Enlase</th> --%>
                         <th style="text-align:center;">ESTADO</th>
                         <th style="width:5%;">Editar</th>
-                    
+
 						<th style="width:5%;">Nuevo</th>
 						  <th style="width:5%;">Eliminar</th>
 						  <th style="width:5%;">Vista previa</th>
                     </tr>
                 </thead>
                 <tbody id="tb_0" >
-                </tbody>        
+                </tbody>
             </table>
     </div>
-        
+
 	<!--REGISTRO DE LOS DATOS DE DESCARTE--> <!--++++ begin MODAL NUEVO REGISTRO  {{ -->
-	<div id="plazo"  role="dialog" style="width:800px;height:500px; z-index:999;"  > 
+	<div id="plazo"  role="dialog" style="width:800px;height:500px; z-index:999;"  >
 		  <%-- <div class="modal-content"  style="width: 75%;margin-top:10px" >
 			   <div class="modal-content"  style="width: 75%;margin-top:10px" >--%>
 			<table id="tbl_dialog" style="border-collapse: separate; border-spacing: 4px;">
 				<tr>
 					<td>
 						<label>T&Iacute;TULO:</label>
-						
+
 						<label id="lbl_id_categoria"></label>
 						<br />
 						<label id="lbl_id_nivel" ></label>
@@ -93,10 +93,10 @@
 					<td>
 						<label>IMAGEN2 :</label>
 					</td>
-						<td>                           
-							<input  type="file" id="fileupload" name="files[]"  class=""/>						
+						<td>
+							<input  type="file" id="fileupload" name="files[]"  class=""/>
 							<output id="output_img"></output>
-						
+
 						</td>
 				</tr>
 				<tr>
@@ -105,17 +105,17 @@
 					</td>
 					<td>
 						<%--<img id="img1" src="Images/gif/colores_alerta.png" />--%>
-                        <div style="background-color: black;" class="div_colores" > 
+                        <div style="background-color: black;" class="div_colores" >
                             <input type="radio" id="chk_am" name="rdColor" value="yellow"/><label style="color:yellow">Amarrillo</label>
                             <input type="radio" id="chk_ve" name="rdColor" value="green"/><label style="color:green">Verde</label>
-                            <input type="radio" id="chk_ro" name="rdColor" value="red"/><label style="color:red">Rojo</label>                      
+                            <input type="radio" id="chk_ro" name="rdColor" value="red"/><label style="color:red">Rojo</label>
                         </div>
 						<textarea id="Textarea_alerta"  rows="5" style="width:300px;height:80px;resize: none;"></textarea>
 					</td>
 				</tr>
 				<tr>
 					<td><label>RESPUESTA</label></td>
-					<td><select id="ddl_rpta">							
+					<td><select id="ddl_rpta">
 								<option value="1">otros</option>
 								<option value="2" selected="selected">Imagen</option>
 								<option value="3" >btn Finalizacion</option>
@@ -146,7 +146,7 @@
 					<td>
 				<div id="dvProgressBarFiles" style="width:95%;display:none;margin:3px;">
 					<div id="progressFiles" class="progress" >
-						<div class="bar" style="width: 0%;float:left;"><p style="float:right;font-weight:bold;vertical-align:middle;color:#433F38;margin:2px;"><label id="lblProgressFiles"></label></p></div>				
+						<div class="bar" style="width: 0%;float:left;"><p style="float:right;font-weight:bold;vertical-align:middle;color:#433F38;margin:2px;"><label id="lblProgressFiles"></label></p></div>
 					</div>
 				</div>
 					</td>
@@ -160,24 +160,23 @@
 	<div class="modal fade" id="div_Contenido" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
-            <div class="modal-content" style="width: 750px; left:-40px;">
+            <div class="modal-content" style="width: 550px;">
                 <%--<form class="form-horizontal">--%>
                 <div class="modal-header">
                     <h4 class="modal-title"><b>REGISTRO DE CONTENIDOS</b></h4>
                 </div>
-                <div class="modal-body">                    
-                    <!-- <div id="Textarea_contenido"></div> <!---->
-                    <!---->
+                <div class="modal-body">
                     <table style="border-collapse: separate; border-spacing: 2px;">
                         <tr>
                             <td>Contenido :</td>
-                            <td><textarea id="Textarea_contenido"  rows="5" style="width:410px;height:75px;resize: none;"></textarea></td>
-                            
+                            <!--<td><textarea id="Textarea_contenido"  rows="5" style="width:410px;height:75px;resize: none;"></textarea></td>-->
+                            <!--<td><textarea id="editor" name="editor"  rows="10" cols="80"></textarea></td>-->
+                            <td><div id="editor" ></div></td>
                          </tr>
 						<tr>
 							<td>Color Letra :</td>
 							<td>
-								<select id="ddl_color">							
+								<select id="ddl_color">
 									<option value="0" selected="selected">[Seleccione]</option>
 									<option value="1">Rojo</option>
 									<option value="2">Azul</option>
@@ -188,7 +187,7 @@
 						<tr>
 							<td>Letra Subrayado :</td>
 							<td>
-								<select id="ddl_subrayodo">							
+								<select id="ddl_subrayodo">
 									<option value="0" selected="selected">[Seleccione]</option>
 									<option value="1">Si</option>
 									<option value="2">No</option>
@@ -196,10 +195,10 @@
 							</td>
 						</tr>
                     </table>
-                
-				    <table id="tb_contenido" class="mGrid" style="width:90%;">  
+                </div>
+				<table id="tb_contenido" class="mGrid" style="width:90%;">
 					<thead>
-					<tr>	    
+					<tr>
 						<th style="text-align:center; width:62%;">CONTENIDO</th>
 						<th style="text-align:center;">COLOR</th>
 						<th style="text-align:center;">SUBRAYADO</th>
@@ -208,9 +207,9 @@
 					</tr>
 					</thead>
 					<tbody>
-					</tbody>        
-				</table> 
-                </div> <!---->
+					</tbody>
+				</table>
+                <!-- Botones de controles-->
                 <div class="modal-footer">
                     <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
                     <button type="button" class="btn btn-primary" id="btn_grabar_Contenido">Guarda Dato</button>
@@ -226,7 +225,7 @@
                 <div id="div6" style="text-align: center; width: 490px;">
                     <table id="Table1" style="width: 450px;">
                         <tr>
-                            <td style="width: 100px" align="center" colspan="3">                         
+                            <td style="width: 100px" align="center" colspan="3">
                             </td>
                         </tr>
                         <tr>
@@ -235,14 +234,14 @@
                                     Items:</label>
                             </td>
                             <td rowspan="1">
-								
+
                                 <textarea id="A_txtarea" rows="4" cols="50"  style="width:400px;max-width: 400px; max-height: 70px;"></textarea>
                             </td>
-                        </tr>  
+                        </tr>
                     </table>
                     <hr />
                     <table id="tbA" style="width: 450px;" class="mGrid">
-                        <thead> <tr>                                                           
+                        <thead> <tr>
                                 <th>
                                   Opciones de respuesta <img src='Images/iconos/radio-button-group.png' width='24px' />
                                 </th>
@@ -257,7 +256,7 @@
 
 
 	<div id="div_menu" class="modal fade" role="dialog" style="height:155px;width:240px;margin-top:250px;margin-left:500px;">
-				<%--<div class="modal-content"  style="width: 50%;height:120px;width:250px;">--%>	
+				<%--<div class="modal-content"  style="width: 50%;height:120px;width:250px;">--%>
 				<div class="modal-content"  style="width: 50%;height:150px;width:250px;">
 					<div style="width: 250px;">
 					<div class="modal-header" style="width: 250px;">
@@ -268,14 +267,14 @@
 					<div style="float:left"><input type="button" value="Visita Tecnica" class="btn btn-secundari btn-md"/></div><br />
 						<input type="button" value="cerrar" onclick="fnc_close('div_menu')" class="btn btn-primary btn-md" />
 						</div>
-						</div>					
+						</div>
 				</div>
 		</div>
 
 		<!-- VISTA PREVIA O RESUMEN DEL PROCESO DE DESCARTE REGISTRADO-->
 	<fieldset id="fsResumen" style="display:block">
 			<div  id="div_plazo" class="modal fade" role="dialog" style="margin-top:-150px" >
-		
+
 			  <%--    <div class="modal-content">--%>
             <!-- Modal content-->
               <div class="modal-content"  style="width: 75%;margin-top:200px;box-shadow:inherit" >
@@ -291,15 +290,15 @@
 											<p></p>
 											<div id="div_secuencia" style="">
 												GHIAN_SEGUIMIENTO
-											</div>							
+											</div>
 									</div>
 									<div class="col-lg-9">
 										<ul id="tb_matricez" style="width:100%; text-align:left; margin-left:-120px;margin-right:-40px"></ul>
 										<div id="tb_imagenes" style="margin-left:-10px;"></div>
 										<div  id="div_plazo2" style="width:100%;">
 											<div style="margin-right:20px;margin-top:-5px;/*border-radius:30px;border:2px solid #A7A7A7;*/overflow-y:scroll;overflow-x:hidden;height:500px;/*background-color:rgba(232, 232, 232,0.5)*/" >
-												<div style="width:100%; text-align:left;" id="tbl_nivel">				
-													<br/>						            
+												<div style="width:100%; text-align:left;" id="tbl_nivel">
+													<br/>
 													<br/>
 													<br/>
 													<div class="row" style="/*padding-left:20px;*/margin-top:0px">
@@ -309,24 +308,24 @@
 														</div>
 														<div id="tb_plazo" style="" >
 														</div>
-													</div>			
+													</div>
 		    									</div>
 											</div>
 										</div>
-									</div>		
-								</div>	
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
 			</div>
 		</fieldset>
-			 
+
 	<div class="modal fade" id="div_resultado" role="dialog" style="margin-top:-100px" >
-		
+
 				  <%--    <div class="modal-content">--%>
                 <!-- Modal content-->
               <div class="modal-content"  style="width: 50%;margin-top:200px" >
-			
+
                    <div style="width: auto;">
 					<div class="modal-header">
                         <h4 class="modal-title" id="h1">RESULTADO</h4>
@@ -337,11 +336,11 @@
 							<tr>
 								<td><label>N° Incidente:</label></td>
 								<td><label>23184652</label></td>
-								
+
 							</tr>
 							<tr><td><label>Cliente:</label>
 							    </td><td><label>Pedro Lazo</label></td></tr>
-							
+
 							<tr>
 								<td><label>Tipo de solución:</label>
 							    </td><td><label id="lblSolucion">No amerita VISITA TECNICA</label></td>
@@ -374,13 +373,13 @@
 							</tr>
 						</table>
 						<div class="modal-footer">
-                      
+
 							<input type="button" value="Guardar" class="btn btn-primary btn-md" />
                             <input type="button" value="Cerrar" onclick="fnc_close('div_resultado');" class="btn btn-primary btn-md" />
-							
+
                     </div>
-										
-						
+
+
 						</div>
 				</div>
 				</div>
@@ -536,19 +535,6 @@
 		</style>
 		</center>
 
-<script src="assets/lib/react/react.min.js"></script>
-    <script src="assets/lib/react/react-dom.min.js"></script>
-    <script src="assets/js/sgp.jsx" type="text/javascript"></script>
-    <script src="assets/lib/ckeditor/ckeditor.js"></script>
-    <script src="assets/lib/ckeditor/sample.js"></script>
-    <script>
-        //CKEDITOR.config.height = 150;
-        //CKEDITOR.config.width = 'auto';
-        ////CKEDITOR.config.width = 600;
-        //CKEDITOR.replace("Textarea_contenido");
-        ////var editorElement = CKEDITOR.document.getById('Textarea_contenido');
-        //initSample();
-    </script>    
 </asp:Content>
 
 

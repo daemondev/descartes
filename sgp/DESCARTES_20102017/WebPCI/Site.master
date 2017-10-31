@@ -73,7 +73,7 @@
                         <!-- User Account: style can be found in dropdown.less -->
                         <li>
                             <div id="div_Fecha_Hora">
-                                <asp:Label ID="lblFecha" runat="server" CssClass="csstextReloj" Text="[ MM/DD/YYYY ]" ToolTip="Fecha" Font-Bold="true"></asp:Label>
+                                <asp:Label ID="lblFecha" runat="server" CssClass="csstextReloj" Text="[ MM/DD/YYYY ]" ToolTip="Fecha" Font-Bold="true"></asp:Label><span id="lblTime"></span>
                             </div>
                         </li>
                         <li class="dropdown user user-menu">
@@ -177,9 +177,7 @@
 	    $.ajax(config);
 	}
 </script>
-    <script src="assets/lib/react/react.min.js"></script>
-    <script src="assets/lib/react/react-dom.min.js"></script>
-    <script src="assets/js/sgp.jsx" type="text/javascript"></script>
+    
 <style>
 				.no-js #loader { display: none;  }
 
