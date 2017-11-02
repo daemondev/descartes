@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="CONTENEDOR" runat="Server">
 	<%--<script src="Libreria/js/jquery-ui-1.10.3.custom/js/jquery.number.js"></script>--%>
 
-	<script src="Libreria/js/Codigo_Web/manNiveles.js"></script>
+	
 
     
 	<center>
@@ -165,51 +165,24 @@
                 <div class="modal-header">
                     <h4 class="modal-title"><b>REGISTRO DE CONTENIDOS</b></h4>
                 </div>
-                <div class="modal-body">                    
-                    <!----> <div id="Textarea_contenido" noTooltip></div> <!---->
-                    <!--
+                <div class="modal-body">                                        
                     <table style="border-collapse: separate; border-spacing: 2px;">
-                        <tr>
-                            <td>Contenido :</td>
-                            <td><textarea id="Textarea_contenido"  rows="5" style="width:410px;height:75px;resize: none;"></textarea></td>
-                            
-                         </tr>
-						<tr>
-							<td>Color Letra :</td>
-							<td>
-								<select id="ddl_color">							
-									<option value="0" selected="selected">[Seleccione]</option>
-									<option value="1">Rojo</option>
-									<option value="2">Azul</option>
-									<option value="3">Negro</option>
-								</select>
-							</td>
-						</tr>
-						<tr>
-							<td>Letra Subrayado :</td>
-							<td>
-								<select id="ddl_subrayodo">							
-									<option value="0" selected="selected">[Seleccione]</option>
-									<option value="1">Si</option>
-									<option value="2">No</option>
-								</select>
-							</td>
-						</tr>
+                        <tr>                            
+                            <td><textarea id="Textarea_contenido"  rows="5" style="width:410px;height:75px;resize: none;"></textarea></td>                            
+                         </tr>						
                     </table>
                 
 				    <table id="tb_contenido" class="mGrid" style="width:90%;">  
-					<thead>
-					<tr>	    
-						<th style="text-align:center; width:62%;">CONTENIDO</th>
-						<th style="text-align:center;">COLOR</th>
-						<th style="text-align:center;">SUBRAYADO</th>
-						<th style="text-align:center;"></th>
-						<th style="width:5%;"></th>
-					</tr>
-					</thead>
+					    <thead>
+					        <tr>	    
+						        <th style="text-align:center;">CONTENIDO</th>						
+						        <th style="text-align:center; width:10px;">ACCIONES</th>
+						        
+					        </tr>
+					    </thead>
 					<tbody>
 					</tbody>        
-				</table> <!---->
+				</table>
                 </div> 
                 <div class="modal-footer">
                     <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
@@ -541,14 +514,15 @@
     <script src="assets/lib/react/react-dom.min.js"></script>
     <script src="assets/js/sgp.jsx" type="text/javascript"></script>
     <script src="assets/lib/ckeditor/ckeditor.js"></script>
-    <script src="assets/lib/ckeditor/sample.js"></script>
+    <script src="Libreria/js/Codigo_Web/manNiveles.js"></script>
+    <!-- <script src="assets/lib/ckeditor/sample.js"></script> -->
     <script>
         //CKEDITOR.config.height = 150;
         //CKEDITOR.config.width = 'auto';
         ////CKEDITOR.config.width = 600;
         //CKEDITOR.replace("Textarea_contenido");
         ////var editorElement = CKEDITOR.document.getById('Textarea_contenido');
-        initSample();
+        //initSample();
     </script>    
 </asp:Content>
 

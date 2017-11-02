@@ -144,4 +144,13 @@ public partial class Frm_MantNivel : System.Web.UI.Page
 		return lst;
 	}
 
+    [WebMethod]
+    public static string getContentOfNivel(int opc, int idNivel) {
+        Dictionary<string, object> data = new Dictionary<string, object>() {
+            {"in_opc",opc },
+            { "in_idnivel", idNivel}
+        };
+        return R.getJSON("usp_mantContenido_Nivel", data);
+    }
+
 }

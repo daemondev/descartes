@@ -1,7 +1,5 @@
-﻿//https://sdk.ckeditor.com/samples/savetextarea.html
-//http://bitcookie.com/blog/drupal-ckeditor-setup-development-tutorial
-//!!CKEDITOR.plugins.get('wysiwygarea');
-var editor = CKEDITOR.replace('Textarea_contenido');
+﻿//!!CKEDITOR.plugins.get('wysiwygarea');
+//var editor = CKEDITOR.replace('Textarea_contenido');
 //var editor = CKEDITOR.document.getById('Textarea_contenido');
 //var editor = CKEDITOR.inline('Textarea_contenido');
 
@@ -23,26 +21,24 @@ function getPlainText(instance) {
     var strSrc = CKEDITOR.instances[instance].getData();
     contentDataRaw = strSrc;
     var resultStr = "";
-    
+
     if (strSrc.indexOf('<p>') == 0) resultStr = strSrc.substring(3);
     else resultStr = strSrc;
-    
+
     resultStr = resultStr.replace(/<p>/gi, "\r\n\r\n");
-    
+
     resultStr = resultStr.replace(/<br \/>/gi, "\r\n");
-    resultStr = resultStr.replace(/<br>/gi, "\r\n");   
+    resultStr = resultStr.replace(/<br>/gi, "\r\n");
     contentData = resultStr.replace(/<[^<|>]+?>/gi, '');
-    return (contentData.length > 0)? contentData : null; 
+    return (contentData.length > 0)? contentData : null;
 }
 //var editor = CKEDITOR.instances["Textarea_contenido"];
 
 function cleanEditor(instance) {
-    //CKEDITOR.instances[instance].setData("");
-    editor.setData("");
+    //CKEDITOR.instances["Textarea_contenido"].setData("");
     //CKEDITOR.replace($(this).attr('id'));
     //CKEDITOR.instances["Textarea_contenido"].destroy();
 
-    /*
     for (name in CKEDITOR.instances) {
         //alert("deleting");
         CKEDITOR.instances[name].destroy();
@@ -51,7 +47,7 @@ function cleanEditor(instance) {
         $('.editor').each(function () {
             CKEDITOR.replace($(this).attr('id'));
         }); //*/
-    //} //*/
+    }
 
     //editor.setData("");
 }
@@ -62,26 +58,35 @@ function setEditorText(content) {
     CKEDITOR.on("instanceReady", function (event) {
         CKEDITOR.instances.Textarea_contenido.setData(myContent);
     });//*/
-    
-    editor.setData(content);
+
+    //CKEDITOR.instances["Textarea_contenido"].setData(content);
+    //editor.setData(content);
+
+    $("#Textarea_contenido").html(content);
+
+    CKEDITOR.replace('Textarea_contenido');
 
 
     /*
-    $("#Textarea_contenido").html(content);
-    CKEDITOR.replace('Textarea_contenido'); //*/
+    CKEDITOR.instances["Textarea_contenido"].setData(content, {
+        callback: function () {
+            //alert(content);
+            this.checkDirty(); // true
+        }
+    });//*/
 }
 
 function getTextPlain(instance) {
     var objEditor = CKEDITOR.instances[instance];
     var msg = objEditor.getData();
-    var txt = $(msg).text().replaceAll("\n\n", "\n");    
+    var txt = $(msg).text().replaceAll("\n\n", "\n");
     return txt;
 }
 
 function toogleEditor() {
     var bar = document.getElementById("cke_1_top");
     if (bar.style.display == "none") bar.style.display = "block";
-    else bar.style.display = "none";    
+    else bar.style.display = "none";
 }
 
 $(document).ready(function () {
@@ -100,14 +105,14 @@ $(document).ready(function () {
 
 	GetNiveles(0, 1, 'tb_0', 'lst');
 	//$('#lbl_id_nivel').hide();
-    $("#btnDebug").click(function () {        
+    $("#btnDebug").click(function () {
         var editorData = CKEDITOR.instances.Textarea_contenido.getData();
         //var text = CKEDITOR.instances.Textarea_contenido.document.getBody().getText();
 
         var plain_text = getPlainText("Textarea_contenido");
-        //alert(editorData); 
-        //alert(plain_text + " modified"); 
-        //alert(getTextPlain("Textarea_contenido"));         
+        //alert(editorData);
+        //alert(plain_text + " modified");
+        //alert(getTextPlain("Textarea_contenido"));
     });
 	$('#lbl_id_categoria').hide();
 	$('#lbl_id_nivel').text(0);
@@ -141,7 +146,7 @@ $(document).ready(function () {
 
     */
 	$("#btn_grabar_Contenido").click(function () {
-	    if (getPlainText("Textarea_contenido")) {	        
+	    if (getPlainText("Textarea_contenido")) {
 	        Guarda_contenido(1, 0);
 	    } else {
 	        new Messi("Ingrese el contenido a Mostrar", { modal: true, center: true, title: 'Informacion', titleClass: 'anim error', autoclose: 1500, buttons: [{ id: 0, label: 'Ok', val: 'X' }] });
@@ -174,7 +179,7 @@ function JQ_Open_Contexto(in_idnivel) {
 	//$("#ddl_color").val("0");
 	//$("#ddl_subrayodo").val("0");
 	GetGrid_Contenido(1, in_idnivel);
-	$("#hd_idcontenido").val("0");	
+	$("#hd_idcontenido").val("0");
 }
 
 
@@ -185,12 +190,12 @@ function Guarda_contenido(op,idcontenido) {
 	var objData = {};
 	objData["in_idcontenido"] = $("#hd_idcontenido").val();
 	objData["in_idnivel"] = $('#hdIddescarte').val();
-	objData["vc_contexto"] = $("#Textarea_contenido").val();	
+	objData["vc_contexto"] = $("#Textarea_contenido").val();
 	objData["vc_color"] = $("#ddl_color").val();
 	objData["vc_subrayado"] = $("#ddl_subrayodo").val();
 	objData["op"] = op;
 
-    /*modified*/    
+    /*modified*/
 	objData["vc_contexto"] = contentDataRaw;
 	objData["vc_color"] = "3";
 	objData["vc_subrayado"] = 1;
@@ -202,7 +207,7 @@ function Guarda_contenido(op,idcontenido) {
 		data: JSON.stringify(objData),
 		dataType: "json",
 		contentType: "application/json; charset=utf-8",
-		success: function (data) {			 
+		success: function (data) {
 			var obj = data.d;
 			if (obj >= 1) {
 				new Messi("Registro Correctamente realizado", { modal: true, center: true, title: 'Informacion', titleClass: 'anim error', autoclose: 1500, buttons: [{ id: 0, label: 'Ok', val: 'X' }] });
@@ -245,52 +250,16 @@ function GetGrid_Contenido(pgnum,in_idnivel)
 			var data = (typeof response.d) == "string" ? eval("(" + response.d + ")") : response.d;
 			var pageCount = 0;
 			var StrPager; var strRows;
-			
-			$('#tb_contenido tr:not(:first)').remove();
-			if (data.length > 0) {
-			    for (var i = 0; i <= data.length; i++) {
-			        if (data.length == i) {
-			            pageCount = data[0].total;
-			            var StrPager = "";
-			            if (pageCount > 1) {
-			                for (var x = 1; x <= pageCount; x++) {
-			                    if (x == 1) {
-			                        StrPager = "<tr class='pgr'><td colspan='8' style='text-align:left;padding:6px;'>";
-			                    }
-			                    StrPager = StrPager + "<label style='line-height: 12px;border-width: 0;padding: 0 6px;border-left: solid 1px #0A0A0A;font-weight: bold;" + (x == pgnum ? "color: #F4FAF4;" : "color: #080809;cursor:pointer;" + "'  onclick='GetGridUsuario(" + x + ");") + "'>" + x + "</label>";
-			                    if (x == pageCount) {
-			                        StrPager = StrPager + "</td></tr>";
-			                    }
-			                }
-			            } else { StrPager = "<tr class='pgr'><td colspan='8' style='text-align:left;padding:10px;'></td></tr>"; }
-			        } else {
 
-			            if (i % 2 == 0) strRows = strRows + "<tr>";
-			            else strRows = strRows + "<tr class='alt'>";
-
-			            strRows +=
-                                       "<td>" + data[i].vc_contexto + "</td>" +                                   
-                                       "<td align=center>" +
-                                            "<img src='Images/iconos/edit.png'  width='18px' title='Editar' onclick='Editar_Contenido(" + '"' + data[i].in_idcontenido + '"' + ");' style='cursor:pointer;' />&nbsp;|&nbsp;" +
-                                            (data[i].in_estado == 1 ? "<img src='libreria/imagenes/Botones/Activo.png' title='Desactivar'" : "<img src='libreria/imagenes/Botones/Desactivo.png' title='Activar'") + " onclick='Estado_Contenido(" + '"' + data[i].in_idcontenido + '"' + ");' style='cursor:pointer;' /></td>" +
-								       "</td>" +
-                                   "</tr>"
-			        }
-			    }
-			    $("#tb_contenido").append(strRows + StrPager);
-
-			} else {
-			    $("#tb_contenido").append("<tr><td style='text-align:center;' colspan='10'>No hay datos para mostrar</td></tr>");
-			}
-
-
-            /*### work
 			var myContent = "";
 			$.each(data, function (k,v) {
 			    myContent += v.vc_contexto;
 			});
-			setEditorText(myContent) //*/
-			
+			setEditorText(myContent)
+
+			//populateContentData(myContent);
+			//alert("populated: " + myContent);
+
 		}//Fin Success
 	}); //Fin Ajax
 	//populateContentData(content);
@@ -307,16 +276,15 @@ function Editar_Contenido(in_idcontenido)
 		data: JSON.stringify(objData),
 		dataType: "json",
 		contentType: "application/json; charset=utf-8",
-		success: function (response) {
+		success: function (response)
+		{
 			var data = (typeof response.d) == "string" ? eval("(" + response.d + ")") : response.d;
 			$("#hd_idcontenido").val(data[0].in_idcontenido);
 			$("#Textarea_contenido").val(data[0].vc_contexto);
 			$("#ddl_color").val(data[0].vc_color);
 			$("#ddl_subrayodo").val(data[0].vc_subrayado);
-			//alert(data[0].vc_contexto);
-			setEditorText(data[0].vc_contexto);
-		}//Fin success
-	}); //Fin DEL .ajax
+		}//Fin data
+	}); //Fin DEL .aja
 }
 
 function Estado_Contenido(in_idcontenido)
@@ -423,7 +391,7 @@ function GetNiveles(in_dpndncia_idnivel, p, vc_id_control, vc_lst) {
 
 	var DTA = {};
 	DTA.objData = objData;
-	 
+
 	$.ajax({
 		async: false,
 		type: "POST",
@@ -432,7 +400,7 @@ function GetNiveles(in_dpndncia_idnivel, p, vc_id_control, vc_lst) {
 		dataType: "json",
 		contentType: "application/json; charset=utf-8",
 		success: function (response){
-			
+
 			var data = (typeof response.d) == "string" ? eval("(" + response.d + ")") : response.d;
 			var pageCount = 0;
 			var StrPager = '';
@@ -445,14 +413,14 @@ function GetNiveles(in_dpndncia_idnivel, p, vc_id_control, vc_lst) {
 
                     //### step 001
 					if ((data.length) == i){
-						 
+
 						var pageCount = data[0].total;
 						var StrPager = "";
 
 						if (pageCount >= 1) { //### begin pagination {{
 
 							for (var x = 1; x <= pageCount; x++) {
-								 
+
 								if (x == 1) {
 									StrPager = "<tr class='pgr'><td colspan='12' style='text-align:left;padding:6px;'>";
 								}
@@ -466,7 +434,7 @@ function GetNiveles(in_dpndncia_idnivel, p, vc_id_control, vc_lst) {
 
 						} else {
 							StrPager = "<tr  class='pgr'><td colspan='12' style='text-align:left;padding:10px;'></td></tr>";
-							 
+
 							if (i % 2 == 0) { strRows = strRows + "<tr>"; } else { strRows = strRows + "<tr class='alt'>"; }
 						} //### end pagination }}
 
@@ -494,7 +462,7 @@ function GetNiveles(in_dpndncia_idnivel, p, vc_id_control, vc_lst) {
                                 "</td>" +
                             "</tr>";
 					}
-				}				 
+				}
 
 				$('#' + vc_id_control + '').empty().html(strRows + StrPager);
 				//$("#" + vc_id_control + "").append(strRows + StrPager);
@@ -520,7 +488,7 @@ var dictRptaIcon = {
 };
 
 function getRptaIcon(idRpta, idNivel) {
-    if  (! dictRptaIcon.hasOwnProperty(idRpta)) idRpta = 999;        
+    if  (! dictRptaIcon.hasOwnProperty(idRpta)) idRpta = 999;
     return dictRptaIcon[idRpta].replace("|idNivel|", idNivel);
 }
 
@@ -572,7 +540,7 @@ function fnc_AsignarLink(in_link_nivel) {
 				new Messi("Asignacion correcta", { modal: true, center: true, title: 'Informacion', titleClass: 'anim error', autoclose: 1500, buttons: [{ id: 0, label: 'Ok', val: 'X' }] });
 				for (var i = 0; i < 9999; i++)
 				{
-					//var id = id_ref.substr(5, id_ref.length);					
+					//var id = id_ref.substr(5, id_ref.length);
 					$('#rd_link_' + i + '').css("visibility", "hidden");
 				}
 			}
@@ -589,7 +557,7 @@ function fnc_CambiarEstado(id_nivel, in_estado, in_dpndncia_idnivel) {
 	new Messi('Al cambiar de estado también afectará a los subniveles', {
 		title: 'Confirmacion', titleClass: 'anim error', buttons: [{ id: 0, label: 'SI', class: 'btn-success', val: true }, { id: 1, label: 'NO', class: 'btn-danger', val: false }], callback: function (val)
 		{
-			if (val == true) {				 
+			if (val == true) {
 				var objData = {};
 				objData["indice"] = 5;
 				objData["id_nivel"] = id_nivel;
@@ -605,7 +573,7 @@ function fnc_CambiarEstado(id_nivel, in_estado, in_dpndncia_idnivel) {
 					dataType: "json",
 					contentType: "application/json; charset=utf-8",
 					beforeSend: function () { },
-					success: function (response) {						 
+					success: function (response) {
 						var obj = response.d;
 
 						if (obj[0].in_result >= 1) {
@@ -635,7 +603,7 @@ function fnc_EliminarNivel(id_nivel, in_dpndncia_idnivel) {
 				var objData = {};
 				objData["indice"] = 4;
 				objData["id_nivel"] = id_nivel;
-				 
+
 				var DTO = {};
 				DTO.objData = objData;
 				$.ajax({
@@ -708,7 +676,7 @@ function fnc_EditarNivel(id_nivel, in_cate, vc_titulo, vc_descripcion, vc_url_im
 	} else if (vc_color_alerta == 'red')  {
 		$('#chk_ro').prop("checked", true);
 	}
-	 
+
 	//alert(vc_alerta);
 	$('#txtTitulo').val(JQ_reemplazar(vc_titulo));
 	$('#txtArea_desc').val(JQ_reemplazar(vc_descripcion));
@@ -729,7 +697,7 @@ function fnc_EditarNivel(id_nivel, in_cate, vc_titulo, vc_descripcion, vc_url_im
 	//	buttons: [{text  : 'Editar',
 	//				click : function() {
 	//					fnc_guardar(3, in_dpndncia_idnivel);
-	//				}, 
+	//				},
 	//				class : 'btn btn-primary btn-md'
 	//			}],
 	//});
@@ -799,7 +767,7 @@ $(document).ready(function () {
 	//	}
 	//});
 
-	//controlamos los botones del menú		
+	//controlamos los botones del menú
 });
 
 /*
@@ -824,7 +792,7 @@ $(document).ready(function () {
 				return function (e)
 				{
 					// Insertamos la imagen
-		
+
 					document.getElementById("output_img").innerHTML = ['<img class="thumb" src="', e.target.result, '" title="', escape(theFile.name), '" style="width:100%"/>'].join('');
 				};
 			})(f);
@@ -839,8 +807,8 @@ $(document).ready(function () {
 */
 function fnc_guardar(in_gestion, in_dpndncia_idnivel) {
 
-    var color = $("input[name=rdColor]:checked").val() || 'noselected';    
-	
+    var color = $("input[name=rdColor]:checked").val() || 'noselected';
+
 	var id_nivel = 0;
 	if ($('#lbl_id_nivel').text() != '') {
 		id_nivel = $('#lbl_id_nivel').text();
@@ -880,7 +848,7 @@ function fnc_guardar(in_gestion, in_dpndncia_idnivel) {
 			dataType: "json",
 			contentType: "application/json; charset=utf-8",
 			beforeSend: function () { },
-			success: function (response) {				 
+			success: function (response) {
 				var obj = response.d;
 
 				if (obj[0].in_result >= 1) {
@@ -892,7 +860,7 @@ function fnc_guardar(in_gestion, in_dpndncia_idnivel) {
 						new Messi("Nivel Actualizado", { modal: true, center: true, title: 'Informacion', titleClass: 'anim error', autoclose: 1500, buttons: [{ id: 0, label: 'Ok', val: 'X' }] });
 						GetNiveles((in_dpndncia_idnivel), 1, '/tb_' + in_dpndncia_idnivel + '/', '/reg/');
 					}
-					var in_categoria = 0;					 
+					var in_categoria = 0;
 					$('#plazo').dialog("close");
 				}
 			}
@@ -904,7 +872,7 @@ function JQ_Grabar_Nivel(vc_filename) {
 	alert('grabando');
 }
 
-function Carga_Img() {	 
+function Carga_Img() {
 	//alert('cargar imAG');
 	$("#fileupload").fileupload({
 		replaceFileInput: false,
@@ -919,7 +887,7 @@ function Carga_Img() {
 					valid = false;
 				}
 			});
-			 
+
 			if (valid) {
 				//if ($("#hdCapaID").val() == "0") {
 				//    new Messi("Se presento un error al cargar", { modal: true, center: true, title: 'Informacion', titleClass: 'anim error', autoclose: 1500, buttons: [{ id: 0, label: 'Ok', val: 'X' }] });
@@ -1053,9 +1021,9 @@ function fnc_preview(id_nivel) {
 	for (var i = 0; i < 9999; i++) {
 		//recorrer los controles de tipo href para eliminar los que son superirores al actual,
 		//ya que si estoy en un nivel superior(1,2,3,4,5,6,7,8,9,10)  y quiero regresar a un nivel inferior(2), el seguimiento de proceso
-		//debe indicar: 1,2, eliminando lo restante.		
+		//debe indicar: 1,2, eliminando lo restante.
 
-		if ($('#href_v_' + i + '').length)  {			 
+		if ($('#href_v_' + i + '').length)  {
 			$('#href_v_' + i + '').remove();
 			$('#tr_ref_' + i + '').remove();
 		}
@@ -1064,13 +1032,13 @@ function fnc_preview(id_nivel) {
 	fnc_listar_niveles(1, id_nivel);
 }
 
-function muestrate(imagen) {	 
+function muestrate(imagen) {
 	$('#div_secuencia').empty().html("");
 	for (var i = 0; i < 999; i++) {
 		$('#href_v_' + i + '').remove();
 		$('#tr_ref_' + i + '').remove();
 	}
-	 
+
 	$('#tb_imagenes').show();
 	$('#div_plazo').hide();
 
@@ -1223,7 +1191,7 @@ function fnc_listar_niveles(in_listar, in_dpndncia_idnivel) {
 					vc_secuencia += "<a id='href_v_" + data[0].id_nivel + "' href='javascript:fnc_listar_niveles(1," + data[0].id_nivel + ")' style='color:#fff;font-weight: bold;'><button id='tr_ref_" + data[0].id_nivel + "' type='button' class='btn btn-danger btn-lg btn-block' style='margin-bottom:3px'>" + data[0].vc_descripcion + "</button></a>";
 
 					if (data[0].id_nivel == "954") {
-					    alert("when [data[0].id_nivel] 954");					    
+					    alert("when [data[0].id_nivel] 954");
 						for (var j = 1; j < 8; j++) {
 							if (j == 1) {
 								vc_secuencia += "<a href='javascript:fnc_listar_niveles(1,1133)' style='color:#fff;font-weight: bold;'><button id='tr_ref_" + data[0].id_nivel + j + "' type='button' class='btn btn-danger btn-lg btn-block' style='margin-bottom:3px;background-color:#4C4A4A;border:#4C4A4A'>Locucion " + j + "</button></a>";
@@ -1276,7 +1244,7 @@ function fnc_listar_niveles(in_listar, in_dpndncia_idnivel) {
 						var in_link = data[i].in_link;
 						var img = '';
 						//alert(data[i].in_link);
-						
+
 						if (in_rpta == 2) {
 						    //<button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
 							//if (numImagenes == 1) {
@@ -1391,7 +1359,7 @@ function getContentOfNivel(idNivel) {
     ajax(urlFrm_MantNivel + "getContentOfNivel", { opc: 6, idNivel: idNivel }, getContentOfNivelHandler);
 }
 
-function getContentOfNivelHandler(data) {    
+function getContentOfNivelHandler(data) {
     var json = eval('(' + data.d + ')');
     var rawStr = ""
     $.each(json, function (k,v) {
@@ -1457,7 +1425,7 @@ function Armar_contenido_Nivel(in_idnivel) {
 	}); //Fin Ajax
 }
 
-function fnc_solucion(in_gestion) {	 
+function fnc_solucion(in_gestion) {
 	$('#div_resultado').show();
 	$('#div_resultado').modal();
 
@@ -1465,7 +1433,7 @@ function fnc_solucion(in_gestion) {
 	var min;
 	var sec;
 	var horaactual;
-	 
+
 	if (sessionStorage.getItem("hora") != null) {
 		 ;
 		var objPreg = sessionStorage.getItem("hora");
@@ -1476,7 +1444,7 @@ function fnc_solucion(in_gestion) {
 		horaactual = objPreg.horaactual;
 
 	}
-	 
+
 	var d = new Date();
 	var tiempo = new Date();
 	tiempo = horaactual;
@@ -1537,7 +1505,7 @@ $(document).ready(function () {
 	//	//alert($(this).prop('id'));
 	//	$("#div_menu").css({ 'display': '', 'left': (e.pageX), 'top': (e.pageY)-50 });
 	//	return false;
-	//});	
+	//});
 
 
 	$(document).click(function (e) {
@@ -1560,13 +1528,13 @@ function fnc_close(vc_control) {
 	$('#' + vc_control + '').modal('hide');
 }
 function fnc_click(id_nivel) {
-	 
+
 	$('#div_menu').show();
 	$('#div_menu').modal();
 
 	//alert(id_nivel);
 
-	//$('#' + id_nivel + '').click(function(e) 
+	//$('#' + id_nivel + '').click(function(e)
 	//{
 	//	 ;
 	//	//alert($(this).prop('id'));

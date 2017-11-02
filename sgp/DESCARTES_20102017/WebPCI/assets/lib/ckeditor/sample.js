@@ -22,7 +22,8 @@ var initSample = ( function() {
 	    var editorElement = CKEDITOR.document.getById('Textarea_contenido');
 
 		// :(((
-		if ( isBBCodeBuiltIn ) {
+	    if (isBBCodeBuiltIn) {
+	        alert("isBBCodeBuiltIn 01");
 			editorElement.setHtml(
 				'Hello world!\n\n' +
 				'I\'m an instance of [url=http://ckeditor.com]CKEditor[/url].'
@@ -30,9 +31,12 @@ var initSample = ( function() {
 		}
 
 		// Depending on the wysiwygare plugin availability initialize classic or inline editor.
-		if ( wysiwygareaAvailable ) {
+	    if (wysiwygareaAvailable) {
+
+	        alert("wysiwygareaAvailable 02");
 		    CKEDITOR.replace('Textarea_contenido');
-		} else {
+	    } else {
+	        alert("else 03");
 			editorElement.setAttribute( 'contenteditable', 'true' );
 			CKEDITOR.inline('Textarea_contenido');
 
@@ -47,7 +51,7 @@ var initSample = ( function() {
 		if ( CKEDITOR.revision == ( '%RE' + 'V%' ) ) {
 			return true;
 		}
-
+		
 		return !!CKEDITOR.plugins.get( 'wysiwygarea' );
 	}
 } )();
