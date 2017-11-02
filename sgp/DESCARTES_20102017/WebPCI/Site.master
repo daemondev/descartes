@@ -9,7 +9,7 @@
     <link href="Libreria/js/jquery-ui-1.10.3.custom/css/jqueryUI-MDY/jquery-ui-1.9.2.custom.css" rel="stylesheet" />
 <%--    <script src="Libreria/js/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.js"></script>--%>
 	
-	<script src="Libreria/js/jquery-ui-1.10.3.custom/jquery-ui-1.10.3.custom.js"></script>
+	<!-- <script src="Libreria/js/jquery-ui-1.10.3.custom/jquery-ui-1.10.3.custom.js"></script> -->
 	<script src="Libreria/js/jquery-ui-1.10.3.custom/jquery-ui-1.10.3.custom.min.js"></script>
     
 
@@ -18,8 +18,8 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
     <%--Bootstrap 3.3.5--%>
     <link href="Libreria/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <%--font awesome--%>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+    <%--font awesome--%>    
+    <link href="Libreria/css/font-awesome.min.css" rel="stylesheet" />
 
     <link href="Libreria/js/messiAlert/css/messi.css" rel="stylesheet" />
     <script src="Libreria/js/messiAlert/js/messi.min.js"></script>
