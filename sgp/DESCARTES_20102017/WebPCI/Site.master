@@ -8,9 +8,9 @@
     <title>BIENVENIDO</title>
     <link href="Libreria/js/jquery-ui-1.10.3.custom/css/jqueryUI-MDY/jquery-ui-1.9.2.custom.css" rel="stylesheet" />
 <%--    <script src="Libreria/js/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.js"></script>--%>
-	
+	<!-- confirm (x001)-->
 	<!-- <script src="Libreria/js/jquery-ui-1.10.3.custom/jquery-ui-1.10.3.custom.js"></script> -->
-	<script src="Libreria/js/jquery-ui-1.10.3.custom/jquery-ui-1.10.3.custom.min.js"></script>
+	<!-- <script src="Libreria/js/jquery-ui-1.10.3.custom/jquery-ui-1.10.3.custom.min.js"></script> -->
     
 
     <script src="Libreria/js/jquery-ui-1.10.3.custom/js/jquery-1.9.1.js"></script>
@@ -43,7 +43,7 @@
     <link href="Libreria/js/Subir_Archvio/jquery.fileupload-ui.css" rel="stylesheet" />
     <link href="Libreria/js/Subir_Archvio/jquery.fileupload.css" rel="stylesheet" />
 
-    <script src="Libreria/js/jquery-ui-1.10.3.custom/js/jquery-ui.min.js"></script>
+    <script src="Libreria/js/jquery-ui-1.10.3.custom/js/jquery-ui.js"></script>
 
     <link href="Libreria/js/Hora/jquery.timepicker.css" rel="stylesheet" />
     <script src="Libreria/js/Hora/jquery.timepicker.min.js"></script>

@@ -166,8 +166,8 @@
                     <h4 class="modal-title"><b>REGISTRO DE CONTENIDOS</b></h4>
                 </div>
                 <div class="modal-body">                    
-                    <!-- <div id="Textarea_contenido"></div> <!---->
-                    <!---->
+                    <!----> <div id="Textarea_contenido" noTooltip></div> <!---->
+                    <!--
                     <table style="border-collapse: separate; border-spacing: 2px;">
                         <tr>
                             <td>Contenido :</td>
@@ -209,10 +209,11 @@
 					</thead>
 					<tbody>
 					</tbody>        
-				</table> 
-                </div> <!---->
+				</table> <!---->
+                </div> 
                 <div class="modal-footer">
                     <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+                    <button type="button" class="btn btn-primary" id="btnDebug">TEST CKEDITOR</button>
                     <button type="button" class="btn btn-primary" id="btn_grabar_Contenido">Guarda Dato</button>
                     <input type="hidden" id="hdIddescarte" value="0" />
 					<input type="hidden" id="hd_idcontenido" value="0" />
@@ -547,7 +548,7 @@
         ////CKEDITOR.config.width = 600;
         //CKEDITOR.replace("Textarea_contenido");
         ////var editorElement = CKEDITOR.document.getById('Textarea_contenido');
-        //initSample();
+        initSample();
     </script>    
 </asp:Content>
 

@@ -1,10 +1,48 @@
 ﻿var urlFrm_MantNivel = "Frm_MantNivel.aspx/";
 
+function getPlainText(strSrc) {
+    var resultStr = "";
+    
+    if (strSrc.indexOf('<p>') == 0) resultStr = strSrc.substring(3);
+    else resultStr = strSrc;
+    
+    resultStr = resultStr.replace(/<p>/gi, "\r\n\r\n");
+    
+    resultStr = resultStr.replace(/<br \/>/gi, "\r\n");
+    resultStr = resultStr.replace(/<br>/gi, "\r\n");   
+
+    return resultStr.replace(/<[^<|>]+?>/gi, '');
+}
+
+function getTextPlain(instance) {
+    var objEditor = CKEDITOR.instances[instance];
+    var msg = objEditor.getData();
+    var txt = $(msg).text().replaceAll("\n\n", "\n");
+    return txt;
+}
+
 $(document).ready(function ()
 {
 	GetNiveles(0, 1, 'tb_0', 'lst');
 	//$('#lbl_id_nivel').hide();
+    $("#btnDebug").click(function () {        
+        var editorData = CKEDITOR.instances.Textarea_contenido.getData();
+        //var text = CKEDITOR.instances.Textarea_contenido.document.getBody().getText();
 
+        var plain_text = getPlainText(editorData);
+        //alert(editorData); 
+        alert(plain_text); 
+        //alert(getTextPlain("Textarea_contenido")); 
+
+        var bar = document.getElementById("cke_1_top");        
+        if (bar.style.display == "none") {
+            bar.style.display = "block";
+        } else {
+            bar.style.display = "none";
+        }
+
+        
+    });
 	$('#lbl_id_categoria').hide();
 	$('#lbl_id_nivel').text(0);
 	$('#lbl_id_categoria').text(0);

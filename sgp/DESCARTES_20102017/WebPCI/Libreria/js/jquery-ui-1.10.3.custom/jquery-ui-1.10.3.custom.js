@@ -12400,8 +12400,8 @@ $.widget( "ui.tooltip", {
 
 	_setOption: function( key, value ) {
 		var that = this;
-
-		if ( key === "disabled" ) {
+        
+		if ( key === "disabled" || key == "noTooltip" ) {
 			this[ value ? "_disable" : "_enable" ]();
 			this.options[ key ] = value;
 			// disable element style changes
@@ -12454,7 +12454,7 @@ $.widget( "ui.tooltip", {
 				// we need closest here due to mouseover bubbling,
 				// but always pointing at the same event target
 				.closest( this.options.items );
-
+        
 		// No element to show a tooltip for or the tooltip is already open
 		if ( !target.length || target.data( "ui-tooltip-id" ) ) {
 			return;
