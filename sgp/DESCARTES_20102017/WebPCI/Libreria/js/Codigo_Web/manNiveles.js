@@ -1,9 +1,167 @@
-﻿//https://sdk.ckeditor.com/samples/savetextarea.html
+﻿//http://artofcoding.in/replace-html-audio-tags-jplayer/
+
+CKEDITOR.on('instanceReady', function (ev) {    
+    var editor = ev.editor;
+    var overridecmd = new CKEDITOR.command(editor, {
+        exec: function (editor) {            
+            alert("TRY!!!");
+        }
+    });    
+    ev.editor.commands.newpage.exec = overridecmd.exec;    
+});
+
+//https://sdk.ckeditor.com/samples/savetextarea.html
 //http://bitcookie.com/blog/drupal-ckeditor-setup-development-tutorial
 //!!CKEDITOR.plugins.get('wysiwygarea');
 var editor = CKEDITOR.replace('Textarea_contenido');
 //var editor = CKEDITOR.document.getById('Textarea_contenido');
 //var editor = CKEDITOR.inline('Textarea_contenido');
+/*
+CKEDITOR.plugins.registered['save'] = {
+    init: function (editor) {
+        var command = editor.addCommand('save',
+            {
+                modes: { wysiwyg: 1, source: 1 },
+                exec: function (editor) { // Add here custom function for the save button
+                    alert('You clicked the save button in CKEditor toolbar!');
+                }
+            });
+        editor.ui.addButton('Save', { label: 'My Save', command: 'save' });
+    }
+}//*/
+
+//assuming editor is a CKEDITOR.editor instance
+editor.on('save', function (event) {
+    alert("saving");
+    event.cancel();
+    //your custom command logic
+    //(you can access the editor instance through event.editor)
+});
+/*
+CKEDITOR.on('instanceReady', function (env) {
+    //get ctrl+clicks on <a>'s in edit mode to open the value of "href" open in new tab.
+    $('iframe').contents().click(function (e) {
+        //if(typeof e.target.href != 'undefined' ) {
+        if (typeof e.target.href != 'undefined' && e.ctrlKey == true) {
+            window.open(e.target.href, 'new' + e.screenX);
+        }
+    });
+});//*/
+
+/*### copy to clipboard
+
+//<p id="selectedItem">Text to copy</p>
+//<button onClick="copyT('selectedItem')">Copy</button>
+
+function copyT(objId) {
+    //Step 1: select the text from DOM element
+    var txt = document.getElementById(objId).textContent;
+
+    //Step 2: Create input and set value
+    var elem = document.createElement('input');
+    elem.value = txt;
+
+    //position is set such that the element is not visible
+    elem.style = 'postion:relative;top:-100px;';
+
+    //append the input element to body
+    document.body.appendChild(elem);
+
+    //set focus to inserted input element
+    elem.focus();
+
+    //Step 4: Select the text in input element
+    elem.setSelectionRange(0, txt.length);
+    //Step 4: Execute document.execCommand('copy')
+    if (document.execCommand('copy')) {
+        alert('Copied successfully');
+    } else {
+        alert('Clipboard access not supported in this browser');
+    }
+}
+//*/
+
+/*
+function loadJsFiles()
+{
+    //create an array of javascript file paths
+    var jsFiles = [
+        '//path/to/script-1.js',
+        '//path/to/script-2.js',
+    ];
+
+    //loop through the array to create script element and set the "src" attribute to the script path.
+    for (x in jsFiles){
+        var element = document.createElement("script");
+        element.src = jsFiles[x];
+        document.body.appendChild(element);
+    }
+}
+//window.addEventListener("load", loadJsFiles, false);
+//*/
+
+/*### render image before send
+
+<img id="uploadedImg" alt="Image Preview"/>
+<input type="file" id="imgInput">
+
+$('#imgInput').change(function(){
+    var file = document.querySelector('input[type=file]').files[0];
+    var reader = new FileReader();
+    reader.onloadend = function ()
+    {
+        $('#uploadedImg').attr('src', reader.result); }
+        if (file){
+            reader.readAsDataURL(file);
+        } else {
+            preview.src = "";
+        }
+});
+//*/
+
+/*### Dynamically make DOM element height equal
+$(window).load(function(){
+var maxHeight = Math.max.apply(null,
+    jQuery(".variable-height").map(function(){
+        return $(this).height();
+    }).get());
+$(".variable-height").height(maxHeight);
+});
+//*/
+
+
+editor.addCommand("mySimpleCommand", {
+    exec: function (edt) {
+        alert(edt.getData());
+    }
+});
+editor.ui.addButton('SuperButton', {
+    label: "Click me",
+    command: 'mySimpleCommand',
+    toolbar: 'insert',
+    icon: 'https://avatars1.githubusercontent.com/u/5500999?v=2&s=16'
+});
+
+/*
+editor.on('afterCommandExec', handleAfterCommandExec);
+function handleAfterCommandExec(event) {
+    var commandName = event.data.name;
+    alert(commandName);
+} //*/
+//config.removePlugins = 'newpage';
+editor.on('newpage', function (event) {
+    alert("new file");
+    //event.cancel();
+    //your custom command logic
+    //(you can access the editor instance through event.editor)
+});
+
+/*
+editor.getCommand('save').exec = function (editor) {
+    // Do whatever you need to
+    alert("saving");
+    return true;
+};//*/
 
 /*
 editor.on('change', function (evt) {
