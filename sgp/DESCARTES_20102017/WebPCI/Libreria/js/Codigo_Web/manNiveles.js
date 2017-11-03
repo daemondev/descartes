@@ -2,18 +2,20 @@
 
 CKEDITOR.on('instanceReady', function (ev) {    
     var editor = ev.editor;
-    var overridecmd = new CKEDITOR.command(editor, {
-        exec: function (editor) {            
-            alert("TRY!!!");
+    var resetEditor = new CKEDITOR.command(editor, {
+        exec: function (editor) {                        
+            $("#hd_idcontenido").val(0);
+            setEditorText("");
         }
     });    
-    ev.editor.commands.newpage.exec = overridecmd.exec;    
+    ev.editor.commands.newpage.exec = resetEditor.exec;    
 });
 
 //https://sdk.ckeditor.com/samples/savetextarea.html
 //http://bitcookie.com/blog/drupal-ckeditor-setup-development-tutorial
 //!!CKEDITOR.plugins.get('wysiwygarea');
 var editor = CKEDITOR.replace('Textarea_contenido');
+//CKEDITOR.addCss('html { font-size: 14px; box-shadow: 0 5px 5px 1px rgba(0, 0, 0, 0.5); }');
 //var editor = CKEDITOR.document.getById('Textarea_contenido');
 //var editor = CKEDITOR.inline('Textarea_contenido');
 /*
@@ -32,7 +34,11 @@ CKEDITOR.plugins.registered['save'] = {
 
 //assuming editor is a CKEDITOR.editor instance
 editor.on('save', function (event) {
-    alert("saving");
+    if (getPlainText("Textarea_contenido")) {
+        Guarda_contenido(1, 0);
+    } else {
+        new Messi("Ingrese el contenido a Mostrar", { modal: true, center: true, title: 'Informacion', titleClass: 'anim error', autoclose: 1500, buttons: [{ id: 0, label: 'Ok', val: 'X' }] });
+    }    
     event.cancel();
     //your custom command logic
     //(you can access the editor instance through event.editor)
@@ -139,7 +145,7 @@ editor.ui.addButton('SuperButton', {
     label: "Click me",
     command: 'mySimpleCommand',
     toolbar: 'insert',
-    icon: 'https://avatars1.githubusercontent.com/u/5500999?v=2&s=16'
+    icon: '/assets/img/5500999.png?v=2&s=16'
 });
 
 /*
@@ -468,10 +474,11 @@ function Editar_Contenido(in_idcontenido)
 		success: function (response) {
 			var data = (typeof response.d) == "string" ? eval("(" + response.d + ")") : response.d;
 			$("#hd_idcontenido").val(data[0].in_idcontenido);
-			$("#Textarea_contenido").val(data[0].vc_contexto);
+		    /*
+			$("#Textarea_contenido").val(data[0].vc_contexto);            
 			$("#ddl_color").val(data[0].vc_color);
-			$("#ddl_subrayodo").val(data[0].vc_subrayado);
-			//alert(data[0].vc_contexto);
+			$("#ddl_subrayodo").val(data[0].vc_subrayado); //*/
+			
 			setEditorText(data[0].vc_contexto);
 		}//Fin success
 	}); //Fin DEL .ajax
@@ -829,7 +836,7 @@ function fnc_EliminarNivel(id_nivel, in_dpndncia_idnivel) {
 function fnc_nuevaCategoria(in_nivel, in_cate) {
     //alert("in_nivel: [" + in_nivel + "] in_cate: [" + in_cate + "]");
 
-    var title = (in_nivel == in_cate && in_cate == 0) ? 'NUEVO PROCESO' : 'NUEVA CATEGORÍA';
+    var title = (in_nivel == in_cate && in_cate == 0) ? 'NUEVO CATEGORÍA' : 'NUEVA PROCESO';
     fnc_clear();
 
 	$('#hdIddescarte').val(in_nivel);

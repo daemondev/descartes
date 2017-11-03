@@ -1,3 +1,20 @@
+--/*
+--FIXTURES BOOTSTRAP APP
+truncate table TBL_NIVEL
+truncate table TBL_NIVEL_CONTENIDO
+TRUNCATE TABLE [TBL_DETALLE_CAMP_NIVEL]
+
+ALTER TABLE [dbo].[TBL_GESTION_1]  NOCHECK CONSTRAINT FK__TBL_GESTI__in_ca__5535A963
+ALTER TABLE [TBL_GESTION_1]   DROP CONSTRAINT FK__TBL_GESTI__in_ca__5535A963
+
+TRUNCATE TABLE [TB_CAMPANIA]
+ALTER TABLE [dbo].[TBL_GESTION_1]  WITH CHECK ADD FOREIGN KEY([in_campania]) REFERENCES [dbo].[TB_CAMPANIA] ([in_CampaniaID])
+
+UPDATE TB_USUARIO  SET in_CampaniaID = 1
+
+--*/
+
+
 --sp_helptext USP_MANT_NIVEL
 
 /*
@@ -552,3 +569,105 @@ SET NOCOUNT OFF
 RETURN
 
 #-------------------------------------------------- END   [third proc] - (31-10-2017 - 18:07:31) }}
+
+--USP_ASIGNAR_CAMP_NIVEL 2,17,0,0,0,0,0    
+    
+/*        
+alter PROC [dbo].[USP_ASIGNAR_CAMP_NIVEL]    
+@indice int =0,    
+@in_campannia int=0,    
+@in_nivel int=0,    
+@cod int=0,    
+@in_UsuarioID int=0,    
+@pagenum int=0,    
+@pagesize int=0    
+AS    --*/
+--/*
+declare 
+@indice int =0,    
+@in_campannia int=0,    
+@in_nivel int=0,    
+@cod int=0,    
+@in_UsuarioID int=0,    
+@pagenum int=1,    
+@pagesize int=10    
+select  @indice = 2, @in_campannia = 17, @in_UsuarioID = 1
+--*/    
+
+if @indice= 1 goto ListarMatrices    
+if @indice= 2 goto ListarMAtricesxCamp    
+if @indice= 3 goto InsCampxNivel    
+if @indice= 4 goto DelCampxNivel    
+else goto Salir    
+    
+Salir:    
+if @@ERROR <> 0     
+set nocount off    
+return    
+    
+ListarMatrices:    
+SELECT id_nivel,vc_titulo,vc_url_img,in_orden FROM TBL_NIVEL    
+WHERE in_dpndncia_idnivel=0 and in_visible=1     
+if @@ERROR <> 0 goto Salir    
+else goto Salir    
+    
+ListarMAtricesxCamp:    
+	SELECT     
+		ROW_NUMBER() OVER(ORDER BY D.cod) N_REG,    
+		D.cod,    
+		(select vc_titulo from TBL_NIVEL N where N.id_nivel=D.in_nivel) as vc_titulo    
+		INTO #LISTA_DETALLE     
+	FROM TBL_DETALLE_CAMP_NIVEL D    
+	WHERE D.IN_CAMPANNIA=@in_campannia    
+  
+	DECLARE @pageCount INT        
+	SET @pageCount = (SELECT COUNT(*) FROM #LISTA_DETALLE)        
+	SET @pageCount=(SELECT CEILING(CAST(@pageCount AS DECIMAL(10,2))/CAST(@pagesize AS DECIMAL(10,2))))        
+	  
+	 SELECT   
+	 cod,    
+	 vc_titulo,      
+	 @pageCount total      
+	 FROM #LISTA_DETALLE       
+	 WHERE N_REG > @pagesize *(@pagenum-1)       
+	 AND N_REG <= @pagesize * @pagenum   
+	--select * from TBL_NIVEL      
+	--select * from #LISTA_DETALLE 
+	--select * FROM TBL_DETALLE_CAMP_NIVEL D        
+	DROP TABLE #LISTA_DETALLE      
+	--truncate table TBL_NIVEL      
+	--truncate table TBL_DETALLE_CAMP_NIVEL 
+    
+if @@ERROR <> 0 goto Salir    
+else goto Salir    
+    
+    
+InsCampxNivel:    
+    
+if (select COUNT(*) from TBL_DETALLE_CAMP_NIVEL where in_campannia=@in_campannia and in_nivel=@in_nivel )=0    
+begin    
+insert into TBL_DETALLE_CAMP_NIVEL (in_campannia,in_nivel,in_estado,in_usuario_reg)    
+values (@in_campannia,@in_nivel,1,@in_UsuarioID)    
+end    
+    
+    
+if @@ERROR <> 0 goto Salir    
+else goto Salir    
+    
+DelCampxNivel:    
+delete from TBL_DETALLE_CAMP_NIVEL    
+where cod=@cod    
+    
+if @@ERROR <> 0 goto Salir    
+else goto Salir    
+/*    
+CREATE TABLE TBL_DETALLE    
+(    
+cod INT IDENTITY NOT NULL,    
+in_campannia int not null,    
+in_nivel int not null,    
+in_estado int not null    
+)    
+GO    
+*/
+

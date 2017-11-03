@@ -16558,9 +16558,10 @@ var tooltip = $.widget( "ui.tooltip", {
 		}
 	},
 
-    _tooltip: function (element) {        
-        if ($(element).parent().hasClass("cke_contents")) {
-            //cke_contents cke_reset            
+	_tooltip: function (element) {
+	    
+	    if ($(element).parent().hasClass("cke_contents") || $(element).closest(".cke_notification").hasClass("cke_notification_info")) {
+            //cke_contents cke_reset                        
             return;
         }
 		var tooltip = $( "<div>" )

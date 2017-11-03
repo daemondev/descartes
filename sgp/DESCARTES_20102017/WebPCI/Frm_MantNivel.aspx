@@ -166,7 +166,7 @@
                     <h4 class="modal-title"><b>REGISTRO DE CONTENIDOS</b></h4>
                 </div>
                 <div class="modal-body">                                        
-                    <table style="border-collapse: separate; border-spacing: 2px;">
+                    <table style="border-collapse: separate; border-spacing: 2px;box-shadow: 0 5px 5px 1px rgba(0, 0, 0, 0.5);">
                         <tr>                            
                             <td><textarea id="Textarea_contenido"  rows="5" style="width:410px;height:75px;resize: none;"></textarea></td>                            
                          </tr>						
@@ -185,8 +185,7 @@
 				</table>
                 </div> 
                 <div class="modal-footer">
-                    <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-                    <button type="button" class="btn btn-primary" id="btnDebug">TEST CKEDITOR</button>
+                    <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>                    
                     <button type="button" class="btn btn-primary" id="btn_grabar_Contenido">Guarda Dato</button>
                     <input type="hidden" id="hdIddescarte" value="0" />
 					<input type="hidden" id="hd_idcontenido" value="0" />
@@ -250,50 +249,49 @@
 	<fieldset id="fsResumen" style="display:block">
 			<div  id="div_plazo" class="modal fade" role="dialog" style="margin-top:-150px" >
 		
-			  <%--    <div class="modal-content">--%>
-            <!-- Modal content-->
-              <div class="modal-content"  style="width: 75%;margin-top:200px;box-shadow:inherit" >
-					<div style="width: auto;">
-						<div class="modal-header">
-							<h4 class="modal-title" id="h_title">MATRIZ DE DESCARTES</h4>
-						</div>
-						<div class="modal-body" style="margin-top:-20px;">
-							<div id="campañas" class="row" style="overflow-y:scroll;"></div>
-								<div class="row" id="todo">
-									<div class="col-lg-3" style="overflow-y:scroll;overflow-x:no-display ;height:550px;margin-top:10px">
-										<div id="div_cabe_secuencia"><p style="margin-left:-55px;font-weight:bold;font-size:24px">Secuencia</p></div>
-											<p></p>
-											<div id="div_secuencia" style="">
-												GHIAN_SEGUIMIENTO
-											</div>							
-									</div>
-									<div class="col-lg-9">
-										<ul id="tb_matricez" style="width:100%; text-align:left; margin-left:-120px;margin-right:-40px"></ul>
-										<div id="tb_imagenes" style="margin-left:-10px;"></div>
-										<div  id="div_plazo2" style="width:100%;">
-											<div style="margin-right:20px;margin-top:-5px;/*border-radius:30px;border:2px solid #A7A7A7;*/overflow-y:scroll;overflow-x:hidden;height:500px;/*background-color:rgba(232, 232, 232,0.5)*/" >
-												<div style="width:100%; text-align:left;" id="tbl_nivel">				
-													<br/>						            
-													<br/>
-													<br/>
-													<div class="row" style="/*padding-left:20px;*/margin-top:0px">
-														<div id="div_contenido" style="text-align:center; position: relative;left: 18px;width: 94%;">
-															<table id="tb_contenido_nivel">
-															</table>
-														</div>
-														<div id="tb_plazo" style="" >
-														</div>
-													</div>			
-		    									</div>
-											</div>
-										</div>
-									</div>		
-								</div>	
-							</div>
-						</div>
-					</div>
-			</div>
-		</fieldset>
+			    <%--    <div class="modal-content">--%>
+                <!-- Modal content-->
+                <div class="modal-content"  style="width: 75%;margin-top:200px;box-shadow:inherit" >
+	                <div style="width: auto;">
+		                <div class="modal-header">
+			                <h4 class="modal-title" id="h_title">MATRIZ DE DESCARTES</h4>
+		                </div>
+		                <div class="modal-body" style="margin-top:-20px;">
+			                <div id="campañas" class="row" style="overflow-y:scroll;"></div>
+				            <div class="row" id="todo">
+					            <div class="col-lg-3" style="overflow-y:scroll;overflow-x:no-display ;height:550px;margin-top:10px">
+						            <div id="div_cabe_secuencia"><p style="margin-left:-55px;font-weight:bold;font-size:24px">Secuencia</p></div>
+							        <p></p>
+							        <div id="div_secuencia" style="">
+								        GHIAN_SEGUIMIENTO
+							        </div>							
+					            </div>
+					            <div class="col-lg-9">
+						            <ul id="tb_matricez" style="width:100%; text-align:left; margin-left:-120px;margin-right:-40px"></ul>
+						            <div id="tb_imagenes" style="margin-left:-10px;"></div>
+						            <div  id="div_plazo2" style="width:100%;">
+							            <div style="margin-right:20px;margin-top:-5px;/*border-radius:30px;border:2px solid #A7A7A7;*/overflow-y:scroll;overflow-x:hidden;height:500px;/*background-color:rgba(232, 232, 232,0.5)*/" >
+								            <div style="width:100%; text-align:left;" id="tbl_nivel">				
+									            <br/>						            
+									            <br/>
+									            <br/>
+									            <div class="row" style="/*padding-left:20px;*/margin-top:0px">
+										            <div id="div_contenido" style="text-align:center; position: relative;left: 18px;width: 94%;">
+											            <table id="tb_contenido_nivel">
+											            </table>
+										            </div>
+										            <div id="tb_plazo" style="" ></div>
+									            </div>			
+		    					            </div>
+							            </div>
+						            </div>
+					            </div>		
+				            </div>	
+			            </div>
+		            </div>
+	            </div>
+            </div>
+    </fieldset>
 			 
 	<div class="modal fade" id="div_resultado" role="dialog" style="margin-top:-100px" >
 		
@@ -507,6 +505,14 @@
   background-color: #f00;
   cursor: pointer;
 }*/
+    .shadowBox{
+        width: 400px;
+        height: 180px;
+        background-color: #AAAAAA;
+        -webkit-box-shadow: 0 8px 6px -6px black;
+        -moz-box-shadow: 0 8px 6px -6px black;
+        box-shadow: 0 8px 6px -6px black;
+    }          
 		</style>
 		</center>
 
@@ -514,15 +520,12 @@
     <script src="assets/lib/react/react-dom.min.js"></script>
     <script src="assets/js/sgp.jsx" type="text/javascript"></script>
     <script src="assets/lib/ckeditor/ckeditor.js"></script>
-    <script src="Libreria/js/Codigo_Web/manNiveles.js"></script>
-    <!-- <script src="assets/lib/ckeditor/sample.js"></script> -->
+    <script src="Libreria/js/Codigo_Web/manNiveles.js"></script>    
     <script>
         //CKEDITOR.config.height = 150;
         //CKEDITOR.config.width = 'auto';
         ////CKEDITOR.config.width = 600;
-        //CKEDITOR.replace("Textarea_contenido");
-        ////var editorElement = CKEDITOR.document.getById('Textarea_contenido');
-        //initSample();
+        //CKEDITOR.replace("Textarea_contenido");                
     </script>    
 </asp:Content>
 
