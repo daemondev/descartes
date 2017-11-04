@@ -1019,7 +1019,8 @@ function fnc_guardar(in_gestion, in_dpndncia_idnivel) {
 		objData["vc_descripcion"] = $("#txtArea_desc").val();
 
 		if ($("#fileupload").val() != '') {
-			objData["vc_url_img"] = $("#fileupload").val();
+		    objData["vc_url_img"] = $("#fileupload").val();
+		    //objData["vc_url_img"] = $("#fileupload")[0].files[0].name;
 		}
 
 		objData["in_rpta"] = $('#ddl_rpta').val();
@@ -1103,13 +1104,15 @@ function Carga_Img() {
 				new Messi("Seleccionar Archivos txt con el formato correcto", { modal: true, center: true, title: 'Informacion', titleClass: 'anim error', autoclose: 1500, buttons: [{ id: 0, label: 'Ok', val: 'X' }] });
 			}
 		},
-		done: function (e, data) {
-			 ;
+		done: function (e, data) {;
 			$.each(data.result, function (index, file) {
 				$('#dvProgressBarDown').fadeOut(400, function () {
 					$('#dvProgressBarDown').css("display", "none");
-				});
-				setCargaAgentesFile(file.fileName);
+				});		
+                
+				if (file.fileName != "") $("#fileupload").val(file.fileName);
+
+				//setCargaAgentesFile(file.fileName);
 				//fnc_guardar(file.fileName);
 			});
 		},
@@ -1132,8 +1135,8 @@ function Carga_Img() {
 
 $(document).ready(function () {
 
-	$("#fileupload").click("change", function () {
-		Carga_Img();
+    $("#fileupload").click("change", function () {
+        Carga_Img();	   
 	});
 
 	//$("#tbCampanias tr.odd").click(function ()
@@ -1406,7 +1409,8 @@ function fnc_listar_niveles(in_listar, in_dpndncia_idnivel) {
 					// seleccionada
 
 					$('#lblTitulo_plazo').text(data[0].vc_titulo);
-					var url = data[0].vc_url_img.substr(12, data[0].vc_url_img.length);
+					//var url = data[0].vc_url_img.substr(12, data[0].vc_url_img.length);
+					var url = data[0].vc_url_img;
 					//alert(url);
 					$("#img_plazo").attr("src", "Archivos_Carga/" + url + "");
 					$("#img_plazo").attr("align", "center");
@@ -1436,7 +1440,8 @@ function fnc_listar_niveles(in_listar, in_dpndncia_idnivel) {
 			        //debugger;
 			        //alert("when 2: " + " data[i].in_rpta [" + data[i].in_rpta + "] data[i].vc_titulo: ["+ data[i].vc_titulo + "]");
 					for (var i = 0; i <= data.length - 1; i++) {
-						var url = data[i].vc_url_img.substr(12, data[i].vc_url_img.length);
+					    //var url = data[i].vc_url_img.substr(12, data[i].vc_url_img.length);
+					    var url = data[0].vc_url_img;
 						var in_rpta = data[i].in_rpta;
 						var in_link = data[i].in_link;
 						var img = '';

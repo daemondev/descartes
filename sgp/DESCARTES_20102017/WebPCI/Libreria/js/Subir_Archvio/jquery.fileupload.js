@@ -833,6 +833,7 @@
             response.result = options.result = result;
             response.textStatus = options.textStatus = textStatus;
             response.jqXHR = options.jqXHR = jqXHR;
+            //alert(JSON.stringify(options));
             this._trigger('done', null, options);
         },
 
@@ -1122,7 +1123,7 @@
                 $.makeArray(dataTransfer.files)
             ).promise();
         },
-
+        //(x001)
         _getSingleFileInputFiles: function (fileInput) {
             fileInput = $(fileInput);
             var entries = fileInput.prop('webkitEntries') ||
