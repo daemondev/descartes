@@ -53,7 +53,9 @@ using System.Data;
 								obj.vc_alerta = dr.GetString(7);
 								obj.in_link = dr.GetInt32(8);
                                 obj.vc_color_alerta = dr.GetString(9);
-								lista.Add(obj);
+                                try{ obj.vc_contenido = dr.GetString(10); } catch {}
+                                
+                                lista.Add(obj);
 							}
 						}
 						cn.Close();

@@ -276,8 +276,8 @@
 									            <br/>
 									            <br/>
 									            <div class="row" style="/*padding-left:20px;*/margin-top:0px">
-										            <div id="div_contenido" style="text-align:center; position: relative;left: 18px;width: 94%;">
-											            <table id="tb_contenido_nivel">
+										            <div id="div_contenido" style="position: relative;left: 18px;width: 94%;">
+											            <table id="tb_contenido_nivel" style="text-align:center;"">
 											            </table>
 										            </div>
 										            <div id="tb_plazo" style="" ></div>
@@ -410,7 +410,7 @@
 			li {
 				line-height: 30px;
 				font-size: 16px;
-				cursor: pointer;
+				/*cursor: pointer;*/
 			}
 
 			#div_menu {

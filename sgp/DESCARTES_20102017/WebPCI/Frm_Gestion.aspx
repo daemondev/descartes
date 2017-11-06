@@ -2,6 +2,7 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="CONTENEDOR" Runat="Server">
+    <script src="assets/lib/ckeditor/ckeditor.js"></script>
 	<script src="Libreria/js/Codigo_Web/JS_frmGestion.js"></script>
 	<link href="Libreria/reloj/Relojstyle.css" rel="stylesheet" />
 
@@ -24,41 +25,41 @@
 		</div>
 		<div style="visibility:hidden"><p id="nombreMatriz"></p></div>		
         <div style="float:initial;width:100%;" id="div_buscarCliente"> 
-			<br />			
-			<div style="margin-top:-20px;">
+			<br />
+			<div style="margin-top:-20px;" id="div_processWrapper">
+                <div id="btn_inicio" style="display:block;position:fixed;right:20px;bottom:15px; background-image:url(assets/img/home.png); width:32px; height:32px; cursor:pointer;z-index:99999;">  </div>
 				<!--<div  style="height:280px;width:600px;border-radius:15px;border-color:#B4886B" class="ui-accordion ui-widget ui-helper-reset" role="tablist" >-->
-            <div id="campañas" class="row" style="overflow-y:scroll;"></div>
-            <div class="row" id="todo"> <!--### begin div id=todo {{-->
-                <div class="col-lg-3" style="overflow-y:scroll;overflow-x:no-display ;height:550px">
+                <div id="campañas" class="row" style="overflow-y:scroll;"></div>
+                <div class="row" id="todo"> <!--### begin div id=todo {{-->
+                    <div class="col-lg-3" style="overflow-y:scroll;overflow-x:no-display ;height:550px">
                         <div id="div_cabe_secuencia">
                             <p style="margin-left:-55px;margin-top:-12px;font-weight:bold;font-size:24px">Secuencia</p>
                         </div>
                         <p></p>
-                        <div id="div_secuencia" style=""> </div>							
-					
-                </div>
-                <div class="col-lg-9">
-                    <ul id="tb_matricez" style="width:100%; text-align:left; margin-left:-120px;margin-right:-40px"></ul>
-                    <div id="tb_imagenes" style="margin-left:-10px;"></div>
-                    <div  id="div_plazo" style="width:100%;">
-                        <div style="margin-right:20px;margin-top:-5px;/*border-radius:30px;border:2px solid #A7A7A7;*/overflow-y:scroll;overflow-x:hidden;height:500px;/*background-color:rgba(232, 232, 232,0.5)*/" >
-					        <div style="width:100%; text-align:left;" id="tbl_nivel">				
-                                <br/>
-						        <!--<label id="lblDescripcion_plazo" style="font-size:24px;color:rgba(175, 8, 8,1);font-weight: bold;"></label>-->
-                                <br/>
-                                <br/>
-                                <div class="row" style="/*padding-left:20px;*/margin-top:-61px">
-								    <div id="div_alerta" style="border-radius:9px;" >
-										<label id="lblAlerta_plazo" style="margin-left:30px;font-size:16px;"></label>						
-									</div>
-									<div id="tb_plazo" style=""></div>
-                                </div>			
-		    				</div>
-				        </div>
+                        <div id="div_secuencia" style=""> </div>					
                     </div>
-                </div>		
-            </div>	                 <!--### end div id=todo  }}-->
-		</div>
+                    <div class="col-lg-9">
+                        <ul id="tb_matricez" style="width:100%; text-align:left; margin-left:-120px;margin-right:-40px"></ul>
+                        <div id="tb_imagenes" style="margin-left:-10px;"></div>
+                        <div  id="div_plazo" style="width:100%;">
+                            <div style="margin-right:20px;margin-top:-5px;/*border-radius:30px;border:2px solid #A7A7A7;*/overflow-y:scroll;overflow-x:hidden;height:500px;/*background-color:rgba(232, 232, 232,0.5)*/" >
+					            <div style="width:100%; text-align:left;" id="tbl_nivel">				
+                                    <br/>
+						            <!--<label id="lblDescripcion_plazo" style="font-size:24px;color:rgba(175, 8, 8,1);font-weight: bold;"></label>-->
+                                    <br/>
+                                    <br/>
+                                    <div class="row" style="/*padding-left:20px;*/margin-top:-61px">
+								        <div id="div_alerta" style="border-radius:9px;" >
+										    <label id="lblAlerta_plazo" style="margin-left:30px;font-size:16px;"></label>						
+									    </div>
+									    <div id="tb_plazo" style=""></div>
+                                    </div>			
+		    				    </div>
+				            </div>
+                        </div>
+                    </div>		
+                </div>	                 <!--### end div id=todo  }}-->
+		    </div>
         </div>
 
 		
@@ -212,7 +213,7 @@
 			{
 				line-height: 30px;
 				font-size: 16px;
-				cursor: pointer;
+				/*cursor: pointer;*/
 			}
 
 			#div_menu{
@@ -362,6 +363,7 @@
 
 		</style>
 	
-		</center>
+		</center>    
+    <input type="hidden" id="hasContent"/>
 </asp:Content>
 

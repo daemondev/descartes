@@ -191,6 +191,15 @@
 	z-index: 9999;
 	background: url(images/gif/default.gif) center no-repeat #fff;
 }
+
+.pointer, .si, .no, .reclamo, .caso, .ultimosi{
+    cursor:pointer;
+}
+
+#tb_matricez li{
+    cursor:pointer;
+}
+
 #mia:hover{
     background-color: #AC3A22;
 }

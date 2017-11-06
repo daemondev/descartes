@@ -836,7 +836,7 @@ function fnc_EliminarNivel(id_nivel, in_dpndncia_idnivel) {
 function fnc_nuevaCategoria(in_nivel, in_cate) {
     //alert("in_nivel: [" + in_nivel + "] in_cate: [" + in_cate + "]");
 
-    var title = (in_nivel == in_cate && in_cate == 0) ? 'NUEVO CATEGORÍA' : 'NUEVA PROCESO';
+    var title = (in_nivel == in_cate && in_cate == 0) ? 'NUEVA CATEGORÍA' : 'NUEVO PROCESO';
     fnc_clear();
 
 	$('#hdIddescarte').val(in_nivel);
@@ -1019,10 +1019,10 @@ function fnc_guardar(in_gestion, in_dpndncia_idnivel) {
 		objData["vc_descripcion"] = $("#txtArea_desc").val();
 
 		if ($("#fileupload").val() != '') {
-		    objData["vc_url_img"] = $("#fileupload").val();
-		    //objData["vc_url_img"] = $("#fileupload")[0].files[0].name;
+		    //objData["vc_url_img"] = $("#fileupload").val();
+		    objData["vc_url_img"] = $("#fileupload")[0].files[0].name;
 		}
-
+		
 		objData["in_rpta"] = $('#ddl_rpta').val();
 
 		if ($('#ddl_rpta').val() == 7) {
@@ -1108,10 +1108,8 @@ function Carga_Img() {
 			$.each(data.result, function (index, file) {
 				$('#dvProgressBarDown').fadeOut(400, function () {
 					$('#dvProgressBarDown').css("display", "none");
-				});		
-                
-				if (file.fileName != "") $("#fileupload").val(file.fileName);
-
+				});		               
+				
 				//setCargaAgentesFile(file.fileName);
 				//fnc_guardar(file.fileName);
 			});
