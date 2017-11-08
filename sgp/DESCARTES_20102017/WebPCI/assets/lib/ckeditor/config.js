@@ -113,42 +113,50 @@ CKEDITOR.editorConfig = function (config) {
         , { name: 'clipboard', groups: ['clipboard', 'undo'] } //cut
         , { name: 'colors', groups: ['colors'] }
         , { name: 'basicstyles', groups: ['basicstyles', 'cleanup'] } //bold
-		, { name: 'styles', groups: ['styles'] } //font
-        
+		, { name: 'styles', groups: ['styles'] } //font        
 		, { name: 'forms', groups: ['forms'] }
-		, { name: 'paragraph', groups: ['list', 'indent', 'blocks', 'align', 'bidi', 'paragraph'] }
-        
+		, { name: 'paragraph', groups: ['list', 'indent', 'blocks', 'align', 'bidi', 'paragraph'] }        
         , { name: 'editing', groups: ['selection', 'find', 'spellchecker', 'editing'] }
-        
-		
-        
         //, { name: 'links', groups: ['links'] }
         , { name: 'tools', groups: ['tools'] }
-		, { name: 'insert', groups: ['insert'] }
-		
-		, { name: 'links', groups: ['links'] }
-		//, { name: 'insert', groups: ['insert'] }
-		
-		
+		, { name: 'insert', groups: ['insert'] }		
+		, { name: 'links', groups: ['links'] }		
 		//, { name: 'others', groups: ['others'] }
 		//, { name: 'about', groups: ['about'] }
     ];
 
-    config.removeButtons = 'Anchor,Subscript,Superscript,PasteFromWord,PasteText,Print,Link,Unlink,Maximize,ShowBlocks,Find,SpellChecker';
-    config.filebrowserUploadUrl = "base64";
+    config.removeButtons = 'Anchor,Subscript,Superscript,PasteText,Print,ShowBlocks,Find,SpellChecker'; //Link,Unlink,
+    //config.filebrowserUploadUrl = "base64";
     config.toolbarCanCollapse = true;
     //config.toolbarLocation = 'bottom';
     config.toolbarStartupExpanded = false;
     //config.uiColor = '#57A581';
     config.uiColor = '#D43F3A';
     config.useComputedState = false;
-    config.filebrowserBrowseUrl = '/browser/browse.php';
+    config.filebrowserBrowseUrl = 'Browserhandler.ashx';
     config.filebrowserUploadUrl = 'UploadHandler.ashx';
     //config.extraPlugins = 'uploadimage';
-    config.extraPlugins = 'filebrowser,uploadimage';
+    //config.extraPlugins = 'filebrowser,uploadimage,div,menu,contextmenu,panel,floatpanel';
+    //config.extraPlugins = 'filebrowser,uploadimage,div,table,tabletools,tableresize,dialogadvtab';
+    config.extraPlugins = 'filebrowser,uploadimage,div,table,tabletools,tableresize,pastefromexcel,colordialog';
     config.filebrowserWindowWidth = '640';
-    config.filebrowserWindowHeight= '480';
+    config.filebrowserWindowHeight = '480';
+    config.div_wrapTable = true;
+    config.colorButton_colors = '000,800000,8B4513,2F4F4F,008080,000080,4B0082,696969,' +
+        'B22222,A52A2A,DAA520,006400,40E0D0,0000CD,800080,808080,' +
+        'F00,FF8C00,FFD700,008000,0FF,00F,EE82EE,A9A9A9,' +
+        'FFA07A,FFA500,FFFF00,00FF00,AFEEEE,ADD8E6,DDA0DD,D3D3D3,' +
+        'FFF0F5,FAEBD7,FFFFE0,F0FFF0,F0FFFF,F0F8FF,E6E6FA,FFF,000';
+    //config.enterMode = CKEDITOR.ENTER_BR;
+    //config.format_div = { element: 'div', attributes: { 'class': 'doc' } };
 
+    //config.extraAllowedContent = 'u;span{color}';
+    //FCKeditorAPI.GetInstance('MEDesc').EditorDocument.body.innerHTML = 'this is my text';
+    config.pasteFromWordRemoveStyles = false;
+    config.pasteFromWordRemoveFontStyles = false;    
+    config.allowedContent = true;
+    //config.keystrokes = [[CKEDITOR.CTRL + 86, 'pastetext'], [CKEDITOR.CTRL + CKEDITOR.SHIFT + 86, 'paste']];
+    //config.forcePasteAsPlainText = true;
     /*
     config.filebrowserBrowseUrl= '/ckfinder/ckfinder.html';
     config.filebrowserImageBrowseUrl= '/ckfinder/ckfinder.html?type=Images';
@@ -156,6 +164,8 @@ CKEDITOR.editorConfig = function (config) {
     config.filebrowserImageUploadUrl= '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images'; //*/
     //config.menu_groups = 'clipboard,table,anchor,link,image';
     //config.pasteFromWordRemoveStyles = false;
+
+    //CKEDITOR.addCss(".cke_editable{background-color: red}");
     /*
     config.templates_files =
     [
@@ -172,7 +182,14 @@ CKEDITOR.editorConfig = function (config) {
 //https://docs.ckeditor.com/ckeditor4/docs/#!/guide/dev_file_browser_api
 //https://docs.ckeditor.com/ckeditor4/docs/#!/guide/dev_file_manager_configuration
 /*
-
+CKEDITOR.replace( 'editor1', {
+    extraPlugins: 'divarea',
+    on: {
+        instanceReady: function() {
+            this.editable().setStyle( 'background-color', 'red' );
+        }
+    }
+} );
 .cke_dialog
 {
     z-index: 10055 !important;

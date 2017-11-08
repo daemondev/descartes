@@ -16560,7 +16560,7 @@ var tooltip = $.widget( "ui.tooltip", {
 
 	_tooltip: function (element) {
 	    
-	    if ($(element).parent().hasClass("cke_contents") || $(element).closest(".cke_notification").hasClass("cke_notification_info")) {
+        if ($(element).parent().hasClass("cke_contents") || $(element).closest(".cke_notification").hasClass("cke_notification_info") || $(element).closest(".cke_notification").hasClass("cke_notification_warning")) {
             //cke_contents cke_reset                        
             return;
         }
