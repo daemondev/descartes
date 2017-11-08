@@ -19,16 +19,22 @@
     //config.removeButtons = 'Anchor,Subscript,Superscript,PasteFromWord,PasteText,Print,Link,Unlink,Maximize,ShowBlocks,Find,SpellChecker,Save,NewPage,Cut,Templates,Paste'; config.removeButtons = 'Anchor,Subscript,Superscript,PasteFromWord,PasteText,Print,ShowBlocks,Find,SpellChecker'; //Link,Unlink,
     config.removeButtons = 'Anchor,Subscript,Superscript,PasteFromWord,PasteText,Print,ShowBlocks,Find,SpellChecker,Templates,Save,NewPage,Cut,Paste'; //Link,Unlink,
     //config.removeButtons = 'Cut,Paste,Undo,Redo,Anchor,Underline,Strike,Subscript,Superscript,Maximize,ShowBlocks,BGColor,TextColor,Font,FontSize,Emojione,PageBreak,Smiley,Link,Unlink,JustifyRight,JustifyCenter,Outdent,Indent,BulletedList,NumberedList,CopyFormatting,RemoveFormat,Italic,Bold,Find,Replace,PasteText,PasteFromWord,Templates,Save,NewPage';
-    config.extraPlugins = 'filebrowser,uploadimage,div,table,tabletools,tableresize';
+    config.extraPlugins = 'filebrowser,uploadimage,div,table,tabletools,tableresize,autogrow';
     config.filebrowserUploadUrl = "base64";
     config.toolbarCanCollapse = true;
     //config.toolbarLocation = 'bottom';
     //class:cke_toolbar
     config.toolbarStartupExpanded = false;
     //config.uiColor = '#57A581';
-    config.uiColor = '#D9EBE2';
+    //config.uiColor = '#D9EBE2'; //cyan
     //config.uiColor = '#D43F3A';
-    config.readOnly = true;
+    config.uiColor = '#F9E8E8';
+    
+
+    //config.autoGrow_minHeight = 200;
+    //config.autoGrow_maxHeight = 430;
+    //config.autoGrow_bottomSpace = 50;
+    config.autoGrow_onStartup = true;
     //config.bodyId = 'contents_id';
     //config.bodyClass = 'contents';
     //config.useComputedState = false;
@@ -41,6 +47,7 @@
         'http://localhost/templates.js'
     ];
     config.templates = 'my_templates'; //*/
+    config.readOnly = true;
 };  //*/
 //https://docs-old.ckeditor.com/CKEditor_3.x/Developers_Guide/Toolbar
 ////config = { toolbar: [['SelectAll', 'Copy', 'Styles']] };

@@ -2,7 +2,20 @@
     var t = $(".cke_toolbar .cke_voice_label");
     $.each(t, function (k, v) {
         if ($(v).html() != "Documento") $(v).parent().hide();
-    });        
+    });
+
+    $('iframe').contents().dblclick(function (e) {
+        //if (typeof e.target.href != 'undefined' && e.ctrlKey == true) {
+        if (typeof e.target.href != 'undefined') {
+            window.open(e.target.href, 'new' + e.screenX);
+        }
+
+        /*
+        var ag = af.data.getTarget(), ah = { element: ag, dialog: '' };
+        if (ag.is('a') && ag.$.href && (ag.$.protocol.indexOf('http') == 0)) {
+            window.open(ag.$.href, '_blank'); af.data.preventDefault(); return;
+        } //*/
+    });
 });
 
 var inInicio = 0;
@@ -1057,7 +1070,10 @@ function fnc_listar_niveles(in_listar, in_dpndncia_idnivel) {
 					}//end for
 				    //debugger;
 				    
-				    if (hasContent) itemsOrdered["contenido"] = "<div style='padding:0 20px;'><div id='divEditor'>" + itemsOrdered["contenido"] + "</div></div>";
+				    if (hasContent) itemsOrdered["contenido"] = "<div style='padding:0 20px;margin-top:-25px;'><div id='divEditor'>" + itemsOrdered["contenido"] + "</div></div>";
+
+				    itemsOrdered["botones"] = "<div class='buttonsFixed'>" + itemsOrdered["botones"] + "</div>";
+
 
 				    strHTML = "" + itemsOrdered["contenido"] + itemsOrdered["imagen"] + itemsOrdered["botones"] + "";
 

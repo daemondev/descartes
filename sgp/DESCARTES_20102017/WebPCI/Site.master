@@ -235,7 +235,8 @@
 
 .doc{
     background-color:#fff !important;
-    width:500px;
+    max-width:938px;
+    /*max-width:938px;*/
     height:auto;
 
 }

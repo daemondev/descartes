@@ -325,8 +325,14 @@ using System.Data;
 				cmd.Parameters.AddWithValue("@vc_color", ent.vc_color);
 				cmd.Parameters.AddWithValue("@in_subrayado", ent.vc_subrayado);
 				cn.Open();
-				resul=(Int32)cmd.ExecuteNonQuery();
-				cn.Close();
+                //resul=(Int32)cmd.ExecuteNonQuery();
+                try{
+                    resul = Convert.ToInt32(cmd.ExecuteScalar().ToString());
+                } catch {
+                    resul = 0;
+                }
+                
+                cn.Close();
 			}
 			return resul;
 		}
@@ -345,8 +351,13 @@ using System.Data;
 				cmd.Parameters.AddWithValue("@vc_color", ent.vc_color);
 				cmd.Parameters.AddWithValue("@in_subrayado", ent.vc_subrayado);
 				cn.Open();
-				resul = (Int32)cmd.ExecuteNonQuery();
-				cn.Close();
+                //resul = (Int32)cmd.ExecuteNonQuery();
+                try{
+                    resul = Convert.ToInt32(cmd.ExecuteScalar().ToString());
+                } catch{
+                    resul = 0;
+                }
+                cn.Close();
 			}
 			return resul;
 		}

@@ -13,10 +13,49 @@ CKEDITOR.on('instanceReady', function (ev) {
 
 
 CKEDITOR.on('fileUploadResponse', function (ev) {
-    var editor = ev.editor;
-    alert("uploaded");
+    //var editor = ev.editor;
+    //editor.geImageData
 });
+/*
+CKEDITOR.stylesSet.add('mystyles', [
+    // Block-level styles
+    { name: 'Heading 1', element: 'h1' },
+    { name: 'Heading 2', element: 'h2' },
+    { name: 'Heading 3', element: 'h3' },
+    { name: 'Introduction', element: 'p', attributes: { 'class': 'introduction' } },
 
+    // Inline styles
+    { name: 'Link button', element: 'a', attributes: { 'class': 'button' } },
+    { name: 'Highlight', element: 'span', attributes: { 'class': 'highlight' } },
+
+    // Object styles
+    { name: 'Stretch', element: 'img', attributes: { 'class': 'stretch' } },
+]); //*/
+/*
+CKEDITOR.on('dialogDefinition', function (ev) {
+    // Dialog name to find the one we want
+    // Definition so we can customize it
+    var dialogName = ev.data.name;
+    var dialogDefinition = ev.data.definition;
+
+    if (dialogName == 'table' || dialogName == 'tableProperties') {
+
+        // we want our own style 
+        var advTab = dialogDefinition.getContents('advanced');
+
+        //add our specific width
+        var stylesField = advTab.get('advStyles');
+        stylesField['default'] = 'width: 300px';
+
+        var styleClassesField = advTab.get('advCSSClasses');
+        styleClassesField['default'] = 'get crazy do whatever';
+
+        //more than a suggestion... hide the field so user can't modify
+        styleClassesField['hidden'] = true;   //disable might exist .. see but not touch
+
+
+    }
+}); //*/
 /*
 CKEDITOR.on('dialogDefinition', function (ev) {
     // Take the dialog window name and its definition from the event data.
@@ -157,14 +196,14 @@ $(".variable-height").height(maxHeight);
 //*/
 
 
-editor.addCommand("mySimpleCommand", {
+editor.addCommand("debugCommand", {
     exec: function (edt) {
         alert(edt.getData());
     }
 });
 editor.ui.addButton('SuperButton', {
-    label: "Click me",
-    command: 'mySimpleCommand',
+    label: "Show in HTML Mode",
+    command: 'debugCommand',
     toolbar: 'insert',
     icon: '/assets/img/5500999.png?v=2&s=16'
 });
@@ -176,11 +215,8 @@ function handleAfterCommandExec(event) {
     alert(commandName);
 } //*/
 //config.removePlugins = 'newpage';
-editor.on('newpage', function (event) {
-    alert("new file");
-    //event.cancel();
-    //your custom command logic
-    //(you can access the editor instance through event.editor)
+editor.on('newpage', function (event) {    
+    //event.cancel();    
 });
 
 /*
@@ -263,6 +299,15 @@ function getTextPlain(instance) {
     return txt;
 }
 
+
+function editorHasImnage(instance) {
+    var objEditor = CKEDITOR.instances[instance];
+    var strSrc = objEditor.getData();
+    var hasImage = false;
+    if (strSrc.indexOf('<img') == 0) hasImage = true;    
+    return hasImage;
+}
+
 function toogleEditor() {
     var bar = document.getElementById("cke_1_top");
     if (bar.style.display == "none") bar.style.display = "block";
@@ -326,7 +371,7 @@ $(document).ready(function () {
 
     */
 	$("#btn_grabar_Contenido").click(function () {
-	    if (getPlainText("Textarea_contenido")) {	        
+	    if (getPlainText("Textarea_contenido") || editorHasImnage("Textarea_contenido")) {
 	        Guarda_contenido(1, 0);
 	    } else {
 	        new Messi("Ingrese el contenido a Mostrar", { modal: true, center: true, title: 'Informacion', titleClass: 'anim error', autoclose: 1500, buttons: [{ id: 0, label: 'Ok', val: 'X' }] });
@@ -395,7 +440,8 @@ function Guarda_contenido(op,idcontenido) {
 				$("#Textarea_contenido").val("");
 				$("#ddl_color").val("0");
 				$("#ddl_subrayodo").val("0");
-				//$("#dvUsuario").modal('hide');
+			    //$("#dvUsuario").modal('hide');
+				$("#hd_idcontenido").val(obj);
 				GetGrid_Contenido(1, $('#hdIddescarte').val());
 			} else {
 				new Messi("Error de Registro - No pueden haber dos usuarios iguales", { modal: true, center: true, title: 'Informacion', titleClass: 'anim error', autoclose: 1500, buttons: [{ id: 0, label: 'Ok', val: 'X' }] });

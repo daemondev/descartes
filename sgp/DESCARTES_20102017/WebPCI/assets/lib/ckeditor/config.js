@@ -110,22 +110,23 @@ CKFinder.create({ basePath: '/ckfinder/', customConfig: '' });
 CKEDITOR.editorConfig = function (config) {
     config.toolbarGroups = [
 		  { name: 'document', groups: ['mode', 'document', 'doctools'] }
-        , { name: 'clipboard', groups: ['clipboard', 'undo'] } //cut
+        , { name: 'clipboard', groups: ['selection', 'clipboard', 'undo', 'find'] } //cut
         , { name: 'colors', groups: ['colors'] }
         , { name: 'basicstyles', groups: ['basicstyles', 'cleanup'] } //bold
-		, { name: 'styles', groups: ['styles'] } //font        
-		, { name: 'forms', groups: ['forms'] }
-		, { name: 'paragraph', groups: ['list', 'indent', 'blocks', 'align', 'bidi', 'paragraph'] }        
-        , { name: 'editing', groups: ['selection', 'find', 'spellchecker', 'editing'] }
-        //, { name: 'links', groups: ['links'] }
+		, { name: 'styles', groups: ['styles'] } //font        		
         , { name: 'tools', groups: ['tools'] }
+		, { name: 'paragraph', groups: ['list', 'indent', 'blocks', 'align', 'bidi', 'paragraph'] }        
+        , { name: 'editing', groups: [ 'spellchecker', 'editing'] }
+        //, { name: 'editing', groups: ['selection', 'find', 'spellchecker', 'editing'] }
+        //, { name: 'links', groups: ['links'] }        
 		, { name: 'insert', groups: ['insert'] }		
-		, { name: 'links', groups: ['links'] }		
+		//, { name: 'links', groups: ['links'] }
+        , { name: 'forms', groups: ['form', 'forms', 'links'] }
 		//, { name: 'others', groups: ['others'] }
 		//, { name: 'about', groups: ['about'] }
     ];
 
-    config.removeButtons = 'Anchor,Subscript,Superscript,PasteText,Print,ShowBlocks,Find,SpellChecker'; //Link,Unlink,
+    config.removeButtons = 'Anchor,Subscript,Superscript,PasteText,Print,ShowBlocks,Find,SpellChecker,Smiley,Emojione'; //Link,Unlink,
     //config.filebrowserUploadUrl = "base64";
     config.toolbarCanCollapse = true;
     //config.toolbarLocation = 'bottom';
@@ -138,7 +139,7 @@ CKEDITOR.editorConfig = function (config) {
     //config.extraPlugins = 'uploadimage';
     //config.extraPlugins = 'filebrowser,uploadimage,div,menu,contextmenu,panel,floatpanel';
     //config.extraPlugins = 'filebrowser,uploadimage,div,table,tabletools,tableresize,dialogadvtab';
-    config.extraPlugins = 'filebrowser,uploadimage,div,table,tabletools,tableresize,pastefromexcel,colordialog';
+    config.extraPlugins = 'filebrowser,uploadimage,div,table,tabletools,tableresize,pastefromexcel,colordialog,autogrow,forms,label,extraformattributes,image2,stylescombo'; //,divarea
     config.filebrowserWindowWidth = '640';
     config.filebrowserWindowHeight = '480';
     config.div_wrapTable = true;
@@ -155,6 +156,11 @@ CKEDITOR.editorConfig = function (config) {
     config.pasteFromWordRemoveStyles = false;
     config.pasteFromWordRemoveFontStyles = false;    
     config.allowedContent = true;
+
+    config.autoGrow_minHeight = 200;
+    config.autoGrow_maxHeight = 430;
+    config.autoGrow_bottomSpace = 50;
+    config.autoGrow_onStartup = true;
     //config.keystrokes = [[CKEDITOR.CTRL + 86, 'pastetext'], [CKEDITOR.CTRL + CKEDITOR.SHIFT + 86, 'paste']];
     //config.forcePasteAsPlainText = true;
     /*
@@ -181,6 +187,24 @@ CKEDITOR.editorConfig = function (config) {
 //https://ckeditor.com/old//forums/Support/Changing-image-URL-after-Upload
 //https://docs.ckeditor.com/ckeditor4/docs/#!/guide/dev_file_browser_api
 //https://docs.ckeditor.com/ckeditor4/docs/#!/guide/dev_file_manager_configuration
+/*
+window.CKEDITOR.on('instanceReady', function () {
+    var toolbar = document.getElementsByClassName('cke_top').item(0),
+                  boxTop = toolbar.getBoundingClientRect().top,
+                  offsetTop = 45; // toolbar offset top
+
+    window.addEventListener('scroll', function () {
+        window.requestAnimationFrame(function () {
+            var scrollTop =document.body.scrollTop;
+            if ((scrollTop + offsetTop) > boxTop) {
+                toolbar.style.top = scrollTop + offsetTop - boxTop + 'px';
+            } else {
+                toolbar.style.top = 0;
+            }
+        });
+    }, false);
+});
+*/
 /*
 CKEDITOR.replace( 'editor1', {
     extraPlugins: 'divarea',
@@ -226,3 +250,10 @@ image error fixed- put this after bootstrap anj jquery load
             };
         </script>
 */
+//https://sdk.ckeditor.com/samples/autogrow.html
+
+//create own plugins
+//https://docs-old.ckeditor.com/CKEditor_3.x/Tutorials/Timestamp_Plugin
+//https://docs.ckeditor.com/ckeditor4/docs/#!/guide/plugin_sdk_intro
+//https://docs-old.ckeditor.com/CKEditor_3.x/Tutorials/Timestamp_Plugin
+//https://stackoverflow.com/questions/7676144/ckeditor-format-class

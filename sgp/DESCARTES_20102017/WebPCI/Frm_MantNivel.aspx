@@ -158,7 +158,7 @@
 	<div class="modal fade  " id="div_Contenido" role="dialog" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
             <!-- Modal content-->
-            <div class="modal-content" style="width: 750px; left:-40px;">
+            <div class="modal-content" style="width: 980px; left:-160px;">
                 <%--<form class="form-horizontal">--%>
                 <div class="modal-header">
                     <h4 class="modal-title"><b>REGISTRO DE CONTENIDOS</b></h4>

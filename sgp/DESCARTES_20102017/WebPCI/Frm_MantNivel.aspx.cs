@@ -89,18 +89,18 @@ public partial class Frm_MantNivel : System.Web.UI.Page
 			Ent.vc_color = vc_color;
 			Ent.vc_subrayado = vc_subrayado;
 			Int32 R = Neg.Guardar_Contenidos(Ent, 1);
-			if (R > 0) { Resul = 1; } else { Resul = 0; }
-		}
-		else
-		{
+            //if (R > 0) { Resul = 1; } else { Resul = 0; }
+            Resul = R;
+		} else {
 			//Actualizar
 			Ent.in_idcontenido = in_idcontenido;
 			Ent.vc_contexto = vc_contexto;
 			Ent.vc_color = vc_color;
 			Ent.vc_subrayado = vc_subrayado;
 			Int32 R = Neg.Actualizar_Contenidos(Ent,4);
-			if (R > 0) { Resul = 1; } else { Resul = 0; }
-		}
+            //if (R > 0) { Resul = 1; } else { Resul = 0; }
+            Resul = R;
+        }
 
 		return Resul;
 	}

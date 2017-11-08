@@ -41,18 +41,18 @@
                     <div class="col-lg-9">
                         <ul id="tb_matricez" style="width:100%; text-align:left; margin-left:-120px;margin-right:-40px"></ul>
                         <div id="tb_imagenes" style="margin-left:-10px;"></div>
-                        <div  id="div_plazo" style="width:100%;">
+                        <div  id="div_plazo" style="width:100%;height:100%;">
                             <div style="margin-right:20px;margin-top:-5px;/*border-radius:30px;border:2px solid #A7A7A7;*/overflow-y:scroll;overflow-x:hidden;height:500px;/*background-color:rgba(232, 232, 232,0.5)*/" >
-					            <div style="width:100%; text-align:left;" id="tbl_nivel">				
+					            <div style="width:100%;height:100%; text-align:left;" id="tbl_nivel">				
                                     <br/>
 						            <!--<label id="lblDescripcion_plazo" style="font-size:24px;color:rgba(175, 8, 8,1);font-weight: bold;"></label>-->
                                     <br/>
                                     <br/>
-                                    <div class="row" style="/*padding-left:20px;*/margin-top:-61px">
+                                    <div class="row" style="/*padding-left:20px;*/margin-top:-61px;height:100%;">
 								        <div id="div_alerta" style="border-radius:9px;" >
 										    <label id="lblAlerta_plazo" style="margin-left:30px;font-size:16px;"></label>						
 									    </div>
-									    <div id="tb_plazo" style=""></div>
+									    <div id="tb_plazo" style="position:relative;height:100%;width:100%;"></div>
                                     </div>			
 		    				    </div>
 				            </div>
@@ -359,6 +359,16 @@
 		    .pasitos:focus {
 		        background-color:#AF0808;
                 color:#fff;                    
+            }
+            .buttonsFixed{
+                /*position:absolute;
+                position:relative;
+                bottom:0px;
+                left:0px;
+                width:100%;
+                height:70px;
+                background-color:aquamarine;
+                padding:0 !important;*/
             }
 
 		</style>
