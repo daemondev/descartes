@@ -11,6 +11,27 @@ CKEDITOR.on('instanceReady', function (ev) {
     ev.editor.commands.newpage.exec = resetEditor.exec;    
 });
 
+
+CKEDITOR.on('fileUploadResponse', function (ev) {
+    var editor = ev.editor;
+    alert("uploaded");
+});
+
+/*
+CKEDITOR.on('dialogDefinition', function (ev) {
+    // Take the dialog window name and its definition from the event data.
+    var dialogName = ev.data.name;
+    var dialogDefinition = ev.data.definition;
+
+    if (dialogName == 'image') {
+        dialogDefinition.onShow = function () {
+            // This code will open the Advanced tab.
+            this.selectPage('Upload');
+        };
+    }
+}); //*/
+
+
 //https://sdk.ckeditor.com/samples/savetextarea.html
 //http://bitcookie.com/blog/drupal-ckeditor-setup-development-tutorial
 //!!CKEDITOR.plugins.get('wysiwygarea');
@@ -332,6 +353,7 @@ $(document).tooltip();
 */
 function JQ_Open_Contexto(in_idnivel) {
     $('#div_Contenido').modal();
+    
 	$('#hdIddescarte').val(in_idnivel);
 	//$("#Textarea_contenido").val("");
 	cleanEditor();
@@ -1070,6 +1092,7 @@ function JQ_Grabar_Nivel(vc_filename) {
 	alert('grabando');
 }
 
+//window.opener.updateValue("[YOUR_INPUT_IN_CKEDITOR]", [URL_OF_THE_IMAGE]);
 function Carga_Img() {	 
 	//alert('cargar imAG');
 	$("#fileupload").fileupload({
@@ -1762,3 +1785,26 @@ function jq_shadow(id) {
 	}
 }
 /*END ARMAR VISTA PREVIA*/
+/*
+$.fn.modal.Constructor.prototype.enforceFocus = function () {
+    modal_this = this
+    $(document).on('focusin.modal', function (e) {
+        if (modal_this.$element[0] !== e.target && !modal_this.$element.has(e.target).length
+        && !$(e.target.parentNode).hasClass('cke_dialog_ui_input_select')
+        && !$(e.target.parentNode).hasClass('cke_dialog_ui_input_text')) {
+            modal_this.$element.focus()
+        }
+    })
+}; //*/
+/*
+$.fn.modal.Constructor.prototype.enforceFocus = function () {
+    var $modalElement = this.$element;
+    $(document).on('focusin.modal', function (e) {
+        var $parent = $(e.target.parentNode);
+        if ($modalElement[0] !== e.target
+                        && !$modalElement.has(e.target).length
+                        && $(e.target).parentsUntil('*[role="dialog"]').length === 0) {
+            $modalElement.focus();
+        }
+    });
+}; //*/

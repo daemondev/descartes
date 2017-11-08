@@ -1,26 +1,9 @@
-﻿/*
-CKEDITOR.editorConfig = function (config) {
-    config.toolbarGroups = [
-		  { name: 'document', groups: ['mode', 'document', 'doctools'] }
-		, { name: 'clipboard', groups: ['clipboard', 'undo'] }
-		
-    ];
-
-    config.removeButtons = 'Anchor,Subscript,Superscript,PasteFromWord,PasteText';
-}; //*/
-
-
-var config = { toolbar : 'Basic' };
-
-CKEDITOR.on('instanceReady', function (event) {    
-    var editor = event.editor;    
-
-    editor.config.toolbarGroups = [
-		  { name: 'document', groups: ['mode', 'document', 'doctools'] }		
-    ]
-    editor.config.removeButtons = 'Anchor,Subscript,Superscript,PasteFromWord,PasteText,clipboard';
+﻿CKEDITOR.on('instanceReady', function (ev) {
+    var t = $(".cke_toolbar .cke_voice_label");
+    $.each(t, function (k, v) {
+        if ($(v).html() != "Documento") $(v).parent().hide();
+    });        
 });
-
 
 var inInicio = 0;
 $(document).ready(function () {
@@ -156,8 +139,7 @@ function GetNiveles(in_dpndncia_idnivel, p, vc_id_control, vc_lst)
 		data: JSON.stringify(DTA),
 		dataType: "json",
 		contentType: "application/json; charset=utf-8",
-		success: function (response)
-		{
+		success: function (response) {
 		
 			var data = (typeof response.d) == "string" ? eval("(" + response.d + ")") : response.d;
 			var pageCount = 0;
@@ -165,41 +147,30 @@ function GetNiveles(in_dpndncia_idnivel, p, vc_id_control, vc_lst)
 			var strRows = '';
 
 			//$('#'+vc_id_control+' tr:not(:first)').remove();
-			if (data.length > 0)
-			{
-				for (var i = 0; i <= data.length; i++)
-				{
-					
-
-					if ((data.length) == i)
-					{
-						
+			if (data.length > 0) {
+				for (var i = 0; i <= data.length; i++) {
+					if ((data.length) == i) {						
 						var pageCount = data[0].total;
 						var StrPager = "";
-						if (pageCount >= 1)
-						{
-							for (var x = 1; x <= pageCount; x++)
-							{
-								
-								if (x == 1)
-								{
+						if (pageCount >= 1) {
+							for (var x = 1; x <= pageCount; x++) {								
+								if (x == 1) {
 									StrPager = "<tr class='pgr'><td colspan='12' style='text-align:left;padding:6px;'>";
 								}
 								StrPager = StrPager + "<label style='cursor:pointer;line-height: 12px;border-width: 0;padding: 0 6px;border-left: solid 1px #666;font-weight: bold;" + (x == pageCount ? "color: #63B46D;" : "color: #666666;") + "' onclick='GetNiveles(" + in_dpndncia_idnivel + ", " + x + ",/" + vc_id_control + "/,/pag/);'>" + x + "</label>";
-								if (x == pageCount)
-								{
+								if (x == pageCount) {
 									StrPager = StrPager + "</td></tr>";
 								}
 							}
 
-						} else
-						{
+						}
+						else {
 							StrPager = "<tr  class='pgr'><td colspan='12' style='text-align:left;padding:10px;'></td></tr>";
 							
 							if (i % 2 == 0) { strRows = strRows + "<tr>"; } else { strRows = strRows + "<tr class='alt'>"; }
 						}
-					} else
-					{
+					}
+					else {
 						strRows += "<tr id='" + data[i].id_nivel + "'>" +
 "<td style='width:80px;' ><a id='href_" + data[i].id_nivel + "' href='javascript:GetNiveles(" + data[i].id_nivel + "," + 1 + ",/tb_" + data[i].id_nivel + "/,/" + "lst" + "/)'>" + (data[i].in_cate == 0 ? 'Principal' : (data[i].in_cate == 1 ? 'Categoria' : (data[i].in_cate == 2 ? 'Subcategoria' : 'Proceso'))) + "</a></td>" +
 
@@ -237,8 +208,8 @@ function GetNiveles(in_dpndncia_idnivel, p, vc_id_control, vc_lst)
 				$('#' + vc_id_control + '').empty().html(strRows + StrPager);
 
 				//$("#" + vc_id_control + "").append(strRows + StrPager);
-			} else
-			{
+			}
+			else {
 				$('#' + vc_id_control + '').empty().html("<tr><td style='text-align:center;' colspan='10'>No hay Niveles registrados</td></tr>");
 				//$("#" + vc_id_control + "").append();
 			}
@@ -262,8 +233,7 @@ function fnc_linkeo(in_nivel)
 	}
 }
 
-function fnc_AsignarLink(in_link_nivel)
-{
+function fnc_AsignarLink(in_link_nivel) {
 	//alert(in_link_nivel);
 	//alert($('#input_id_nivel').val());
 	
@@ -304,8 +274,7 @@ function fnc_AsignarLink(in_link_nivel)
 }
 
 
-function fnc_CambiarEstado(id_nivel, in_estado, in_dpndncia_idnivel)
-{
+function fnc_CambiarEstado(id_nivel, in_estado, in_dpndncia_idnivel) {
 	//alert(id_nivel);
 	//alert(in_estado);
 
@@ -377,17 +346,15 @@ function fnc_EliminarNivel(id_nivel, in_dpndncia_idnivel)
 					dataType: "json",
 					contentType: "application/json; charset=utf-8",
 					beforeSend: function () { },
-					success: function (response)
-					{
+					success: function (response) {
 						//debugger;
 						var obj = response.d;
 
-						if (obj[0].in_result >= 1)
-						{
+						if (obj[0].in_result >= 1) {
 							new Messi("Nivel eliminado", { modal: true, center: true, title: 'Informacion', titleClass: 'anim error', autoclose: 1500, buttons: [{ id: 0, label: 'Ok', val: 'X' }] });
 							var in_categoria = 0;
 							//debugger;
-							in_categoria = $('#lbl_id_categoria').text()
+							in_categoria = $('#lbl_id_categoria').text();
 
 							GetNiveles((in_dpndncia_idnivel), 1, '/tb_' + in_dpndncia_idnivel + '/', '/reg/');
 						}
@@ -1090,7 +1057,7 @@ function fnc_listar_niveles(in_listar, in_dpndncia_idnivel) {
 					}//end for
 				    //debugger;
 				    
-				    if (hasContent) itemsOrdered["contenido"] = "<div id='divEditor'>" + itemsOrdered["contenido"] + "</div>";				    
+				    if (hasContent) itemsOrdered["contenido"] = "<div style='padding:0 20px;'><div id='divEditor'>" + itemsOrdered["contenido"] + "</div></div>";
 
 				    strHTML = "" + itemsOrdered["contenido"] + itemsOrdered["imagen"] + itemsOrdered["botones"] + "";
 
@@ -1100,8 +1067,8 @@ function fnc_listar_niveles(in_listar, in_dpndncia_idnivel) {
 					    $('#tb_plazo').empty().html("<ul>" + contenidoul + "</ul>" + imagenespasos + strRows);
 					    //$('#tb_plazo').empty().html("<ul>" + contenidoul + "</ul>" + imagenespasos + strHTML);
 					}
-					if ($("#hasContent").val() == "yes") {					    
-					    CKEDITOR.replace('divEditor');
+					if ($("#hasContent").val() == "yes") {
+					    CKEDITOR.replace('divEditor', { customConfig: 'configUser.js' });					    
 					}
                         //borrar este for cndo cambies a todos los pasos
 						/*for (var i = 0; i <= data.length - 1; i++) {

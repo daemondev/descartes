@@ -1,0 +1,51 @@
+( function() {
+    CKEDITOR.plugins.add( 'youtube',
+    {
+        requires: [ 'iframedialog' ],
+        init: function( editor )
+        {
+           var me = this;
+           CKEDITOR.dialog.add( 'youTubeDialog', function ()
+           {
+              return {
+                 title : 'YouTube Dialog',
+                 minWidth : 550,
+                 minHeight : 200,
+                 contents :
+                       [
+                          {
+                             id : 'iframe',
+                             label : 'Insert YouTube Movie...',
+                             expand : true,
+                             elements :
+                                   [
+                                      {
+                                         type : 'iframe',
+                                         src : me.path + 'dialogs/youtube.html',
+                                         width : '100%',
+                                         height : '100%',
+                                         onContentLoad : function() {
+                                            // Iframe is loaded...
+                                         }
+                                      }
+                                   ]
+                          }
+                       ],
+                 onOk : function()
+                 {
+                    // Notify your iframe scripts here...
+                 }
+              };
+           } );
+
+            editor.addCommand( 'youtube', new CKEDITOR.dialogCommand( 'youTubeDialog' ) );
+
+            editor.ui.addButton( 'youtube',
+            {
+                label: 'Insert YouTube Movie...',
+                command: 'youtube',
+                icon: this.path + 'images/icon.gif'
+            } );
+        }
+    } );
+} )();

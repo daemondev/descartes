@@ -3,8 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="CONTENEDOR" runat="Server">
 	<%--<script src="Libreria/js/jquery-ui-1.10.3.custom/js/jquery.number.js"></script>--%>
 
-	
-
     
 	<center>
         <div id="myReact" class="background-color:red; width:100%;height:100%; position:absolute;z-index:99999;"></div>
@@ -157,7 +155,7 @@
 		</div><!--++++ end MODAL NUEVO REGISTRO  }} -->
 
 	<!--REGISTRO DE LOS CONTENIDOS DE PROCESO DE DESCARTE -->
-	<div class="modal fade" id="div_Contenido" role="dialog">
+	<div class="modal fade  " id="div_Contenido" role="dialog" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content" style="width: 750px; left:-40px;">
