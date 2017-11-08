@@ -138,7 +138,7 @@ CKEDITOR.editorConfig = function (config) {
     //config.extraPlugins = 'uploadimage';
     //config.extraPlugins = 'filebrowser,uploadimage,div,menu,contextmenu,panel,floatpanel';
     //config.extraPlugins = 'filebrowser,uploadimage,div,table,tabletools,tableresize,dialogadvtab';
-    config.extraPlugins = 'filebrowser,uploadimage,div,table,tabletools,tableresize,pastefromexcel';
+    config.extraPlugins = 'filebrowser,uploadimage,div,table,tabletools,tableresize,pastefromexcel,colordialog';
     config.filebrowserWindowWidth = '640';
     config.filebrowserWindowHeight = '480';
     config.div_wrapTable = true;
@@ -148,7 +148,7 @@ CKEDITOR.editorConfig = function (config) {
         'FFA07A,FFA500,FFFF00,00FF00,AFEEEE,ADD8E6,DDA0DD,D3D3D3,' +
         'FFF0F5,FAEBD7,FFFFE0,F0FFF0,F0FFFF,F0F8FF,E6E6FA,FFF,000';
     //config.enterMode = CKEDITOR.ENTER_BR;
-    //config.format_div = { element: 'div', attributes: { 'class': 'normalDiv' } };
+    //config.format_div = { element: 'div', attributes: { 'class': 'doc' } };
 
     //config.extraAllowedContent = 'u;span{color}';
     //FCKeditorAPI.GetInstance('MEDesc').EditorDocument.body.innerHTML = 'this is my text';
@@ -164,6 +164,8 @@ CKEDITOR.editorConfig = function (config) {
     config.filebrowserImageUploadUrl= '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images'; //*/
     //config.menu_groups = 'clipboard,table,anchor,link,image';
     //config.pasteFromWordRemoveStyles = false;
+
+    //CKEDITOR.addCss(".cke_editable{background-color: red}");
     /*
     config.templates_files =
     [
@@ -180,7 +182,14 @@ CKEDITOR.editorConfig = function (config) {
 //https://docs.ckeditor.com/ckeditor4/docs/#!/guide/dev_file_browser_api
 //https://docs.ckeditor.com/ckeditor4/docs/#!/guide/dev_file_manager_configuration
 /*
-
+CKEDITOR.replace( 'editor1', {
+    extraPlugins: 'divarea',
+    on: {
+        instanceReady: function() {
+            this.editable().setStyle( 'background-color', 'red' );
+        }
+    }
+} );
 .cke_dialog
 {
     z-index: 10055 !important;
