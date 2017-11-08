@@ -196,17 +196,24 @@ $(".variable-height").height(maxHeight);
 //*/
 
 
-editor.addCommand("debugCommand", {
-    exec: function (edt) {
-        alert(edt.getData());
-    }
-});
-editor.ui.addButton('SuperButton', {
-    label: "Show in HTML Mode",
-    command: 'debugCommand',
-    toolbar: 'insert',
-    icon: '/assets/img/5500999.png?v=2&s=16'
-});
+var debug = false;
+
+if(debug){
+    editor.addCommand("debugCommand", {
+        exec: function (edt) {
+            alert(edt.getData());
+        }
+    });
+    editor.ui.addButton('SuperButton', {
+        label: "Show in HTML Mode",
+        command: 'debugCommand',
+        toolbar: 'insert',
+        icon: '/assets/img/5500999.png?v=2&s=16'
+    });
+}
+
+
+
 
 /*
 editor.on('afterCommandExec', handleAfterCommandExec);
@@ -503,8 +510,10 @@ function GetGrid_Contenido(pgnum,in_idnivel)
 			            strRows +=
                                        "<td>" + data[i].vc_contexto + "</td>" +                                   
                                        "<td align=center>" +
-                                            "<img src='Images/iconos/edit.png'  width='18px' title='Editar' onclick='Editar_Contenido(" + '"' + data[i].in_idcontenido + '"' + ");' style='cursor:pointer;' />&nbsp;|&nbsp;" +
-                                            (data[i].in_estado == 1 ? "<img src='libreria/imagenes/Botones/Activo.png' title='Desactivar'" : "<img src='libreria/imagenes/Botones/Desactivo.png' title='Activar'") + " onclick='Estado_Contenido(" + '"' + data[i].in_idcontenido + '"' + ");' style='cursor:pointer;' /></td>" +
+                                            "<img src='Images/iconos/edit.png'  width='18px' title='Editar' onclick='Editar_Contenido(" + '"' + data[i].in_idcontenido + '"' + ");' style='cursor:pointer;' /> " + "&nbsp;|&nbsp;" +
+                                                (data[i].in_estado == 1 ? "<img src='libreria/imagenes/Botones/Activo.png' title='Desactivar'" : "<img src='libreria/imagenes/Botones/Desactivo.png' title='Activar'") + " onclick='Estado_Contenido(" + '"' + data[i].in_idcontenido + '"' + ");' style='cursor:pointer;' />" + "&nbsp;|&nbsp;" +
+                                            "<img src='Images/iconos/delete.png'  width='18px' title='Eliminar' onclick='Eliminar_Contenido(" + '"' + data[i].in_idcontenido + '"' + ");' style='cursor:pointer;' /> " +
+                                            "</td>" +
 								       "</td>" +
                                    "</tr>"
 			        }
@@ -526,6 +535,28 @@ function GetGrid_Contenido(pgnum,in_idnivel)
 		}//Fin Success
 	}); //Fin Ajax
 	//populateContentData(content);
+}
+
+function Eliminar_Contenido(in_idcontenido) {
+    var objData = {};
+    objData["in_idcontenido"] = in_idcontenido;
+    $.ajax({
+        type: "POST",
+        url: urlFrm_MantNivel + "Eliminar_Contenidos",
+        data: JSON.stringify(objData),
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        success: function (data) {
+            ;
+            var obj = data.d;
+            if (obj >= 1) {
+                new Messi("Registro Eliminado", { modal: true, center: true, title: 'Informacion', titleClass: 'anim error', autoclose: 1500, buttons: [{ id: 0, label: 'Ok', val: 'X' }] });
+                GetGrid_Contenido(1, $('#hdIddescarte').val());
+            } else {
+                new Messi("Error de Registro - No pueden haber dos usuarios iguales", { modal: true, center: true, title: 'Informacion', titleClass: 'anim error', autoclose: 1500, buttons: [{ id: 0, label: 'Ok', val: 'X' }] });
+            }//Fin condicion
+        }//Fin data
+    }); //Fin DEL .ajax
 }
 
 function Editar_Contenido(in_idcontenido)

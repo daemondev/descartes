@@ -135,7 +135,15 @@ public partial class Frm_MantNivel : System.Web.UI.Page
 		return Resul;
 	}
 
-	[WebMethod]
+    [WebMethod]
+    public static Int32 Eliminar_Contenidos(Int32 in_idcontenido) {
+        if (R.set("delDeleteContent", in_idcontenido).Equals("successful")) {
+            return 1;
+        }
+        return 0;
+    }
+
+    [WebMethod]
 	public static List<Etb_NIVEL> Armar_Contenidos(Int32 op, Int32 in_idnivel)
 	{
 		List<Etb_NIVEL> lst = new List<Etb_NIVEL>();

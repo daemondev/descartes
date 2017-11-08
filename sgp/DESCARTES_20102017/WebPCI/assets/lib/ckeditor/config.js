@@ -134,12 +134,12 @@ CKEDITOR.editorConfig = function (config) {
     //config.uiColor = '#57A581';
     config.uiColor = '#D43F3A';
     config.useComputedState = false;
-    config.filebrowserBrowseUrl = 'Browserhandler.ashx';
+    //config.filebrowserBrowseUrl = 'Browserhandler.ashx';
     config.filebrowserUploadUrl = 'UploadHandler.ashx';
     //config.extraPlugins = 'uploadimage';
     //config.extraPlugins = 'filebrowser,uploadimage,div,menu,contextmenu,panel,floatpanel';
     //config.extraPlugins = 'filebrowser,uploadimage,div,table,tabletools,tableresize,dialogadvtab';
-    config.extraPlugins = 'filebrowser,uploadimage,div,table,tabletools,tableresize,pastefromexcel,colordialog,autogrow,forms,label,extraformattributes,image2,stylescombo'; //,divarea
+    config.extraPlugins = 'filebrowser,uploadimage,div,table,tabletools,tableresize,pastefromexcel,colordialog,autogrow,forms,label,extraformattributes,stylescombo'; //,divarea,image2
     config.filebrowserWindowWidth = '640';
     config.filebrowserWindowHeight = '480';
     config.div_wrapTable = true;
@@ -161,6 +161,12 @@ CKEDITOR.editorConfig = function (config) {
     config.autoGrow_maxHeight = 430;
     config.autoGrow_bottomSpace = 50;
     config.autoGrow_onStartup = true;
+
+    //fileman
+    var roxyFileman = '/assets/lib/ckeditor/plugins/fileman/index.html';
+    config.filebrowserBrowseUrl = roxyFileman;
+    config.filebrowserImageBrowseUrl = roxyFileman + '?type=image';
+    config.removeDialogTabs = 'link:upload;image:upload';
     //config.keystrokes = [[CKEDITOR.CTRL + 86, 'pastetext'], [CKEDITOR.CTRL + CKEDITOR.SHIFT + 86, 'paste']];
     //config.forcePasteAsPlainText = true;
     /*

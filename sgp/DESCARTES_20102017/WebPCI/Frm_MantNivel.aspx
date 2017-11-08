@@ -174,7 +174,7 @@
 					    <thead>
 					        <tr>	    
 						        <th style="text-align:center;">CONTENIDO</th>						
-						        <th style="text-align:center; width:10px;">ACCIONES</th>
+						        <th style="text-align:center; width:100px;">ACCIONES</th>
 						        
 					        </tr>
 					    </thead>
@@ -260,8 +260,8 @@
 					            <div class="col-lg-3" style="overflow-y:scroll;overflow-x:no-display ;height:550px;margin-top:10px">
 						            <div id="div_cabe_secuencia"><p style="margin-left:-55px;font-weight:bold;font-size:24px">Secuencia</p></div>
 							        <p></p>
-							        <div id="div_secuencia" style="">
-								        GHIAN_SEGUIMIENTO
+							        <div id="div_secuencia" style=""> <!-- x001 -->
+								        
 							        </div>							
 					            </div>
 					            <div class="col-lg-9">
