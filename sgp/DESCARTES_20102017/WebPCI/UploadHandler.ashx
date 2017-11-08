@@ -37,7 +37,7 @@ public class UploadHandler : IHttpHandler {
                 Dictionary<string, object> dict2 = new Dictionary<string, object>();
                 dict2.Add("fileName", fileName + ext);
                 dict.Add("d", dict2);
-                var res = "<script type='text/javascript'>window.parent.CKEDITOR.tools.callFunction(" + num.ToString() +", '" + "Archivos_Carga/" + fileName + ext +"', 'La imágen ["+ fileName+ext +"] se guardó satisfactoriamente en el servidor');</script>";
+                var res = "<script type='text/javascript'>window.parent.CKEDITOR.tools.callFunction(" + num.ToString() +", '" + "/Archivos_Carga/" + fileName + ext +"', 'La imágen ["+ fileName+ext +"] se guardó satisfactoriamente en el servidor');</script>";
                 //window.parent.CKEDITOR.tools.callFunction($funcNum, $url, $message)
                 //context.Response.Write(serializer.Serialize(dict));
                 context.Response.Write(res);

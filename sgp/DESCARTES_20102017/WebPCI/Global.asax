@@ -18,7 +18,7 @@
     void Application_Error(object sender, EventArgs e)
     {
         // Código que se ejecuta cuando se produce un error sin procesar
-        HttpContext.Current.Session["ready"] = null;
+        //HttpContext.Current.Session["ready"] = null;
 
     }
 
