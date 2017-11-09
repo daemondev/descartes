@@ -14,6 +14,17 @@ using System.Drawing;
 using System.IO;
 using SpreadsheetGear;
 
+/*
+quitar avanzado
+quitar form
+quitar id de subprocesos
+z-index modal
+reporte correcto
+dos procesos demo - 4 pasos - inicio - fin
+agregar columna usuario - rpt general
+R2 - iis 7
+     */
+
 public partial class Frm_Reportes : System.Web.UI.Page
 {
     [WebMethod]

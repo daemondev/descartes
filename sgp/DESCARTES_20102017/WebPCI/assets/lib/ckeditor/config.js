@@ -187,6 +187,8 @@ CKEDITOR.editorConfig = function (config) {
     ];
     config.templates = 'my_templates'; //*/
 };  //*/
+//CKEDITOR.instances.myInstance.getCommand('myPlugin').enable();
+//https://keyoti.com/support/default.aspx?g=posts&t=2036
 //http://jschr.github.io/bootstrap-modal/
 //https://ckeditor.com/old/forums/Support/Issue-with-Twitter-Bootstrap#comment-127719
 //https://docs.ckeditor.com/ckeditor4/docs/#!/guide/dev_howtos_dialog_windows

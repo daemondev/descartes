@@ -51,3 +51,4 @@
 };  //*/
 //https://docs-old.ckeditor.com/CKEditor_3.x/Developers_Guide/Toolbar
 ////config = { toolbar: [['SelectAll', 'Copy', 'Styles']] };
+//https://stackoverflow.com/questions/20484492/ckeditor-how-to-enable-custom-plugin-button-when-in-source-mode

@@ -34,7 +34,13 @@ namespace Negocio
 			return objDatos.traerProcesos(objNivel);
 		}
 
-		public List<Etb_NIVEL> dameTitulo(Etb_NIVEL objNivel)
+        public List<Etb_NIVEL> traerSubProcesos(Etb_NIVEL objNivel)
+        {
+            objDatos = new Dtb_NIVEL();
+            return objDatos.traerSubProcesos(objNivel);
+        }
+
+        public List<Etb_NIVEL> dameTitulo(Etb_NIVEL objNivel)
 		{
 			objDatos = new Dtb_NIVEL();
 			return objDatos.dameTitulo(objNivel);

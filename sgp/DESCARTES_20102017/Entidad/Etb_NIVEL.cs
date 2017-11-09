@@ -35,6 +35,7 @@ namespace Entidad
 		public string vc_subrayado { get; set; }
 		public int in_idcontenido { get; set; }
         public string vc_contenido { get; set; }
-
+        public int in_jumpId { get; set; }
+        public int in_inLink { get; set; }
     }
 }

@@ -53,7 +53,8 @@ using System.Data;
 								obj.vc_alerta = dr.GetString(7);
 								obj.in_link = dr.GetInt32(8);
                                 obj.vc_color_alerta = dr.GetString(9);
-                                try{ obj.vc_contenido = dr.GetString(10); } catch {}
+                                obj.in_jumpId = dr.GetInt32(11);
+                        try { obj.vc_contenido = dr.GetString(10); } catch {}
                                 
                                 lista.Add(obj);
 							}
@@ -122,7 +123,39 @@ using System.Data;
 			return lista;
 		}
 
-		public List<Etb_NIVEL> dameTitulo(Etb_NIVEL ent)
+        public List<Etb_NIVEL> traerSubProcesos(Etb_NIVEL ent)
+        {
+            List<Etb_NIVEL> lista = new List<Etb_NIVEL>();
+            Etb_NIVEL obj;
+            using (SqlConnection cn = new SqlConnection(cad))
+            {
+                SqlCommand cmd = new SqlCommand("traerSubProcesos", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandTimeout = 900000000;
+                cmd.Parameters.AddWithValue("@matrizAnterior", ent.in_dpndncia_idnivel);
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        obj = new Etb_NIVEL();
+                        obj.id_nivel = dr.GetInt32(0);
+                        obj.vc_titulo = dr.GetString(1);
+                        obj.vc_descripcion = dr.GetString(2);
+                        obj.vc_url_img = dr.GetString(3);
+                        obj.in_inLink = dr.GetInt32(4);
+                        obj.in_jumpId = dr.GetInt32(5);
+                        obj.in_dpndncia_idnivel = dr.GetInt32(6);
+                        lista.Add(obj);
+                    }
+                }
+                cn.Close();
+            }
+            return lista;
+        }
+
+        public List<Etb_NIVEL> dameTitulo(Etb_NIVEL ent)
 		{
 			List<Etb_NIVEL> lista = new List<Etb_NIVEL>();
 			Etb_NIVEL obj;
@@ -159,17 +192,17 @@ using System.Data;
 				cmd.CommandType = CommandType.StoredProcedure;
 				cmd.CommandTimeout = 900000000;
 				Etb_NIVEL objN;
-
-				switch (ent.indice)
+                cmd.Parameters.AddWithValue("@in_jumpId", ent.in_jumpId);
+                switch (ent.indice)
 				{
 					case 1:
 				
 					cmd.Parameters.AddWithValue("@INDICE", ent.indice);
 					cmd.Parameters.AddWithValue("@in_dpndncia_idnivel", ent.in_dpndncia_idnivel);
 					cmd.Parameters.AddWithValue("@pagenum", ent.pagenum);
-					cmd.Parameters.AddWithValue("@pagesize", ent.pagesize);
+					cmd.Parameters.AddWithValue("@pagesize", ent.pagesize);                    
 
-					cn.Open();
+                        cn.Open();
 					SqlDataReader dr = cmd.ExecuteReader();
 					if (dr.HasRows)
 					{

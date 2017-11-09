@@ -55,7 +55,17 @@ public partial class Frm_MantNivel : System.Web.UI.Page
 		return lst;
 	}
 
-	[WebMethod]
+    [WebMethod]
+    public static List<Etb_NIVEL> traerSubProcesos(Etb_NIVEL objData)
+    {
+        List<Etb_NIVEL> lst = new List<Etb_NIVEL>();
+        Ntb_NIVEL neg = new Ntb_NIVEL();
+        lst = neg.traerSubProcesos(objData);
+
+        return lst;
+    }
+
+    [WebMethod]
 	public static List<Etb_NIVEL> traerMatrices()
 	{
 		List<Etb_NIVEL> lst = new List<Etb_NIVEL>();

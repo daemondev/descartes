@@ -4,6 +4,8 @@
         if ($(v).html() != "Documento") $(v).parent().hide();
     });
 
+    CKEDITOR.instances.divEditor.getCommand('selectAll').enable();
+
     $('iframe').contents().dblclick(function (e) {
         //if (typeof e.target.href != 'undefined' && e.ctrlKey == true) {
         if (typeof e.target.href != 'undefined') {
@@ -843,6 +845,7 @@ function fnc_listar_niveles(in_listar, in_dpndncia_idnivel) {
 				//console.log(data[0].vc_alerta);
 				$('#lblAlerta_plazo').text(data[0].vc_alerta);
 				$('#lblAlerta_plazo').css('color', '');
+                //### begin alerta {{
 				if (data[0].vc_alerta != '') {
 					$('#div_alerta').css('background-color', '' + data[0].vc_color_alerta + '');
 				} else {
@@ -854,6 +857,7 @@ function fnc_listar_niveles(in_listar, in_dpndncia_idnivel) {
 				} else {
 					$('#lblAlerta_plazo').css('color', 'black');
 				}
+			    //### end alerta }}
 				if (in_listar == 1) {
 					var valores;
 
@@ -881,6 +885,7 @@ function fnc_listar_niveles(in_listar, in_dpndncia_idnivel) {
 					
 					vc_secuencia += "<a id='href_v_" + data[0].id_nivel + "' href='javascript:fnc_listar_niveles(1," + data[0].id_nivel + ")' style='color:#fff;font-weight: bold;'><button id='tr_ref_" + data[0].id_nivel + "' type='button' class='btn btn-danger btn-lg btn-block' style='margin-bottom:3px'>" + data[0].vc_descripcion + "</button></a>";
 				    
+                    /*### obsolete
 					if (data[0].id_nivel == "954") {
 					    for (var j = 1; j < 8; j++) {
 					        if (j == 1) {
@@ -891,7 +896,8 @@ function fnc_listar_niveles(in_listar, in_dpndncia_idnivel) {
 					            vc_secuencia += "<a style='color:#fff;font-weight: bold;'><button id='tr_ref_" + data[0].id_nivel + j + "' type='button' class='btn btn-danger btn-lg btn-block' style='margin-bottom:3px;background-color:#4C4A4A;border:#4C4A4A'>Locucion " + j + "</button></a>";
 					        }
                         }
-					}
+					} //*/
+
 					//alert(data[0].vc_alerta);
 					$('#div_secuencia').empty().html(vc_secuencia);
 					var valores = "";
@@ -1039,6 +1045,7 @@ function fnc_listar_niveles(in_listar, in_dpndncia_idnivel) {
 						    strRows += strContenido;
 						    itemsOrdered["contenido"] += strContenido;
 						} else {
+						    //debugger;
 						    if (data[i].vc_titulo == "SI") {
 						        //alert(data[i].in_id_link);
 						        //"<li class='desactivado' role='presentation' onclick='fnc_listar_niveles(1," + (data[i].in_link == 0 ? data[i].id_nivel : data[i].in_link) + ");' style='display: inline-block; margin-right:5px;margin-top:5px;padding:10px 20px;border-radius:6px;font-size:18px'><span style='color:#fff;font-weight:bold;'>" + data[i].vc_titulo + "</span></li>";
@@ -1061,7 +1068,8 @@ function fnc_listar_niveles(in_listar, in_dpndncia_idnivel) {
 						        if (data[i].in_link == 0) {
 						            strBotones = "<li class='si' onclick='fnc_listar_niveles(1," + data[i].id_nivel + ");' style='display: inline-block; margin-left:280px;margin-top:5px;padding:20px 60px;border-radius:10px;font-size:32px;font-weight:bold'><span style='color:#fff;font-weight:bold;'>" + data[i].vc_titulo + "</span></li>";
 						        } else {
-						            strBotones = "<li class='si' onclick='saltoentreMatrices(" + data[i].in_link + ");' style='display: inline-block; margin-left:280px;margin-top:5px;padding:20px 60px;border-radius:10px;font-size:32px;font-weight:bold'><span style='color:#fff;font-weight:bold;'>" + data[i].vc_titulo + "</span></li>";
+						            strBotones = "<li class='si' onclick='fnc_listar_niveles(1," + data[i].in_jumpId + ");' style='display: inline-block; margin-left:280px;margin-top:5px;padding:20px 60px;border-radius:10px;font-size:32px;font-weight:bold'><span style='color:#fff;font-weight:bold;'>" + data[i].vc_titulo + "</span></li>";						            
+						            //strBotones = "<li class='si' onclick='saltoentreMatrices(" + data[i].in_link + ");' style='display: inline-block; margin-left:280px;margin-top:5px;padding:20px 60px;border-radius:10px;font-size:32px;font-weight:bold'><span style='color:#fff;font-weight:bold;'>" + data[i].vc_titulo + "</span></li>";
 						        }
 						    }
 						    strRows += strBotones;
@@ -1128,9 +1136,9 @@ function saltoentreMatrices(milink) {
 	mititulo(miMatriz);
 	var tituloMatriz = $("#nombreMatriz").text();
 	fnc_listar_matrices(2, miMatriz, tituloMatriz);
-	$("#nombreMatriz").html("");
-	$("#tb_matricez").empty();
-	$("#tb_plazo").html("");
+	$("#nombreMatriz").html(""); //hidden aux
+	$("#tb_matricez").empty(); //clean process
+	$("#tb_plazo").html(""); // panel content
 	
 	$.ajax({
 		//async: false,
@@ -1547,7 +1555,7 @@ function fnc_guardarSolucion()
 						} //endif (val == true)
 					} // Fin title
 				});    // Fin Messi*/
-			    location.reload();
+			    //location.reload();
 				
 			} /*else
 			{
@@ -1696,7 +1704,8 @@ function removerValores(id) {
 var inicioOperacion;
 var horaActual;
 var tituloProceso;
-function fnc_listar_matrices(in_listar, in_dpndncia_idnivel,titulo) {
+function fnc_listar_matrices(in_listar, in_dpndncia_idnivel, titulo) {
+    //alert("fnc_listar_matrices");
     //debugger;
     horaActual = CrearHora(1);
     tituloProceso = titulo;
@@ -1749,25 +1758,27 @@ function fnc_listar_matrices(in_listar, in_dpndncia_idnivel,titulo) {
 						    }
 						    else {
 						        //$('#campañas').css("height", "0px");
-						        $('#campañas').hide();
-						        $("#btn_inicio").show();
-						        $('#todo').show();						      
-						    if (activacion == 1) {
-						        strRows += "<li id='div_" + data[i].id_nivel + "li' class='desactivado' role='presentation' onclick='muestrate(/div_" + data[i].id_nivel + "/)' style='display: inline-block; margin-right:5px;margin-top:5px;padding:10px 20px;border-radius:6px;font-size:18px'><span style='color:#fff;font-weight:bold;'>" + data[i].vc_titulo + "</span></li>";
-						        activacion = 0;
-						    } else {
-						        strRows += "<li id='div_" + data[i].id_nivel + "li' class='desactivado' role='presentation' onclick='muestrate(/div_" + data[i].id_nivel + "/)' style='display: inline-block; margin-right:5px;margin-top:5px;padding:10px 20px;border-radius:6px;font-size:18px'><span style='color:#fff;font-weight:bold;'>" + data[i].vc_titulo + "</span></li>";
-						    }
+						            $('#campañas').hide();
+						            $("#btn_inicio").show();
+						            $('#todo').show();						      
+						        if (activacion == 1) {
+						            strRows += "<li id='div_" + data[i].id_nivel + "li' class='desactivado' role='presentation' onclick='muestrate(/div_" + data[i].id_nivel + "/)' style='display: inline-block; margin-right:5px;margin-top:5px;padding:10px 20px;border-radius:6px;font-size:18px'><span style='color:#fff;font-weight:bold;'>" + data[i].vc_titulo + "</span></li>";
+						            activacion = 0;
+						        } else {
+						            strRows += "<li id='div_" + data[i].id_nivel + "li' class='desactivado' role='presentation' onclick='muestrate(/div_" + data[i].id_nivel + "/)' style='display: inline-block; margin-right:5px;margin-top:5px;padding:10px 20px;border-radius:6px;font-size:18px'><span style='color:#fff;font-weight:bold;'>" + data[i].vc_titulo + "</span></li>";
+						        }
 
-						    strRowsi += "<div id='div_" + data[i].id_nivel + "' style='visibility:hidden;padding:0px;width:0px;height:0px'>" +
-                                    "<img src='Archivos_Carga/" + url + "' width='960px' height='400px' style='border-radius:20px'/>" +
-                                        "<div width='20px' style='margin:30px 60px';>"+
-                                            "<button type='button' class='btn btn-danger btn-lg' onclick='fnc_listar_niveles(1," + (data[i].in_link == 0 ? data[i].id_nivel : data[i].in_link) + ");dameSub("+'"'+data[i].vc_titulo+'"'+");'>INFORMACION</button>" +
-                                        "</div>"+
-                                    "</div>";
+						        strRowsi += "<div id='div_" + data[i].id_nivel + "' style='visibility:hidden;padding:0px;width:0px;height:0px'>" +
+                                        "<img src='Archivos_Carga/" + url + "' width='960px' height='400px' style='border-radius:20px'/>" +
+                                            "<div width='20px' style='margin:30px 60px';>"+
+                                                "<button type='button' class='btn btn-danger btn-lg' onclick='fnc_listar_niveles(1," + (data[i].in_link == 0 ? data[i].id_nivel : data[i].in_link) + ");dameSub("+'"'+data[i].vc_titulo+'"'+");'>INFORMACION</button>" +
+                                            "</div>"+
+                                        "</div>";
 						    }
+						    
 						}
-						else {
+						else { //### begin mark obsolete }}
+						    
 							if (in_rpta == 3) {
 							    strRowsi += "<div style='width: 40%;'><input type='radio' style='width:20px;height:20px' onclick='fnc_solucion(1);' name='1'/> " + data[i].vc_titulo + "</div>"
 							} else if (in_rpta == 4) {
@@ -1778,7 +1789,7 @@ function fnc_listar_matrices(in_listar, in_dpndncia_idnivel,titulo) {
 							    strRowsi += "<div style='width: 40%;'><input type='radio' style='width:20px;height:20px' onclick='fnc_listar_niveles(1," + (data[i].in_link == 0 ? data[i].id_nivel : data[i].in_link) + ");'  name='1'/> " + data[i].vc_titulo + "</div>"
 								// value='" + data[i].id_nivel + "'
 							}
-						}
+						} //### end mark obsolete }}
 					}//end for
 
 					//alert(strRows);

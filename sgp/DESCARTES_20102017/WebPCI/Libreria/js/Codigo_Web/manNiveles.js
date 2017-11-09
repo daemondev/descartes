@@ -7,7 +7,13 @@ CKEDITOR.on('instanceReady', function (ev) {
             $("#hd_idcontenido").val(0);
             setEditorText("");
         }
-    });    
+    });
+
+    /*
+    $.each(ev.editor.commands, function (k,v) {
+        alert(k +" - " + v);
+    });//*/    
+    
     ev.editor.commands.newpage.exec = resetEditor.exec;    
     if (editor.contextMenu) {
         editor.addCommand('alignLeft', {
@@ -480,6 +486,8 @@ $(document).ready(function () {
 			$("#mismatrices").html("<option value='0'>---seleccionar---</option>");
 			$("#misprocesos").prop("disabled", true);
 			$("#misprocesos").html("<option value='0'>---seleccionar---</option>");
+			$("#misSubprocesos").prop("disabled", true);
+			$("#misSubprocesos").html("<option value='0'>---seleccionar---</option>");
 		};
 	});
 
@@ -487,6 +495,14 @@ $(document).ready(function () {
 		$("#misprocesos").prop("disabled", false);
 		$("#misprocesos").html("<option value='0'>---seleccionar---</option>");
 		traerProcesos(parseInt($("#mismatrices option:selected").val()));
+
+	})
+
+
+	$("#misprocesos").change(function () {
+	    $("#misSubprocesos").prop("disabled", false);
+	    $("#misSubprocesos").html("<option value='0'>---seleccionar---</option>");
+	    traerSubProcesos(parseInt($("#misprocesos option:selected").val()));
 
 	})
 
@@ -726,6 +742,32 @@ function Estado_Contenido(in_idcontenido)
 }
 
 //****
+
+
+function traerSubProcesos(matriz) {
+    var objData = {};
+    objData["in_dpndncia_idnivel"] = matriz;
+    var DTA = {};
+    DTA.objData = objData;
+
+    $.ajax({
+        async: false,
+        type: "POST",
+        url: urlFrm_MantNivel + "traerSubProcesos",
+        data: JSON.stringify(DTA),
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        success: function (response) {
+            ;
+            var data = (typeof response.d) == "string" ? eval("(" + response.d + ")") : response.d;
+            if (data.length > 0) {
+                for (var i = 0; i < data.length; i++) {
+                    $("#misSubprocesos").append("<option value='" + data[i].id_nivel + "'> [" + data[i].id_nivel + "] - " + data[i].vc_titulo + "</option>");
+                }
+            }
+        }
+    });
+}
 
 function traerProcesos(matriz)
 {
@@ -1243,6 +1285,7 @@ function fnc_guardar(in_gestion, in_dpndncia_idnivel) {
 		if ($('#ddl_rpta').val() == 7) {
 			var ellink = parseInt($("#mismatrices").val()) * 1000000 + parseInt($("#misprocesos").val());
 			objData["in_link"] = ellink;
+			objData["in_jumpId"] = parseInt($("#misSubprocesos").val());
 		} else objData["in_link"] = 0;
 
 		objData["in_dpndncia_idnivel"] = (in_gestion == 2 ? $('#lbl_id_nivel').text() : in_dpndncia_idnivel);

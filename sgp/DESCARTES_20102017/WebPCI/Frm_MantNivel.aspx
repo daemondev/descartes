@@ -66,12 +66,12 @@
     </div>
         
 	<!--REGISTRO DE LOS DATOS DE DESCARTE--> <!--++++ begin MODAL NUEVO REGISTRO  {{ -->
-	<div id="plazo"  role="dialog" style="width:800px;height:500px; z-index:999;"  > 
+	<div id="plazo"  role="dialog" style="width:800px;height:600px; z-index:999;"  > 
 		  <%-- <div class="modal-content"  style="width: 75%;margin-top:10px" >
 			   <div class="modal-content"  style="width: 75%;margin-top:10px" >--%>
 			<table id="tbl_dialog" style="border-collapse: separate; border-spacing: 4px;">
 				<tr>
-					<td>
+					<td style="width:115px;">
 						<label>T&Iacute;TULO:</label>
 						
 						<label id="lbl_id_categoria"></label>
@@ -138,6 +138,11 @@
 				<tr>
 					<td><label>PROCESO :</label></td>
 					<td><select id="misprocesos" disabled><option value="0">[Seleccione]</option></select></td>
+				</tr>
+
+                <tr>
+					<td><label>SUBPROCESO :</label></td>
+					<td><select id="misSubprocesos" disabled><option value="0">[Seleccione]</option></select></td>
 				</tr>
 
 				<tr>
