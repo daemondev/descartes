@@ -19,7 +19,7 @@
     //config.removeButtons = 'Anchor,Subscript,Superscript,PasteFromWord,PasteText,Print,Link,Unlink,Maximize,ShowBlocks,Find,SpellChecker,Save,NewPage,Cut,Templates,Paste'; config.removeButtons = 'Anchor,Subscript,Superscript,PasteFromWord,PasteText,Print,ShowBlocks,Find,SpellChecker'; //Link,Unlink,
     config.removeButtons = 'Anchor,Subscript,Superscript,PasteFromWord,PasteText,Print,ShowBlocks,Find,SpellChecker,Templates,Save,NewPage,Cut,Paste'; //Link,Unlink,
     //config.removeButtons = 'Cut,Paste,Undo,Redo,Anchor,Underline,Strike,Subscript,Superscript,Maximize,ShowBlocks,BGColor,TextColor,Font,FontSize,Emojione,PageBreak,Smiley,Link,Unlink,JustifyRight,JustifyCenter,Outdent,Indent,BulletedList,NumberedList,CopyFormatting,RemoveFormat,Italic,Bold,Find,Replace,PasteText,PasteFromWord,Templates,Save,NewPage';
-    config.extraPlugins = 'filebrowser,uploadimage,div,table,tabletools,tableresize,autogrow';
+    config.extraPlugins = 'filebrowser,uploadimage,div,table,tabletools,tableresize,autogrow,html5video';
     config.filebrowserUploadUrl = "base64";
     config.toolbarCanCollapse = true;
     //config.toolbarLocation = 'bottom';

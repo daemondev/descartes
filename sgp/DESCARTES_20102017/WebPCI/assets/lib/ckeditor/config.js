@@ -113,20 +113,21 @@ CKEDITOR.editorConfig = function (config) {
         , { name: 'clipboard', groups: ['selection', 'clipboard', 'undo', 'find'] } //cut
         , { name: 'colors', groups: ['colors'] }
         , { name: 'basicstyles', groups: ['basicstyles', 'cleanup'] } //bold
-		, { name: 'styles', groups: ['styles'] } //font        		
-        , { name: 'tools', groups: ['tools'] }
-		, { name: 'paragraph', groups: ['list', 'indent', 'blocks', 'align', 'bidi', 'paragraph'] }        
+        , { name: 'styles', groups: ['styles'] } //font        		
+        , { name: 'insert', groups: ['insert', 'blocks'] }		        
+        , { name: 'paragraph', groups: ['list', 'indent', 'align', 'bidi', 'paragraph'] }        
         , { name: 'editing', groups: [ 'spellchecker', 'editing'] }
         //, { name: 'editing', groups: ['selection', 'find', 'spellchecker', 'editing'] }
         //, { name: 'links', groups: ['links'] }        
-		, { name: 'insert', groups: ['insert'] }		
+        
 		//, { name: 'links', groups: ['links'] }
         , { name: 'forms', groups: ['form', 'forms', 'links'] }
-		//, { name: 'others', groups: ['others'] }
+        , { name: 'tools', groups: ['tools'] }
+		, { name: 'others', groups: ['others'] }
 		//, { name: 'about', groups: ['about'] }
     ];
 
-    config.removeButtons = 'Anchor,Subscript,Superscript,PasteText,Print,ShowBlocks,Find,SpellChecker,Smiley,Emojione'; //Link,Unlink,
+    config.removeButtons = 'Anchor,Subscript,Superscript,Print,Find,SpellChecker,Smiley,Emojione'; //Link,Unlink,ShowBlocks,PasteText
     //config.filebrowserUploadUrl = "base64";
     config.toolbarCanCollapse = true;
     //config.toolbarLocation = 'bottom';
@@ -139,7 +140,7 @@ CKEDITOR.editorConfig = function (config) {
     //config.extraPlugins = 'uploadimage';
     //config.extraPlugins = 'filebrowser,uploadimage,div,menu,contextmenu,panel,floatpanel';
     //config.extraPlugins = 'filebrowser,uploadimage,div,table,tabletools,tableresize,dialogadvtab';
-    config.extraPlugins = 'filebrowser,uploadimage,div,table,tabletools,tableresize,pastefromexcel,colordialog,autogrow,forms,label,extraformattributes,stylescombo'; //,divarea,image2
+    config.extraPlugins = 'filebrowser,uploadimage,div,table,tabletools,tableresize,pastefromexcel,colordialog,autogrow,forms,label,extraformattributes,stylescombo,html5video'; //,divarea,image2,flashplayer
     config.filebrowserWindowWidth = '640';
     config.filebrowserWindowHeight = '480';
     config.div_wrapTable = true;
@@ -257,7 +258,7 @@ image error fixed- put this after bootstrap anj jquery load
         </script>
 */
 //https://sdk.ckeditor.com/samples/autogrow.html
-
+//http://cdn.ckeditor.com/4.7.0/standard-all/samples/
 //create own plugins
 //https://docs-old.ckeditor.com/CKEditor_3.x/Tutorials/Timestamp_Plugin
 //https://docs.ckeditor.com/ckeditor4/docs/#!/guide/plugin_sdk_intro

@@ -9,6 +9,122 @@ CKEDITOR.on('instanceReady', function (ev) {
         }
     });    
     ev.editor.commands.newpage.exec = resetEditor.exec;    
+    if (editor.contextMenu) {
+        editor.addCommand('alignLeft', {
+            exec: function (editor) {
+                var element = editor.getSelection().getStartElement().$;
+                //element.removeClass('align_right');
+                //element.addClass('align_left');
+
+                element.style.removeProperty("margin");
+                element.style.removeProperty("display");
+                element.style.cssFloat = "left";
+            }
+        });
+
+        editor.addCommand('alignInLine', {
+            exec: function (editor) {
+                var element = editor.getSelection().getStartElement().$;
+                /*
+                element.style.position = "absolute";
+                element.style.transform = "translateX(-50%)";
+                element.style.left = "50%"; //*/
+                element.style.removeProperty("float");
+                element.style.display = "inline-block";
+                element.style.marginRight = "auto";
+                element.style.marginLeft = "auto";
+            }
+        });
+
+        editor.addCommand('alignCenter', {
+            exec: function (editor) {
+                var element = editor.getSelection().getStartElement().$;                
+                /*
+                element.style.position = "absolute";
+                element.style.transform = "translateX(-50%)";
+                element.style.left = "50%"; //*/
+                element.style.removeProperty("float");
+                element.style.display = "block";                
+                element.style.marginRight = "auto";
+                element.style.marginLeft = "auto";
+            }
+        });
+
+        editor.addCommand('alignRight', {
+            exec: function (editor) {
+                var element = editor.getSelection().getStartElement().$;
+                //element.removeClass('align_left');
+                //element.addClass('align_right');
+
+                element.style.removeProperty("margin");
+                element.style.removeProperty("display");
+                element.style.cssFloat = "right";
+            }
+        });
+        editor.addCommand('removeAlignment', {
+            exec: function (editor) {
+                var element = editor.getSelection().getStartElement().$;
+                element.style.removeProperty("margin");
+                element.style.removeProperty("display");
+                /*
+                element.removeClass('align_left');
+                element.removeClass('align_right');*/
+            }
+        });
+        editor.addCommand('small', {
+            exec: function (editor) {
+                var element = editor.getSelection().getStartElement().$;
+                element.style.removeProperty("margin");
+                element.style.removeProperty("display");
+                element.setAttribute('width', 100);
+            }
+        });
+
+        editor.addMenuGroup('HappyImages');
+        editor.addMenuItems({
+            alignLeft: {
+                label: 'A la Izquierda',
+                command: 'alignLeft',
+                group: 'HappyImages',
+                order: 1
+            },
+            alignRight: {
+                label: 'A la Derecha',
+                command: 'alignRight',
+                group: 'HappyImages',
+                order: 2
+            },
+            alignCenter: {
+                label: 'Centrar',
+                command: 'alignCenter',
+                group: 'HappyImages',
+                order: 3
+            },
+            removeAlignment: {
+                label: 'Quitar Alineación',
+                command: 'removeAlignment',
+                group: 'HappyImages',
+                order: 4
+            },
+            small: {
+                label: 'Pequeño',
+                command: 'small',
+                group: 'HappyImages',
+                order: 5
+            },
+            alignInLine: {
+                label: 'Conbinar con Texto',
+                command: 'alignInLine',
+                group: 'HappyImages',
+                order: 6
+            }
+        });
+    }
+    editor.contextMenu.addListener(function (element) {
+        if (element.getAscendant('img', true)) {
+            return { alignLeft: CKEDITOR.TRISTATE_OFF, alignRight: CKEDITOR.TRISTATE_OFF, alignCenter: CKEDITOR.TRISTATE_OFF, alignInLine: CKEDITOR.TRISTATE_OFF, removeAlignment: CKEDITOR.TRISTATE_OFF, small: CKEDITOR.TRISTATE_OFF };
+        }
+    });
 });
 
 
