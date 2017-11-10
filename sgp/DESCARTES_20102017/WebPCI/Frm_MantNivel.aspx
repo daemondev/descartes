@@ -7,7 +7,23 @@
 	<center>
         <div id="myReact" class="background-color:red; width:100%;height:100%; position:absolute;z-index:99999;"></div>
 		<style>
-			
+			.idProcess{
+                display:none;
+                font-weight:bold;
+			}
+            .idHelp{
+                position:absolute;               
+                right:0;
+                top:0;
+                font-size:x-small;
+            }
+            .showIdProcess{
+                display:inline;
+            }
+            .hideIdProcess{
+                display:none;
+            }
+
 		</style>
 	    <div style="background-color: #d43f3a;color:white; border-radius: 5px;">
         <h4 class="modal-title">MATENIMIENTO DE PROCESOS</h4>
@@ -15,28 +31,32 @@
 
 		<%--<input type="button" oncontextmenu="alert('derecho')" onclick="alert('izquierdo')" value="click"/>--%>
     <br />
-        <table >
-            <tr >
+        <div style="position:relative;width:100%;">
+            <table >
+                <tr >
 
-                <td>
-                    <label></label>
-                </td>
-                <td>
-                    <%--<select id="ddlSedes" class="form-control" style="width: 200px;"></select>--%>
-                </td>
+                    <td>
+                        <label></label>
+                    </td>
+                    <td>
+                        <%--<select id="ddlSedes" class="form-control" style="width: 200px;"></select>--%>
+                    </td>
                 
-                <td style="text-align: right;">
-                    <button type="button" class="btn btn-primary btn-md" onclick="fnc_nuevaCategoria(0,0);">Nuevo Registro</button>
-                </td>
-			<%-- 
-				<td style="width: 50px;" colspan="3">					
-					<a href='javascript:fnc_preview(0)'>					
-					<img src='Images/iconos/preview.png'  width='32px' /></a>				
-				</td>
-				--%>
-	<%--			<td><input type="button" value="click" id="btnclick" onclick="fnc_click()"/></td>--%>
-            </tr>
-        </table>
+                    <td style="text-align: right;">
+                        <button type="button" class="btn btn-primary btn-md" onclick="fnc_nuevaCategoria(0,0);">Nuevo Registro</button>
+                        
+                    </td>
+		        <%-- 
+			        <td style="width: 50px;" colspan="3">					
+				        <a href='javascript:fnc_preview(0)'>					
+				        <img src='Images/iconos/preview.png'  width='32px' /></a>				
+			        </td>
+			        --%>
+        <%--			<td><input type="button" value="click" id="btnclick" onclick="fnc_click()"/></td>--%>
+                </tr>
+            </table>
+            <span class="idHelp">Identificador <br/> de Procesos &nbsp;<input type="image" value="MOSTRAR" id="btnHelp" /></span> 
+        </div>
 
 <div style=" overflow-y: scroll;height:445px;width:1100px; margin-left:18px;">			
 	<table id="tbCampanias" class="mGrid" style="width:98%;"> 
@@ -517,9 +537,12 @@
         box-shadow: 0 8px 6px -6px black;
     }          
     .ui-dialog { z-index: 999999 !important ; }
+    #div_Contenido .modal-header{
+        background-color:#D43F3A !important;
+    }
 		</style>
 		</center>
-
+    
 <script src="assets/lib/react/react.min.js"></script>
     <script src="assets/lib/react/react-dom.min.js"></script>
     <script src="assets/js/sgp.jsx" type="text/javascript"></script>

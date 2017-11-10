@@ -9,7 +9,8 @@ public partial class Site : System.Web.UI.MasterPage
 {
     Entidad.Etb_Usuario Ent_Usu;
 
-    bool debug = true;    
+    bool debug = false;
+    //bool debug = true;
 
     void debugAction() {
 

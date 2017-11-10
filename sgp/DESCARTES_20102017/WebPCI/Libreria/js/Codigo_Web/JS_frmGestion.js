@@ -824,6 +824,7 @@ function fnc_listar_niveles(in_listar, in_dpndncia_idnivel) {
 
 	hasContent = false;
 	$("#hasContent").val("");
+	//debugger;
 	$.ajax({
 		//async: false,
 		type: "POST",
@@ -927,7 +928,7 @@ function fnc_listar_niveles(in_listar, in_dpndncia_idnivel) {
 					    $('#lblAlerta_plazo').css('color', 'black');
 					}*/
 					//$('#lblSecuencia').text($('#lblSecuencia').text() + ' > ' + $('#lblTitulo_plazo').text());
-
+                    debugger;
 					fnc_listar_niveles(2, data[0].id_nivel);
 
 				}
@@ -1555,7 +1556,7 @@ function fnc_guardarSolucion()
 						} //endif (val == true)
 					} // Fin title
 				});    // Fin Messi*/
-			    //location.reload();
+			    location.reload();
 				
 			} /*else
 			{
@@ -1704,9 +1705,7 @@ function removerValores(id) {
 var inicioOperacion;
 var horaActual;
 var tituloProceso;
-function fnc_listar_matrices(in_listar, in_dpndncia_idnivel, titulo) {
-    //alert("fnc_listar_matrices");
-    //debugger;
+function fnc_listar_matrices(in_listar, in_dpndncia_idnivel, titulo) {    
     horaActual = CrearHora(1);
     tituloProceso = titulo;
 	var objData = {};
@@ -1714,8 +1713,7 @@ function fnc_listar_matrices(in_listar, in_dpndncia_idnivel, titulo) {
 	objData["in_dpndncia_idnivel"] = in_dpndncia_idnivel;
 	var DTA = {};
 	DTA.objData = objData;
-	$.ajax({
-		//async: false,
+	$.ajax({		
 		type: "POST",
 		url: urlFrm_MantNivel + "ArmarPreview",
 		data: JSON.stringify(DTA),
@@ -1727,13 +1725,12 @@ function fnc_listar_matrices(in_listar, in_dpndncia_idnivel, titulo) {
 			var StrPager = '';
 			var strRows = '';
 			var strRowsc = '';
-			var strRowsi = '';
-			//$('#'+vc_id_control+' tr:not(:first)').remove();
+			var strRowsi = '';			
 			if (data.length > 0) {
-				 if (in_listar == 2) {
+			    
+			    if (in_listar == 2) {			        
 				    var activacion = 1;
-					for (var i = 0; i <= data.length - 1; i++) {
-						//debugger;
+					for (var i = 0; i <= data.length - 1; i++) {						
 					    //var url = data[i].vc_url_img.substr(12, data[i].vc_url_img.length);
 					    var url = data[i].vc_url_img;
 						var in_rpta = data[i].in_rpta;

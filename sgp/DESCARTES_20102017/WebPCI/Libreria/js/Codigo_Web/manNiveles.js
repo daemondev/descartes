@@ -444,6 +444,11 @@ function toogleEditor() {
 }
 
 $(document).ready(function () {
+    $("#btnHelp").click(function (e) {        
+        $(".idProcess").toggle();
+        e.preventDefault();
+    });
+
     $('#div_Contenidox').on('hide.bs.modal', function (e) {
         if (typeof (CKEDITOR) != "undefined") {
             for (name in CKEDITOR.instances) {
@@ -762,8 +767,8 @@ function traerSubProcesos(matriz) {
             var data = (typeof response.d) == "string" ? eval("(" + response.d + ")") : response.d;
             if (data.length > 0) {
                 for (var i = 0; i < data.length; i++) {
-                    $("#misSubprocesos").append("<option value='" + data[i].id_nivel + "'>" + data[i].vc_titulo + "</option>");
-                    //$("#misSubprocesos").append("<option value='" + data[i].id_nivel + "'> [" + data[i].id_nivel + "] - " + data[i].vc_titulo + "</option>");
+                    //$("#misSubprocesos").append("<option value='" + data[i].id_nivel + "'>" + data[i].vc_titulo + "</option>");
+                    $("#misSubprocesos").append("<option value='" + data[i].id_nivel + "'> <span class='idProcess'> [" + data[i].id_nivel + "] - </span>" + data[i].vc_titulo + "</option>");
                 }
             }
         }
@@ -872,7 +877,8 @@ function GetNiveles(in_dpndncia_idnivel, p, vc_id_control, vc_lst) {
 						var pageCount = data[0].total;
 						var StrPager = "";
 
-						if (pageCount >= 1) { //### begin pagination {{
+						//if (pageCount >= 1) { //### begin pagination {{
+						if (pageCount == 'fake') { //### begin pagination {{
 
 							for (var x = 1; x <= pageCount; x++) {
 								 
@@ -896,7 +902,7 @@ function GetNiveles(in_dpndncia_idnivel, p, vc_id_control, vc_lst) {
 					} else {
 					    strRows +=
                             "<tr id='" + data[i].id_nivel + "'>" +
-                                "<td style='width:80px;' ><a id='href_" + data[i].id_nivel + "' href='javascript:GetNiveles(" + data[i].id_nivel + "," + 1 + ",/tb_" + data[i].id_nivel + "/,/" + "lst" + "/)'>" + (data[i].in_cate == 0 ? 'Principal' : (data[i].in_cate == 1 ? 'Categoria' : (data[i].in_cate == 2 ? 'Subcategoria' : 'Proceso'))) + "</a>" + "</td>" +
+                                "<td style='width:80px;' ><span class='idProcess'>[" + data[i].id_nivel + "] - </span><a id='href_" + data[i].id_nivel + "' href='javascript:GetNiveles(" + data[i].id_nivel + "," + 1 + ",/tb_" + data[i].id_nivel + "/,/" + "lst" + "/)'>" + (data[i].in_cate == 0 ? 'Principal' : (data[i].in_cate == 1 ? 'Categoria' : (data[i].in_cate == 2 ? 'Subcategoria' : 'Proceso'))) + "</a>" + "</td>" +
 	                            "<td   style='text-align:center;width:100px; '>" + data[i].vc_titulo + "</td>" +
 	                            "<td   style='text-align:center;width:100px; '>" + data[i].vc_descripcion + "</td>" +
 		                            //"<td style='text-align:center;width:100px;'>" + data[i].vc_url_img + "</td>" +

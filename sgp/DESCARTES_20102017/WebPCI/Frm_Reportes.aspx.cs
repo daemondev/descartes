@@ -19,9 +19,9 @@ ok - quitar avanzado
 ok - quitar form
 ok - quitar id de subprocesos
 ok - z-index modal
-    reporte correcto
-    dos procesos demo - 4 pasos - inicio - fin
-    agregar columna usuario - rpt general
+oK - reporte correcto
+ok - dos procesos demo - 4 pasos - inicio - fin
+ok - agregar columna usuario - rpt general
 wait - R2 - iis 7
      */
 
@@ -238,16 +238,19 @@ public partial class Frm_Reportes : System.Web.UI.Page
             celda[Fila_Inicio, 1].Value = "";
 
             celda[Fila_Inicio, 2].ColumnWidth = 25;
-            celda[Fila_Inicio, 2].Value = "PROCESO";
+            celda[Fila_Inicio, 2].Value = "USUARIO (login)";
 
-            celda[Fila_Inicio, 3].ColumnWidth = 20;
-            celda[Fila_Inicio, 3].Value = "# PROCESOS";
+            celda[Fila_Inicio, 3].ColumnWidth = 25;
+            celda[Fila_Inicio, 3].Value = "PROCESO"; 
 
-            celda[Fila_Inicio, 4].ColumnWidth = 15;
-            celda[Fila_Inicio, 4].Value = "TIEMPO TOTAL";
+            celda[Fila_Inicio, 4].ColumnWidth = 20;
+            celda[Fila_Inicio, 4].Value = "# PROCESOS";
 
             celda[Fila_Inicio, 5].ColumnWidth = 15;
-            celda[Fila_Inicio, 5].Value = "FEC. REGISTRO";
+            celda[Fila_Inicio, 5].Value = "TIEMPO TOTAL";
+
+            celda[Fila_Inicio, 6].ColumnWidth = 15;
+            celda[Fila_Inicio, 6].Value = "FEC. REGISTRO";
 
             /* celda[Fila_Inicio, 11].ColumnWidth = 15;
              celda[Fila_Inicio, 11].Value = "HORA. VISITA";
@@ -310,11 +313,9 @@ public partial class Frm_Reportes : System.Web.UI.Page
                 fila += 1;
             }
 
-            num = 4;
-            for (Int32 j = 5; j < Fila_Inicio; j++)
-            {
-                for (Int32 x = 1; x <= num + 1; x++)
-                {
+            num = 5;
+            for (Int32 j = 6; j < Fila_Inicio; j++) {
+                for (Int32 x = 1; x <= num + 1; x++) {
                     celda[j, x].Borders[BordersIndex.EdgeRight].LineStyle = LineStyle.Continuous;
                     celda[j, x].Borders[BordersIndex.EdgeRight].Color = Color.FromArgb(200, 200, 200);
                     celda[j, x].Borders[BordersIndex.EdgeTop].LineStyle = LineStyle.Continuous;
@@ -395,7 +396,7 @@ public partial class Frm_Reportes : System.Web.UI.Page
             celda_R[Fila_Inicio, 5].Value = "USER LOGIN";
 
             celda_R[Fila_Inicio, 6].ColumnWidth = 55;
-            celda_R[Fila_Inicio, 6].Value = "SEGUIMIENTO DE TIPIFICACION DE DESCARTE";
+            celda_R[Fila_Inicio, 6].Value = "SEGUIMIENTO DE PROCESOS";
 
 			 celda_R[Fila_Inicio, 7].ColumnWidth = 25;
             celda_R[Fila_Inicio, 7].Value = "DESCARTE PROCESO FINAL";

@@ -370,6 +370,9 @@
                 background-color:aquamarine;
                 padding:0 !important;*/
             }
+            #div_resultado .modal-header{
+                background-color:#D43F3A !important;
+            }
 
 		</style>
 	
