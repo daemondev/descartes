@@ -762,7 +762,8 @@ function traerSubProcesos(matriz) {
             var data = (typeof response.d) == "string" ? eval("(" + response.d + ")") : response.d;
             if (data.length > 0) {
                 for (var i = 0; i < data.length; i++) {
-                    $("#misSubprocesos").append("<option value='" + data[i].id_nivel + "'> [" + data[i].id_nivel + "] - " + data[i].vc_titulo + "</option>");
+                    $("#misSubprocesos").append("<option value='" + data[i].id_nivel + "'>" + data[i].vc_titulo + "</option>");
+                    //$("#misSubprocesos").append("<option value='" + data[i].id_nivel + "'> [" + data[i].id_nivel + "] - " + data[i].vc_titulo + "</option>");
                 }
             }
         }
@@ -1102,7 +1103,7 @@ function fnc_nuevaCategoria(in_nivel, in_cate) {
 	$('#Textarea_alerta').text('');
 
 
-	$('#plazo').dialog({
+    $('#plazo').dialog({
 		title: title,
 		/*buttons: buttons,		*/
 		buttons: [{
@@ -1112,7 +1113,7 @@ function fnc_nuevaCategoria(in_nivel, in_cate) {
 			},
 			class: 'btn btn-primary btn-md'
 		}],
-		width: 500
+        width: 500        
 	});
 }
 

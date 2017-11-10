@@ -15,14 +15,14 @@ using System.IO;
 using SpreadsheetGear;
 
 /*
-quitar avanzado
-quitar form
-quitar id de subprocesos
-z-index modal
-reporte correcto
-dos procesos demo - 4 pasos - inicio - fin
-agregar columna usuario - rpt general
-R2 - iis 7
+ok - quitar avanzado
+ok - quitar form
+ok - quitar id de subprocesos
+ok - z-index modal
+    reporte correcto
+    dos procesos demo - 4 pasos - inicio - fin
+    agregar columna usuario - rpt general
+wait - R2 - iis 7
      */
 
 public partial class Frm_Reportes : System.Web.UI.Page
@@ -194,11 +194,11 @@ public partial class Frm_Reportes : System.Web.UI.Page
 
         DataSet ds = new DataSet();
         Ntb_Reportes ng = new Ntb_Reportes();
-        ds = ng.N_ReportesG(f1, f2, in_sede, in_camp);
+        ds = ng.N_ReportesG(f1, f2, in_sede, in_camp); //REPORTE_GENERAL
 
         DataSet ds1 = new DataSet();
         Ntb_Reportes ng1 = new Ntb_Reportes();
-        ds1 = ng1.N_Reportes(f1, f2, in_sede, in_camp);
+        ds1 = ng1.N_Reportes(f1, f2, in_sede, in_camp); //USP_REPORTES
         //EXPORTAR REPORTE
 
         //Proceso de exportacion

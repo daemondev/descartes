@@ -66,7 +66,7 @@
     </div>
         
 	<!--REGISTRO DE LOS DATOS DE DESCARTE--> <!--++++ begin MODAL NUEVO REGISTRO  {{ -->
-	<div id="plazo"  role="dialog" style="width:800px;height:600px; z-index:999;"  > 
+	<div id="plazo"  role="dialog" style="width:800px;height:600px; z-index:999999;"  > 
 		  <%-- <div class="modal-content"  style="width: 75%;margin-top:10px" >
 			   <div class="modal-content"  style="width: 75%;margin-top:10px" >--%>
 			<table id="tbl_dialog" style="border-collapse: separate; border-spacing: 4px;">
@@ -516,6 +516,7 @@
         -moz-box-shadow: 0 8px 6px -6px black;
         box-shadow: 0 8px 6px -6px black;
     }          
+    .ui-dialog { z-index: 999999 !important ; }
 		</style>
 		</center>
 

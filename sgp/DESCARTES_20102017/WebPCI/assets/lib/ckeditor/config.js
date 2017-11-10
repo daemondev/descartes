@@ -114,14 +114,14 @@ CKEDITOR.editorConfig = function (config) {
         , { name: 'colors', groups: ['colors'] }
         , { name: 'basicstyles', groups: ['basicstyles', 'cleanup'] } //bold
         , { name: 'styles', groups: ['styles'] } //font        		
-        , { name: 'insert', groups: ['insert', 'blocks'] }		        
+        , { name: 'insert', groups: ['insert', 'links','blocks'] }
         , { name: 'paragraph', groups: ['list', 'indent', 'align', 'bidi', 'paragraph'] }        
         , { name: 'editing', groups: [ 'spellchecker', 'editing'] }
         //, { name: 'editing', groups: ['selection', 'find', 'spellchecker', 'editing'] }
         //, { name: 'links', groups: ['links'] }        
         
 		//, { name: 'links', groups: ['links'] }
-        , { name: 'forms', groups: ['form', 'forms', 'links'] }
+        //, { name: 'forms', groups: ['form', 'forms', 'links'] }
         , { name: 'tools', groups: ['tools'] }
 		, { name: 'others', groups: ['others'] }
 		//, { name: 'about', groups: ['about'] }
@@ -168,6 +168,8 @@ CKEDITOR.editorConfig = function (config) {
     config.filebrowserBrowseUrl = roxyFileman;
     config.filebrowserImageBrowseUrl = roxyFileman + '?type=image';
     config.removeDialogTabs = 'link:upload;image:upload';
+    config.removeDialogTabs = 'image:advanced';
+
     //config.keystrokes = [[CKEDITOR.CTRL + 86, 'pastetext'], [CKEDITOR.CTRL + CKEDITOR.SHIFT + 86, 'paste']];
     //config.forcePasteAsPlainText = true;
     /*
