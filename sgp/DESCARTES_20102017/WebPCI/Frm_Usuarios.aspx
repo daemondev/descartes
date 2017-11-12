@@ -127,46 +127,71 @@
                 <div class="modal-header">
                     <h4 class="modal-title">REGISTRO DE PERSONAL</h4>
                 </div>
-                <div class="modal-body">
-                    <table class="tb_desempeño">
-                        <tr>
-                            <td><label>Nombres</label></td>
-                            <td><input type="text" class="form-control" id="txt_Nombre" placeholder="Ingr. el Nombre" style="width: 300px;" /></td>
-                         </tr>
-                        <tr>
-                            <td><label>Ap. Paterno</label></td>
-                            <td><input type="text" class="form-control" id="txt_ApePaterno" placeholder="Ingr. apellido paterno" style="width: 300px;" /></td>
-                         </tr>
-                        <tr>
-                            <td><label>Ap. Materno</label></td>
-                            <td><input type="text" class="form-control" id="txt_ApeMaterno" placeholder="Ingr. apellido materno" style="width: 300px;" /></td>
-                         </tr>
-                        <tr>
-                            <td><label>DNI</label></td>
-                            <td><input type="text" class="form-control" id="txt_dni" placeholder="Ingr. el DNI" style="width: 100px;" maxlength="8" onkeypress="return solonumeros(event)" /></td>
-                        </tr>
-                        <tr>
-                            <td><label>Usuario</label></td>
-                            <td><input type="text" class="form-control" id="txt_Usuario" placeholder="Ingr. el Usuario de Acceso" style="width: 300px;" /></td>
-                        </tr>
-                      <%--  <tr>
-                            <td><label>Correo</label></td>
-                            <td><input type="text" class="form-control" id="txtCorreo" placeholder="Ingr. un correo" style="width: 300px;" /></td>
-                        </tr>--%>
-                        <tr>
-                            <td><label>Perfil:</label></td>
-                            <td><select id="ddlPerfil" name="ddlPerfil" class="form-control" style="width: 300px;"></select></td>
-                        </tr>
-                        <tr>
-                            <td><label>Sede</label></td>
-                            <td><select id="ddl_Sede" name="ddl_Sede" class="form-control"  onchange="ListarCampaña();" style="width: 300px;"></select></td>
-                        </tr>
-                                                <tr>
-                            <td><label>Campaña:</label></td>
-                            <td><select id="ddlCampania" name="ddlCampania" class="form-control" style="width: 300px;"></select></td>
-                        </tr>
-                    </table>
+                <div class="modal-body">                    
+                    <div class="userDataOnly" style="width:100%;">
+                        <table class="tb_desempeño" style="display:block;margin-left:auto;margin-right:auto;width:410px;height:auto;">
+                            <tr class="trUser">
+                                <td><label>Nombres</label></td>
+                                <td><input type="text" class="form-control" id="txt_Nombre" placeholder="Ingr. el Nombre" style="width: 300px;" /></td>
+                             </tr>
+                            <tr class="trUser">
+                                <td><label>Ap. Paterno</label></td>
+                                <td><input type="text" class="form-control" id="txt_ApePaterno" placeholder="Ingr. apellido paterno" style="width: 300px;" /></td>
+                             </tr>
+                            <tr class="trUser">
+                                <td><label>Ap. Materno</label></td>
+                                <td><input type="text" class="form-control" id="txt_ApeMaterno" placeholder="Ingr. apellido materno" style="width: 300px;" /></td>
+                             </tr>
+                            <tr class="trUser">
+                                <td><label>DNI</label></td>
+                                <td><input type="text" class="form-control" id="txt_dni" placeholder="Ingr. el DNI" style="width: 100px;" maxlength="8" onkeypress="return solonumeros(event)" /></td>
+                            </tr>
+                            <tr class="trUser">
+                                <td><label>Usuario</label></td>
+                                <td><input type="text" class="form-control" id="txt_Usuario" placeholder="Ingr. el Usuario de Acceso" style="width: 300px;" /></td>
+                            </tr>
+                          <%--  <tr>
+                                <td><label>Correo</label></td>
+                                <td><input type="text" class="form-control" id="txtCorreo" placeholder="Ingr. un correo" style="width: 300px;" /></td>
+                            </tr>--%>
+                            <tr class="trUser">
+                                <td><label>Perfil:</label></td>
+                                <td><select id="ddlPerfil" name="ddlPerfil" class="form-control" style="width: 300px;"></select></td>
+                            </tr>
+                            <tr class="trUser">
+                                <td><label>Sede</label></td>
+                                <td><select id="ddl_Sede" name="ddl_Sede" class="form-control"  onchange="ListarCampaña();" style="width: 300px;"></select></td>
+                            </tr>
+                            <tr class="trUser">
+                                <td><label>Campaña:</label></td>
+                                <td><select id="ddlCampania" name="ddlCampania" class="form-control" style="width: 300px;"></select></td>
+                            </tr>                        
+                        </table>
+                    </div>                    
+                    <label style="display:block;text-align:right;margin-left:auto;margin-right:auto;width:410px;height:auto;" class="lblEnable" for="chkEnablePwd">HABILITAR DATOS DE CONTRASE&Ntilde;A &nbsp; <input type="checkbox" value=""  name="chkEnablePwd" id="chkEnablePwd" style="float:right;"/>  </label>                    
+                    <div class="tblUserPassword">
+                        <table class="tb_desempeño" style="display:block;margin-left:auto;margin-right:auto;width:410px;height:auto;">
+                            <tr class="trWrapper">                                
+                                <td colspan="2"> <div class="pwdWrapper" style="text-align:right;"> <label id="wo" for="wp" class="modal-bodyx" style="float:right;color:#D43F3A;"> MODIFICAR SOLO LA CONTRASE&Ntilde;A &nbsp; <input type="checkbox" id="wp" value="wo"  name="wp"/> </label> </div></td>                            
+                            </tr>
+                            <tr class="trWrapper">
+                                <td><div class="pwdWrapper"> <label>CONTRASE&Ntilde;A:</label> </div> </td>
+                                <td><div class="pwdWrapper"> <input type="text" class="form-control" id="txt_Password" placeholder="123456" style="width: 300px;" /> </div></td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
+                <style>
+                    .lblEnable{
+                        color:#367FA9;
+                    }
+                    .pwdWrapper{
+                        
+                    }
+                    .tblUserPassword{
+                        display:none;
+                    }
+                </style>
                 <!-- Botones de controles-->
                 <div class="modal-footer">
                     <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>

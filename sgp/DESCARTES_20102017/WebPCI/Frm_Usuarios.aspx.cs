@@ -33,10 +33,14 @@ public partial class Frm_Usuarios : System.Web.UI.Page
         ent.vc_DNI = vc_DNI;
         ent.vc_Nombre = vc_Nombre;
         ent.vc_ApePaterno = vc_ApePaterno;
+        //ent.vc_Clave = vc_Clave;
         ent.vc_ApeMaterno = vc_ApeMaterno;
         ent.vc_Usuario = vc_Usuario;
         ent.in_CampaniaID = in_CampaniaID;
-        if (vc_Clave != "")
+        //* 
+        //ent.vc_Password = vc_Password; //*/
+        
+        if (vc_Clave != "" && !in_opc.Equals(5) && !in_opc.Equals(4))
         {
             Etb_Usuario entUsu = new Etb_Usuario();
             entUsu = (Etb_Usuario)HttpContext.Current.Session["sessUsuario"];

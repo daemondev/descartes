@@ -12,10 +12,12 @@
                 font-weight:bold;
 			}
             .idHelp{
-                position:absolute;               
+                position:absolute;    
+                width:119px;
+                height:58px;           
                 right:0;
-                top:0;
-                font-size:x-small;
+                top:-18px;
+                font-size:9px;
             }
             .showIdProcess{
                 display:inline;
@@ -23,7 +25,13 @@
             .hideIdProcess{
                 display:none;
             }
-
+            .idHelp span{
+                display:inline-block;
+            }
+            .idHelp input{
+                height:32px;                
+                width:32px;                
+            }
 		</style>
 	    <div style="background-color: #d43f3a;color:white; border-radius: 5px;">
         <h4 class="modal-title">MATENIMIENTO DE PROCESOS</h4>
@@ -45,17 +53,16 @@
                     <td style="text-align: right;">
                         <button type="button" class="btn btn-primary btn-md" onclick="fnc_nuevaCategoria(0,0);">Nuevo Registro</button>
                         
-                    </td>
-		        <%-- 
-			        <td style="width: 50px;" colspan="3">					
-				        <a href='javascript:fnc_preview(0)'>					
-				        <img src='Images/iconos/preview.png'  width='32px' /></a>				
-			        </td>
-			        --%>
-        <%--			<td><input type="button" value="click" id="btnclick" onclick="fnc_click()"/></td>--%>
+                    </td>		        
                 </tr>
             </table>
-            <span class="idHelp">Identificador <br/> de Procesos &nbsp;<input type="image" value="MOSTRAR" id="btnHelp" /></span> 
+            <span class="idHelp btn btn-primary btn-md" id="btnHelp">
+                <span style="vertical-align:top;padding-top:10px;margin-left:0;width:50%;">Identificador <br/> de Procesos</span>
+                <span style="text-align:center;width:50%;">
+                    <input type="image" src="assets/img/showHide.png" value="" id="" style="display:block;margin-left:auto;margin-right:auto;" />
+                    <span id="showOrHide" style="font-weight:bold; font-size:9px !important;color:#000;margin-top:4px;">MOSTRAR</span>
+                </span>
+            </span> 
         </div>
 
 <div style=" overflow-y: scroll;height:445px;width:1100px; margin-left:18px;">			

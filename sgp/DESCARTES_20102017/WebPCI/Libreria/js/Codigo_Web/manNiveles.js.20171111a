@@ -1,14 +1,20 @@
 ﻿//http://artofcoding.in/replace-html-audio-tags-jplayer/
 
-CKEDITOR.on('instanceReady', function (ev) {    
+CKEDITOR.on('instanceReady', function (ev) {
     var editor = ev.editor;
     var resetEditor = new CKEDITOR.command(editor, {
-        exec: function (editor) {                        
+        exec: function (editor) {
             $("#hd_idcontenido").val(0);
             setEditorText("");
         }
     });
-    ev.editor.commands.newpage.exec = resetEditor.exec;    
+
+    /*
+    $.each(ev.editor.commands, function (k,v) {
+        alert(k +" - " + v);
+    });//*/
+
+    ev.editor.commands.newpage.exec = resetEditor.exec;
     if (editor.contextMenu) {
         editor.addCommand('alignLeft', {
             exec: function (editor) {
@@ -38,13 +44,13 @@ CKEDITOR.on('instanceReady', function (ev) {
 
         editor.addCommand('alignCenter', {
             exec: function (editor) {
-                var element = editor.getSelection().getStartElement().$;                
+                var element = editor.getSelection().getStartElement().$;
                 /*
                 element.style.position = "absolute";
                 element.style.transform = "translateX(-50%)";
                 element.style.left = "50%"; //*/
                 element.style.removeProperty("float");
-                element.style.display = "block";                
+                element.style.display = "block";
                 element.style.marginRight = "auto";
                 element.style.marginLeft = "auto";
             }
@@ -52,7 +58,9 @@ CKEDITOR.on('instanceReady', function (ev) {
 
         editor.addCommand('alignRight', {
             exec: function (editor) {
-                var element = editor.getSelection().getStartElement().$;       
+                var element = editor.getSelection().getStartElement().$;
+                //element.removeClass('align_left');
+                //element.addClass('align_right');
 
                 element.style.removeProperty("margin");
                 element.style.removeProperty("display");
@@ -63,7 +71,10 @@ CKEDITOR.on('instanceReady', function (ev) {
             exec: function (editor) {
                 var element = editor.getSelection().getStartElement().$;
                 element.style.removeProperty("margin");
-                element.style.removeProperty("display");                
+                element.style.removeProperty("display");
+                /*
+                element.removeClass('align_left');
+                element.removeClass('align_right');*/
             }
         });
         editor.addCommand('small', {
@@ -127,9 +138,81 @@ CKEDITOR.on('fileUploadResponse', function (ev) {
     //var editor = ev.editor;
     //editor.geImageData
 });
+/*
+CKEDITOR.stylesSet.add('mystyles', [
+    // Block-level styles
+    { name: 'Heading 1', element: 'h1' },
+    { name: 'Heading 2', element: 'h2' },
+    { name: 'Heading 3', element: 'h3' },
+    { name: 'Introduction', element: 'p', attributes: { 'class': 'introduction' } },
+
+    // Inline styles
+    { name: 'Link button', element: 'a', attributes: { 'class': 'button' } },
+    { name: 'Highlight', element: 'span', attributes: { 'class': 'highlight' } },
+
+    // Object styles
+    { name: 'Stretch', element: 'img', attributes: { 'class': 'stretch' } },
+]); //*/
+/*
+CKEDITOR.on('dialogDefinition', function (ev) {
+    // Dialog name to find the one we want
+    // Definition so we can customize it
+    var dialogName = ev.data.name;
+    var dialogDefinition = ev.data.definition;
+
+    if (dialogName == 'table' || dialogName == 'tableProperties') {
+
+        // we want our own style
+        var advTab = dialogDefinition.getContents('advanced');
+
+        //add our specific width
+        var stylesField = advTab.get('advStyles');
+        stylesField['default'] = 'width: 300px';
+
+        var styleClassesField = advTab.get('advCSSClasses');
+        styleClassesField['default'] = 'get crazy do whatever';
+
+        //more than a suggestion... hide the field so user can't modify
+        styleClassesField['hidden'] = true;   //disable might exist .. see but not touch
 
 
+    }
+}); //*/
+/*
+CKEDITOR.on('dialogDefinition', function (ev) {
+    // Take the dialog window name and its definition from the event data.
+    var dialogName = ev.data.name;
+    var dialogDefinition = ev.data.definition;
+
+    if (dialogName == 'image') {
+        dialogDefinition.onShow = function () {
+            // This code will open the Advanced tab.
+            this.selectPage('Upload');
+        };
+    }
+}); //*/
+
+
+//https://sdk.ckeditor.com/samples/savetextarea.html
+//http://bitcookie.com/blog/drupal-ckeditor-setup-development-tutorial
+//!!CKEDITOR.plugins.get('wysiwygarea');
 var editor = CKEDITOR.replace('Textarea_contenido');
+//CKEDITOR.addCss('html { font-size: 14px; box-shadow: 0 5px 5px 1px rgba(0, 0, 0, 0.5); }');
+//var editor = CKEDITOR.document.getById('Textarea_contenido');
+//var editor = CKEDITOR.inline('Textarea_contenido');
+/*
+CKEDITOR.plugins.registered['save'] = {
+    init: function (editor) {
+        var command = editor.addCommand('save',
+            {
+                modes: { wysiwyg: 1, source: 1 },
+                exec: function (editor) { // Add here custom function for the save button
+                    alert('You clicked the save button in CKEditor toolbar!');
+                }
+            });
+        editor.ui.addButton('Save', { label: 'My Save', command: 'save' });
+    }
+}//*/
 
 //assuming editor is a CKEDITOR.editor instance
 editor.on('save', function (event) {
@@ -137,9 +220,103 @@ editor.on('save', function (event) {
         Guarda_contenido(1, 0);
     } else {
         new Messi("Ingrese el contenido a Mostrar", { modal: true, center: true, title: 'Informacion', titleClass: 'anim error', autoclose: 1500, buttons: [{ id: 0, label: 'Ok', val: 'X' }] });
-    }    
-    event.cancel();    
+    }
+    event.cancel();
+    //your custom command logic
+    //(you can access the editor instance through event.editor)
 });
+/*
+CKEDITOR.on('instanceReady', function (env) {
+    //get ctrl+clicks on <a>'s in edit mode to open the value of "href" open in new tab.
+    $('iframe').contents().click(function (e) {
+        //if(typeof e.target.href != 'undefined' ) {
+        if (typeof e.target.href != 'undefined' && e.ctrlKey == true) {
+            window.open(e.target.href, 'new' + e.screenX);
+        }
+    });
+});//*/
+
+/*### copy to clipboard
+
+//<p id="selectedItem">Text to copy</p>
+//<button onClick="copyT('selectedItem')">Copy</button>
+
+function copyT(objId) {
+    //Step 1: select the text from DOM element
+    var txt = document.getElementById(objId).textContent;
+
+    //Step 2: Create input and set value
+    var elem = document.createElement('input');
+    elem.value = txt;
+
+    //position is set such that the element is not visible
+    elem.style = 'postion:relative;top:-100px;';
+
+    //append the input element to body
+    document.body.appendChild(elem);
+
+    //set focus to inserted input element
+    elem.focus();
+
+    //Step 4: Select the text in input element
+    elem.setSelectionRange(0, txt.length);
+    //Step 4: Execute document.execCommand('copy')
+    if (document.execCommand('copy')) {
+        alert('Copied successfully');
+    } else {
+        alert('Clipboard access not supported in this browser');
+    }
+}
+//*/
+
+/*
+function loadJsFiles()
+{
+    //create an array of javascript file paths
+    var jsFiles = [
+        '//path/to/script-1.js',
+        '//path/to/script-2.js',
+    ];
+
+    //loop through the array to create script element and set the "src" attribute to the script path.
+    for (x in jsFiles){
+        var element = document.createElement("script");
+        element.src = jsFiles[x];
+        document.body.appendChild(element);
+    }
+}
+//window.addEventListener("load", loadJsFiles, false);
+//*/
+
+/*### render image before send
+
+<img id="uploadedImg" alt="Image Preview"/>
+<input type="file" id="imgInput">
+
+$('#imgInput').change(function(){
+    var file = document.querySelector('input[type=file]').files[0];
+    var reader = new FileReader();
+    reader.onloadend = function ()
+    {
+        $('#uploadedImg').attr('src', reader.result); }
+        if (file){
+            reader.readAsDataURL(file);
+        } else {
+            preview.src = "";
+        }
+});
+//*/
+
+/*### Dynamically make DOM element height equal
+$(window).load(function(){
+var maxHeight = Math.max.apply(null,
+    jQuery(".variable-height").map(function(){
+        return $(this).height();
+    }).get());
+$(".variable-height").height(maxHeight);
+});
+//*/
+
 
 var debug = false;
 
@@ -149,7 +326,7 @@ if(debug){
             alert(edt.getData());
         }
     });
-    editor.ui.addButton('debugButton', {
+    editor.ui.addButton('SuperButton', {
         label: "Show in HTML Mode",
         command: 'debugCommand',
         toolbar: 'insert',
@@ -160,11 +337,35 @@ if(debug){
 
 
 
-editor.on('newpage', function (event) {    
-    //event.cancel();    
+/*
+editor.on('afterCommandExec', handleAfterCommandExec);
+function handleAfterCommandExec(event) {
+    var commandName = event.data.name;
+    alert(commandName);
+} //*/
+//config.removePlugins = 'newpage';
+editor.on('newpage', function (event) {
+    //event.cancel();
 });
 
+/*
+editor.getCommand('save').exec = function (editor) {
+    // Do whatever you need to
+    alert("saving");
+    return true;
+};//*/
 
+/*
+editor.on('change', function (evt) {
+    // getData() returns CKEditor's HTML content.
+    console.log('Total bytes: ' + evt.editor.getData().length);
+}); //*/
+
+/*
+var editorElement = CKEDITOR.document.getById('Textarea_contenido');
+editorElement.setAttribute('contenteditable', 'true');
+CKEDITOR.inline('Textarea_contenido');
+//*/
 var urlFrm_MantNivel = "Frm_MantNivel.aspx/";
 var contentData = null;
 var contentDataRaw = null;
@@ -172,30 +373,58 @@ function getPlainText(instance) {
     var strSrc = CKEDITOR.instances[instance].getData();
     contentDataRaw = strSrc;
     var resultStr = "";
-    
+
     if (strSrc.indexOf('<p>') == 0) resultStr = strSrc.substring(3);
     else resultStr = strSrc;
-    
+
     resultStr = resultStr.replace(/<p>/gi, "\r\n\r\n");
-    
+
     resultStr = resultStr.replace(/<br \/>/gi, "\r\n");
-    resultStr = resultStr.replace(/<br>/gi, "\r\n");   
+    resultStr = resultStr.replace(/<br>/gi, "\r\n");
     contentData = resultStr.replace(/<[^<|>]+?>/gi, '');
-    return (contentData.length > 0)? contentData : null; 
+    return (contentData.length > 0)? contentData : null;
+}
+//var editor = CKEDITOR.instances["Textarea_contenido"];
+
+function cleanEditor(instance) {
+    //CKEDITOR.instances[instance].setData("");
+    editor.setData("");
+    //CKEDITOR.replace($(this).attr('id'));
+    //CKEDITOR.instances["Textarea_contenido"].destroy();
+
+    /*
+    for (name in CKEDITOR.instances) {
+        //alert("deleting");
+        CKEDITOR.instances[name].destroy();
+        //$(this).hide();
+        /*
+        $('.editor').each(function () {
+            CKEDITOR.replace($(this).attr('id'));
+        }); //*/
+    //} //*/
+
+    //editor.setData("");
 }
 
-function cleanEditor(instance) { 
-    editor.setData(""); 
-}
+function setEditorText(content) {
+    //alert("inner function: [" + content + "]");
+    /*
+    CKEDITOR.on("instanceReady", function (event) {
+        CKEDITOR.instances.Textarea_contenido.setData(myContent);
+    });//*/
 
-function setEditorText(content) {    
     editor.setData(content);
+
+
+    /*
+    $("#Textarea_contenido").html(content);
+    CKEDITOR.replace('Textarea_contenido'); //*/
 }
 
 function getTextPlain(instance) {
     var objEditor = CKEDITOR.instances[instance];
     var msg = objEditor.getData();
-    var txt = $(msg).text().replaceAll("\n\n", "\n");    
+    var txt = $(msg).text().replaceAll("\n\n", "\n");
     return txt;
 }
 
@@ -204,21 +433,21 @@ function editorHasImnage(instance) {
     var objEditor = CKEDITOR.instances[instance];
     var strSrc = objEditor.getData();
     var hasImage = false;
-    if (strSrc.indexOf('<img') == 0) hasImage = true;    
+    if (strSrc.indexOf('<img') == 0) hasImage = true;
     return hasImage;
 }
 
 function toogleEditor() {
     var bar = document.getElementById("cke_1_top");
     if (bar.style.display == "none") bar.style.display = "block";
-    else bar.style.display = "none";    
+    else bar.style.display = "none";
 }
 
 $(document).ready(function () {
-    $("#btnHelp").click(function (e) {        
+    $("#btnHelp").click(function (e) {
         $(".idProcess").fadeToggle();
         var txtshowOrHide = $("#showOrHide").html();
-        
+
         if (txtshowOrHide == "MOSTRAR") {
             $("#showOrHide").html("OCULTAR");
         } else {
@@ -242,13 +471,14 @@ $(document).ready(function () {
 
 	GetNiveles(0, 1, 'tb_0', 'lst');
 	//$('#lbl_id_nivel').hide();
-    $("#btnDebug").click(function () {        
-        var editorData = CKEDITOR.instances.Textarea_contenido.getData();        
+    $("#btnDebug").click(function () {
+        var editorData = CKEDITOR.instances.Textarea_contenido.getData();
+        //var text = CKEDITOR.instances.Textarea_contenido.document.getBody().getText();
 
         var plain_text = getPlainText("Textarea_contenido");
-        //alert(editorData); 
-        //alert(plain_text + " modified"); 
-        //alert(getTextPlain("Textarea_contenido"));         
+        //alert(editorData);
+        //alert(plain_text + " modified");
+        //alert(getTextPlain("Textarea_contenido"));
     });
 	$('#lbl_id_categoria').hide();
 	$('#lbl_id_nivel').text(0);
@@ -319,14 +549,14 @@ $(document).tooltip();
 */
 function JQ_Open_Contexto(in_idnivel) {
     $('#div_Contenido').modal();
-    
+
 	$('#hdIddescarte').val(in_idnivel);
 	//$("#Textarea_contenido").val("");
 	cleanEditor();
 	//$("#ddl_color").val("0");
 	//$("#ddl_subrayodo").val("0");
 	GetGrid_Contenido(1, in_idnivel);
-	$("#hd_idcontenido").val("0");	
+	$("#hd_idcontenido").val("0");
 }
 
 
@@ -337,12 +567,12 @@ function Guarda_contenido(op,idcontenido) {
 	var objData = {};
 	objData["in_idcontenido"] = $("#hd_idcontenido").val();
 	objData["in_idnivel"] = $('#hdIddescarte').val();
-	objData["vc_contexto"] = $("#Textarea_contenido").val();	
+	objData["vc_contexto"] = $("#Textarea_contenido").val();
 	objData["vc_color"] = $("#ddl_color").val();
 	objData["vc_subrayado"] = $("#ddl_subrayodo").val();
 	objData["op"] = op;
 
-    /*modified*/    
+    /*modified*/
 	objData["vc_contexto"] = contentDataRaw;
 	objData["vc_color"] = "3";
 	objData["vc_subrayado"] = 1;
@@ -354,7 +584,7 @@ function Guarda_contenido(op,idcontenido) {
 		data: JSON.stringify(objData),
 		dataType: "json",
 		contentType: "application/json; charset=utf-8",
-		success: function (data) {			 
+		success: function (data) {
 			var obj = data.d;
 			if (obj >= 1) {
 				new Messi("Registro Correctamente realizado", { modal: true, center: true, title: 'Informacion', titleClass: 'anim error', autoclose: 1500, buttons: [{ id: 0, label: 'Ok', val: 'X' }] });
@@ -371,7 +601,7 @@ function Guarda_contenido(op,idcontenido) {
 	}); //Fin DEL .aja
 }
 
-function populateContentData(content) {    
+function populateContentData(content) {
     setEditorText(content);
     //$("#div_contenido").html();
 }
@@ -398,7 +628,7 @@ function GetGrid_Contenido(pgnum,in_idnivel)
 			var data = (typeof response.d) == "string" ? eval("(" + response.d + ")") : response.d;
 			var pageCount = 0;
 			var StrPager; var strRows;
-			
+
 			$('#tb_contenido tr:not(:first)').remove();
 			if (data.length > 0) {
 			    for (var i = 0; i <= data.length; i++) {
@@ -422,7 +652,7 @@ function GetGrid_Contenido(pgnum,in_idnivel)
 			            else strRows = strRows + "<tr class='alt'>";
 
 			            strRows +=
-                                       "<td>" + data[i].vc_contexto + "</td>" +                                   
+                                       "<td>" + data[i].vc_contexto + "</td>" +
                                        "<td align=center>" +
                                             "<img src='Images/iconos/edit.png'  width='18px' title='Editar' onclick='Editar_Contenido(" + '"' + data[i].in_idcontenido + '"' + ");' style='cursor:pointer;' /> " + "&nbsp;|&nbsp;" +
                                                 (data[i].in_estado == 1 ? "<img src='libreria/imagenes/Botones/Activo.png' title='Desactivar'" : "<img src='libreria/imagenes/Botones/Desactivo.png' title='Activar'") + " onclick='Estado_Contenido(" + '"' + data[i].in_idcontenido + '"' + ");' style='cursor:pointer;' />" + "&nbsp;|&nbsp;" +
@@ -437,7 +667,15 @@ function GetGrid_Contenido(pgnum,in_idnivel)
 			} else {
 			    $("#tb_contenido").append("<tr><td style='text-align:center;' colspan='10'>No hay datos para mostrar</td></tr>");
 			}
-            			
+
+
+            /*### work
+			var myContent = "";
+			$.each(data, function (k,v) {
+			    myContent += v.vc_contexto;
+			});
+			setEditorText(myContent) //*/
+
 		}//Fin Success
 	}); //Fin Ajax
 	//populateContentData(content);
@@ -480,10 +718,10 @@ function Editar_Contenido(in_idcontenido)
 			var data = (typeof response.d) == "string" ? eval("(" + response.d + ")") : response.d;
 			$("#hd_idcontenido").val(data[0].in_idcontenido);
 		    /*
-			$("#Textarea_contenido").val(data[0].vc_contexto);            
+			$("#Textarea_contenido").val(data[0].vc_contexto);
 			$("#ddl_color").val(data[0].vc_color);
 			$("#ddl_subrayodo").val(data[0].vc_subrayado); //*/
-			
+
 			setEditorText(data[0].vc_contexto);
 		}//Fin success
 	}); //Fin DEL .ajax
@@ -620,7 +858,7 @@ function GetNiveles(in_dpndncia_idnivel, p, vc_id_control, vc_lst) {
 
 	var DTA = {};
 	DTA.objData = objData;
-	 
+
 	$.ajax({
 		async: false,
 		type: "POST",
@@ -629,7 +867,7 @@ function GetNiveles(in_dpndncia_idnivel, p, vc_id_control, vc_lst) {
 		dataType: "json",
 		contentType: "application/json; charset=utf-8",
 		success: function (response){
-			
+
 			var data = (typeof response.d) == "string" ? eval("(" + response.d + ")") : response.d;
 			var pageCount = 0;
 			var StrPager = '';
@@ -642,7 +880,7 @@ function GetNiveles(in_dpndncia_idnivel, p, vc_id_control, vc_lst) {
 
                     //### step 001
 					if ((data.length) == i){
-						 
+
 						var pageCount = data[0].total;
 						var StrPager = "";
 
@@ -650,7 +888,7 @@ function GetNiveles(in_dpndncia_idnivel, p, vc_id_control, vc_lst) {
 						if (pageCount == 'fake') { //### begin pagination {{
 
 							for (var x = 1; x <= pageCount; x++) {
-								 
+
 								if (x == 1) {
 									StrPager = "<tr class='pgr'><td colspan='12' style='text-align:left;padding:6px;'>";
 								}
@@ -664,7 +902,7 @@ function GetNiveles(in_dpndncia_idnivel, p, vc_id_control, vc_lst) {
 
 						} else {
 							StrPager = "<tr  class='pgr'><td colspan='12' style='text-align:left;padding:10px;'></td></tr>";
-							 
+
 							if (i % 2 == 0) { strRows = strRows + "<tr>"; } else { strRows = strRows + "<tr class='alt'>"; }
 						} //### end pagination }}
 
@@ -692,7 +930,7 @@ function GetNiveles(in_dpndncia_idnivel, p, vc_id_control, vc_lst) {
                                 "</td>" +
                             "</tr>";
 					}
-				}				 
+				}
 
 				$('#' + vc_id_control + '').empty().html(strRows + StrPager);
 				//$("#" + vc_id_control + "").append(strRows + StrPager);
@@ -718,7 +956,7 @@ var dictRptaIcon = {
 };
 
 function getRptaIcon(idRpta, idNivel) {
-    if  (! dictRptaIcon.hasOwnProperty(idRpta)) idRpta = 999;        
+    if  (! dictRptaIcon.hasOwnProperty(idRpta)) idRpta = 999;
     return dictRptaIcon[idRpta].replace("|idNivel|", idNivel);
 }
 
@@ -770,7 +1008,7 @@ function fnc_AsignarLink(in_link_nivel) {
 				new Messi("Asignacion correcta", { modal: true, center: true, title: 'Informacion', titleClass: 'anim error', autoclose: 1500, buttons: [{ id: 0, label: 'Ok', val: 'X' }] });
 				for (var i = 0; i < 9999; i++)
 				{
-					//var id = id_ref.substr(5, id_ref.length);					
+					//var id = id_ref.substr(5, id_ref.length);
 					$('#rd_link_' + i + '').css("visibility", "hidden");
 				}
 			}
@@ -787,7 +1025,7 @@ function fnc_CambiarEstado(id_nivel, in_estado, in_dpndncia_idnivel) {
 	new Messi('Al cambiar de estado también afectará a los subniveles', {
 		title: 'Confirmacion', titleClass: 'anim error', buttons: [{ id: 0, label: 'SI', class: 'btn-success', val: true }, { id: 1, label: 'NO', class: 'btn-danger', val: false }], callback: function (val)
 		{
-			if (val == true) {				 
+			if (val == true) {
 				var objData = {};
 				objData["indice"] = 5;
 				objData["id_nivel"] = id_nivel;
@@ -803,7 +1041,7 @@ function fnc_CambiarEstado(id_nivel, in_estado, in_dpndncia_idnivel) {
 					dataType: "json",
 					contentType: "application/json; charset=utf-8",
 					beforeSend: function () { },
-					success: function (response) {						 
+					success: function (response) {
 						var obj = response.d;
 
 						if (obj[0].in_result >= 1) {
@@ -833,7 +1071,7 @@ function fnc_EliminarNivel(id_nivel, in_dpndncia_idnivel) {
 				var objData = {};
 				objData["indice"] = 4;
 				objData["id_nivel"] = id_nivel;
-				 
+
 				var DTO = {};
 				DTO.objData = objData;
 				$.ajax({
@@ -888,7 +1126,7 @@ function fnc_nuevaCategoria(in_nivel, in_cate) {
 			},
 			class: 'btn btn-primary btn-md'
 		}],
-        width: 500        
+        width: 500
 	});
 }
 
@@ -906,7 +1144,7 @@ function fnc_EditarNivel(id_nivel, in_cate, vc_titulo, vc_descripcion, vc_url_im
 	} else if (vc_color_alerta == 'red')  {
 		$('#chk_ro').prop("checked", true);
 	}
-	 
+
 	//alert(vc_alerta);
 	$('#txtTitulo').val(JQ_reemplazar(vc_titulo));
 	$('#txtArea_desc').val(JQ_reemplazar(vc_descripcion));
@@ -927,7 +1165,7 @@ function fnc_EditarNivel(id_nivel, in_cate, vc_titulo, vc_descripcion, vc_url_im
 	//	buttons: [{text  : 'Editar',
 	//				click : function() {
 	//					fnc_guardar(3, in_dpndncia_idnivel);
-	//				}, 
+	//				},
 	//				class : 'btn btn-primary btn-md'
 	//			}],
 	//});
@@ -997,7 +1235,7 @@ $(document).ready(function () {
 	//	}
 	//});
 
-	//controlamos los botones del menú		
+	//controlamos los botones del menú
 });
 
 /*
@@ -1022,7 +1260,7 @@ $(document).ready(function () {
 				return function (e)
 				{
 					// Insertamos la imagen
-		
+
 					document.getElementById("output_img").innerHTML = ['<img class="thumb" src="', e.target.result, '" title="', escape(theFile.name), '" style="width:100%"/>'].join('');
 				};
 			})(f);
@@ -1037,8 +1275,8 @@ $(document).ready(function () {
 */
 function fnc_guardar(in_gestion, in_dpndncia_idnivel) {
 
-    var color = $("input[name=rdColor]:checked").val() || 'noselected';    
-	
+    var color = $("input[name=rdColor]:checked").val() || 'noselected';
+
 	var id_nivel = 0;
 	if ($('#lbl_id_nivel').text() != '') {
 		id_nivel = $('#lbl_id_nivel').text();
@@ -1055,7 +1293,7 @@ function fnc_guardar(in_gestion, in_dpndncia_idnivel) {
 		    //objData["vc_url_img"] = $("#fileupload").val();
 		    objData["vc_url_img"] = $("#fileupload")[0].files[0].name;
 		}
-		
+
 		objData["in_rpta"] = $('#ddl_rpta').val();
 
 		if ($('#ddl_rpta').val() == 7) {
@@ -1080,7 +1318,7 @@ function fnc_guardar(in_gestion, in_dpndncia_idnivel) {
 			dataType: "json",
 			contentType: "application/json; charset=utf-8",
 			beforeSend: function () { },
-			success: function (response) {				 
+			success: function (response) {
 				var obj = response.d;
 
 				if (obj[0].in_result >= 1) {
@@ -1092,7 +1330,7 @@ function fnc_guardar(in_gestion, in_dpndncia_idnivel) {
 						new Messi("Nivel Actualizado", { modal: true, center: true, title: 'Informacion', titleClass: 'anim error', autoclose: 1500, buttons: [{ id: 0, label: 'Ok', val: 'X' }] });
 						GetNiveles((in_dpndncia_idnivel), 1, '/tb_' + in_dpndncia_idnivel + '/', '/reg/');
 					}
-					var in_categoria = 0;					 
+					var in_categoria = 0;
 					$('#plazo').dialog("close");
 				}
 			}
@@ -1105,7 +1343,7 @@ function JQ_Grabar_Nivel(vc_filename) {
 }
 
 //window.opener.updateValue("[YOUR_INPUT_IN_CKEDITOR]", [URL_OF_THE_IMAGE]);
-function Carga_Img() {	 
+function Carga_Img() {
 	//alert('cargar imAG');
 	$("#fileupload").fileupload({
 		replaceFileInput: false,
@@ -1120,7 +1358,7 @@ function Carga_Img() {
 					valid = false;
 				}
 			});
-			 
+
 			if (valid) {
 				//if ($("#hdCapaID").val() == "0") {
 				//    new Messi("Se presento un error al cargar", { modal: true, center: true, title: 'Informacion', titleClass: 'anim error', autoclose: 1500, buttons: [{ id: 0, label: 'Ok', val: 'X' }] });
@@ -1143,8 +1381,8 @@ function Carga_Img() {
 			$.each(data.result, function (index, file) {
 				$('#dvProgressBarDown').fadeOut(400, function () {
 					$('#dvProgressBarDown').css("display", "none");
-				});		               
-				
+				});
+
 				//setCargaAgentesFile(file.fileName);
 				//fnc_guardar(file.fileName);
 			});
@@ -1169,7 +1407,7 @@ function Carga_Img() {
 $(document).ready(function () {
 
     $("#fileupload").click("change", function () {
-        Carga_Img();	   
+        Carga_Img();
 	});
 
 	//$("#tbCampanias tr.odd").click(function ()
@@ -1254,9 +1492,9 @@ function fnc_preview(id_nivel) {
 	for (var i = 0; i < 9999; i++) {
 		//recorrer los controles de tipo href para eliminar los que son superirores al actual,
 		//ya que si estoy en un nivel superior(1,2,3,4,5,6,7,8,9,10)  y quiero regresar a un nivel inferior(2), el seguimiento de proceso
-		//debe indicar: 1,2, eliminando lo restante.		
+		//debe indicar: 1,2, eliminando lo restante.
 
-		if ($('#href_v_' + i + '').length)  {			 
+		if ($('#href_v_' + i + '').length)  {
 			$('#href_v_' + i + '').remove();
 			$('#tr_ref_' + i + '').remove();
 		}
@@ -1265,13 +1503,13 @@ function fnc_preview(id_nivel) {
 	fnc_listar_niveles(1, id_nivel);
 }
 
-function muestrate(imagen) {	 
+function muestrate(imagen) {
 	$('#div_secuencia').empty().html("");
 	for (var i = 0; i < 999; i++) {
 		$('#href_v_' + i + '').remove();
 		$('#tr_ref_' + i + '').remove();
 	}
-	 
+
 	$('#tb_imagenes').show();
 	$('#div_plazo').hide();
 
@@ -1424,7 +1662,7 @@ function fnc_listar_niveles(in_listar, in_dpndncia_idnivel) {
 					vc_secuencia += "<a id='href_v_" + data[0].id_nivel + "' href='javascript:fnc_listar_niveles(1," + data[0].id_nivel + ")' style='color:#fff;font-weight: bold;'><button id='tr_ref_" + data[0].id_nivel + "' type='button' class='btn btn-danger btn-lg btn-block' style='margin-bottom:3px'>" + data[0].vc_descripcion + "</button></a>";
 
 					if (data[0].id_nivel == "954") {
-					    alert("when [data[0].id_nivel] 954");					    
+					    alert("when [data[0].id_nivel] 954");
 						for (var j = 1; j < 8; j++) {
 							if (j == 1) {
 								vc_secuencia += "<a href='javascript:fnc_listar_niveles(1,1133)' style='color:#fff;font-weight: bold;'><button id='tr_ref_" + data[0].id_nivel + j + "' type='button' class='btn btn-danger btn-lg btn-block' style='margin-bottom:3px;background-color:#4C4A4A;border:#4C4A4A'>Locucion " + j + "</button></a>";
@@ -1479,7 +1717,7 @@ function fnc_listar_niveles(in_listar, in_dpndncia_idnivel) {
 						var in_link = data[i].in_link;
 						var img = '';
 						//alert(data[i].in_link);
-						
+
 						if (in_rpta == 2) {
 						    //<button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
 							//if (numImagenes == 1) {
@@ -1594,7 +1832,7 @@ function getContentOfNivel(idNivel) {
     ajax(urlFrm_MantNivel + "getContentOfNivel", { opc: 6, idNivel: idNivel }, getContentOfNivelHandler);
 }
 
-function getContentOfNivelHandler(data) {    
+function getContentOfNivelHandler(data) {
     var json = eval('(' + data.d + ')');
     var rawStr = ""
     $.each(json, function (k,v) {
@@ -1660,7 +1898,7 @@ function Armar_contenido_Nivel(in_idnivel) {
 	}); //Fin Ajax
 }
 
-function fnc_solucion(in_gestion) {	 
+function fnc_solucion(in_gestion) {
 	$('#div_resultado').show();
 	$('#div_resultado').modal();
 
@@ -1668,7 +1906,7 @@ function fnc_solucion(in_gestion) {
 	var min;
 	var sec;
 	var horaactual;
-	 
+
 	if (sessionStorage.getItem("hora") != null) {
 		 ;
 		var objPreg = sessionStorage.getItem("hora");
@@ -1679,7 +1917,7 @@ function fnc_solucion(in_gestion) {
 		horaactual = objPreg.horaactual;
 
 	}
-	 
+
 	var d = new Date();
 	var tiempo = new Date();
 	tiempo = horaactual;
@@ -1740,7 +1978,7 @@ $(document).ready(function () {
 	//	//alert($(this).prop('id'));
 	//	$("#div_menu").css({ 'display': '', 'left': (e.pageX), 'top': (e.pageY)-50 });
 	//	return false;
-	//});	
+	//});
 
 
 	$(document).click(function (e) {
@@ -1763,13 +2001,13 @@ function fnc_close(vc_control) {
 	$('#' + vc_control + '').modal('hide');
 }
 function fnc_click(id_nivel) {
-	 
+
 	$('#div_menu').show();
 	$('#div_menu').modal();
 
 	//alert(id_nivel);
 
-	//$('#' + id_nivel + '').click(function(e) 
+	//$('#' + id_nivel + '').click(function(e)
 	//{
 	//	 ;
 	//	//alert($(this).prop('id'));

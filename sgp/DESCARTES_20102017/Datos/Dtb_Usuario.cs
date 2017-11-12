@@ -171,6 +171,7 @@ namespace Datos
                 cmd.Parameters.AddWithValue("@in_PerfilID", ent.in_PerfilID);
                 cmd.Parameters.AddWithValue("@in_SedeID", ent.in_SedeID);
                 cmd.Parameters.AddWithValue("@in_CampaniaID", ent.in_CampaniaID);
+                //cmd.Parameters.AddWithValue("@vc_Password", ent.vc_Password);
                 cn.Open();
 
                 switch (ent.in_Opc)

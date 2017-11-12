@@ -23,6 +23,8 @@ namespace Entidad
         public string vc_FecRegistro { get; set; }
         public string vc_Correo { get; set; }
         public int in_CampaniaID { get; set; }
+        
+        public string vc_Password { get; set; }
         public string vc_CampaniaID { get; set; }
         //public string vc_usuario { get; set; }
         public bool EstadoConexion { get; set; }

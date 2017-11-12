@@ -243,6 +243,35 @@
 .cke_toolbars{
     display:none;
 }
+
+.modal-header{
+        background-color:#D43F3A !important;
+        text-align:center !important;
+        color:#fff;
+
+}
+.modal-bodyx{
+    font: normal 11px verdana, arial, helvetica, sans-serif !important;
+    font-family: verdana,arial,helvetica,sans-serif !important;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 11px;
+    line-height: normal;
+    font-size-adjust: none;
+    font-stretch: normal;
+    -x-system-font: none;
+    font-feature-settings: normal;
+    font-language-override: normal;
+    font-kerning: auto;
+    font-synthesis: weight style;
+    font-variant-alternates: normal;
+    font-variant-caps: normal;
+    font-variant-east-asian: normal;
+    font-variant-ligatures: normal;
+    font-variant-numeric: normal;
+    font-variant-position: normal;
+
+}
 		</style>
     <!--<center>-->
 		

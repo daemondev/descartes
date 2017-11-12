@@ -4,11 +4,32 @@ var urlSedes = "Frm_MantSede.aspx/";
 var pgnum = 1;
 
 $(document).ready(function () {
+
+    $("#chkEnablePwd").change(function () {        
+        $(".tblUserPassword").slideToggle();
+        if(!$(this).is(":checked")){
+            if ($("[name=wp]").is(":checked")) {
+                $(".userDataOnly").slideDown();
+                $("[name=wp]:checked").prop("checked",false);
+            }
+        }
+    });
+
+    $("[name=wp]").change(function () {        
+        $(".userDataOnly").slideToggle();
+    });
     
     GetGridUsuario(1);
     //Guarda los Datos
-    $("#btn_grabar").click(function () {
-        
+    $("#btn_grabar").click(function () {               
+
+        if ($("#chkEnablePwd").is(":checked")) {            
+            if ($("[name=wp]").is(":checked")) { //edit only password
+                Grabar_Usuario();
+                return;
+            }
+        }
+
         if ($("#txt_Nombre").val() == "") {
             new Messi("Ingrese el nombre", { modal: true, center: true, title: 'Informacion', titleClass: 'anim error', autoclose: 1500, buttons: [{ id: 0, label: 'Ok', val: 'X' }] });
         } else if ($("#txt_ApePaterno").val() == "") {
@@ -46,7 +67,7 @@ function validar_email(valor) {
 }
 
 function Grabar_Usuario() {
-    debugger;
+    //debugger;
     var objData = {};
     objData["in_opc"] = 4;
     objData["tamPagina"] = 0;
@@ -57,10 +78,19 @@ function Grabar_Usuario() {
     objData["vc_ApePaterno"] = $("#txt_ApePaterno").val();
     objData["vc_ApeMaterno"] = $("#txt_ApeMaterno").val();
     objData["vc_Usuario"] = $("#txt_Usuario").val();
-    objData["vc_Clave"] = "";
+    objData["vc_Clave"] = $("#" + $("#txt_dni").val()).val();
     objData["in_PerfilID"] = $("#ddlPerfil").val();
     objData["in_SedeID"] = $("#ddl_Sede").val();
-    objData["in_CampaniaID"] = $('#ddlCampania').val();
+    objData["in_CampaniaID"] = $('#ddlCampania').val();    
+    if ($("#chkEnablePwd").is(":checked")) {        
+        objData["vc_Clave"] = $.trim($("#txt_Password").val());
+        if ($("[name=wp]").is(":checked")) {            
+            objData["in_opc"] = 5;
+        }
+    }
+    //return;
+    //objData["vc_Password"] = $("#txt_Password").val();
+    
     //$("#txtCorreo").val() == "" ? objData["vc_Correo"] = "" : objData["vc_Correo"] = $("#txtCorreo").val();
     $.ajax({
         type: "POST",
@@ -83,7 +113,15 @@ function Grabar_Usuario() {
 };
 
 function JQ_Open_Ventana_Registro() {
+    
+    $("#wo").hide();
+
     $("#dvUsuario").modal('show');
+    if ($("[name=wp]:checked").val() == "wo") {
+        $(".userDataOnly").slideDown();
+        $("[name=wp]:checked").prop("checked", false);        
+        $("#chkEnablePwd").trigger("click")
+    }
     Limpiar();
     ListarPerfil();
     ListarSede('ddl_Sede');
@@ -100,6 +138,7 @@ function Limpiar() {
     $("#ddlPerfil").val(0);
     $("#ddl_Sede").val(0);
     $("#txtCorreo").val("");
+    $("#txt_Password").val("");
 }
 
 function GetGridUsuario(pgnum) {
@@ -153,7 +192,7 @@ function GetGridUsuario(pgnum) {
                         if (i % 2 == 0) { strRows = strRows + "<tr>"; } else { strRows = strRows + "<tr class='alt'>"; }
                         strRows +=
                                    "<td>" + data[i].vc_ApePaterno + " " + data[i].vc_ApeMaterno + ", " + data[i].vc_Nombre + "</td>" +
-                                   "<td style='text-align: center;'>" + data[i].vc_DNI + "</td>" +
+                                   "<td style='text-align: center;'><input type='hidden' value='" + data[i].vc_Clave + "' id='" + data[i].vc_DNI + "' />" + data[i].vc_DNI + "</td>" +
                                    "<td style='text-align: center;'>" + data[i].vc_Usuario + "</td>" +
                                    //"<td style='text-align: center;'>" + data[i].vc_Correo + "</td>" +
                                    "<td style='text-align: center;'>" + data[i].vc_Perfil + "</td>" +
@@ -263,9 +302,10 @@ function Resetear_Clave(id_usuario) {
 
 
 function Editar_usuario(id_usuario) {
+    $("#wo").show();
     ListarPerfil();
     ListarSede('ddl_Sede');   
-    debugger;
+    //debugger;
     $("#dvUsuario").modal('show');
     var objData = {};
     objData["in_opc"] = 3;
@@ -281,7 +321,7 @@ function Editar_usuario(id_usuario) {
     objData["in_PerfilID"] = 0;
     objData["in_SedeID"] = 0;
     objData["in_CampaniaID"] = 0;
-    debugger;
+    //debugger;
 
     $.ajax({     
         type: "POST",
@@ -290,7 +330,7 @@ function Editar_usuario(id_usuario) {
         dataType: "json",
         contentType: "application/json; charset=utf-8",
         success: function (response) {
-            debugger;
+            //debugger;
             var data = (typeof response.d) == "string" ? eval("(" + response.d + ")") : response.d;
             $("#hdIdUsuario").val(data[0].in_UsuarioID);
             $("#txt_Nombre").val(data[0].vc_Nombre);
@@ -304,7 +344,7 @@ function Editar_usuario(id_usuario) {
             //alert(data[0].in_CampaniaID);
             
             ListarCampaña('ddlCampania','ddl_Sede');
-            debugger;
+            //debugger;
             $('#ddlCampania').val(data[0].in_CampaniaID);
         }//Fin data
     }); //Fin DEL .aja
@@ -375,12 +415,12 @@ $(document).ready(function () {
     $("#ddlCampania").html("<option value=\"0\">[SELECCIONAR]</option").removeAttr("disabled");
   
     $("#ddl_Sede").change(function () {
-        debugger;
+        //debugger;
         ListarCampaña('ddlCampania', 'ddl_Sede');
     });
 
     $("#ddl_carga_Sede").change(function () {
-        debugger;
+        //debugger;
         ListarCampaña('ddl_carga_campaña', 'ddl_carga_Sede');
     });
 
@@ -392,7 +432,7 @@ function ListarCampaña(vc_control,vc_dependencia) {
     var objData = {};
     objData["in_Opc"] = 1;
     objData["in_SedeID"] = $('#' + vc_dependencia + '').val();
- debugger;
+ //debugger;
    // 
     $.ajax({
        async: false,
@@ -403,7 +443,7 @@ function ListarCampaña(vc_control,vc_dependencia) {
         contentType: "application/json; charset=utf-8",
         beforeSend: function () { $("#" + vc_control + "").html("<option>Cargando..</option").attr("disabled", "disabled"); },
         success: function (response) {
-        debugger;
+        //debugger;
             var data = (typeof response.d) == "string" ? eval("(" + response.d + ")") : response.d;
             $("#" + vc_control + "").html("<option value=\"0\">[SELECCIONAR]</option").removeAttr("disabled");
             for (var i = 0; i < data.length; i++) {
@@ -441,7 +481,7 @@ function fnc_carga_masiva() {
 
 
 function Carga_Datos() {
-    debugger;
+    //debugger;
 
 
     if ($('#ddl_carga_Sede').val() == "0" || $('#ddl_carga_campaña').val() == "0") {
@@ -463,7 +503,7 @@ function Carga_Datos() {
                     valid = false;
                 }
             });
-            debugger;
+            //debugger;
             if (valid) {
                 //if ($("#hdCapaID").val() == "0") {
                 //    new Messi("Se presento un error al cargar", { modal: true, center: true, title: 'Informacion', titleClass: 'anim error', autoclose: 1500, buttons: [{ id: 0, label: 'Ok', val: 'X' }] });
@@ -517,7 +557,7 @@ function setCargaAgentesFile(file) {
     objData["in_SedeID"] = $('#ddl_carga_Sede').val();
     objData["in_CampaniaID"] = $('#ddl_carga_campaña').val();
     objData["in_PerfilID"] = 2;
-    debugger;
+    //debugger;
 
 
     $.ajax({
@@ -528,7 +568,7 @@ function setCargaAgentesFile(file) {
         dataType: "json",
         contentType: "application/json; charset=utf-8",
         success: function (data) {
-            debugger;
+            //debugger;
             var obj = data.d;
 
             if (obj[0].in_Resul >= 1) {
