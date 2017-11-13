@@ -168,7 +168,7 @@
                             </tr>                        
                         </table>
                     </div>                    
-                    <label style="display:block;text-align:right;margin-left:auto;margin-right:auto;width:410px;height:auto;" class="lblEnable" for="chkEnablePwd">HABILITAR DATOS DE CONTRASE&Ntilde;A &nbsp; <input type="checkbox" value=""  name="chkEnablePwd" id="chkEnablePwd" style="float:right;"/>  </label>                    
+                    <%--<label style="display:block;text-align:right;margin-left:auto;margin-right:auto;width:410px;height:auto;" class="lblEnable" for="chkEnablePwd">HABILITAR DATOS DE CONTRASE&Ntilde;A &nbsp; <input type="checkbox" value=""  name="chkEnablePwd" id="chkEnablePwd" style="float:right;"/></label>
                     <div class="tblUserPassword">
                         <table class="tb_desempeño" style="display:block;margin-left:auto;margin-right:auto;width:410px;height:auto;">
                             <tr class="trWrapper">                                
@@ -179,7 +179,7 @@
                                 <td><div class="pwdWrapper"> <input type="text" class="form-control" id="txt_Password" placeholder="123456" style="width: 300px;" /> </div></td>
                             </tr>
                         </table>
-                    </div>
+                    </div>--%>
                 </div>
                 <style>
                     .lblEnable{

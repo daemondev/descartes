@@ -107,7 +107,7 @@
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-right">
-                                        <a href="#" class="btn btn-default btn-flat" onclick="JQ_Logout();">Salir</a>
+                                        <a style="margin-right:10px;" href="#" class="btn btn-default btn-flat" onclick="changePasswordModal();">Cambiar Contrase&ntilde;a</a> <a href="#" class="btn btn-default btn-flat" onclick="JQ_Logout();">Salir</a>
                                     </div>
                                 </li>
                             </ul>
@@ -200,9 +200,62 @@
 
 	    $.ajax(config);
 	}
+
+	function changePasswordModal() {
+	    $("#divChangePassword").modal();
+	    $("#txtPassword").val("");
+	    $("#txtConfirmPassword").val("");
+	}
+
+	$(document).ready(function () {
+	    $("#btn_ChangePaassword").click(function () {
+	        ajax("Frm_Usuarios.aspx/changePassword", { "pwd": $.trim($("#txtPassword").val()), "pwd2": $.trim($("#txtConfirmPassword").val()) }, changePasswordHandler);
+	    });
+	});
+
+	function changePasswordHandler(data) {	    
+	    if (data.d != "successful") {	        
+	        new Messi(data.d, { modal: true, center: true, title: 'Informacion', titleClass: 'anim error', autoclose: 1500, buttons: [{ id: 0, label: 'Ok', val: 'X' }] });
+	    } else {	        
+	        $("#txtPassword").val("");
+	        $("#txtConfirmPassword").val("");
+	        new Messi("Se ha actualizado la contraseña", { modal: true, center: true, title: 'Informacion', titleClass: 'anim error', autoclose: 1500, buttons: [{ id: 0, label: 'Ok', val: 'X' }] });
+	    }
+	}
+
 </script>
-    
+
+<div class="modal fade" id="divChangePassword" role="dialog" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">            
+            <div class="modal-content" style="width: 444px; ">                
+                <div class="modal-header">
+                    <h4 class="modal-title"><b>CAMBIAR CONTRASE&Ntilde;A</b></h4>
+                </div>
+                <div class="modal-body">                                        
+                    <table style="border-collapse: separate; border-spacing:15px;margin:15px auto 0 auto;">
+                        <tr>
+                            <td>CONTRASE&Ntilde;A NUEVA: </td>
+                            <td> <input type="password" id="txtPassword" placeholder="Ingresar Contraseña"/> </td>                            
+                         </tr>
+                        <tr>
+                            <td>REPETIR CONTRASE&Ntilde;A: </td>
+                            <td> <input type="password" id="txtConfirmPassword" placeholder="Confirmar Contraseña"/> </td>                            
+                         </tr>
+                    </table>
+                </div> 
+                <div class="modal-footer">
+                    <button class="btn" data-dismiss="modal" aria-hidden="true">CANCELAR</button>                    
+                    <button type="button" class="btn btn-primary" id="btn_ChangePaassword">CONFIRMAR</button>                    
+                </div>
+            </div>
+        </div>
+    </div>    
 <style>
+    #divChangePassword input::placeholder{        
+        color: #929292;
+        font-size:10px;
+
+    }
 				.no-js #loader { display: none;  }
 
 .js #loader { display: block; position: absolute; left: 100px; top: 0; }

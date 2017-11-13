@@ -13,12 +13,23 @@
 			}
             .idHelp{
                 position:absolute;    
-                width:119px;
-                height:58px;           
+                width:129px;
+                height:38px;           
                 right:0;
                 top:-18px;
                 font-size:9px;
+                background-color:#3C8DBC;
+                border: 1px solid #41A8ED;
+                color:#fff;
+                cursor:pointer;
+                border-radius: 3px;
             }
+            .idHelp:hover{                
+                background-color:#367FA9;
+                
+                vertical-align:middle;                
+            }
+
             .showIdProcess{
                 display:inline;
             }
@@ -27,6 +38,11 @@
             }
             .idHelp span{
                 display:inline-block;
+            }
+            .idHelp *{
+                margin:0;
+                padding:0; 
+                height:100%;               
             }
             .idHelp input{
                 height:32px;                
@@ -56,12 +72,9 @@
                     </td>		        
                 </tr>
             </table>
-            <span class="idHelp btn btn-primary btn-md" id="btnHelp">
-                <span style="vertical-align:top;padding-top:10px;margin-left:0;width:50%;">Identificador <br/> de Procesos</span>
-                <span style="text-align:center;width:50%;">
-                    <input type="image" src="assets/img/showHide.png" value="" id="" style="display:block;margin-left:auto;margin-right:auto;" />
-                    <span id="showOrHide" style="font-weight:bold; font-size:9px !important;color:#000;margin-top:4px;">MOSTRAR</span>
-                </span>
+            <span class="idHelp " id="btnHelp">                
+                <span id="showOrHide" style="font-weight:bold;float:left;padding-top:11px;font-size:10px !important;color:#fff;padding-left:5px;">MOSTRAR</span>                
+                <span style="float:right;margin-top:4px;font-size:10px;font-weight:bold;padding-right:5px;">Identificador <br/> de Procesos</span>                
             </span> 
         </div>
 

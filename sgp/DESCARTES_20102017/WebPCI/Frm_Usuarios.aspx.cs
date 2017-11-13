@@ -73,6 +73,17 @@ public partial class Frm_Usuarios : System.Web.UI.Page
     }
 
     [WebMethod]
+    public static string changePassword(string pwd, string pwd2) {
+        string res = "";
+        
+        if (R.validatePassword(pwd, pwd2, out res)) {
+            Etb_Usuario u = (Etb_Usuario)HttpContext.Current.Session["sessUsuario"];            
+            return R.getScalar("setChangePassword", u.in_UsuarioID, pwd);            
+        }
+        return res;
+    }
+
+    [WebMethod]
     public static List<Etb_Campania> mantCampania(int in_Opc, int in_SedeID)
     {
         List<Etb_Campania> lst = new List<Etb_Campania>();
