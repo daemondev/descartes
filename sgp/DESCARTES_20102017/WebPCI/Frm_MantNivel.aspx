@@ -206,7 +206,7 @@
             <div class="modal-content" style="width: 980px; left:-160px;">
                 <%--<form class="form-horizontal">--%>
                 <div class="modal-header">
-                    <h4 class="modal-title"><b>REGISTRO DE CONTENIDOS</b></h4>
+                    <h4 class="modal-title" style="position:relative;"><b>REGISTRO DE CONTENIDOS</b><span style="position:absolute !important; right: -5px !important; top: -5px !important;background-color:#41A8ED;font-size:26px;width:35px;height:35px;cursor:pointer;border: 1px solid #888;border-radius:3px;padding:0 0 36px 0;vertical-align:central;" title="CERRAR EDITOR" class="btns" data-dismiss="modal" aria-hidden="true">&times;</span></h4>
                 </div>
                 <div class="modal-body">                                        
                     <table style="border-collapse: separate; border-spacing: 2px;box-shadow: 0 5px 5px 1px rgba(0, 0, 0, 0.5);">
@@ -228,8 +228,8 @@
 				</table>
                 </div> 
                 <div class="modal-footer">
-                    <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>                    
-                    <button type="button" class="btn btn-primary" id="btn_grabar_Contenido">Guarda Dato</button>
+                    <!-- <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button> -->
+                    <!-- <button type="button" class="btn btn-primary" id="btn_grabar_Contenido">Guarda Dato</button> -->
                     <input type="hidden" id="hdIddescarte" value="0" />
 					<input type="hidden" id="hd_idcontenido" value="0" />
                 </div>
@@ -562,9 +562,9 @@
     }
 		</style>
 		</center>
-    
-<script src="assets/lib/react/react.min.js"></script>
-    <script src="assets/lib/react/react-dom.min.js"></script>
+    <!--
+    <script src="assets/lib/react/react.min.js"></script>
+    <script src="assets/lib/react/react-dom.min.js"></script> -->
     <script src="assets/js/sgp.jsx" type="text/javascript"></script>
     <script src="assets/lib/ckeditor/ckeditor.js"></script>
     <script src="Libreria/js/Codigo_Web/manNiveles.js"></script>    
