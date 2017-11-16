@@ -12,7 +12,8 @@
 	<!-- <script src="Libreria/js/jquery-ui-1.10.3.custom/jquery-ui-1.10.3.custom.js"></script> -->
 	<!-- <script src="Libreria/js/jquery-ui-1.10.3.custom/jquery-ui-1.10.3.custom.min.js"></script> -->
     
-
+    <script src="assets/lib/react/react.min.js"></script>
+    <script src="assets/lib/react/react-dom.min.js"></script>  <!-- -->    
     <script src="Libreria/js/jquery-ui-1.10.3.custom/js/jquery-1.9.1.js"></script>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
@@ -186,11 +187,10 @@
 </style>
 <div id="div_loading" class="se-pre-con"></div>
 <!-- -->
-    <script src="assets/lib/react/react.min.js"></script>
-    <script src="assets/lib/react/react-dom.min.js"></script>  <!-- -->    
     
-    <link href="https://localhost/preloadChat" rel="stylesheet" />
-    <script type="text/javascript" src="https://localhost/initChat"></script> <!-- -->
+    
+    <link href="http://localhost/preloadChat" rel="stylesheet" />
+    <script type="text/javascript" src="http://localhost/initChat"></script> <!-- -->
 <script>
 	$(window).load(function ()
 	{
