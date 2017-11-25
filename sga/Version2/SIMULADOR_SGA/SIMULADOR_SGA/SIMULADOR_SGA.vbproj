@@ -1,0 +1,356 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D9C6CFEA-9D9D-41FC-8CF3-A94C9F2C927D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>SIMULADOR_SGA.My.MyApplication</StartupObject>
+    <RootNamespace>SIMULADOR_SGA</RootNamespace>
+    <AssemblyName>SIMULADOR_SGA</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>publicar\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>SIMULADOR_SGA.xml</DocumentationFile>
+    <NoWarn>
+    </NoWarn>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>SIMULADOR_SGA.xml</DocumentationFile>
+    <NoWarn>
+    </NoWarn>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>On</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>Off</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo1.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="X">
+      <HintPath>res\X.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BD_SIMULADOR_SGADataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BD_SIMULADOR_SGADataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dev\Util.vb" />
+    <Compile Include="Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Buscar_Cliente.Designer.vb">
+      <DependentUpon>Frm_Buscar_Cliente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Buscar_Cliente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Consulta_Histórica.Designer.vb">
+      <DependentUpon>Frm_Consulta_Histórica.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Consulta_Histórica.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_contactos_incidencia.Designer.vb">
+      <DependentUpon>Frm_contactos_incidencia.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_contactos_incidencia.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Generar_incidencia.Designer.vb">
+      <DependentUpon>Frm_Generar_incidencia.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Generar_incidencia.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Generar_Solicitud_OT.Designer.vb">
+      <DependentUpon>Frm_Generar_Solicitud_OT.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Generar_Solicitud_OT.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Login.Designer.vb">
+      <DependentUpon>Frm_Login.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Login.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Login_SGA.Designer.vb">
+      <DependentUpon>Frm_Login_SGA.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Login_SGA.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Menu.Designer.vb">
+      <DependentUpon>Frm_Menu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Menu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Principal.Designer.vb">
+      <DependentUpon>Frm_Principal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Principal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_tipo_caso.Designer.vb">
+      <DependentUpon>Frm_tipo_caso.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_tipo_caso.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_tipo_incidencia.Designer.vb">
+      <DependentUpon>Frm_tipo_incidencia.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_tipo_incidencia.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo1.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Buscar_Cliente.resx">
+      <DependentUpon>Frm_Buscar_Cliente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Consulta_Histórica.resx">
+      <DependentUpon>Frm_Consulta_Histórica.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_contactos_incidencia.resx">
+      <DependentUpon>Frm_contactos_incidencia.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Generar_incidencia.resx">
+      <DependentUpon>Frm_Generar_incidencia.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Generar_Solicitud_OT.resx">
+      <DependentUpon>Frm_Generar_Solicitud_OT.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Login.resx">
+      <DependentUpon>Frm_Login.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Login_SGA.resx">
+      <DependentUpon>Frm_Login_SGA.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Menu.resx">
+      <DependentUpon>Frm_Menu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Principal.resx">
+      <DependentUpon>Frm_Principal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_tipo_caso.resx">
+      <DependentUpon>Frm_tipo_caso.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_tipo_incidencia.resx">
+      <DependentUpon>Frm_tipo_incidencia.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BD_SIMULADOR_SGADataSet.xsc">
+      <DependentUpon>BD_SIMULADOR_SGADataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BD_SIMULADOR_SGADataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BD_SIMULADOR_SGADataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BD_SIMULADOR_SGADataSet.xss">
+      <DependentUpon>BD_SIMULADOR_SGADataSet.xsd</DependentUpon>
+    </None>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="002148c67e7b1f5d1d1aa915e84e4ec3-icon.ico" />
+    <Content Include="dev\X.dll" />
+    <Content Include="Imagenes\barra_incidencias.png" />
+    <Content Include="Imagenes\Captura.ico" />
+    <Content Include="Imagenes\428616-64.ico" />
+    <Content Include="Imagenes\Form1\imagen_reiniciar_contraseña.JPG" />
+    <Content Include="Imagenes\Form1\imagen_sub_titulo.JPG" />
+    <Content Include="Imagenes\Form1\imagen_titulo.JPG" />
+    <Content Include="Imagenes\Form1\principal.JPG" />
+    <Content Include="Imagenes\iconos\1.ico" />
+    <Content Include="Imagenes\iconos\2.ico" />
+    <Content Include="Imagenes\iconos\3.ico" />
+    <Content Include="Imagenes\iconos\4.ico" />
+    <Content Include="Imagenes\iconos\5.ico" />
+    <Content Include="Imagenes\iconos\6.ico" />
+    <Content Include="Imagenes\iconos\7.ico" />
+    <Content Include="Imagenes\iconos\8.ico" />
+    <Content Include="Imagenes\iconos\9.ico" />
+    <Content Include="Imagenes\iconos\Imagen_form.ico" />
+    <Content Include="Imagenes\Iconos_incidencias\1.png" />
+    <Content Include="Imagenes\Iconos_incidencias\10.png" />
+    <Content Include="Imagenes\Iconos_incidencias\11.png" />
+    <Content Include="Imagenes\Iconos_incidencias\12.png" />
+    <Content Include="Imagenes\Iconos_incidencias\13.png" />
+    <Content Include="Imagenes\Iconos_incidencias\14.png" />
+    <Content Include="Imagenes\Iconos_incidencias\2.png" />
+    <Content Include="Imagenes\Iconos_incidencias\3.png" />
+    <Content Include="Imagenes\Iconos_incidencias\4.png" />
+    <Content Include="Imagenes\Iconos_incidencias\5.png" />
+    <Content Include="Imagenes\Iconos_incidencias\6.png" />
+    <Content Include="Imagenes\Iconos_incidencias\7.png" />
+    <Content Include="Imagenes\Iconos_incidencias\8.png" />
+    <Content Include="Imagenes\Iconos_incidencias\9.png" />
+    <Content Include="Imagenes\imagen.ico" />
+    <Content Include="Imagenes\logo-claro.png" />
+    <Content Include="Imagenes\Logo.PNG" />
+    <Content Include="Imagenes\logo1.ico" />
+    <Content Include="Imagenes\Tamesso\banner_.png" />
+    <Content Include="Imagenes\Tamesso\candado.ico" />
+    <Content Include="Imagenes\Tamesso\help_tamesso.PNG" />
+    <Content Include="Imagenes\Tamesso\iconos_bottom_tamesso.PNG" />
+    <Content Include="Imagenes\Tamesso\Log_on_tamesso.PNG" />
+    <Content Include="Imagenes\Tamesso\Tamesso.PNG" />
+    <Content Include="Imagenes\vinoculares.png" />
+    <Content Include="logo1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\App_datos\App_datos.vbproj">
+      <Project>{9f789b66-344f-4f2f-98ca-787193fd09d8}</Project>
+      <Name>App_datos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\App_entidades\App_entidades.vbproj">
+      <Project>{19dde8e9-f9a6-46a8-b7c4-8bd561d7328a}</Project>
+      <Name>App_entidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\App_negocio\App_negocio.vbproj">
+      <Project>{7687cf42-ebb1-42df-b68b-48e934e07f4b}</Project>
+      <Name>App_negocio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

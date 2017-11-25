@@ -1,0 +1,232 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+SIMULADOR_SGA
+</name>
+</assembly>
+<members>
+<member name="P:SIMULADOR_SGA.My.Resources.Resources.ResourceManager">
+	<summary>
+  Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+</summary>
+</member><member name="P:SIMULADOR_SGA.My.Resources.Resources.Culture">
+	<summary>
+  Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+  búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
+</summary>
+</member><member name="P:SIMULADOR_SGA.My.Resources.Resources._1">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SIMULADOR_SGA.My.Resources.Resources._10">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SIMULADOR_SGA.My.Resources.Resources._11">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SIMULADOR_SGA.My.Resources.Resources._111">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SIMULADOR_SGA.My.Resources.Resources._12">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SIMULADOR_SGA.My.Resources.Resources._13">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SIMULADOR_SGA.My.Resources.Resources._14">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SIMULADOR_SGA.My.Resources.Resources._2">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SIMULADOR_SGA.My.Resources.Resources._21">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SIMULADOR_SGA.My.Resources.Resources._3">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SIMULADOR_SGA.My.Resources.Resources._31">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SIMULADOR_SGA.My.Resources.Resources._4">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SIMULADOR_SGA.My.Resources.Resources._41">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SIMULADOR_SGA.My.Resources.Resources._5">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SIMULADOR_SGA.My.Resources.Resources._51">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SIMULADOR_SGA.My.Resources.Resources._6">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SIMULADOR_SGA.My.Resources.Resources._61">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SIMULADOR_SGA.My.Resources.Resources._7">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SIMULADOR_SGA.My.Resources.Resources._71">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SIMULADOR_SGA.My.Resources.Resources._72">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SIMULADOR_SGA.My.Resources.Resources._8">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SIMULADOR_SGA.My.Resources.Resources._81">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SIMULADOR_SGA.My.Resources.Resources._9">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SIMULADOR_SGA.My.Resources.Resources._91">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SIMULADOR_SGA.My.Resources.Resources.banner_">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SIMULADOR_SGA.My.Resources.Resources.help_tamesso">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SIMULADOR_SGA.My.Resources.Resources.help_tamesso1">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SIMULADOR_SGA.My.Resources.Resources.iconos_bottom_tamesso">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SIMULADOR_SGA.My.Resources.Resources.imagen_reiniciar_contraseña">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SIMULADOR_SGA.My.Resources.Resources.imagen_reiniciar_contraseña1">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SIMULADOR_SGA.My.Resources.Resources.imagen_sub_titulo">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SIMULADOR_SGA.My.Resources.Resources.imagen_titulo">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SIMULADOR_SGA.My.Resources.Resources.Log_on_tamesso">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SIMULADOR_SGA.My.Resources.Resources.Log_on_tamesso1">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SIMULADOR_SGA.My.Resources.Resources.Logo">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SIMULADOR_SGA.My.Resources.Resources.logo_claro">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SIMULADOR_SGA.My.Resources.Resources.logo1">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SIMULADOR_SGA.My.Resources.Resources.principal">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SIMULADOR_SGA.My.Resources.Resources.vinoculares">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="T:SIMULADOR_SGA.My.Resources.Resources">
+	<summary>
+  Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
+</summary>
+</member><member name="T:SIMULADOR_SGA.BD_SIMULADOR_SGADataSet.TB_datosDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:SIMULADOR_SGA.BD_SIMULADOR_SGADataSet.TB_datosRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:SIMULADOR_SGA.BD_SIMULADOR_SGADataSet.TB_datosRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:SIMULADOR_SGA.BD_SIMULADOR_SGADataSet">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:SIMULADOR_SGA.BD_SIMULADOR_SGADataSetTableAdapters.TB_datosTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:SIMULADOR_SGA.BD_SIMULADOR_SGADataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(SIMULADOR_SGA.BD_SIMULADOR_SGADataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:SIMULADOR_SGA.BD_SIMULADOR_SGADataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(SIMULADOR_SGA.BD_SIMULADOR_SGADataSet,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:SIMULADOR_SGA.BD_SIMULADOR_SGADataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(SIMULADOR_SGA.BD_SIMULADOR_SGADataSet,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:SIMULADOR_SGA.BD_SIMULADOR_SGADataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:SIMULADOR_SGA.BD_SIMULADOR_SGADataSetTableAdapters.TableAdapterManager.UpdateAll(SIMULADOR_SGA.BD_SIMULADOR_SGADataSet)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:SIMULADOR_SGA.BD_SIMULADOR_SGADataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:SIMULADOR_SGA.BD_SIMULADOR_SGADataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:SIMULADOR_SGA.BD_SIMULADOR_SGADataSetTableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+</members>
+</doc>

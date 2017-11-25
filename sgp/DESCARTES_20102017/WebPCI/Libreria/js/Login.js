@@ -4,12 +4,12 @@
 
 var GC_LOGIN = (function (obj)
 {
-	debugger;
+	//debugger;
 	obj.url = "Login.aspx/";
 	obj.Ingresar_login = function (event) {
 		if (event.which == 13) { GC_LOGIN.fcLogin(); }
 	};
-	debugger;
+	//debugger;
 	//Proceso de Validacion
 	obj.fcLogin = function () {
 		usuario = $("#username").val();
@@ -31,7 +31,7 @@ var GC_LOGIN = (function (obj)
 			contentType: "application/json; charset=utf-8",
 			success: function (data)
 			{
-				debugger;
+				//debugger;
 				var obj = data.d;
 				if (obj != "") {
 				    var objPerfil = {
