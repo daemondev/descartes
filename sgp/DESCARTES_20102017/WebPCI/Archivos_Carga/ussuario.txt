@@ -1,0 +1,9 @@
+DNI	NOMBRE	APE PATERNO	APE MATERNO	USUARIO
+11111111	aaa	aaa	aaa	aaa
+22222222	bbb	bbb	bbb	bbb
+33333333	ccc	ccc	ccc	ccc
+44444444	ddd	ddd	ddd	ddd
+55555555	eee	eee	eee	eee
+66666666	fff	fff	fff	fff
+77777777	ggg	ggg	ggg	ggg
+88888888	hhh	hhh	hhh	hhh

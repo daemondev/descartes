@@ -178,6 +178,7 @@ Partial Class Frm_Consulta_Histórica
         Me.TabControl8 = New System.Windows.Forms.TabControl()
         Me.TabPage58 = New System.Windows.Forms.TabPage()
         Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.txt_count_facturas = New System.Windows.Forms.TextBox()
         Me.VScrollBar4 = New System.Windows.Forms.VScrollBar()
         Me.btn_contador_facturas = New System.Windows.Forms.Button()
         Me.Label103 = New System.Windows.Forms.Label()
@@ -525,7 +526,22 @@ Partial Class Frm_Consulta_Histórica
         Me.TabPage33 = New System.Windows.Forms.TabPage()
         Me.TabPage34 = New System.Windows.Forms.TabPage()
         Me.TabPage35 = New System.Windows.Forms.TabPage()
-        Me.txt_count_facturas = New System.Windows.Forms.TextBox()
+        Me.tabPromociones = New System.Windows.Forms.TabPage()
+        Me.tabRecargas = New System.Windows.Forms.TabPage()
+        Me.tabDTHHistorico = New System.Windows.Forms.TabPage()
+        Me.tabTVSatelital = New System.Windows.Forms.TabControl()
+        Me.tabInalambrico = New System.Windows.Forms.TabPage()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
+        Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
+        Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
+        Me.TableLayoutPanel6 = New System.Windows.Forms.TableLayoutPanel()
+        Me.GroupBox9 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox10 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox11 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox12 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox13 = New System.Windows.Forms.GroupBox()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
@@ -592,6 +608,15 @@ Partial Class Frm_Consulta_Histórica
         CType(Me.dg_cambio_estado_solicitudes_ot, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage5.SuspendLayout()
         CType(Me.dg_anotaciones_ot, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPage32.SuspendLayout()
+        Me.tabTVSatelital.SuspendLayout()
+        Me.tabInalambrico.SuspendLayout()
+        Me.TableLayoutPanel1.SuspendLayout()
+        Me.TableLayoutPanel2.SuspendLayout()
+        Me.TableLayoutPanel3.SuspendLayout()
+        Me.TableLayoutPanel4.SuspendLayout()
+        Me.TableLayoutPanel5.SuspendLayout()
+        Me.TableLayoutPanel6.SuspendLayout()
         Me.SuspendLayout()
         '
         'SplitContainer1
@@ -1987,6 +2012,14 @@ Partial Class Frm_Consulta_Histórica
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(1148, 292)
         Me.Panel5.TabIndex = 84
+        '
+        'txt_count_facturas
+        '
+        Me.txt_count_facturas.Location = New System.Drawing.Point(889, 222)
+        Me.txt_count_facturas.Name = "txt_count_facturas"
+        Me.txt_count_facturas.Size = New System.Drawing.Size(66, 20)
+        Me.txt_count_facturas.TabIndex = 24
+        Me.txt_count_facturas.Visible = False
         '
         'VScrollBar4
         '
@@ -5256,6 +5289,7 @@ Partial Class Frm_Consulta_Histórica
         '
         'TabPage32
         '
+        Me.TabPage32.Controls.Add(Me.tabTVSatelital)
         Me.TabPage32.Location = New System.Drawing.Point(4, 49)
         Me.TabPage32.Name = "TabPage32"
         Me.TabPage32.Size = New System.Drawing.Size(1299, 606)
@@ -5290,13 +5324,195 @@ Partial Class Frm_Consulta_Histórica
         Me.TabPage35.Text = "Red Inteligente"
         Me.TabPage35.UseVisualStyleBackColor = True
         '
-        'txt_count_facturas
+        'tabPromociones
         '
-        Me.txt_count_facturas.Location = New System.Drawing.Point(889, 222)
-        Me.txt_count_facturas.Name = "txt_count_facturas"
-        Me.txt_count_facturas.Size = New System.Drawing.Size(66, 20)
-        Me.txt_count_facturas.TabIndex = 24
-        Me.txt_count_facturas.Visible = False
+        Me.tabPromociones.Location = New System.Drawing.Point(4, 22)
+        Me.tabPromociones.Name = "tabPromociones"
+        Me.tabPromociones.Size = New System.Drawing.Size(1291, 580)
+        Me.tabPromociones.TabIndex = 3
+        Me.tabPromociones.Text = "Promociones"
+        Me.tabPromociones.UseVisualStyleBackColor = True
+        '
+        'tabRecargas
+        '
+        Me.tabRecargas.Location = New System.Drawing.Point(4, 22)
+        Me.tabRecargas.Name = "tabRecargas"
+        Me.tabRecargas.Size = New System.Drawing.Size(1291, 580)
+        Me.tabRecargas.TabIndex = 2
+        Me.tabRecargas.Text = "Recargas"
+        Me.tabRecargas.UseVisualStyleBackColor = True
+        '
+        'tabDTHHistorico
+        '
+        Me.tabDTHHistorico.Location = New System.Drawing.Point(4, 22)
+        Me.tabDTHHistorico.Name = "tabDTHHistorico"
+        Me.tabDTHHistorico.Padding = New System.Windows.Forms.Padding(3)
+        Me.tabDTHHistorico.Size = New System.Drawing.Size(1291, 580)
+        Me.tabDTHHistorico.TabIndex = 0
+        Me.tabDTHHistorico.Text = "DTH Histórico"
+        Me.tabDTHHistorico.UseVisualStyleBackColor = True
+        '
+        'tabTVSatelital
+        '
+        Me.tabTVSatelital.Controls.Add(Me.tabDTHHistorico)
+        Me.tabTVSatelital.Controls.Add(Me.tabInalambrico)
+        Me.tabTVSatelital.Controls.Add(Me.tabRecargas)
+        Me.tabTVSatelital.Controls.Add(Me.tabPromociones)
+        Me.tabTVSatelital.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.tabTVSatelital.Location = New System.Drawing.Point(0, 0)
+        Me.tabTVSatelital.Name = "tabTVSatelital"
+        Me.tabTVSatelital.SelectedIndex = 0
+        Me.tabTVSatelital.Size = New System.Drawing.Size(1299, 606)
+        Me.tabTVSatelital.TabIndex = 0
+        '
+        'tabInalambrico
+        '
+        Me.tabInalambrico.Controls.Add(Me.TableLayoutPanel1)
+        Me.tabInalambrico.Location = New System.Drawing.Point(4, 22)
+        Me.tabInalambrico.Name = "tabInalambrico"
+        Me.tabInalambrico.Size = New System.Drawing.Size(1291, 580)
+        Me.tabInalambrico.TabIndex = 4
+        Me.tabInalambrico.Text = "Inalambrico"
+        Me.tabInalambrico.UseVisualStyleBackColor = True
+        '
+        'TableLayoutPanel1
+        '
+        Me.TableLayoutPanel1.ColumnCount = 1
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel2, 0, 0)
+        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.RowCount = 2
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 64.82758!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35.17241!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1291, 580)
+        Me.TableLayoutPanel1.TabIndex = 0
+        '
+        'TableLayoutPanel2
+        '
+        Me.TableLayoutPanel2.ColumnCount = 2
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.50584!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 89.49416!))
+        Me.TableLayoutPanel2.Controls.Add(Me.TableLayoutPanel3, 1, 0)
+        Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 3)
+        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
+        Me.TableLayoutPanel2.RowCount = 1
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1285, 369)
+        Me.TableLayoutPanel2.TabIndex = 0
+        '
+        'TableLayoutPanel3
+        '
+        Me.TableLayoutPanel3.ColumnCount = 2
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.83843!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.16158!))
+        Me.TableLayoutPanel3.Controls.Add(Me.TableLayoutPanel4, 1, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.GroupBox9, 0, 0)
+        Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(137, 3)
+        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
+        Me.TableLayoutPanel3.RowCount = 1
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(1145, 363)
+        Me.TableLayoutPanel3.TabIndex = 0
+        '
+        'TableLayoutPanel4
+        '
+        Me.TableLayoutPanel4.ColumnCount = 1
+        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel4.Controls.Add(Me.GroupBox12, 0, 1)
+        Me.TableLayoutPanel4.Controls.Add(Me.TableLayoutPanel5, 0, 0)
+        Me.TableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel4.Location = New System.Drawing.Point(379, 3)
+        Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
+        Me.TableLayoutPanel4.RowCount = 2
+        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75.0!))
+        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(763, 357)
+        Me.TableLayoutPanel4.TabIndex = 0
+        '
+        'TableLayoutPanel5
+        '
+        Me.TableLayoutPanel5.ColumnCount = 2
+        Me.TableLayoutPanel4.SetColumnSpan(Me.TableLayoutPanel5, 2)
+        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel5.Controls.Add(Me.GroupBox13, 1, 0)
+        Me.TableLayoutPanel5.Controls.Add(Me.TableLayoutPanel6, 0, 0)
+        Me.TableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel5.Location = New System.Drawing.Point(3, 3)
+        Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
+        Me.TableLayoutPanel5.RowCount = 1
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel5.Size = New System.Drawing.Size(757, 261)
+        Me.TableLayoutPanel5.TabIndex = 0
+        '
+        'TableLayoutPanel6
+        '
+        Me.TableLayoutPanel6.ColumnCount = 1
+        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel6.Controls.Add(Me.GroupBox11, 0, 1)
+        Me.TableLayoutPanel6.Controls.Add(Me.GroupBox10, 0, 0)
+        Me.TableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel6.Location = New System.Drawing.Point(3, 3)
+        Me.TableLayoutPanel6.Name = "TableLayoutPanel6"
+        Me.TableLayoutPanel6.RowCount = 2
+        Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel6.Size = New System.Drawing.Size(372, 255)
+        Me.TableLayoutPanel6.TabIndex = 0
+        '
+        'GroupBox9
+        '
+        Me.GroupBox9.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox9.Location = New System.Drawing.Point(3, 3)
+        Me.GroupBox9.Name = "GroupBox9"
+        Me.GroupBox9.Size = New System.Drawing.Size(370, 357)
+        Me.GroupBox9.TabIndex = 1
+        Me.GroupBox9.TabStop = False
+        Me.GroupBox9.Text = "Cliente"
+        '
+        'GroupBox10
+        '
+        Me.GroupBox10.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox10.Location = New System.Drawing.Point(3, 3)
+        Me.GroupBox10.Name = "GroupBox10"
+        Me.GroupBox10.Size = New System.Drawing.Size(366, 121)
+        Me.GroupBox10.TabIndex = 0
+        Me.GroupBox10.TabStop = False
+        Me.GroupBox10.Text = "Datos del Contracto"
+        '
+        'GroupBox11
+        '
+        Me.GroupBox11.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox11.Location = New System.Drawing.Point(3, 130)
+        Me.GroupBox11.Name = "GroupBox11"
+        Me.GroupBox11.Size = New System.Drawing.Size(366, 122)
+        Me.GroupBox11.TabIndex = 1
+        Me.GroupBox11.TabStop = False
+        Me.GroupBox11.Text = "Datos de Facturación de Instalación"
+        '
+        'GroupBox12
+        '
+        Me.GroupBox12.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox12.Location = New System.Drawing.Point(3, 270)
+        Me.GroupBox12.Name = "GroupBox12"
+        Me.GroupBox12.Size = New System.Drawing.Size(757, 84)
+        Me.GroupBox12.TabIndex = 1
+        Me.GroupBox12.TabStop = False
+        Me.GroupBox12.Text = "Datos de Recarga"
+        '
+        'GroupBox13
+        '
+        Me.GroupBox13.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox13.Location = New System.Drawing.Point(381, 3)
+        Me.GroupBox13.Name = "GroupBox13"
+        Me.GroupBox13.Size = New System.Drawing.Size(373, 255)
+        Me.GroupBox13.TabIndex = 1
+        Me.GroupBox13.TabStop = False
+        Me.GroupBox13.Text = "Motivos de Venta"
         '
         'Frm_Consulta_Histórica
         '
@@ -5391,6 +5607,15 @@ Partial Class Frm_Consulta_Histórica
         CType(Me.dg_cambio_estado_solicitudes_ot, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage5.ResumeLayout(False)
         CType(Me.dg_anotaciones_ot, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPage32.ResumeLayout(False)
+        Me.tabTVSatelital.ResumeLayout(False)
+        Me.tabInalambrico.ResumeLayout(False)
+        Me.TableLayoutPanel1.ResumeLayout(False)
+        Me.TableLayoutPanel2.ResumeLayout(False)
+        Me.TableLayoutPanel3.ResumeLayout(False)
+        Me.TableLayoutPanel4.ResumeLayout(False)
+        Me.TableLayoutPanel5.ResumeLayout(False)
+        Me.TableLayoutPanel6.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -5793,7 +6018,6 @@ Partial Class Frm_Consulta_Histórica
     Friend WithEvents Button33 As System.Windows.Forms.Button
     Friend WithEvents Button32 As System.Windows.Forms.Button
     Friend WithEvents Button31 As System.Windows.Forms.Button
-    Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents txt_total_2 As System.Windows.Forms.TextBox
     Friend WithEvents Label118 As System.Windows.Forms.Label
     Friend WithEvents Label119 As System.Windows.Forms.Label
@@ -5876,4 +6100,21 @@ Partial Class Frm_Consulta_Histórica
     Friend WithEvents btn_contador_facturas As System.Windows.Forms.Button
     Friend WithEvents VScrollBar4 As System.Windows.Forms.VScrollBar
     Friend WithEvents txt_count_facturas As System.Windows.Forms.TextBox
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents tabTVSatelital As TabControl
+    Friend WithEvents tabDTHHistorico As TabPage
+    Friend WithEvents tabInalambrico As TabPage
+    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
+    Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
+    Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
+    Friend WithEvents tabRecargas As TabPage
+    Friend WithEvents tabPromociones As TabPage
+    Friend WithEvents TableLayoutPanel4 As TableLayoutPanel
+    Friend WithEvents TableLayoutPanel5 As TableLayoutPanel
+    Friend WithEvents GroupBox12 As GroupBox
+    Friend WithEvents GroupBox13 As GroupBox
+    Friend WithEvents TableLayoutPanel6 As TableLayoutPanel
+    Friend WithEvents GroupBox11 As GroupBox
+    Friend WithEvents GroupBox10 As GroupBox
+    Friend WithEvents GroupBox9 As GroupBox
 End Class

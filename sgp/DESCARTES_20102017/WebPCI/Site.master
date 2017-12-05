@@ -189,8 +189,8 @@
 <!-- -->
     
     
-    <link href="http://localhost/preloadChat" rel="stylesheet" />
-    <script type="text/javascript" src="http://localhost/initChat"></script> <!-- -->
+    <link href="http://10.200.37.124:8888/preloadChat" rel="stylesheet" />
+    <script type="text/javascript" src="http://10.200.37.124:8888/initChat"></script> <!-- -->
 <script>
 	$(window).load(function ()
 	{

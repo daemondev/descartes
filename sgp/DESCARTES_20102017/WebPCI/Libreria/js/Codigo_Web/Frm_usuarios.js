@@ -67,7 +67,7 @@ function validar_email(valor) {
 }
 
 function Grabar_Usuario() {
-    //debugger;
+    
     var objData = {};
     objData["in_opc"] = 4;
     objData["tamPagina"] = 0;
@@ -78,7 +78,8 @@ function Grabar_Usuario() {
     objData["vc_ApePaterno"] = $("#txt_ApePaterno").val();
     objData["vc_ApeMaterno"] = $("#txt_ApeMaterno").val();
     objData["vc_Usuario"] = $("#txt_Usuario").val();
-    objData["vc_Clave"] = $("#" + $("#txt_dni").val()).val();
+    //objData["vc_Clave"] = $("#" + $("#txt_dni").val()).val();
+    objData["vc_Clave"] = $("#txt_dni").val();
     objData["in_PerfilID"] = $("#ddlPerfil").val();
     objData["in_SedeID"] = $("#ddl_Sede").val();
     objData["in_CampaniaID"] = $('#ddlCampania').val();    
@@ -92,6 +93,7 @@ function Grabar_Usuario() {
     //objData["vc_Password"] = $("#txt_Password").val();
     
     //$("#txtCorreo").val() == "" ? objData["vc_Correo"] = "" : objData["vc_Correo"] = $("#txtCorreo").val();
+    //debugger;
     $.ajax({
         type: "POST",
         url: url + "mantUsuarios",
