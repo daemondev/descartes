@@ -46,7 +46,7 @@ Partial Class Frm_Consulta_Histórica
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Frm_Consulta_Histórica))
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.tabMain = New System.Windows.Forms.TabControl()
         Me.TabPage10 = New System.Windows.Forms.TabPage()
         Me.dg_datos = New System.Windows.Forms.DataGridView()
         Me.ddldocumento = New System.Windows.Forms.ComboBox()
@@ -522,41 +522,105 @@ Partial Class Frm_Consulta_Histórica
         Me.TabPage29 = New System.Windows.Forms.TabPage()
         Me.TabPage30 = New System.Windows.Forms.TabPage()
         Me.TabPage31 = New System.Windows.Forms.TabPage()
-        Me.TabPage32 = New System.Windows.Forms.TabPage()
+        Me.tabTVSatelitalContainner = New System.Windows.Forms.TabPage()
         Me.tabTVSatelital = New System.Windows.Forms.TabControl()
         Me.tabDTHHistorico = New System.Windows.Forms.TabPage()
         Me.tabInalambrico = New System.Windows.Forms.TabPage()
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
-        Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
-        Me.GroupBox12 = New System.Windows.Forms.GroupBox()
-        Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
-        Me.GroupBox13 = New System.Windows.Forms.GroupBox()
-        Me.TableLayoutPanel6 = New System.Windows.Forms.TableLayoutPanel()
-        Me.GroupBox11 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox10 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox9 = New System.Windows.Forms.GroupBox()
+        Me.TableLayoutPanel7 = New System.Windows.Forms.TableLayoutPanel()
+        Me.TabControl10 = New System.Windows.Forms.TabControl()
+        Me.tabEquipos = New System.Windows.Forms.TabPage()
+        Me.dgvEquipos = New System.Windows.Forms.DataGridView()
+        Me.tabServicios = New System.Windows.Forms.TabPage()
+        Me.dgvServicios = New System.Windows.Forms.DataGridView()
+        Me.gbxLeft = New System.Windows.Forms.GroupBox()
+        Me.Button38 = New System.Windows.Forms.Button()
+        Me.TextBox28 = New System.Windows.Forms.TextBox()
+        Me.Label147 = New System.Windows.Forms.Label()
+        Me.TextBox23 = New System.Windows.Forms.TextBox()
+        Me.Label144 = New System.Windows.Forms.Label()
+        Me.TextBox24 = New System.Windows.Forms.TextBox()
+        Me.Label145 = New System.Windows.Forms.Label()
+        Me.TextBox20 = New System.Windows.Forms.TextBox()
+        Me.Label142 = New System.Windows.Forms.Label()
+        Me.TextBox22 = New System.Windows.Forms.TextBox()
+        Me.Label143 = New System.Windows.Forms.Label()
+        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.Label141 = New System.Windows.Forms.Label()
+        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.Label140 = New System.Windows.Forms.Label()
+        Me.GroupBox15 = New System.Windows.Forms.GroupBox()
+        Me.TextBox43 = New System.Windows.Forms.TextBox()
+        Me.Label159 = New System.Windows.Forms.Label()
+        Me.Label158 = New System.Windows.Forms.Label()
+        Me.TextBox42 = New System.Windows.Forms.TextBox()
+        Me.TextBox41 = New System.Windows.Forms.TextBox()
+        Me.Label157 = New System.Windows.Forms.Label()
+        Me.TextBox40 = New System.Windows.Forms.TextBox()
+        Me.Label156 = New System.Windows.Forms.Label()
+        Me.TextBox39 = New System.Windows.Forms.TextBox()
+        Me.Label155 = New System.Windows.Forms.Label()
+        Me.Label154 = New System.Windows.Forms.Label()
+        Me.TextBox37 = New System.Windows.Forms.TextBox()
+        Me.TextBox38 = New System.Windows.Forms.TextBox()
+        Me.Label153 = New System.Windows.Forms.Label()
+        Me.TextBox36 = New System.Windows.Forms.TextBox()
+        Me.Label152 = New System.Windows.Forms.Label()
+        Me.TextBox35 = New System.Windows.Forms.TextBox()
+        Me.Label151 = New System.Windows.Forms.Label()
+        Me.TextBox34 = New System.Windows.Forms.TextBox()
+        Me.Label150 = New System.Windows.Forms.Label()
+        Me.TextBox32 = New System.Windows.Forms.TextBox()
+        Me.TextBox33 = New System.Windows.Forms.TextBox()
+        Me.Label149 = New System.Windows.Forms.Label()
+        Me.TextBox30 = New System.Windows.Forms.TextBox()
+        Me.TextBox31 = New System.Windows.Forms.TextBox()
+        Me.Label148 = New System.Windows.Forms.Label()
+        Me.TextBox29 = New System.Windows.Forms.TextBox()
+        Me.TextBox26 = New System.Windows.Forms.TextBox()
+        Me.Label146 = New System.Windows.Forms.Label()
+        Me.GroupBox16 = New System.Windows.Forms.GroupBox()
+        Me.CheckBox22 = New System.Windows.Forms.CheckBox()
+        Me.TextBox63 = New System.Windows.Forms.TextBox()
+        Me.Label173 = New System.Windows.Forms.Label()
+        Me.TextBox62 = New System.Windows.Forms.TextBox()
+        Me.Label172 = New System.Windows.Forms.Label()
+        Me.TextBox59 = New System.Windows.Forms.TextBox()
+        Me.Label169 = New System.Windows.Forms.Label()
+        Me.TextBox60 = New System.Windows.Forms.TextBox()
+        Me.Label170 = New System.Windows.Forms.Label()
+        Me.TextBox61 = New System.Windows.Forms.TextBox()
+        Me.Label171 = New System.Windows.Forms.Label()
+        Me.GroupBox17 = New System.Windows.Forms.GroupBox()
+        Me.TextBox44 = New System.Windows.Forms.TextBox()
+        Me.Label160 = New System.Windows.Forms.Label()
+        Me.TextBox52 = New System.Windows.Forms.TextBox()
+        Me.Label162 = New System.Windows.Forms.Label()
+        Me.GroupBox18 = New System.Windows.Forms.GroupBox()
+        Me.TextBox55 = New System.Windows.Forms.TextBox()
+        Me.Label165 = New System.Windows.Forms.Label()
+        Me.TextBox51 = New System.Windows.Forms.TextBox()
+        Me.Label161 = New System.Windows.Forms.Label()
+        Me.TextBox53 = New System.Windows.Forms.TextBox()
+        Me.Label163 = New System.Windows.Forms.Label()
+        Me.GroupBox19 = New System.Windows.Forms.GroupBox()
+        Me.TextBox54 = New System.Windows.Forms.TextBox()
+        Me.Label164 = New System.Windows.Forms.Label()
+        Me.TextBox56 = New System.Windows.Forms.TextBox()
+        Me.Label166 = New System.Windows.Forms.Label()
+        Me.TextBox57 = New System.Windows.Forms.TextBox()
+        Me.Label167 = New System.Windows.Forms.Label()
+        Me.TextBox58 = New System.Windows.Forms.TextBox()
+        Me.Label168 = New System.Windows.Forms.Label()
         Me.tabRecargas = New System.Windows.Forms.TabPage()
         Me.tabPromociones = New System.Windows.Forms.TabPage()
         Me.TabPage33 = New System.Windows.Forms.TabPage()
         Me.TabPage34 = New System.Windows.Forms.TabPage()
         Me.TabPage35 = New System.Windows.Forms.TabPage()
-        Me.TableLayoutPanel7 = New System.Windows.Forms.TableLayoutPanel()
-        Me.TabControl10 = New System.Windows.Forms.TabControl()
-        Me.TabPage68 = New System.Windows.Forms.TabPage()
-        Me.TabPage69 = New System.Windows.Forms.TabPage()
-        Me.GroupBox14 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox15 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox16 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox17 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox18 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox19 = New System.Windows.Forms.GroupBox()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TabControl1.SuspendLayout()
+        Me.tabMain.SuspendLayout()
         Me.TabPage10.SuspendLayout()
         CType(Me.dg_datos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -618,18 +682,21 @@ Partial Class Frm_Consulta_Histórica
         CType(Me.dg_cambio_estado_solicitudes_ot, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage5.SuspendLayout()
         CType(Me.dg_anotaciones_ot, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TabPage32.SuspendLayout()
+        Me.tabTVSatelitalContainner.SuspendLayout()
         Me.tabTVSatelital.SuspendLayout()
-        Me.tabDTHHistorico.SuspendLayout()
         Me.tabInalambrico.SuspendLayout()
-        Me.TableLayoutPanel1.SuspendLayout()
-        Me.TableLayoutPanel2.SuspendLayout()
-        Me.TableLayoutPanel3.SuspendLayout()
-        Me.TableLayoutPanel4.SuspendLayout()
-        Me.TableLayoutPanel5.SuspendLayout()
-        Me.TableLayoutPanel6.SuspendLayout()
         Me.TableLayoutPanel7.SuspendLayout()
         Me.TabControl10.SuspendLayout()
+        Me.tabEquipos.SuspendLayout()
+        CType(Me.dgvEquipos, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.tabServicios.SuspendLayout()
+        CType(Me.dgvServicios, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.gbxLeft.SuspendLayout()
+        Me.GroupBox15.SuspendLayout()
+        Me.GroupBox16.SuspendLayout()
+        Me.GroupBox17.SuspendLayout()
+        Me.GroupBox18.SuspendLayout()
+        Me.GroupBox19.SuspendLayout()
         Me.SuspendLayout()
         '
         'SplitContainer1
@@ -642,7 +709,7 @@ Partial Class Frm_Consulta_Histórica
         'SplitContainer1.Panel1
         '
         Me.SplitContainer1.Panel1.Controls.Add(Me.PictureBox1)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.TabControl1)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.tabMain)
         Me.SplitContainer1.Size = New System.Drawing.Size(1321, 698)
         Me.SplitContainer1.SplitterDistance = 665
         Me.SplitContainer1.TabIndex = 0
@@ -656,40 +723,40 @@ Partial Class Frm_Consulta_Histórica
         Me.PictureBox1.TabIndex = 41
         Me.PictureBox1.TabStop = False
         '
-        'TabControl1
+        'tabMain
         '
-        Me.TabControl1.Appearance = System.Windows.Forms.TabAppearance.FlatButtons
-        Me.TabControl1.Controls.Add(Me.TabPage10)
-        Me.TabControl1.Controls.Add(Me.TabPage_datos)
-        Me.TabControl1.Controls.Add(Me.TabPage12)
-        Me.TabControl1.Controls.Add(Me.TabPage13)
-        Me.TabControl1.Controls.Add(Me.TabPage14)
-        Me.TabControl1.Controls.Add(Me.TabPage15)
-        Me.TabControl1.Controls.Add(Me.TabPage16)
-        Me.TabControl1.Controls.Add(Me.TabPage17)
-        Me.TabControl1.Controls.Add(Me.TabPage18)
-        Me.TabControl1.Controls.Add(Me.TabPage19)
-        Me.TabControl1.Controls.Add(Me.TabPage20)
-        Me.TabControl1.Controls.Add(Me.TabPage21)
-        Me.TabControl1.Controls.Add(Me.TabPage22)
-        Me.TabControl1.Controls.Add(Me.TabPage23)
-        Me.TabControl1.Controls.Add(Me.TabPage24)
-        Me.TabControl1.Controls.Add(Me.TabPage27)
-        Me.TabControl1.Controls.Add(Me.TabPage28)
-        Me.TabControl1.Controls.Add(Me.TabPage29)
-        Me.TabControl1.Controls.Add(Me.TabPage30)
-        Me.TabControl1.Controls.Add(Me.TabPage31)
-        Me.TabControl1.Controls.Add(Me.TabPage32)
-        Me.TabControl1.Controls.Add(Me.TabPage33)
-        Me.TabControl1.Controls.Add(Me.TabPage34)
-        Me.TabControl1.Controls.Add(Me.TabPage35)
-        Me.TabControl1.Location = New System.Drawing.Point(12, 12)
-        Me.TabControl1.Multiline = True
-        Me.TabControl1.Name = "TabControl1"
-        Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1307, 659)
-        Me.TabControl1.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight
-        Me.TabControl1.TabIndex = 1
+        Me.tabMain.Appearance = System.Windows.Forms.TabAppearance.FlatButtons
+        Me.tabMain.Controls.Add(Me.TabPage10)
+        Me.tabMain.Controls.Add(Me.TabPage_datos)
+        Me.tabMain.Controls.Add(Me.TabPage12)
+        Me.tabMain.Controls.Add(Me.TabPage13)
+        Me.tabMain.Controls.Add(Me.TabPage14)
+        Me.tabMain.Controls.Add(Me.TabPage15)
+        Me.tabMain.Controls.Add(Me.TabPage16)
+        Me.tabMain.Controls.Add(Me.TabPage17)
+        Me.tabMain.Controls.Add(Me.TabPage18)
+        Me.tabMain.Controls.Add(Me.TabPage19)
+        Me.tabMain.Controls.Add(Me.TabPage20)
+        Me.tabMain.Controls.Add(Me.TabPage21)
+        Me.tabMain.Controls.Add(Me.TabPage22)
+        Me.tabMain.Controls.Add(Me.TabPage23)
+        Me.tabMain.Controls.Add(Me.TabPage24)
+        Me.tabMain.Controls.Add(Me.TabPage27)
+        Me.tabMain.Controls.Add(Me.TabPage28)
+        Me.tabMain.Controls.Add(Me.TabPage29)
+        Me.tabMain.Controls.Add(Me.TabPage30)
+        Me.tabMain.Controls.Add(Me.TabPage31)
+        Me.tabMain.Controls.Add(Me.tabTVSatelitalContainner)
+        Me.tabMain.Controls.Add(Me.TabPage33)
+        Me.tabMain.Controls.Add(Me.TabPage34)
+        Me.tabMain.Controls.Add(Me.TabPage35)
+        Me.tabMain.Location = New System.Drawing.Point(12, 12)
+        Me.tabMain.Multiline = True
+        Me.tabMain.Name = "tabMain"
+        Me.tabMain.SelectedIndex = 0
+        Me.tabMain.Size = New System.Drawing.Size(1307, 659)
+        Me.tabMain.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight
+        Me.tabMain.TabIndex = 1
         '
         'TabPage10
         '
@@ -5300,15 +5367,15 @@ Partial Class Frm_Consulta_Histórica
         Me.TabPage31.Text = "Contactos Clientes"
         Me.TabPage31.UseVisualStyleBackColor = True
         '
-        'TabPage32
+        'tabTVSatelitalContainner
         '
-        Me.TabPage32.Controls.Add(Me.tabTVSatelital)
-        Me.TabPage32.Location = New System.Drawing.Point(4, 49)
-        Me.TabPage32.Name = "TabPage32"
-        Me.TabPage32.Size = New System.Drawing.Size(1299, 606)
-        Me.TabPage32.TabIndex = 20
-        Me.TabPage32.Text = "Tv Satelital"
-        Me.TabPage32.UseVisualStyleBackColor = True
+        Me.tabTVSatelitalContainner.Controls.Add(Me.tabTVSatelital)
+        Me.tabTVSatelitalContainner.Location = New System.Drawing.Point(4, 49)
+        Me.tabTVSatelitalContainner.Name = "tabTVSatelitalContainner"
+        Me.tabTVSatelitalContainner.Size = New System.Drawing.Size(1299, 606)
+        Me.tabTVSatelitalContainner.TabIndex = 20
+        Me.tabTVSatelitalContainner.Text = "Tv Satelital"
+        Me.tabTVSatelitalContainner.UseVisualStyleBackColor = True
         '
         'tabTVSatelital
         '
@@ -5325,163 +5392,865 @@ Partial Class Frm_Consulta_Histórica
         '
         'tabDTHHistorico
         '
-        Me.tabDTHHistorico.Controls.Add(Me.TableLayoutPanel7)
         Me.tabDTHHistorico.Location = New System.Drawing.Point(4, 22)
         Me.tabDTHHistorico.Name = "tabDTHHistorico"
-        Me.tabDTHHistorico.Padding = New System.Windows.Forms.Padding(3)
         Me.tabDTHHistorico.Size = New System.Drawing.Size(1291, 580)
-        Me.tabDTHHistorico.TabIndex = 0
+        Me.tabDTHHistorico.TabIndex = 4
         Me.tabDTHHistorico.Text = "DTH Histórico"
         Me.tabDTHHistorico.UseVisualStyleBackColor = True
         '
         'tabInalambrico
         '
-        Me.tabInalambrico.Controls.Add(Me.TableLayoutPanel1)
+        Me.tabInalambrico.Controls.Add(Me.TableLayoutPanel7)
         Me.tabInalambrico.Location = New System.Drawing.Point(4, 22)
         Me.tabInalambrico.Name = "tabInalambrico"
+        Me.tabInalambrico.Padding = New System.Windows.Forms.Padding(3)
         Me.tabInalambrico.Size = New System.Drawing.Size(1291, 580)
-        Me.tabInalambrico.TabIndex = 4
-        Me.tabInalambrico.Text = "Inalambrico"
+        Me.tabInalambrico.TabIndex = 0
+        Me.tabInalambrico.Text = "Inalámbrico"
         Me.tabInalambrico.UseVisualStyleBackColor = True
         '
-        'TableLayoutPanel1
+        'TableLayoutPanel7
         '
-        Me.TableLayoutPanel1.ColumnCount = 1
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel2, 0, 0)
-        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
-        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 2
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 64.82758!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35.17241!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1291, 580)
-        Me.TableLayoutPanel1.TabIndex = 0
+        Me.TableLayoutPanel7.ColumnCount = 4
+        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 129.0!))
+        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 278.0!))
+        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 359.0!))
+        Me.TableLayoutPanel7.Controls.Add(Me.TabControl10, 0, 3)
+        Me.TableLayoutPanel7.Controls.Add(Me.gbxLeft, 0, 0)
+        Me.TableLayoutPanel7.Controls.Add(Me.GroupBox15, 1, 0)
+        Me.TableLayoutPanel7.Controls.Add(Me.GroupBox16, 2, 2)
+        Me.TableLayoutPanel7.Controls.Add(Me.GroupBox17, 2, 0)
+        Me.TableLayoutPanel7.Controls.Add(Me.GroupBox18, 2, 1)
+        Me.TableLayoutPanel7.Controls.Add(Me.GroupBox19, 3, 0)
+        Me.TableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel7.Location = New System.Drawing.Point(3, 3)
+        Me.TableLayoutPanel7.Name = "TableLayoutPanel7"
+        Me.TableLayoutPanel7.RowCount = 4
+        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 76.0!))
+        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 108.0!))
+        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 188.0!))
+        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65.0!))
+        Me.TableLayoutPanel7.Size = New System.Drawing.Size(1285, 574)
+        Me.TableLayoutPanel7.TabIndex = 0
         '
-        'TableLayoutPanel2
+        'TabControl10
         '
-        Me.TableLayoutPanel2.ColumnCount = 2
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.50584!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 89.49416!))
-        Me.TableLayoutPanel2.Controls.Add(Me.TableLayoutPanel3, 1, 0)
-        Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 3)
-        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
-        Me.TableLayoutPanel2.RowCount = 1
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1285, 370)
-        Me.TableLayoutPanel2.TabIndex = 0
+        Me.TableLayoutPanel7.SetColumnSpan(Me.TabControl10, 4)
+        Me.TabControl10.Controls.Add(Me.tabEquipos)
+        Me.TabControl10.Controls.Add(Me.tabServicios)
+        Me.TabControl10.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TabControl10.Location = New System.Drawing.Point(3, 375)
+        Me.TabControl10.Name = "TabControl10"
+        Me.TabControl10.SelectedIndex = 0
+        Me.TabControl10.Size = New System.Drawing.Size(1279, 196)
+        Me.TabControl10.TabIndex = 0
         '
-        'TableLayoutPanel3
+        'tabEquipos
         '
-        Me.TableLayoutPanel3.ColumnCount = 2
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.83843!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.16158!))
-        Me.TableLayoutPanel3.Controls.Add(Me.TableLayoutPanel4, 1, 0)
-        Me.TableLayoutPanel3.Controls.Add(Me.GroupBox9, 0, 0)
-        Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(138, 3)
-        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
-        Me.TableLayoutPanel3.RowCount = 1
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(1144, 364)
-        Me.TableLayoutPanel3.TabIndex = 0
+        Me.tabEquipos.Controls.Add(Me.dgvEquipos)
+        Me.tabEquipos.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tabEquipos.Location = New System.Drawing.Point(4, 22)
+        Me.tabEquipos.Name = "tabEquipos"
+        Me.tabEquipos.Padding = New System.Windows.Forms.Padding(3)
+        Me.tabEquipos.Size = New System.Drawing.Size(1271, 170)
+        Me.tabEquipos.TabIndex = 0
+        Me.tabEquipos.Text = "Equipos"
+        Me.tabEquipos.UseVisualStyleBackColor = True
         '
-        'TableLayoutPanel4
+        'dgvEquipos
         '
-        Me.TableLayoutPanel4.ColumnCount = 1
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel4.Controls.Add(Me.GroupBox12, 0, 1)
-        Me.TableLayoutPanel4.Controls.Add(Me.TableLayoutPanel5, 0, 0)
-        Me.TableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel4.Location = New System.Drawing.Point(378, 3)
-        Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
-        Me.TableLayoutPanel4.RowCount = 2
-        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75.0!))
-        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel4.Size = New System.Drawing.Size(763, 358)
-        Me.TableLayoutPanel4.TabIndex = 0
+        Me.dgvEquipos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvEquipos.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dgvEquipos.Location = New System.Drawing.Point(3, 3)
+        Me.dgvEquipos.Name = "dgvEquipos"
+        Me.dgvEquipos.Size = New System.Drawing.Size(1265, 164)
+        Me.dgvEquipos.TabIndex = 0
         '
-        'GroupBox12
+        'tabServicios
         '
-        Me.GroupBox12.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox12.Location = New System.Drawing.Point(3, 271)
-        Me.GroupBox12.Name = "GroupBox12"
-        Me.GroupBox12.Size = New System.Drawing.Size(757, 84)
-        Me.GroupBox12.TabIndex = 1
-        Me.GroupBox12.TabStop = False
-        Me.GroupBox12.Text = "Datos de Recarga"
+        Me.tabServicios.Controls.Add(Me.dgvServicios)
+        Me.tabServicios.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tabServicios.Location = New System.Drawing.Point(4, 22)
+        Me.tabServicios.Name = "tabServicios"
+        Me.tabServicios.Padding = New System.Windows.Forms.Padding(3)
+        Me.tabServicios.Size = New System.Drawing.Size(1271, 170)
+        Me.tabServicios.TabIndex = 1
+        Me.tabServicios.Text = "Servicios"
+        Me.tabServicios.UseVisualStyleBackColor = True
         '
-        'TableLayoutPanel5
+        'dgvServicios
         '
-        Me.TableLayoutPanel5.ColumnCount = 2
-        Me.TableLayoutPanel4.SetColumnSpan(Me.TableLayoutPanel5, 2)
-        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel5.Controls.Add(Me.GroupBox13, 1, 0)
-        Me.TableLayoutPanel5.Controls.Add(Me.TableLayoutPanel6, 0, 0)
-        Me.TableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel5.Location = New System.Drawing.Point(3, 3)
-        Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
-        Me.TableLayoutPanel5.RowCount = 1
-        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel5.Size = New System.Drawing.Size(757, 262)
-        Me.TableLayoutPanel5.TabIndex = 0
+        Me.dgvServicios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvServicios.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dgvServicios.Location = New System.Drawing.Point(3, 3)
+        Me.dgvServicios.Name = "dgvServicios"
+        Me.dgvServicios.Size = New System.Drawing.Size(1265, 164)
+        Me.dgvServicios.TabIndex = 0
         '
-        'GroupBox13
+        'gbxLeft
         '
-        Me.GroupBox13.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox13.Location = New System.Drawing.Point(381, 3)
-        Me.GroupBox13.Name = "GroupBox13"
-        Me.GroupBox13.Size = New System.Drawing.Size(373, 256)
-        Me.GroupBox13.TabIndex = 1
-        Me.GroupBox13.TabStop = False
-        Me.GroupBox13.Text = "Motivos de Venta"
+        Me.gbxLeft.Controls.Add(Me.Button38)
+        Me.gbxLeft.Controls.Add(Me.TextBox28)
+        Me.gbxLeft.Controls.Add(Me.Label147)
+        Me.gbxLeft.Controls.Add(Me.TextBox23)
+        Me.gbxLeft.Controls.Add(Me.Label144)
+        Me.gbxLeft.Controls.Add(Me.TextBox24)
+        Me.gbxLeft.Controls.Add(Me.Label145)
+        Me.gbxLeft.Controls.Add(Me.TextBox20)
+        Me.gbxLeft.Controls.Add(Me.Label142)
+        Me.gbxLeft.Controls.Add(Me.TextBox22)
+        Me.gbxLeft.Controls.Add(Me.Label143)
+        Me.gbxLeft.Controls.Add(Me.TextBox5)
+        Me.gbxLeft.Controls.Add(Me.Label141)
+        Me.gbxLeft.Controls.Add(Me.TextBox4)
+        Me.gbxLeft.Controls.Add(Me.Label140)
+        Me.gbxLeft.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.gbxLeft.Location = New System.Drawing.Point(3, 3)
+        Me.gbxLeft.Name = "gbxLeft"
+        Me.TableLayoutPanel7.SetRowSpan(Me.gbxLeft, 3)
+        Me.gbxLeft.Size = New System.Drawing.Size(123, 366)
+        Me.gbxLeft.TabIndex = 1
+        Me.gbxLeft.TabStop = False
         '
-        'TableLayoutPanel6
+        'Button38
         '
-        Me.TableLayoutPanel6.ColumnCount = 1
-        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel6.Controls.Add(Me.GroupBox11, 0, 1)
-        Me.TableLayoutPanel6.Controls.Add(Me.GroupBox10, 0, 0)
-        Me.TableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel6.Location = New System.Drawing.Point(3, 3)
-        Me.TableLayoutPanel6.Name = "TableLayoutPanel6"
-        Me.TableLayoutPanel6.RowCount = 2
-        Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel6.Size = New System.Drawing.Size(372, 256)
-        Me.TableLayoutPanel6.TabIndex = 0
+        Me.Button38.Location = New System.Drawing.Point(95, 123)
+        Me.Button38.Name = "Button38"
+        Me.Button38.Size = New System.Drawing.Size(23, 23)
+        Me.Button38.TabIndex = 14
+        Me.Button38.Text = "1"
+        Me.Button38.UseVisualStyleBackColor = True
         '
-        'GroupBox11
+        'TextBox28
         '
-        Me.GroupBox11.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox11.Location = New System.Drawing.Point(3, 131)
-        Me.GroupBox11.Name = "GroupBox11"
-        Me.GroupBox11.Size = New System.Drawing.Size(366, 122)
-        Me.GroupBox11.TabIndex = 1
-        Me.GroupBox11.TabStop = False
-        Me.GroupBox11.Text = "Datos de Facturación de Instalación"
+        Me.TextBox28.Location = New System.Drawing.Point(4, 269)
+        Me.TextBox28.Name = "TextBox28"
+        Me.TextBox28.Size = New System.Drawing.Size(107, 20)
+        Me.TextBox28.TabIndex = 13
         '
-        'GroupBox10
+        'Label147
         '
-        Me.GroupBox10.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox10.Location = New System.Drawing.Point(3, 3)
-        Me.GroupBox10.Name = "GroupBox10"
-        Me.GroupBox10.Size = New System.Drawing.Size(366, 122)
-        Me.GroupBox10.TabIndex = 0
-        Me.GroupBox10.TabStop = False
-        Me.GroupBox10.Text = "Datos del Contracto"
+        Me.Label147.AutoSize = True
+        Me.Label147.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label147.ForeColor = System.Drawing.Color.Blue
+        Me.Label147.Location = New System.Drawing.Point(6, 253)
+        Me.Label147.Name = "Label147"
+        Me.Label147.Size = New System.Drawing.Size(56, 13)
+        Me.Label147.TabIndex = 12
+        Me.Label147.Text = "Solicitud"
         '
-        'GroupBox9
+        'TextBox23
         '
-        Me.GroupBox9.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox9.Location = New System.Drawing.Point(3, 3)
-        Me.GroupBox9.Name = "GroupBox9"
-        Me.GroupBox9.Size = New System.Drawing.Size(369, 358)
-        Me.GroupBox9.TabIndex = 1
-        Me.GroupBox9.TabStop = False
-        Me.GroupBox9.Text = "Cliente"
+        Me.TextBox23.Location = New System.Drawing.Point(4, 228)
+        Me.TextBox23.Name = "TextBox23"
+        Me.TextBox23.Size = New System.Drawing.Size(107, 20)
+        Me.TextBox23.TabIndex = 11
+        '
+        'Label144
+        '
+        Me.Label144.AutoSize = True
+        Me.Label144.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label144.ForeColor = System.Drawing.Color.Blue
+        Me.Label144.Location = New System.Drawing.Point(6, 212)
+        Me.Label144.Name = "Label144"
+        Me.Label144.Size = New System.Drawing.Size(75, 13)
+        Me.Label144.TabIndex = 10
+        Me.Label144.Text = "N° Proyecto"
+        '
+        'TextBox24
+        '
+        Me.TextBox24.Location = New System.Drawing.Point(4, 189)
+        Me.TextBox24.Name = "TextBox24"
+        Me.TextBox24.Size = New System.Drawing.Size(107, 20)
+        Me.TextBox24.TabIndex = 9
+        '
+        'Label145
+        '
+        Me.Label145.AutoSize = True
+        Me.Label145.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label145.ForeColor = System.Drawing.Color.Blue
+        Me.Label145.Location = New System.Drawing.Point(6, 173)
+        Me.Label145.Name = "Label145"
+        Me.Label145.Size = New System.Drawing.Size(50, 13)
+        Me.Label145.TabIndex = 8
+        Me.Label145.Text = "Usuario"
+        '
+        'TextBox20
+        '
+        Me.TextBox20.Location = New System.Drawing.Point(4, 149)
+        Me.TextBox20.Name = "TextBox20"
+        Me.TextBox20.Size = New System.Drawing.Size(85, 20)
+        Me.TextBox20.TabIndex = 7
+        '
+        'Label142
+        '
+        Me.Label142.AutoSize = True
+        Me.Label142.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label142.ForeColor = System.Drawing.Color.Blue
+        Me.Label142.Location = New System.Drawing.Point(6, 133)
+        Me.Label142.Name = "Label142"
+        Me.Label142.Size = New System.Drawing.Size(85, 13)
+        Me.Label142.TabIndex = 6
+        Me.Label142.Text = "Hora Registro"
+        '
+        'TextBox22
+        '
+        Me.TextBox22.Location = New System.Drawing.Point(4, 110)
+        Me.TextBox22.Name = "TextBox22"
+        Me.TextBox22.Size = New System.Drawing.Size(85, 20)
+        Me.TextBox22.TabIndex = 5
+        Me.TextBox22.Text = "12/12/2017"
+        '
+        'Label143
+        '
+        Me.Label143.AutoSize = True
+        Me.Label143.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label143.ForeColor = System.Drawing.Color.Blue
+        Me.Label143.Location = New System.Drawing.Point(6, 94)
+        Me.Label143.Name = "Label143"
+        Me.Label143.Size = New System.Drawing.Size(83, 13)
+        Me.Label143.TabIndex = 4
+        Me.Label143.Text = "Fec. Registro"
+        '
+        'TextBox5
+        '
+        Me.TextBox5.Location = New System.Drawing.Point(4, 70)
+        Me.TextBox5.Name = "TextBox5"
+        Me.TextBox5.Size = New System.Drawing.Size(107, 20)
+        Me.TextBox5.TabIndex = 3
+        '
+        'Label141
+        '
+        Me.Label141.AutoSize = True
+        Me.Label141.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label141.ForeColor = System.Drawing.Color.Blue
+        Me.Label141.Location = New System.Drawing.Point(6, 54)
+        Me.Label141.Name = "Label141"
+        Me.Label141.Size = New System.Drawing.Size(105, 13)
+        Me.Label141.TabIndex = 2
+        Me.Label141.Text = "Estado - Registro"
+        '
+        'TextBox4
+        '
+        Me.TextBox4.Location = New System.Drawing.Point(4, 31)
+        Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.Size = New System.Drawing.Size(107, 20)
+        Me.TextBox4.TabIndex = 1
+        '
+        'Label140
+        '
+        Me.Label140.AutoSize = True
+        Me.Label140.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label140.ForeColor = System.Drawing.Color.Blue
+        Me.Label140.Location = New System.Drawing.Point(6, 15)
+        Me.Label140.Name = "Label140"
+        Me.Label140.Size = New System.Drawing.Size(72, 13)
+        Me.Label140.TabIndex = 0
+        Me.Label140.Text = "N° Registro"
+        '
+        'GroupBox15
+        '
+        Me.GroupBox15.Controls.Add(Me.TextBox43)
+        Me.GroupBox15.Controls.Add(Me.Label159)
+        Me.GroupBox15.Controls.Add(Me.Label158)
+        Me.GroupBox15.Controls.Add(Me.TextBox42)
+        Me.GroupBox15.Controls.Add(Me.TextBox41)
+        Me.GroupBox15.Controls.Add(Me.Label157)
+        Me.GroupBox15.Controls.Add(Me.TextBox40)
+        Me.GroupBox15.Controls.Add(Me.Label156)
+        Me.GroupBox15.Controls.Add(Me.TextBox39)
+        Me.GroupBox15.Controls.Add(Me.Label155)
+        Me.GroupBox15.Controls.Add(Me.Label154)
+        Me.GroupBox15.Controls.Add(Me.TextBox37)
+        Me.GroupBox15.Controls.Add(Me.TextBox38)
+        Me.GroupBox15.Controls.Add(Me.Label153)
+        Me.GroupBox15.Controls.Add(Me.TextBox36)
+        Me.GroupBox15.Controls.Add(Me.Label152)
+        Me.GroupBox15.Controls.Add(Me.TextBox35)
+        Me.GroupBox15.Controls.Add(Me.Label151)
+        Me.GroupBox15.Controls.Add(Me.TextBox34)
+        Me.GroupBox15.Controls.Add(Me.Label150)
+        Me.GroupBox15.Controls.Add(Me.TextBox32)
+        Me.GroupBox15.Controls.Add(Me.TextBox33)
+        Me.GroupBox15.Controls.Add(Me.Label149)
+        Me.GroupBox15.Controls.Add(Me.TextBox30)
+        Me.GroupBox15.Controls.Add(Me.TextBox31)
+        Me.GroupBox15.Controls.Add(Me.Label148)
+        Me.GroupBox15.Controls.Add(Me.TextBox29)
+        Me.GroupBox15.Controls.Add(Me.TextBox26)
+        Me.GroupBox15.Controls.Add(Me.Label146)
+        Me.GroupBox15.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox15.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.GroupBox15.Location = New System.Drawing.Point(132, 3)
+        Me.GroupBox15.Name = "GroupBox15"
+        Me.TableLayoutPanel7.SetRowSpan(Me.GroupBox15, 3)
+        Me.GroupBox15.Size = New System.Drawing.Size(513, 366)
+        Me.GroupBox15.TabIndex = 2
+        Me.GroupBox15.TabStop = False
+        Me.GroupBox15.Text = "Cliente"
+        '
+        'TextBox43
+        '
+        Me.TextBox43.Location = New System.Drawing.Point(9, 297)
+        Me.TextBox43.Multiline = True
+        Me.TextBox43.Name = "TextBox43"
+        Me.TextBox43.Size = New System.Drawing.Size(498, 60)
+        Me.TextBox43.TabIndex = 29
+        '
+        'Label159
+        '
+        Me.Label159.AutoSize = True
+        Me.Label159.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label159.Location = New System.Drawing.Point(6, 280)
+        Me.Label159.Name = "Label159"
+        Me.Label159.Size = New System.Drawing.Size(78, 13)
+        Me.Label159.TabIndex = 28
+        Me.Label159.Text = "Observaciones"
+        '
+        'Label158
+        '
+        Me.Label158.AutoSize = True
+        Me.Label158.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label158.Location = New System.Drawing.Point(293, 177)
+        Me.Label158.Name = "Label158"
+        Me.Label158.Size = New System.Drawing.Size(61, 13)
+        Me.Label158.TabIndex = 27
+        Me.Label158.Text = "Teléfono 2:"
+        '
+        'TextBox42
+        '
+        Me.TextBox42.Location = New System.Drawing.Point(360, 176)
+        Me.TextBox42.Name = "TextBox42"
+        Me.TextBox42.Size = New System.Drawing.Size(147, 20)
+        Me.TextBox42.TabIndex = 26
+        '
+        'TextBox41
+        '
+        Me.TextBox41.Location = New System.Drawing.Point(115, 199)
+        Me.TextBox41.Name = "TextBox41"
+        Me.TextBox41.Size = New System.Drawing.Size(392, 20)
+        Me.TextBox41.TabIndex = 25
+        '
+        'Label157
+        '
+        Me.Label157.AutoSize = True
+        Me.Label157.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label157.Location = New System.Drawing.Point(59, 202)
+        Me.Label157.Name = "Label157"
+        Me.Label157.Size = New System.Drawing.Size(50, 13)
+        Me.Label157.TabIndex = 24
+        Me.Label157.Text = "Paquete:"
+        '
+        'TextBox40
+        '
+        Me.TextBox40.Location = New System.Drawing.Point(115, 173)
+        Me.TextBox40.Name = "TextBox40"
+        Me.TextBox40.Size = New System.Drawing.Size(141, 20)
+        Me.TextBox40.TabIndex = 23
+        '
+        'Label156
+        '
+        Me.Label156.AutoSize = True
+        Me.Label156.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label156.Location = New System.Drawing.Point(48, 176)
+        Me.Label156.Name = "Label156"
+        Me.Label156.Size = New System.Drawing.Size(61, 13)
+        Me.Label156.TabIndex = 22
+        Me.Label156.Text = "Teléfono 1:"
+        '
+        'TextBox39
+        '
+        Me.TextBox39.Location = New System.Drawing.Point(115, 147)
+        Me.TextBox39.Name = "TextBox39"
+        Me.TextBox39.Size = New System.Drawing.Size(392, 20)
+        Me.TextBox39.TabIndex = 21
+        '
+        'Label155
+        '
+        Me.Label155.AutoSize = True
+        Me.Label155.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label155.Location = New System.Drawing.Point(56, 150)
+        Me.Label155.Name = "Label155"
+        Me.Label155.Size = New System.Drawing.Size(53, 13)
+        Me.Label155.TabIndex = 20
+        Me.Label155.Text = "Contacto:"
+        '
+        'Label154
+        '
+        Me.Label154.AutoSize = True
+        Me.Label154.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label154.Location = New System.Drawing.Point(312, 124)
+        Me.Label154.Name = "Label154"
+        Me.Label154.Size = New System.Drawing.Size(42, 13)
+        Me.Label154.TabIndex = 19
+        Me.Label154.Text = "Cliente:"
+        '
+        'TextBox37
+        '
+        Me.TextBox37.Location = New System.Drawing.Point(360, 121)
+        Me.TextBox37.Name = "TextBox37"
+        Me.TextBox37.Size = New System.Drawing.Size(147, 20)
+        Me.TextBox37.TabIndex = 18
+        '
+        'TextBox38
+        '
+        Me.TextBox38.Location = New System.Drawing.Point(115, 121)
+        Me.TextBox38.Name = "TextBox38"
+        Me.TextBox38.Size = New System.Drawing.Size(141, 20)
+        Me.TextBox38.TabIndex = 17
+        '
+        'Label153
+        '
+        Me.Label153.AutoSize = True
+        Me.Label153.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label153.Location = New System.Drawing.Point(37, 124)
+        Me.Label153.Name = "Label153"
+        Me.Label153.Size = New System.Drawing.Size(72, 13)
+        Me.Label153.TabIndex = 16
+        Me.Label153.Text = "Tipo de Doc.:"
+        '
+        'TextBox36
+        '
+        Me.TextBox36.Location = New System.Drawing.Point(115, 68)
+        Me.TextBox36.Name = "TextBox36"
+        Me.TextBox36.Size = New System.Drawing.Size(392, 20)
+        Me.TextBox36.TabIndex = 15
+        '
+        'Label152
+        '
+        Me.Label152.AutoSize = True
+        Me.Label152.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label152.Location = New System.Drawing.Point(53, 71)
+        Me.Label152.Name = "Label152"
+        Me.Label152.Size = New System.Drawing.Size(56, 13)
+        Me.Label152.TabIndex = 14
+        Me.Label152.Text = "Instalador:"
+        '
+        'TextBox35
+        '
+        Me.TextBox35.Location = New System.Drawing.Point(115, 42)
+        Me.TextBox35.Name = "TextBox35"
+        Me.TextBox35.Size = New System.Drawing.Size(392, 20)
+        Me.TextBox35.TabIndex = 13
+        '
+        'Label151
+        '
+        Me.Label151.AutoSize = True
+        Me.Label151.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label151.Location = New System.Drawing.Point(55, 45)
+        Me.Label151.Name = "Label151"
+        Me.Label151.Size = New System.Drawing.Size(54, 13)
+        Me.Label151.TabIndex = 12
+        Me.Label151.Text = "Consultor:"
+        '
+        'TextBox34
+        '
+        Me.TextBox34.Location = New System.Drawing.Point(115, 16)
+        Me.TextBox34.Name = "TextBox34"
+        Me.TextBox34.Size = New System.Drawing.Size(392, 20)
+        Me.TextBox34.TabIndex = 11
+        '
+        'Label150
+        '
+        Me.Label150.AutoSize = True
+        Me.Label150.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label150.Location = New System.Drawing.Point(59, 19)
+        Me.Label150.Name = "Label150"
+        Me.Label150.Size = New System.Drawing.Size(50, 13)
+        Me.Label150.TabIndex = 9
+        Me.Label150.Text = "Contrata:"
+        '
+        'TextBox32
+        '
+        Me.TextBox32.Location = New System.Drawing.Point(197, 95)
+        Me.TextBox32.Name = "TextBox32"
+        Me.TextBox32.Size = New System.Drawing.Size(310, 20)
+        Me.TextBox32.TabIndex = 8
+        '
+        'TextBox33
+        '
+        Me.TextBox33.Location = New System.Drawing.Point(115, 95)
+        Me.TextBox33.Name = "TextBox33"
+        Me.TextBox33.Size = New System.Drawing.Size(76, 20)
+        Me.TextBox33.TabIndex = 7
+        '
+        'Label149
+        '
+        Me.Label149.AutoSize = True
+        Me.Label149.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label149.Location = New System.Drawing.Point(67, 98)
+        Me.Label149.Name = "Label149"
+        Me.Label149.Size = New System.Drawing.Size(42, 13)
+        Me.Label149.TabIndex = 6
+        Me.Label149.Text = "Cliente:"
+        '
+        'TextBox30
+        '
+        Me.TextBox30.Location = New System.Drawing.Point(197, 225)
+        Me.TextBox30.Name = "TextBox30"
+        Me.TextBox30.Size = New System.Drawing.Size(310, 20)
+        Me.TextBox30.TabIndex = 5
+        '
+        'TextBox31
+        '
+        Me.TextBox31.Location = New System.Drawing.Point(115, 225)
+        Me.TextBox31.Name = "TextBox31"
+        Me.TextBox31.Size = New System.Drawing.Size(76, 20)
+        Me.TextBox31.TabIndex = 4
+        '
+        'Label148
+        '
+        Me.Label148.AutoSize = True
+        Me.Label148.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label148.Location = New System.Drawing.Point(13, 228)
+        Me.Label148.Name = "Label148"
+        Me.Label148.Size = New System.Drawing.Size(96, 13)
+        Me.Label148.TabIndex = 3
+        Me.Label148.Text = "Dirección Inst.(F9):"
+        '
+        'TextBox29
+        '
+        Me.TextBox29.Location = New System.Drawing.Point(197, 251)
+        Me.TextBox29.Name = "TextBox29"
+        Me.TextBox29.Size = New System.Drawing.Size(310, 20)
+        Me.TextBox29.TabIndex = 2
+        '
+        'TextBox26
+        '
+        Me.TextBox26.Location = New System.Drawing.Point(115, 251)
+        Me.TextBox26.Name = "TextBox26"
+        Me.TextBox26.Size = New System.Drawing.Size(76, 20)
+        Me.TextBox26.TabIndex = 1
+        '
+        'Label146
+        '
+        Me.Label146.AutoSize = True
+        Me.Label146.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label146.Location = New System.Drawing.Point(6, 254)
+        Me.Label146.Name = "Label146"
+        Me.Label146.Size = New System.Drawing.Size(103, 13)
+        Me.Label146.TabIndex = 0
+        Me.Label146.Text = "Dir. Facturación(F9):"
+        '
+        'GroupBox16
+        '
+        Me.TableLayoutPanel7.SetColumnSpan(Me.GroupBox16, 2)
+        Me.GroupBox16.Controls.Add(Me.CheckBox22)
+        Me.GroupBox16.Controls.Add(Me.TextBox63)
+        Me.GroupBox16.Controls.Add(Me.Label173)
+        Me.GroupBox16.Controls.Add(Me.TextBox62)
+        Me.GroupBox16.Controls.Add(Me.Label172)
+        Me.GroupBox16.Controls.Add(Me.TextBox59)
+        Me.GroupBox16.Controls.Add(Me.Label169)
+        Me.GroupBox16.Controls.Add(Me.TextBox60)
+        Me.GroupBox16.Controls.Add(Me.Label170)
+        Me.GroupBox16.Controls.Add(Me.TextBox61)
+        Me.GroupBox16.Controls.Add(Me.Label171)
+        Me.GroupBox16.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox16.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.GroupBox16.Location = New System.Drawing.Point(651, 187)
+        Me.GroupBox16.Name = "GroupBox16"
+        Me.GroupBox16.Size = New System.Drawing.Size(631, 182)
+        Me.GroupBox16.TabIndex = 3
+        Me.GroupBox16.TabStop = False
+        Me.GroupBox16.Text = "Datos de Recargas"
+        '
+        'CheckBox22
+        '
+        Me.CheckBox22.AutoSize = True
+        Me.CheckBox22.Location = New System.Drawing.Point(26, 46)
+        Me.CheckBox22.Name = "CheckBox22"
+        Me.CheckBox22.Size = New System.Drawing.Size(123, 17)
+        Me.CheckBox22.TabIndex = 24
+        Me.CheckBox22.Text = "En Sistema Recarga"
+        Me.CheckBox22.UseVisualStyleBackColor = True
+        '
+        'TextBox63
+        '
+        Me.TextBox63.Location = New System.Drawing.Point(117, 16)
+        Me.TextBox63.Name = "TextBox63"
+        Me.TextBox63.Size = New System.Drawing.Size(147, 20)
+        Me.TextBox63.TabIndex = 23
+        '
+        'Label173
+        '
+        Me.Label173.AutoSize = True
+        Me.Label173.Location = New System.Drawing.Point(24, 20)
+        Me.Label173.Name = "Label173"
+        Me.Label173.Size = New System.Drawing.Size(87, 13)
+        Me.Label173.TabIndex = 22
+        Me.Label173.Text = "Código Recarga:"
+        '
+        'TextBox62
+        '
+        Me.TextBox62.Location = New System.Drawing.Point(403, 98)
+        Me.TextBox62.Name = "TextBox62"
+        Me.TextBox62.Size = New System.Drawing.Size(147, 20)
+        Me.TextBox62.TabIndex = 21
+        '
+        'Label172
+        '
+        Me.Label172.AutoSize = True
+        Me.Label172.Location = New System.Drawing.Point(304, 100)
+        Me.Label172.Name = "Label172"
+        Me.Label172.Size = New System.Drawing.Size(93, 13)
+        Me.Label172.TabIndex = 20
+        Me.Label172.Text = "Nro. Ult. Recarga:"
+        '
+        'TextBox59
+        '
+        Me.TextBox59.Location = New System.Drawing.Point(403, 69)
+        Me.TextBox59.Name = "TextBox59"
+        Me.TextBox59.Size = New System.Drawing.Size(147, 20)
+        Me.TextBox59.TabIndex = 19
+        '
+        'Label169
+        '
+        Me.Label169.AutoSize = True
+        Me.Label169.Location = New System.Drawing.Point(269, 71)
+        Me.Label169.Name = "Label169"
+        Me.Label169.Size = New System.Drawing.Size(128, 13)
+        Me.Label169.TabIndex = 18
+        Me.Label169.Text = "Fecha Corte Programada:"
+        '
+        'TextBox60
+        '
+        Me.TextBox60.Location = New System.Drawing.Point(403, 43)
+        Me.TextBox60.Name = "TextBox60"
+        Me.TextBox60.Size = New System.Drawing.Size(147, 20)
+        Me.TextBox60.TabIndex = 17
+        '
+        'Label170
+        '
+        Me.Label170.AutoSize = True
+        Me.Label170.Location = New System.Drawing.Point(296, 45)
+        Me.Label170.Name = "Label170"
+        Me.Label170.Size = New System.Drawing.Size(101, 13)
+        Me.Label170.TabIndex = 16
+        Me.Label170.Text = "Fecha Fin Vigencia:"
+        '
+        'TextBox61
+        '
+        Me.TextBox61.Location = New System.Drawing.Point(403, 17)
+        Me.TextBox61.Name = "TextBox61"
+        Me.TextBox61.Size = New System.Drawing.Size(147, 20)
+        Me.TextBox61.TabIndex = 15
+        '
+        'Label171
+        '
+        Me.Label171.AutoSize = True
+        Me.Label171.Location = New System.Drawing.Point(285, 19)
+        Me.Label171.Name = "Label171"
+        Me.Label171.Size = New System.Drawing.Size(112, 13)
+        Me.Label171.TabIndex = 14
+        Me.Label171.Text = "Fecha Inicio Vigencia:"
+        '
+        'GroupBox17
+        '
+        Me.GroupBox17.Controls.Add(Me.TextBox44)
+        Me.GroupBox17.Controls.Add(Me.Label160)
+        Me.GroupBox17.Controls.Add(Me.TextBox52)
+        Me.GroupBox17.Controls.Add(Me.Label162)
+        Me.GroupBox17.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox17.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.GroupBox17.Location = New System.Drawing.Point(651, 3)
+        Me.GroupBox17.Name = "GroupBox17"
+        Me.GroupBox17.Size = New System.Drawing.Size(272, 70)
+        Me.GroupBox17.TabIndex = 4
+        Me.GroupBox17.TabStop = False
+        Me.GroupBox17.Text = "Datos del Contrato"
+        '
+        'TextBox44
+        '
+        Me.TextBox44.Location = New System.Drawing.Point(117, 41)
+        Me.TextBox44.Name = "TextBox44"
+        Me.TextBox44.Size = New System.Drawing.Size(147, 20)
+        Me.TextBox44.TabIndex = 7
+        '
+        'Label160
+        '
+        Me.Label160.AutoSize = True
+        Me.Label160.Location = New System.Drawing.Point(23, 45)
+        Me.Label160.Name = "Label160"
+        Me.Label160.Size = New System.Drawing.Size(88, 13)
+        Me.Label160.TabIndex = 6
+        Me.Label160.Text = "Nro. Documento:"
+        '
+        'TextBox52
+        '
+        Me.TextBox52.Location = New System.Drawing.Point(117, 15)
+        Me.TextBox52.Name = "TextBox52"
+        Me.TextBox52.Size = New System.Drawing.Size(147, 20)
+        Me.TextBox52.TabIndex = 5
+        '
+        'Label162
+        '
+        Me.Label162.AutoSize = True
+        Me.Label162.Location = New System.Drawing.Point(22, 19)
+        Me.Label162.Name = "Label162"
+        Me.Label162.Size = New System.Drawing.Size(89, 13)
+        Me.Label162.TabIndex = 4
+        Me.Label162.Text = "Tipo Documento:"
+        '
+        'GroupBox18
+        '
+        Me.GroupBox18.Controls.Add(Me.TextBox55)
+        Me.GroupBox18.Controls.Add(Me.Label165)
+        Me.GroupBox18.Controls.Add(Me.TextBox51)
+        Me.GroupBox18.Controls.Add(Me.Label161)
+        Me.GroupBox18.Controls.Add(Me.TextBox53)
+        Me.GroupBox18.Controls.Add(Me.Label163)
+        Me.GroupBox18.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox18.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.GroupBox18.Location = New System.Drawing.Point(651, 79)
+        Me.GroupBox18.Name = "GroupBox18"
+        Me.GroupBox18.Size = New System.Drawing.Size(272, 102)
+        Me.GroupBox18.TabIndex = 5
+        Me.GroupBox18.TabStop = False
+        Me.GroupBox18.Text = "Datos de Facturación de Instalación"
+        '
+        'TextBox55
+        '
+        Me.TextBox55.Location = New System.Drawing.Point(117, 70)
+        Me.TextBox55.Name = "TextBox55"
+        Me.TextBox55.Size = New System.Drawing.Size(147, 20)
+        Me.TextBox55.TabIndex = 13
+        '
+        'Label165
+        '
+        Me.Label165.AutoSize = True
+        Me.Label165.Location = New System.Drawing.Point(64, 74)
+        Me.Label165.Name = "Label165"
+        Me.Label165.Size = New System.Drawing.Size(47, 13)
+        Me.Label165.TabIndex = 12
+        Me.Label165.Text = "Número:"
+        '
+        'TextBox51
+        '
+        Me.TextBox51.Location = New System.Drawing.Point(117, 44)
+        Me.TextBox51.Name = "TextBox51"
+        Me.TextBox51.Size = New System.Drawing.Size(147, 20)
+        Me.TextBox51.TabIndex = 11
+        '
+        'Label161
+        '
+        Me.Label161.AutoSize = True
+        Me.Label161.Location = New System.Drawing.Point(77, 48)
+        Me.Label161.Name = "Label161"
+        Me.Label161.Size = New System.Drawing.Size(34, 13)
+        Me.Label161.TabIndex = 10
+        Me.Label161.Text = "Serie:"
+        '
+        'TextBox53
+        '
+        Me.TextBox53.Location = New System.Drawing.Point(117, 18)
+        Me.TextBox53.Name = "TextBox53"
+        Me.TextBox53.Size = New System.Drawing.Size(147, 20)
+        Me.TextBox53.TabIndex = 9
+        '
+        'Label163
+        '
+        Me.Label163.AutoSize = True
+        Me.Label163.Location = New System.Drawing.Point(7, 22)
+        Me.Label163.Name = "Label163"
+        Me.Label163.Size = New System.Drawing.Size(104, 13)
+        Me.Label163.TabIndex = 8
+        Me.Label163.Text = "Tipo de Documento:"
+        '
+        'GroupBox19
+        '
+        Me.GroupBox19.Controls.Add(Me.TextBox54)
+        Me.GroupBox19.Controls.Add(Me.Label164)
+        Me.GroupBox19.Controls.Add(Me.TextBox56)
+        Me.GroupBox19.Controls.Add(Me.Label166)
+        Me.GroupBox19.Controls.Add(Me.TextBox57)
+        Me.GroupBox19.Controls.Add(Me.Label167)
+        Me.GroupBox19.Controls.Add(Me.TextBox58)
+        Me.GroupBox19.Controls.Add(Me.Label168)
+        Me.GroupBox19.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox19.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.GroupBox19.Location = New System.Drawing.Point(929, 3)
+        Me.GroupBox19.Name = "GroupBox19"
+        Me.TableLayoutPanel7.SetRowSpan(Me.GroupBox19, 2)
+        Me.GroupBox19.Size = New System.Drawing.Size(353, 178)
+        Me.GroupBox19.TabIndex = 6
+        Me.GroupBox19.TabStop = False
+        Me.GroupBox19.Text = "Motivos de Venta"
+        '
+        'TextBox54
+        '
+        Me.TextBox54.Location = New System.Drawing.Point(6, 149)
+        Me.TextBox54.Name = "TextBox54"
+        Me.TextBox54.Size = New System.Drawing.Size(281, 20)
+        Me.TextBox54.TabIndex = 22
+        '
+        'Label164
+        '
+        Me.Label164.AutoSize = True
+        Me.Label164.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label164.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.Label164.Location = New System.Drawing.Point(8, 133)
+        Me.Label164.Name = "Label164"
+        Me.Label164.Size = New System.Drawing.Size(102, 13)
+        Me.Label164.TabIndex = 21
+        Me.Label164.Text = "Tipo de Facturación"
+        '
+        'TextBox56
+        '
+        Me.TextBox56.Location = New System.Drawing.Point(6, 110)
+        Me.TextBox56.Name = "TextBox56"
+        Me.TextBox56.Size = New System.Drawing.Size(281, 20)
+        Me.TextBox56.TabIndex = 20
+        Me.TextBox56.Text = "12/12/2017"
+        '
+        'Label166
+        '
+        Me.Label166.AutoSize = True
+        Me.Label166.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label166.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.Label166.Location = New System.Drawing.Point(8, 94)
+        Me.Label166.Name = "Label166"
+        Me.Label166.Size = New System.Drawing.Size(60, 13)
+        Me.Label166.TabIndex = 19
+        Me.Label166.Text = "Competidor"
+        '
+        'TextBox57
+        '
+        Me.TextBox57.Location = New System.Drawing.Point(6, 70)
+        Me.TextBox57.Name = "TextBox57"
+        Me.TextBox57.Size = New System.Drawing.Size(281, 20)
+        Me.TextBox57.TabIndex = 18
+        '
+        'Label167
+        '
+        Me.Label167.AutoSize = True
+        Me.Label167.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label167.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.Label167.Location = New System.Drawing.Point(8, 54)
+        Me.Label167.Name = "Label167"
+        Me.Label167.Size = New System.Drawing.Size(78, 13)
+        Me.Label167.TabIndex = 17
+        Me.Label167.Text = "Tipo de Cliente"
+        '
+        'TextBox58
+        '
+        Me.TextBox58.Location = New System.Drawing.Point(6, 31)
+        Me.TextBox58.Name = "TextBox58"
+        Me.TextBox58.Size = New System.Drawing.Size(281, 20)
+        Me.TextBox58.TabIndex = 16
+        '
+        'Label168
+        '
+        Me.Label168.AutoSize = True
+        Me.Label168.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label168.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.Label168.Location = New System.Drawing.Point(8, 15)
+        Me.Label168.Name = "Label168"
+        Me.Label168.Size = New System.Drawing.Size(80, 13)
+        Me.Label168.TabIndex = 15
+        Me.Label168.Text = "Lugar de Venta"
         '
         'tabRecargas
         '
@@ -5528,127 +6297,6 @@ Partial Class Frm_Consulta_Histórica
         Me.TabPage35.Text = "Red Inteligente"
         Me.TabPage35.UseVisualStyleBackColor = True
         '
-        'TableLayoutPanel7
-        '
-        Me.TableLayoutPanel7.ColumnCount = 4
-        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.0596!))
-        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.9404!))
-        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 295.0!))
-        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 593.0!))
-        Me.TableLayoutPanel7.Controls.Add(Me.TabControl10, 0, 3)
-        Me.TableLayoutPanel7.Controls.Add(Me.GroupBox14, 0, 0)
-        Me.TableLayoutPanel7.Controls.Add(Me.GroupBox15, 1, 0)
-        Me.TableLayoutPanel7.Controls.Add(Me.GroupBox16, 2, 2)
-        Me.TableLayoutPanel7.Controls.Add(Me.GroupBox17, 2, 0)
-        Me.TableLayoutPanel7.Controls.Add(Me.GroupBox18, 2, 1)
-        Me.TableLayoutPanel7.Controls.Add(Me.GroupBox19, 3, 0)
-        Me.TableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel7.Location = New System.Drawing.Point(3, 3)
-        Me.TableLayoutPanel7.Name = "TableLayoutPanel7"
-        Me.TableLayoutPanel7.RowCount = 4
-        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 27.86517!))
-        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 72.13483!))
-        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 125.0!))
-        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 167.0!))
-        Me.TableLayoutPanel7.Size = New System.Drawing.Size(1285, 574)
-        Me.TableLayoutPanel7.TabIndex = 0
-        '
-        'TabControl10
-        '
-        Me.TableLayoutPanel7.SetColumnSpan(Me.TabControl10, 4)
-        Me.TabControl10.Controls.Add(Me.TabPage68)
-        Me.TabControl10.Controls.Add(Me.TabPage69)
-        Me.TabControl10.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TabControl10.Location = New System.Drawing.Point(3, 409)
-        Me.TabControl10.Name = "TabControl10"
-        Me.TabControl10.SelectedIndex = 0
-        Me.TabControl10.Size = New System.Drawing.Size(1279, 162)
-        Me.TabControl10.TabIndex = 0
-        '
-        'TabPage68
-        '
-        Me.TabPage68.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage68.Name = "TabPage68"
-        Me.TabPage68.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage68.Size = New System.Drawing.Size(1271, 136)
-        Me.TabPage68.TabIndex = 0
-        Me.TabPage68.Text = "TabPage68"
-        Me.TabPage68.UseVisualStyleBackColor = True
-        '
-        'TabPage69
-        '
-        Me.TabPage69.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage69.Name = "TabPage69"
-        Me.TabPage69.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage69.Size = New System.Drawing.Size(161, 0)
-        Me.TabPage69.TabIndex = 1
-        Me.TabPage69.Text = "TabPage69"
-        Me.TabPage69.UseVisualStyleBackColor = True
-        '
-        'GroupBox14
-        '
-        Me.GroupBox14.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox14.Location = New System.Drawing.Point(3, 3)
-        Me.GroupBox14.Name = "GroupBox14"
-        Me.TableLayoutPanel7.SetRowSpan(Me.GroupBox14, 3)
-        Me.GroupBox14.Size = New System.Drawing.Size(157, 400)
-        Me.GroupBox14.TabIndex = 1
-        Me.GroupBox14.TabStop = False
-        Me.GroupBox14.Text = "GroupBox14"
-        '
-        'GroupBox15
-        '
-        Me.GroupBox15.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox15.Location = New System.Drawing.Point(166, 3)
-        Me.GroupBox15.Name = "GroupBox15"
-        Me.TableLayoutPanel7.SetRowSpan(Me.GroupBox15, 3)
-        Me.GroupBox15.Size = New System.Drawing.Size(227, 400)
-        Me.GroupBox15.TabIndex = 2
-        Me.GroupBox15.TabStop = False
-        Me.GroupBox15.Text = "GroupBox15"
-        '
-        'GroupBox16
-        '
-        Me.TableLayoutPanel7.SetColumnSpan(Me.GroupBox16, 2)
-        Me.GroupBox16.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox16.Location = New System.Drawing.Point(399, 284)
-        Me.GroupBox16.Name = "GroupBox16"
-        Me.GroupBox16.Size = New System.Drawing.Size(883, 119)
-        Me.GroupBox16.TabIndex = 3
-        Me.GroupBox16.TabStop = False
-        Me.GroupBox16.Text = "GroupBox16"
-        '
-        'GroupBox17
-        '
-        Me.GroupBox17.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox17.Location = New System.Drawing.Point(399, 3)
-        Me.GroupBox17.Name = "GroupBox17"
-        Me.GroupBox17.Size = New System.Drawing.Size(289, 72)
-        Me.GroupBox17.TabIndex = 4
-        Me.GroupBox17.TabStop = False
-        Me.GroupBox17.Text = "GroupBox17"
-        '
-        'GroupBox18
-        '
-        Me.GroupBox18.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox18.Location = New System.Drawing.Point(399, 81)
-        Me.GroupBox18.Name = "GroupBox18"
-        Me.GroupBox18.Size = New System.Drawing.Size(289, 197)
-        Me.GroupBox18.TabIndex = 5
-        Me.GroupBox18.TabStop = False
-        Me.GroupBox18.Text = "GroupBox18"
-        '
-        'GroupBox19
-        '
-        Me.GroupBox19.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox19.Location = New System.Drawing.Point(694, 3)
-        Me.GroupBox19.Name = "GroupBox19"
-        Me.TableLayoutPanel7.SetRowSpan(Me.GroupBox19, 2)
-        Me.GroupBox19.Size = New System.Drawing.Size(588, 275)
-        Me.GroupBox19.TabIndex = 6
-        Me.GroupBox19.TabStop = False
-        Me.GroupBox19.Text = "GroupBox19"
-        '
         'Frm_Consulta_Histórica
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -5662,7 +6310,7 @@ Partial Class Frm_Consulta_Histórica
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.TabControl1.ResumeLayout(False)
+        Me.tabMain.ResumeLayout(False)
         Me.TabPage10.ResumeLayout(False)
         Me.TabPage10.PerformLayout()
         CType(Me.dg_datos, System.ComponentModel.ISupportInitialize).EndInit()
@@ -5742,23 +6390,32 @@ Partial Class Frm_Consulta_Histórica
         CType(Me.dg_cambio_estado_solicitudes_ot, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage5.ResumeLayout(False)
         CType(Me.dg_anotaciones_ot, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.TabPage32.ResumeLayout(False)
+        Me.tabTVSatelitalContainner.ResumeLayout(False)
         Me.tabTVSatelital.ResumeLayout(False)
-        Me.tabDTHHistorico.ResumeLayout(False)
         Me.tabInalambrico.ResumeLayout(False)
-        Me.TableLayoutPanel1.ResumeLayout(False)
-        Me.TableLayoutPanel2.ResumeLayout(False)
-        Me.TableLayoutPanel3.ResumeLayout(False)
-        Me.TableLayoutPanel4.ResumeLayout(False)
-        Me.TableLayoutPanel5.ResumeLayout(False)
-        Me.TableLayoutPanel6.ResumeLayout(False)
         Me.TableLayoutPanel7.ResumeLayout(False)
         Me.TabControl10.ResumeLayout(False)
+        Me.tabEquipos.ResumeLayout(False)
+        CType(Me.dgvEquipos, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.tabServicios.ResumeLayout(False)
+        CType(Me.dgvServicios, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.gbxLeft.ResumeLayout(False)
+        Me.gbxLeft.PerformLayout()
+        Me.GroupBox15.ResumeLayout(False)
+        Me.GroupBox15.PerformLayout()
+        Me.GroupBox16.ResumeLayout(False)
+        Me.GroupBox16.PerformLayout()
+        Me.GroupBox17.ResumeLayout(False)
+        Me.GroupBox17.PerformLayout()
+        Me.GroupBox18.ResumeLayout(False)
+        Me.GroupBox18.PerformLayout()
+        Me.GroupBox19.ResumeLayout(False)
+        Me.GroupBox19.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents SplitContainer1 As System.Windows.Forms.SplitContainer
-    Friend WithEvents TabControl1 As System.Windows.Forms.TabControl
+    Friend WithEvents tabMain As System.Windows.Forms.TabControl
     Friend WithEvents TabPage10 As System.Windows.Forms.TabPage
     Friend WithEvents dg_datos As System.Windows.Forms.DataGridView
     Friend WithEvents ddldocumento As System.Windows.Forms.ComboBox
@@ -5898,7 +6555,7 @@ Partial Class Frm_Consulta_Histórica
     Friend WithEvents TabPage29 As System.Windows.Forms.TabPage
     Friend WithEvents TabPage30 As System.Windows.Forms.TabPage
     Friend WithEvents TabPage31 As System.Windows.Forms.TabPage
-    Friend WithEvents TabPage32 As System.Windows.Forms.TabPage
+    Friend WithEvents tabTVSatelitalContainner As System.Windows.Forms.TabPage
     Friend WithEvents TabPage33 As System.Windows.Forms.TabPage
     Friend WithEvents TabPage34 As System.Windows.Forms.TabPage
     Friend WithEvents TabPage35 As System.Windows.Forms.TabPage
@@ -6240,29 +6897,93 @@ Partial Class Frm_Consulta_Histórica
     Friend WithEvents txt_count_facturas As System.Windows.Forms.TextBox
     Friend WithEvents Panel1 As Panel
     Friend WithEvents tabTVSatelital As TabControl
-    Friend WithEvents tabDTHHistorico As TabPage
     Friend WithEvents tabInalambrico As TabPage
-    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
-    Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
-    Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
+    Friend WithEvents tabDTHHistorico As TabPage
     Friend WithEvents tabRecargas As TabPage
     Friend WithEvents tabPromociones As TabPage
-    Friend WithEvents TableLayoutPanel4 As TableLayoutPanel
-    Friend WithEvents TableLayoutPanel5 As TableLayoutPanel
-    Friend WithEvents GroupBox12 As GroupBox
-    Friend WithEvents GroupBox13 As GroupBox
-    Friend WithEvents TableLayoutPanel6 As TableLayoutPanel
-    Friend WithEvents GroupBox11 As GroupBox
-    Friend WithEvents GroupBox10 As GroupBox
-    Friend WithEvents GroupBox9 As GroupBox
     Friend WithEvents TableLayoutPanel7 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents TabControl10 As System.Windows.Forms.TabControl
-    Friend WithEvents TabPage68 As System.Windows.Forms.TabPage
-    Friend WithEvents TabPage69 As System.Windows.Forms.TabPage
-    Friend WithEvents GroupBox14 As System.Windows.Forms.GroupBox
+    Friend WithEvents tabEquipos As System.Windows.Forms.TabPage
+    Friend WithEvents tabServicios As System.Windows.Forms.TabPage
+    Friend WithEvents gbxLeft As System.Windows.Forms.GroupBox
     Friend WithEvents GroupBox15 As System.Windows.Forms.GroupBox
     Friend WithEvents GroupBox16 As System.Windows.Forms.GroupBox
     Friend WithEvents GroupBox17 As System.Windows.Forms.GroupBox
     Friend WithEvents GroupBox18 As System.Windows.Forms.GroupBox
     Friend WithEvents GroupBox19 As System.Windows.Forms.GroupBox
+    Friend WithEvents Button38 As System.Windows.Forms.Button
+    Friend WithEvents TextBox28 As System.Windows.Forms.TextBox
+    Friend WithEvents Label147 As System.Windows.Forms.Label
+    Friend WithEvents TextBox23 As System.Windows.Forms.TextBox
+    Friend WithEvents Label144 As System.Windows.Forms.Label
+    Friend WithEvents TextBox24 As System.Windows.Forms.TextBox
+    Friend WithEvents Label145 As System.Windows.Forms.Label
+    Friend WithEvents TextBox20 As System.Windows.Forms.TextBox
+    Friend WithEvents Label142 As System.Windows.Forms.Label
+    Friend WithEvents TextBox22 As System.Windows.Forms.TextBox
+    Friend WithEvents Label143 As System.Windows.Forms.Label
+    Friend WithEvents TextBox5 As System.Windows.Forms.TextBox
+    Friend WithEvents Label141 As System.Windows.Forms.Label
+    Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
+    Friend WithEvents Label140 As System.Windows.Forms.Label
+    Friend WithEvents TextBox29 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox26 As System.Windows.Forms.TextBox
+    Friend WithEvents Label146 As System.Windows.Forms.Label
+    Friend WithEvents TextBox43 As System.Windows.Forms.TextBox
+    Friend WithEvents Label159 As System.Windows.Forms.Label
+    Friend WithEvents Label158 As System.Windows.Forms.Label
+    Friend WithEvents TextBox42 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox41 As System.Windows.Forms.TextBox
+    Friend WithEvents Label157 As System.Windows.Forms.Label
+    Friend WithEvents TextBox40 As System.Windows.Forms.TextBox
+    Friend WithEvents Label156 As System.Windows.Forms.Label
+    Friend WithEvents TextBox39 As System.Windows.Forms.TextBox
+    Friend WithEvents Label155 As System.Windows.Forms.Label
+    Friend WithEvents Label154 As System.Windows.Forms.Label
+    Friend WithEvents TextBox37 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox38 As System.Windows.Forms.TextBox
+    Friend WithEvents Label153 As System.Windows.Forms.Label
+    Friend WithEvents TextBox36 As System.Windows.Forms.TextBox
+    Friend WithEvents Label152 As System.Windows.Forms.Label
+    Friend WithEvents TextBox35 As System.Windows.Forms.TextBox
+    Friend WithEvents Label151 As System.Windows.Forms.Label
+    Friend WithEvents TextBox34 As System.Windows.Forms.TextBox
+    Friend WithEvents Label150 As System.Windows.Forms.Label
+    Friend WithEvents TextBox32 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox33 As System.Windows.Forms.TextBox
+    Friend WithEvents Label149 As System.Windows.Forms.Label
+    Friend WithEvents TextBox30 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox31 As System.Windows.Forms.TextBox
+    Friend WithEvents Label148 As System.Windows.Forms.Label
+    Friend WithEvents TextBox44 As System.Windows.Forms.TextBox
+    Friend WithEvents Label160 As System.Windows.Forms.Label
+    Friend WithEvents TextBox52 As System.Windows.Forms.TextBox
+    Friend WithEvents Label162 As System.Windows.Forms.Label
+    Friend WithEvents TextBox55 As System.Windows.Forms.TextBox
+    Friend WithEvents Label165 As System.Windows.Forms.Label
+    Friend WithEvents TextBox51 As System.Windows.Forms.TextBox
+    Friend WithEvents Label161 As System.Windows.Forms.Label
+    Friend WithEvents TextBox53 As System.Windows.Forms.TextBox
+    Friend WithEvents Label163 As System.Windows.Forms.Label
+    Friend WithEvents dgvEquipos As System.Windows.Forms.DataGridView
+    Friend WithEvents dgvServicios As System.Windows.Forms.DataGridView
+    Friend WithEvents CheckBox22 As System.Windows.Forms.CheckBox
+    Friend WithEvents TextBox63 As System.Windows.Forms.TextBox
+    Friend WithEvents Label173 As System.Windows.Forms.Label
+    Friend WithEvents TextBox62 As System.Windows.Forms.TextBox
+    Friend WithEvents Label172 As System.Windows.Forms.Label
+    Friend WithEvents TextBox59 As System.Windows.Forms.TextBox
+    Friend WithEvents Label169 As System.Windows.Forms.Label
+    Friend WithEvents TextBox60 As System.Windows.Forms.TextBox
+    Friend WithEvents Label170 As System.Windows.Forms.Label
+    Friend WithEvents TextBox61 As System.Windows.Forms.TextBox
+    Friend WithEvents Label171 As System.Windows.Forms.Label
+    Friend WithEvents TextBox54 As System.Windows.Forms.TextBox
+    Friend WithEvents Label164 As System.Windows.Forms.Label
+    Friend WithEvents TextBox56 As System.Windows.Forms.TextBox
+    Friend WithEvents Label166 As System.Windows.Forms.Label
+    Friend WithEvents TextBox57 As System.Windows.Forms.TextBox
+    Friend WithEvents Label167 As System.Windows.Forms.Label
+    Friend WithEvents TextBox58 As System.Windows.Forms.TextBox
+    Friend WithEvents Label168 As System.Windows.Forms.Label
 End Class

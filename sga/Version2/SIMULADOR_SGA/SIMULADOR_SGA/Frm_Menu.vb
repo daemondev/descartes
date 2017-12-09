@@ -13,7 +13,20 @@ Public Class Frm_Menu
         frm3.Show()
         Me.WindowState = FormWindowState.Maximized
         Me.ToolStrip2.Visible = False
+
+        If Util.debug Then
+            debuAction()
+        End If
+
     End Sub
+
+    Sub debuAction()
+        Frm_Principal.Close()
+        frm4.MdiParent = Me
+        frm4.WindowState = FormWindowState.Maximized
+        frm4.Show()
+    End Sub
+
 
     Private Sub ToolStripButton5_Click(sender As Object, e As EventArgs) Handles Consulta_Historica.Click
         Frm_Principal.Close()
@@ -54,7 +67,7 @@ Public Class Frm_Menu
             frm5.txt_ticket.ForeColor = Color.Black
             frm5.txt_ticket.Enabled = False
             frm4.WindowState = FormWindowState.Maximized
-            frm4.TabControl1.SelectedIndex = 9
+            frm4.tabMain.SelectedIndex = 9
             frm4.TabControl4.SelectedIndex = 6
         End If
         'If frm4.CheckBox1.Checked = True Then
@@ -168,7 +181,7 @@ Public Class Frm_Menu
             'enviamos los datos
             dts.vc_recepcionista = Modulo1.usuario
             dts.vc_estado = Modulo1.estado_incidencia
-			dts.vc_area_origen = "Atencion Telefonica HFC"
+            dts.vc_area_origen = "Atencion Telefonica HFC"
             dts.vc_usuario_origen = Modulo1.usuario
             dts.vc_area_destino = Modulo1.area_derivacion
             dts.vc_usuario_destino = Modulo1.usuario
@@ -238,12 +251,21 @@ Public Class Frm_Menu
             ElseIf frm4.CheckBox9.Checked = True Then
                 frm4.mostrar_incidencias_lista_general_por_nservicio()
             End If
-            frm4.TabControl1.SelectedIndex = 9
+            frm4.tabMain.SelectedIndex = 9
             frm4.TabControl4.SelectedIndex = 6
             Guardar.Enabled = False
         End If
     End Sub
     Private Sub FavoritosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FavoritosToolStripMenuItem.Click
         'MessageBox.Show("Desarrollado Por: Raúl Bellota", "Ayuda", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+    End Sub
+
+    Private Sub Frm_Menu_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+
+        If Util.debug Then
+            Frm_Login_SGA.Close()
+            Application.Exit()
+        End If
+        
     End Sub
 End Class

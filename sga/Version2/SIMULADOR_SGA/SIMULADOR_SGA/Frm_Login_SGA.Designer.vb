@@ -190,11 +190,12 @@ Partial Class Frm_Login_SGA
         Me.Controls.Add(Me.txt_usuario1)
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
-        Me.Icon = CType(resources.GetObject("$this.Icon"),System.Drawing.Icon)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Frm_Login_SGA"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "SIMULADOR SGA - Acceso a Sistemas Integrados"
-        CType(Me.PictureBox1,System.ComponentModel.ISupportInitialize).EndInit
+
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(false)
         Me.PerformLayout
 

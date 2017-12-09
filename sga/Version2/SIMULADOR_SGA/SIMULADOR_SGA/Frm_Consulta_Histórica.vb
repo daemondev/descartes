@@ -33,6 +33,8 @@ Public Class Frm_Consulta_Histórica
             txt_doc_cliente.Text = "44880188"
             CheckBox3.Checked = True
             ddldocumento.SelectedText = "DNI/LE"
+            tabMain.SelectedTab = tabTVSatelitalContainner
+            tabTVSatelital.SelectedTab = tabInalambrico
         End If
 
         'Orden de los datagriedview
@@ -132,6 +134,9 @@ Public Class Frm_Consulta_Histórica
         dt_pagos_aplicaciones_factura.RowHeadersVisible = False
 
     End Sub
+    Sub alert(ByVal message As String)
+        MessageBox.Show(message)
+    End Sub
     Private Sub btn_buscar_cliente_Click(sender As Object, e As EventArgs) Handles btn_buscar_cliente.Click
         If CheckBox1.Checked = True And txt_codigo_cliente.Text <> "" And txt_estado_cliente.Text <> "" Then
 
@@ -149,7 +154,7 @@ Public Class Frm_Consulta_Histórica
             mostrar_detalle_factura_por_codigo1()
             mostrar_detalle_factura_por_codigo2()
             mostrar_pagos_aplicaciones_factura_por_codigo()
-            TabControl1.SelectedIndex = 1
+            tabMain.SelectedIndex = 1
 
             mostrar_cambios_estado_solicitudes_ot_por_codigo()
             mostrar_tarea_solicitudes_ot_por_codigo()
@@ -189,7 +194,7 @@ Public Class Frm_Consulta_Histórica
 
             ddlestado_servicio.SelectedItem = "Activo"
 
-            TabControl1.SelectedIndex = 1
+            tabMain.SelectedIndex = 1
 
         ElseIf CheckBox9.Checked = True And txt_nservicio_cliente.Text <> "" Then
 
@@ -219,7 +224,7 @@ Public Class Frm_Consulta_Histórica
 
             ddlestado_servicio.SelectedItem = "Activo"
 
-            TabControl1.SelectedIndex = 1
+            tabMain.SelectedIndex = 1
 
         Else
             MessageBox.Show("Complete los datos")
@@ -1176,7 +1181,9 @@ Public Class Frm_Consulta_Histórica
             '
             Dim dto As New DL.DL_cliente
 
-            Dim row As DataRow = dto.Buscar_datos_clientes_por_doc(txt_doc_cliente.Text)
+            'Dim row As DataRow = dto.Buscar_datos_clientes_por_doc(txt_doc_cliente.Text)
+            Dim row As DataRow = R.get("getClientByDOC", txt_doc_cliente.Text).Rows(0)
+
 
             If (row Is Nothing) Then
                 MessageBox.Show("No hay registros que coincidan con el ID especificado.")
@@ -2091,7 +2098,7 @@ Public Class Frm_Consulta_Histórica
     Private Sub Frm_Consulta_Histórica_MouseWheel(sender As Object, e As MouseEventArgs) Handles Me.MouseWheel
 
         'FACTURAS
-        If TabControl1.SelectedIndex = 4 Then
+        If tabMain.SelectedIndex = 4 Then
 
             If (e.Delta > 0) Then
                 'el mouse sube facturas
@@ -2166,12 +2173,12 @@ Public Class Frm_Consulta_Histórica
                     mostrar_pagos_aplicaciones_factura_por_nservicio_mouse()
                 End If
 
-                
+
 
 
             End If
             'SOLICITUDES DE OT
-        ElseIf TabControl1.SelectedIndex = 16 Then
+        ElseIf tabMain.SelectedIndex = 16 Then
             If e.Delta > 0 Then
                 'el mouse sube solicitudes de ot
                 If Modulo1.contador_solicitudes_ot = 1 Then
@@ -3454,5 +3461,15 @@ Public Class Frm_Consulta_Histórica
 #End Region
 
 
+    Private Sub Frm_Consulta_Histórica_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        'Me.Close()
+        
+
+    End Sub
+
+    Private Sub Frm_Consulta_Histórica_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        'Me.Close()
+        
+    End Sub
 End Class
 

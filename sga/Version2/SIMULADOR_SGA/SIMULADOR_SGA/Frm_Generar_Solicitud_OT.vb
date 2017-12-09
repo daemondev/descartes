@@ -42,7 +42,7 @@ Public Class Frm_Generar_Solicitud_OT
 
             frm5.Visible = False
             frm4.WindowState = FormWindowState.Maximized
-            frm4.TabControl1.SelectedIndex = 9
+            frm4.tabMain.SelectedIndex = 9
             frm4.TabControl4.SelectedIndex = 6
         End If
 

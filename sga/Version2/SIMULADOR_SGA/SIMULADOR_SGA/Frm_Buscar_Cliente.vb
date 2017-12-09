@@ -75,7 +75,7 @@ Public Class Frm_Buscar_Cliente
         mostrar_detalle_factura_por_codigo11()
         mostrar_detalle_factura_por_codigo21()
 
-        frm4.TabControl1.SelectedIndex = 1
+        frm4.tabMain.SelectedIndex = 1
 
         Me.Close()
 
