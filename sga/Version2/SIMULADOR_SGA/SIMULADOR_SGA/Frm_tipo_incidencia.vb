@@ -27,6 +27,7 @@ Public Class Frm_tipo_incidencia
     End Sub
 
     Private Sub lb_tipo_incidencia_DoubleClick(sender As Object, e As EventArgs) Handles lb_tipo_incidencia.DoubleClick
+
         Modulo1.lb_tipo_incidencia = lb_tipo_incidencia.SelectedItem.ToString
 
         'Asignacion del valor de lb_tipo_incidencia a txt_tipo_incidencia5
@@ -45,10 +46,32 @@ Public Class Frm_tipo_incidencia
     End Sub
 
     Private Sub lb_tipo_incidencia_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lb_tipo_incidencia.SelectedIndexChanged
+        If "Incidencia-Cliente" = lb_tipo_incidencia.SelectedItem.ToString() Then
+            chkExisteCliente.Checked = True
+            chkEligeCliente.Checked = True
+            chkSeleccionaServicio.Checked = True
+            chkRegistraLlamadas.Checked = True
+            chkFacturas.Checked = True
+            chkProcesar.Checked = True
+            chkEligeServicio.Checked = False
+        Else
+            chkExisteCliente.Checked = False
+            chkEligeCliente.Checked = False
+            chkSeleccionaServicio.Checked = False
+            chkRegistraLlamadas.Checked = False
+            chkFacturas.Checked = False
+            chkProcesar.Checked = False
+            chkEligeServicio.Checked = False
+        End If
+
 
     End Sub
 
     Private Sub Frm_tipo_incidencia_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+
+    Private Sub lb_area_vinculada_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lb_area_vinculada.SelectedIndexChanged
 
     End Sub
 End Class

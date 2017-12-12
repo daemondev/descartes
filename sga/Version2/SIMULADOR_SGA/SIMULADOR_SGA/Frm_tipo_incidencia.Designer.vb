@@ -30,17 +30,17 @@ Partial Class Frm_tipo_incidencia
         Me.lb_area_vinculada = New System.Windows.Forms.ListBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.CheckBox12 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox11 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox10 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox9 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox8 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox7 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox6 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox5 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox4 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox3 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
+        Me.chkIncidenciaInterna = New System.Windows.Forms.CheckBox()
+        Me.chkEligeCliente = New System.Windows.Forms.CheckBox()
+        Me.chkSeleccionaServicio = New System.Windows.Forms.CheckBox()
+        Me.chkEligeServicio = New System.Windows.Forms.CheckBox()
+        Me.chkCoBilling = New System.Windows.Forms.CheckBox()
+        Me.chkFacturas = New System.Windows.Forms.CheckBox()
+        Me.chkRegistraLlamadas = New System.Windows.Forms.CheckBox()
+        Me.chkBajaServicio = New System.Windows.Forms.CheckBox()
+        Me.chkProcesar = New System.Windows.Forms.CheckBox()
+        Me.chkALtaServicio = New System.Windows.Forms.CheckBox()
+        Me.chkExisteCliente = New System.Windows.Forms.CheckBox()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
@@ -117,17 +117,17 @@ Partial Class Frm_tipo_incidencia
         '
         'TabPage1
         '
-        Me.TabPage1.Controls.Add(Me.CheckBox12)
-        Me.TabPage1.Controls.Add(Me.CheckBox11)
-        Me.TabPage1.Controls.Add(Me.CheckBox10)
-        Me.TabPage1.Controls.Add(Me.CheckBox9)
-        Me.TabPage1.Controls.Add(Me.CheckBox8)
-        Me.TabPage1.Controls.Add(Me.CheckBox7)
-        Me.TabPage1.Controls.Add(Me.CheckBox6)
-        Me.TabPage1.Controls.Add(Me.CheckBox5)
-        Me.TabPage1.Controls.Add(Me.CheckBox4)
-        Me.TabPage1.Controls.Add(Me.CheckBox3)
-        Me.TabPage1.Controls.Add(Me.CheckBox2)
+        Me.TabPage1.Controls.Add(Me.chkIncidenciaInterna)
+        Me.TabPage1.Controls.Add(Me.chkEligeCliente)
+        Me.TabPage1.Controls.Add(Me.chkSeleccionaServicio)
+        Me.TabPage1.Controls.Add(Me.chkEligeServicio)
+        Me.TabPage1.Controls.Add(Me.chkCoBilling)
+        Me.TabPage1.Controls.Add(Me.chkFacturas)
+        Me.TabPage1.Controls.Add(Me.chkRegistraLlamadas)
+        Me.TabPage1.Controls.Add(Me.chkBajaServicio)
+        Me.TabPage1.Controls.Add(Me.chkProcesar)
+        Me.TabPage1.Controls.Add(Me.chkALtaServicio)
+        Me.TabPage1.Controls.Add(Me.chkExisteCliente)
         Me.TabPage1.Controls.Add(Me.TextBox2)
         Me.TabPage1.Controls.Add(Me.Label3)
         Me.TabPage1.Controls.Add(Me.TextBox1)
@@ -141,123 +141,134 @@ Partial Class Frm_tipo_incidencia
         Me.TabPage1.Text = "Propiedades"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
-        'CheckBox12
+        'chkIncidenciaInterna
         '
-        Me.CheckBox12.AutoSize = True
-        Me.CheckBox12.Location = New System.Drawing.Point(11, 273)
-        Me.CheckBox12.Name = "CheckBox12"
-        Me.CheckBox12.Size = New System.Drawing.Size(111, 17)
-        Me.CheckBox12.TabIndex = 15
-        Me.CheckBox12.Text = "Incidencia Interna"
-        Me.CheckBox12.UseVisualStyleBackColor = True
+        Me.chkIncidenciaInterna.Location = New System.Drawing.Point(11, 273)
+        Me.chkIncidenciaInterna.Name = "chkIncidenciaInterna"
+        Me.chkIncidenciaInterna.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.chkIncidenciaInterna.Size = New System.Drawing.Size(153, 17)
+        Me.chkIncidenciaInterna.TabIndex = 15
+        Me.chkIncidenciaInterna.Text = "Incidencia Interna"
+        Me.chkIncidenciaInterna.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.chkIncidenciaInterna.UseVisualStyleBackColor = True
         '
-        'CheckBox11
+        'chkEligeCliente
         '
-        Me.CheckBox11.AutoSize = True
-        Me.CheckBox11.Checked = True
-        Me.CheckBox11.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.CheckBox11.Location = New System.Drawing.Point(11, 91)
-        Me.CheckBox11.Name = "CheckBox11"
-        Me.CheckBox11.Size = New System.Drawing.Size(98, 17)
-        Me.CheckBox11.TabIndex = 14
-        Me.CheckBox11.Text = "Elige un cliente"
-        Me.CheckBox11.UseVisualStyleBackColor = True
+        Me.chkEligeCliente.Checked = True
+        Me.chkEligeCliente.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.chkEligeCliente.Location = New System.Drawing.Point(11, 91)
+        Me.chkEligeCliente.Name = "chkEligeCliente"
+        Me.chkEligeCliente.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.chkEligeCliente.Size = New System.Drawing.Size(153, 17)
+        Me.chkEligeCliente.TabIndex = 14
+        Me.chkEligeCliente.Text = "Elige un cliente"
+        Me.chkEligeCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.chkEligeCliente.UseVisualStyleBackColor = True
         '
-        'CheckBox10
+        'chkSeleccionaServicio
         '
-        Me.CheckBox10.AutoSize = True
-        Me.CheckBox10.Checked = True
-        Me.CheckBox10.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.CheckBox10.Location = New System.Drawing.Point(11, 113)
-        Me.CheckBox10.Name = "CheckBox10"
-        Me.CheckBox10.Size = New System.Drawing.Size(101, 17)
-        Me.CheckBox10.TabIndex = 13
-        Me.CheckBox10.Text = "Selecc. servicio"
-        Me.CheckBox10.UseVisualStyleBackColor = True
+        Me.chkSeleccionaServicio.Checked = True
+        Me.chkSeleccionaServicio.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.chkSeleccionaServicio.Location = New System.Drawing.Point(11, 113)
+        Me.chkSeleccionaServicio.Name = "chkSeleccionaServicio"
+        Me.chkSeleccionaServicio.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.chkSeleccionaServicio.Size = New System.Drawing.Size(153, 17)
+        Me.chkSeleccionaServicio.TabIndex = 13
+        Me.chkSeleccionaServicio.Text = "Selecc. servicio"
+        Me.chkSeleccionaServicio.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.chkSeleccionaServicio.UseVisualStyleBackColor = True
         '
-        'CheckBox9
+        'chkEligeServicio
         '
-        Me.CheckBox9.AutoSize = True
-        Me.CheckBox9.Checked = True
-        Me.CheckBox9.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.CheckBox9.Location = New System.Drawing.Point(11, 134)
-        Me.CheckBox9.Name = "CheckBox9"
-        Me.CheckBox9.Size = New System.Drawing.Size(103, 17)
-        Me.CheckBox9.TabIndex = 12
-        Me.CheckBox9.Text = "Elige un servicio"
-        Me.CheckBox9.UseVisualStyleBackColor = True
+        Me.chkEligeServicio.Checked = True
+        Me.chkEligeServicio.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.chkEligeServicio.Location = New System.Drawing.Point(11, 134)
+        Me.chkEligeServicio.Name = "chkEligeServicio"
+        Me.chkEligeServicio.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.chkEligeServicio.Size = New System.Drawing.Size(153, 17)
+        Me.chkEligeServicio.TabIndex = 12
+        Me.chkEligeServicio.Text = "Elige un servicio"
+        Me.chkEligeServicio.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.chkEligeServicio.UseVisualStyleBackColor = True
         '
-        'CheckBox8
+        'chkCoBilling
         '
-        Me.CheckBox8.AutoSize = True
-        Me.CheckBox8.Location = New System.Drawing.Point(11, 156)
-        Me.CheckBox8.Name = "CheckBox8"
-        Me.CheckBox8.Size = New System.Drawing.Size(68, 17)
-        Me.CheckBox8.TabIndex = 11
-        Me.CheckBox8.Text = "Co-billing"
-        Me.CheckBox8.UseVisualStyleBackColor = True
+        Me.chkCoBilling.Location = New System.Drawing.Point(11, 156)
+        Me.chkCoBilling.Name = "chkCoBilling"
+        Me.chkCoBilling.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.chkCoBilling.Size = New System.Drawing.Size(153, 17)
+        Me.chkCoBilling.TabIndex = 11
+        Me.chkCoBilling.Text = "Co-billing"
+        Me.chkCoBilling.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.chkCoBilling.UseVisualStyleBackColor = True
         '
-        'CheckBox7
+        'chkFacturas
         '
-        Me.CheckBox7.AutoSize = True
-        Me.CheckBox7.Location = New System.Drawing.Point(11, 177)
-        Me.CheckBox7.Name = "CheckBox7"
-        Me.CheckBox7.Size = New System.Drawing.Size(106, 17)
-        Me.CheckBox7.TabIndex = 10
-        Me.CheckBox7.Text = "Registra facturas"
-        Me.CheckBox7.UseVisualStyleBackColor = True
+        Me.chkFacturas.Location = New System.Drawing.Point(11, 177)
+        Me.chkFacturas.Name = "chkFacturas"
+        Me.chkFacturas.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.chkFacturas.Size = New System.Drawing.Size(153, 17)
+        Me.chkFacturas.TabIndex = 10
+        Me.chkFacturas.Text = "Registra facturas"
+        Me.chkFacturas.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.chkFacturas.UseVisualStyleBackColor = True
         '
-        'CheckBox6
+        'chkRegistraLlamadas
         '
-        Me.CheckBox6.AutoSize = True
-        Me.CheckBox6.Location = New System.Drawing.Point(11, 198)
-        Me.CheckBox6.Name = "CheckBox6"
-        Me.CheckBox6.Size = New System.Drawing.Size(109, 17)
-        Me.CheckBox6.TabIndex = 9
-        Me.CheckBox6.Text = "Registra llamadas"
-        Me.CheckBox6.UseVisualStyleBackColor = True
+        Me.chkRegistraLlamadas.Location = New System.Drawing.Point(11, 198)
+        Me.chkRegistraLlamadas.Name = "chkRegistraLlamadas"
+        Me.chkRegistraLlamadas.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.chkRegistraLlamadas.Size = New System.Drawing.Size(153, 17)
+        Me.chkRegistraLlamadas.TabIndex = 9
+        Me.chkRegistraLlamadas.Text = "Registra llamadas"
+        Me.chkRegistraLlamadas.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.chkRegistraLlamadas.UseVisualStyleBackColor = True
         '
-        'CheckBox5
+        'chkBajaServicio
         '
-        Me.CheckBox5.AutoSize = True
-        Me.CheckBox5.Location = New System.Drawing.Point(11, 218)
-        Me.CheckBox5.Name = "CheckBox5"
-        Me.CheckBox5.Size = New System.Drawing.Size(103, 17)
-        Me.CheckBox5.TabIndex = 8
-        Me.CheckBox5.Text = "Baja del servicio"
-        Me.CheckBox5.UseVisualStyleBackColor = True
+        Me.chkBajaServicio.Location = New System.Drawing.Point(11, 218)
+        Me.chkBajaServicio.Name = "chkBajaServicio"
+        Me.chkBajaServicio.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.chkBajaServicio.Size = New System.Drawing.Size(153, 17)
+        Me.chkBajaServicio.TabIndex = 8
+        Me.chkBajaServicio.Text = "Baja del servicio"
+        Me.chkBajaServicio.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.chkBajaServicio.UseVisualStyleBackColor = True
         '
-        'CheckBox4
+        'chkProcesar
         '
-        Me.CheckBox4.AutoSize = True
-        Me.CheckBox4.Location = New System.Drawing.Point(11, 256)
-        Me.CheckBox4.Name = "CheckBox4"
-        Me.CheckBox4.Size = New System.Drawing.Size(68, 17)
-        Me.CheckBox4.TabIndex = 7
-        Me.CheckBox4.Text = "Procesar"
-        Me.CheckBox4.UseVisualStyleBackColor = True
+        Me.chkProcesar.Location = New System.Drawing.Point(11, 256)
+        Me.chkProcesar.Name = "chkProcesar"
+        Me.chkProcesar.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.chkProcesar.Size = New System.Drawing.Size(153, 17)
+        Me.chkProcesar.TabIndex = 7
+        Me.chkProcesar.Text = "Procesar"
+        Me.chkProcesar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.chkProcesar.UseVisualStyleBackColor = True
         '
-        'CheckBox3
+        'chkALtaServicio
         '
-        Me.CheckBox3.AutoSize = True
-        Me.CheckBox3.Location = New System.Drawing.Point(11, 236)
-        Me.CheckBox3.Name = "CheckBox3"
-        Me.CheckBox3.Size = New System.Drawing.Size(100, 17)
-        Me.CheckBox3.TabIndex = 6
-        Me.CheckBox3.Text = "Alta del servicio"
-        Me.CheckBox3.UseVisualStyleBackColor = True
+        Me.chkALtaServicio.Location = New System.Drawing.Point(11, 236)
+        Me.chkALtaServicio.Name = "chkALtaServicio"
+        Me.chkALtaServicio.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.chkALtaServicio.Size = New System.Drawing.Size(153, 17)
+        Me.chkALtaServicio.TabIndex = 6
+        Me.chkALtaServicio.Text = "Alta del servicio"
+        Me.chkALtaServicio.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.chkALtaServicio.UseVisualStyleBackColor = True
         '
-        'CheckBox2
+        'chkExisteCliente
         '
-        Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Checked = True
-        Me.CheckBox2.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.CheckBox2.Location = New System.Drawing.Point(11, 71)
-        Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.Size = New System.Drawing.Size(99, 17)
-        Me.CheckBox2.TabIndex = 5
-        Me.CheckBox2.Text = "Existe el cliente"
-        Me.CheckBox2.UseVisualStyleBackColor = True
+        Me.chkExisteCliente.Checked = True
+        Me.chkExisteCliente.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.chkExisteCliente.Location = New System.Drawing.Point(11, 71)
+        Me.chkExisteCliente.Name = "chkExisteCliente"
+        Me.chkExisteCliente.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.chkExisteCliente.Size = New System.Drawing.Size(153, 17)
+        Me.chkExisteCliente.TabIndex = 5
+        Me.chkExisteCliente.Text = "Existe el cliente"
+        Me.chkExisteCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.chkExisteCliente.UseVisualStyleBackColor = True
         '
         'TextBox2
         '
@@ -377,17 +388,17 @@ Partial Class Frm_tipo_incidencia
     Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
     Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
     Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents CheckBox12 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox11 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox10 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox9 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox8 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox7 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox6 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox5 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox4 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox3 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox2 As System.Windows.Forms.CheckBox
+    Friend WithEvents chkIncidenciaInterna As System.Windows.Forms.CheckBox
+    Friend WithEvents chkEligeCliente As System.Windows.Forms.CheckBox
+    Friend WithEvents chkSeleccionaServicio As System.Windows.Forms.CheckBox
+    Friend WithEvents chkEligeServicio As System.Windows.Forms.CheckBox
+    Friend WithEvents chkCoBilling As System.Windows.Forms.CheckBox
+    Friend WithEvents chkFacturas As System.Windows.Forms.CheckBox
+    Friend WithEvents chkRegistraLlamadas As System.Windows.Forms.CheckBox
+    Friend WithEvents chkBajaServicio As System.Windows.Forms.CheckBox
+    Friend WithEvents chkProcesar As System.Windows.Forms.CheckBox
+    Friend WithEvents chkALtaServicio As System.Windows.Forms.CheckBox
+    Friend WithEvents chkExisteCliente As System.Windows.Forms.CheckBox
     Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox

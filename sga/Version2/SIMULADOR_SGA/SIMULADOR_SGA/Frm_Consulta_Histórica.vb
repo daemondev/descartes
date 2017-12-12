@@ -167,9 +167,10 @@ Public Class Frm_Consulta_Histórica
             ddlestado_servicio.SelectedItem = "Activo"
 
         ElseIf CheckBox3.Checked = True And txt_doc_cliente.Text <> "" Then
+            'Here
 
             ddlestado_servicio.SelectedItem = "Suspendido"
-
+            showTVSClientData()
             mostrar_datos_clientes_por_doc()
             mostrar_contactos_clientes_por_doc()
             mostrar_solicitudes_ot_por_doc()
@@ -236,6 +237,61 @@ Public Class Frm_Consulta_Histórica
 
         'MOSTRAR SERVICIOS CONTRATADOS
     End Sub
+
+    Sub showTVSClientData()
+        Dim dtCliente As DataRow = Manager.getClientData(Integer.Parse(txt_doc_cliente.Text)).Rows(0)
+
+        txtTVSNroRegistro.Text = dtCliente("nroRegistro").ToString()
+        txtTVSEstadoRegistro.Text = dtCliente("estRegistro").ToString()
+        txtTVSFecRegistro.Text = dtCliente("fecRegistro").ToString()
+        txtTVSHoraRegistro.Text = dtCliente("horaRegistro").ToString()
+        txtTVSUsuario.Text = dtCliente("usuario").ToString()
+        txtTVSNroProyecto.Text = dtCliente("nroProyecto").ToString()
+        txtTVSSolicitud.Text = dtCliente("solicitud").ToString()
+
+        txtTVSContrata.Text = dtCliente("contrata").ToString()
+        txtTVSConsultor.Text = dtCliente("consultor").ToString()
+        txtTVSInstalador.Text = dtCliente("instalador").ToString()
+        txtTVSClientePre.Text = dtCliente("cliPre").ToString()
+        txtTVSClientePost.Text = dtCliente("vc_razon_social").ToString()
+        txtTVSCliTipoDoc.Text = dtCliente("vc_documento_tipo").ToString()
+        txtTVSCliNroDoc.Text = dtCliente("vc_documento").ToString()
+        txtTVSContacto.Text = dtCliente("contacto").ToString()
+        txtTVSCliTelefono1.Text = dtCliente("telefono1").ToString()
+        txtTVSCliTelefono2.Text = dtCliente("telefono2").ToString()
+        txtTVSPaquete.Text = dtCliente("paquete").ToString()
+        txtTVSDirInstPre.Text = dtCliente("dirInstPre").ToString()
+        txtTVSDirInstPost.Text = dtCliente("dirInstPost").ToString()
+        txtTVSDirFacPre.Text = dtCliente("dirFacPre").ToString()
+        txtTVSDirFacPost.Text = dtCliente("dirFacPost").ToString()
+        txtTVSObservaciones.Text = dtCliente("observacion").ToString()
+
+        txtTVSContratoTipoDoc.Text = dtCliente("contTipoDoc").ToString()
+        txtTVSContratoNroDocumento.Text = dtCliente("contNroDocumento").ToString()
+        txtTVSFactInstTipoDocumento.Text = dtCliente("facTipoDoc").ToString()
+        txtTVSFactInstSerie.Text = dtCliente("facSerie").ToString()
+        txtTVSFactInstNumero.Text = dtCliente("facNumero").ToString()
+
+        txtTVSMotVenLugarVenta.Text = dtCliente("motLugarVenta").ToString()
+        txtTVSMotVenTipoCliente.Text = dtCliente("motTipoCliente").ToString()
+        txtTVSMotVenCompetidor.Text = dtCliente("motCompetidor").ToString()
+        txtTVSMotVenTipoFacturacion.Text = dtCliente("motTipoFacturacion").ToString()
+
+        txtTVSRecCodigoRecarga.Text = dtCliente("recCodigo").ToString()
+        chkTVSEnSistemaRecarga.Checked = Convert.ToBoolean(dtCliente("recEnSistema"))
+        txtTVSRecFecIniVigencia.Text = dtCliente("recFecIniVigencia").ToString()
+        txtTVSRecFecFinVigencia.Text = dtCliente("recFecFinVigencia").ToString()
+        txtTVSRecFecCorteProgramada.Text = dtCliente("recFecCorteProgramado").ToString()
+        txtTVSRecNroUltRecarga.Text = dtCliente("recNumeroUltimaRecarga").ToString()
+
+        Dim n_servicio As String = dtCliente("n_servicio").ToString()
+        Dim id As Integer = Convert.ToInt32(dtCliente("id"))
+
+        dgvTVSServicios.DataSource = Manager.getTVSServices(dtCliente("vc_documento").ToString())
+        dgvTVSEquipos.DataSource = Manager.getTVSEquipo(id)
+
+    End Sub
+
 
 #Region "MOSTRAR CAMBIOS DE ESTADO SOLICITUDES OT"
     Public Sub mostrar_cambios_estado_solicitudes_ot_por_codigo()
@@ -3463,13 +3519,12 @@ Public Class Frm_Consulta_Histórica
 
     Private Sub Frm_Consulta_Histórica_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         'Me.Close()
-        
-
+        frm4.Hide()
+        e.Cancel = True
     End Sub
 
     Private Sub Frm_Consulta_Histórica_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         'Me.Close()
-        
     End Sub
 End Class
 

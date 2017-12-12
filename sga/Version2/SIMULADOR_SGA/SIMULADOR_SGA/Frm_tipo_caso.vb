@@ -5,9 +5,10 @@ Imports System.Windows.Forms
 Imports System.Configuration
 Imports System.Data
 Imports System.Data.SqlClient
-Public Class Frm_tipo_caso
+Public Class Frm_Tipificacion
     Private dt As New DataTable
 
+    Public tipoGestion As String = ""
     Public Sub New()
         InitializeComponent()
         Me.txt_tipo_incidencia_general.Text = Modulo1.lb_tipo_incidencia
@@ -21,7 +22,8 @@ Public Class Frm_tipo_caso
 
         dg_tipo_caso.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
         Me.dg_tipo_caso.AllowUserToAddRows = False
-        dg_tipo_caso.RowHeadersVisible = False
+        'dg_tipo_caso.RowHeadersVisible = False
+        Me.dg_tipo_caso.ReadOnly = True
 
 
         dg_tipo_atencion_tipo_caso.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
@@ -29,6 +31,16 @@ Public Class Frm_tipo_caso
         dg_tipo_atencion_tipo_caso.RowHeadersVisible = False
     End Sub
     Public Sub mostrar_tipo_caso()
+        Try
+            dg_tipo_caso.DataSource = R.get("getTipificacion", tipoGestion)
+
+
+        Catch ex As Exception
+
+        End Try
+        Return
+        MessageBox.Show("PASS")
+
         Try
             Dim dts As New SOT.TB_incidencias_reclamos  'instanciamos a la clase BL_CLIENTE  atributos de la tabla tb_datos
             Dim func As New DL.DL_incidencia 'instanciamos a la clase DL_CLIENTE de la tabla tb_datos
@@ -117,15 +129,30 @@ Public Class Frm_tipo_caso
     End Sub
     Private Sub dg_tipo_caso_DoubleClick(sender As Object, e As EventArgs) Handles dg_tipo_caso.DoubleClick
         If Me.dg_tipo_caso.SelectedRows.Count > 0 Then
-            Me.txt_3.Text = CStr(dg_tipo_caso.Item("Caso de Atencion", dg_tipo_caso.SelectedRows(0).Index).Value)
+            Me.txt_3.Text = CStr(dg_tipo_caso.Item("Caso de atención", dg_tipo_caso.SelectedRows(0).Index).Value)
             varf3 = txt_3.Text
             Me.Close()
         End If
     End Sub
     Private Sub dg_tipo_caso_SelectionChanged(sender As Object, e As EventArgs) Handles dg_tipo_caso.SelectionChanged
         If Me.dg_tipo_caso.SelectedRows.Count > 0 Then
-            Me.txt_3.Text = CStr(dg_tipo_caso.Item("Caso de Atencion", dg_tipo_caso.SelectedRows(0).Index).Value)
+            Me.txt_3.Text = CStr(dg_tipo_caso.Item("Caso de atención", dg_tipo_caso.SelectedRows(0).Index).Value)
             varf3 = txt_3.Text
+        End If
+    End Sub
+
+    Private Sub dg_tipo_caso_RowPostPaint(sender As Object, e As DataGridViewRowPostPaintEventArgs) Handles dg_tipo_caso.RowPostPaint
+        'Me.dg_tipo_caso.Rows(e.RowIndex).Cells(0).Value = (e.RowIndex + 1).ToString()
+    End Sub
+
+    Private Sub dg_tipo_caso_DataBindingComplete(sender As Object, e As DataGridViewBindingCompleteEventArgs) Handles dg_tipo_caso.DataBindingComplete
+        'Dim gridView As DataGridView = DirectCast(sender, DataGridView)
+        Dim gridView As DataGridView = DirectCast(sender, DataGridView)
+
+        If Not gridView Is Nothing Then
+            For Each row As DataGridViewRow In gridView.Rows
+                gridView.Rows(row.Index).HeaderCell.Value = (row.Index + 1).ToString()
+            Next
         End If
     End Sub
 End Class

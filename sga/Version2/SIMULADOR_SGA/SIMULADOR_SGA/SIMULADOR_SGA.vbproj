@@ -104,6 +104,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BD_SIMULADOR_SGADataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="dev\Manager.vb" />
+    <Compile Include="dev\Ngine.vb" />
     <Compile Include="dev\Util.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>

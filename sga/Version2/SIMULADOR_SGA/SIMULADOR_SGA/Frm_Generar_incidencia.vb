@@ -46,7 +46,7 @@ Public Class Frm_Generar_incidencia
 
     Private Sub Frm_Generar_incidencia_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        Frm_tipo_caso.txt_numero_servicio_tipo_caso.Text = Modulo1.servicio
+        Frm_Tipificacion.txt_numero_servicio_tipo_caso.Text = Modulo1.servicio
 
         Me.txt_usuario_ingresado.Text = Modulo1.usuario
         Me.txt_nombre_ingresado.Text = Modulo1.nombres_usuario
@@ -62,15 +62,11 @@ Public Class Frm_Generar_incidencia
         dg_generacion_incidencias.RowHeadersVisible = False
 
         mostrar_contactos_incidencias()
-		mostrar_datos_incidencias()
-		mostrar_clientes_incidencias()
+        mostrar_datos_incidencias()
+        mostrar_clientes_incidencias()
         ddl_canal_ingreso.SelectedItem = "Telefono"
 
-
-
-
-
-
+        ddl_tipo_servicio.Text = "Cable"
     End Sub
     Public Sub Generar_numero_incidencia()
         Try
@@ -131,7 +127,7 @@ Public Class Frm_Generar_incidencia
     Public Sub mostrar_clientes_incidencias()
         Try
             Dim dts As New SOT.TB_incidencias_reclamos
-			Dim func As New DL.DL_incidencia
+            Dim func As New DL.DL_incidencia
 
             dts.vc_codigo = Me.txt_codigo_cliente.Text
 
@@ -163,14 +159,14 @@ Public Class Frm_Generar_incidencia
             txt_contacto_cliente.Text = Convert.ToString(row("vc_contacto_cliente"))
             txt_contacto.Text = Convert.ToString(row("vc_contacto"))
             txt_segmento_negocio.Text = Convert.ToString(row("vc_segmento_negocio"))
-			txt_observaciones.Text = Convert.ToString(row("vc_observaciones"))
-			txt_derivacion.Text = Convert.ToString(row("vc_area_derivacion"))
+            txt_observaciones.Text = Convert.ToString(row("vc_observaciones"))
+            txt_derivacion.Text = Convert.ToString(row("vc_area_derivacion"))
             txt_asesor_derivacion.Text = Convert.ToString(row("vc_usuario_derivacion"))
 
 
             Me.txt_codigo_cliente.Text = Modulo1.codigo_cliente_incidencia
             Me.txt_cliente.Text = Modulo1.cliente_incidencia
-		  '  Me.txt_observaciones.Text = Modulo1.observaciones_incidencia
+            '  Me.txt_observaciones.Text = Modulo1.observaciones_incidencia
 
 
 
@@ -230,17 +226,18 @@ Public Class Frm_Generar_incidencia
     End Sub
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
 
-        Dim f3 As New Frm_tipo_caso()
-        Dim res As DialogResult = f3.ShowDialog()
+        Dim frmTipificacion As New Frm_Tipificacion()
+        frmTipificacion.tipoGestion = ddl_tipo_servicio.Text
+        Dim res As DialogResult = frmTipificacion.ShowDialog()
 
         'Presiona el boton de tipo de caso
-        If f3.txt_3.Text <> "" Then
-            txt_tipo_caso.Text = f3.varf3
+        If frmTipificacion.txt_3.Text <> "" Then
+            txt_tipo_caso.Text = frmTipificacion.varf3
         End If
 
 
         If res = DialogResult.OK Then
-            txt_tipo_caso.Text = f3.varf3
+            txt_tipo_caso.Text = frmTipificacion.varf3
         End If
 
     End Sub
@@ -250,7 +247,8 @@ Public Class Frm_Generar_incidencia
 	  "Incidencias Relacionadas", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
 
 		If result = DialogResult.No Then
-		ddl_tipo_servicio.SelectedItem = "Acceso Dedicado a Internet"
+            ddl_tipo_servicio.SelectedItem = "Acceso Dedicado a Internet"
+
 		End If
     End Sub
 

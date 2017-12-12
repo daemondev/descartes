@@ -315,7 +315,7 @@ Partial Class Frm_Generar_incidencia
         'ddl_tipo_servicio
         '
         Me.ddl_tipo_servicio.FormattingEnabled = True
-        Me.ddl_tipo_servicio.Items.AddRange(New Object() {"Acceso Dedicado a Internet"})
+        Me.ddl_tipo_servicio.Items.AddRange(New Object() {"Acceso Dedicado a Internet", "Cable"})
         Me.ddl_tipo_servicio.Location = New System.Drawing.Point(123, 80)
         Me.ddl_tipo_servicio.Name = "ddl_tipo_servicio"
         Me.ddl_tipo_servicio.Size = New System.Drawing.Size(204, 21)
