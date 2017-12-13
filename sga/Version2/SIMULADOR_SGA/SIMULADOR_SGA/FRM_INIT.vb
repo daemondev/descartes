@@ -1,4 +1,4 @@
-﻿Public Class Form1
+﻿Public Class FRM_INIT
 
     Private Sub Label6_Click(sender As Object, e As EventArgs) Handles Label6.Click
 
@@ -16,7 +16,7 @@
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Label25.Text = Format(Now, "Long Date")
-        Dim form1 As New Form1()
+        Dim form1 As New FRM_INIT()
         Me.MaximizeBox = False  ' boton maximizar
     End Sub
 

@@ -58,12 +58,19 @@ Public Class Frm_contactos_incidencia
     End Sub
 
     Private Sub btn_seleccionar_usuario_Click(sender As Object, e As EventArgs) Handles btn_seleccionar_usuario.Click
-        Modulo1.lb_contactos_incidencia = Me.lb_contactos_disponibles.SelectedItem.ToString()
-        Me.txt_usuario_seleccionado.Text = Modulo1.lb_contactos_incidencia
+        Try
+            Modulo1.lb_contactos_incidencia = Me.lb_contactos_disponibles.SelectedItem.ToString()
+            Me.txt_usuario_seleccionado.Text = Modulo1.lb_contactos_incidencia
 
+            varf5 = txt_usuario_seleccionado.Text
+            varf4 = txt_departamento_seleccionado.Text
+            ' Me.Visible = False
+            
 
-        varf5 = txt_usuario_seleccionado.Text
-        varf4 = txt_departamento_seleccionado.Text
+        Catch ex As Exception
+            MessageBox.Show("Seleccionar una opción válida")
+        End Try
+        
 
     End Sub
 
@@ -76,12 +83,19 @@ Public Class Frm_contactos_incidencia
             mostrar_lb_contactos_disponibles_back_office()
 
         ElseIf ddl_departamento.Text = "Validación de Reportes - HFC - LIMA" And Me.txt_tipo_incidencia_contactos.Text = "Incidencia-Cliente" Then
-			mostrar_lb_contactos_disponibles_validacion_reportes()
+            mostrar_lb_contactos_disponibles_validacion_reportes()
+        ElseIf ddl_departamento.Text = "Operacione DTH - LIMA" Then
+            ''lb_contactos_disponibles.DataSource = Manager.getContactsAvailable()
+            Dim tbl As DataTable = Manager.getContactsAvailable()
+            For i As Integer = 0 To tbl.Rows.Count - 1
+                lb_contactos_disponibles.Items.Add(tbl.Rows(i)(0).ToString())
+            Next
+            'lb_contactos_disponibles.DisplayMember = "vc_usuario"
 
-ElseIf ddl_departamento.Text = "Retenciones Masivo - LIMA" And Me.txt_tipo_incidencia_contactos.Text = "SOLICITUD-Cliente" Then
-mostrar_lb_disponibles_Retenciones_masivo()
+        ElseIf ddl_departamento.Text = "Retenciones Masivo - LIMA" And Me.txt_tipo_incidencia_contactos.Text = "SOLICITUD-Cliente" Then
+            mostrar_lb_disponibles_Retenciones_masivo()
 
-		End If
+        End If
 	End Sub
 	 Public Sub mostrar_lb_disponibles_Retenciones_masivo()
 		Dim oComando As New SqlCommand("Select * from tb_usuarios_disponibles where vc_tipo_incidencia='" & Me.txt_tipo_incidencia_contactos.Text & "' and vc_departamento='" & Me.txt_departamento_seleccionado.Text & "'", con)

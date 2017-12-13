@@ -137,6 +137,7 @@ where cl.vc_documento=@idCliente
 go
 exec getTVSatelitalDataByDOCCliente 44880188
 go
+--update TB_datos_cliente  set vc_ejecutivo_datos = 'Sin Definir' where vc_documento = 44880188
 --select * from TB_datos_cliente 
 select * from [TB_servicios_contratados]
 go
@@ -244,11 +245,7 @@ insert into tipificacion(nombre, descripcion,calidad, montoReq) values
 ('Cable','PANTALLA NEGRA',1,0),
 ('Cable','PROBLEMAS DE EQUIPOS',1,0),
 ('Cable','PROBLEMAS CON ALGUNOS CANALES',1,0),
-('Cable','PROBLEMAS CON CANALES NACIONALES / TP1',1,0),
-('Cable','',0,0),
-('Cable','',0,0),
-('Cable','',0,0),
-('Cable','',0,0)
+('Cable','PROBLEMAS CON CANALES NACIONALES / TP1',1,0)
 
 go
 select * from tipificacion
@@ -267,3 +264,167 @@ where ti.nombre like '%'+ @tipo +'%'
 go
 
 exec getTipificacion 'cable'
+go
+--select * from  tb_departamento_usuario_incidencia
+--select * into tb_departamento_usuario_incidencia_bkp from tb_departamento_usuario_incidencia 
+--truncate table tb_departamento_usuario_incidencia
+--insert into tb_departamento_usuario_incidencia (vc_departamento) values ('CAC TRUJILLO 4 - TRUJILLO'),('CAC TRUJILLO I - TRUJILLO'),('CAC TRUJILLO III - TRUJILLO'),('CLAVE TRUJILLO T-CONEXA - TRUJILLO'),('Centro de Atención Empresarial - CAE Nor'),('ATC TELMEX TV CHICLAYO - CHICLAYO'),('CAC CHICLAYO I - CHICLAYO'),('CAC CHICLAYO II - CHICLAYO'),('CAC CHICLAYO III - CHICLAYO'),('CAC PIURA I - PIURA'),('CAC PIURA II - PIURA'),('CAC PIURA OPEN PLAZA - PIURA'),('CAVE PIURA - PIURA'),('Activaciones Postventa - HFC - LIMA'),('Administración y Soporte a Ventas- LIMA'),('Área atención de Reclamos Corporativos'),('ATC PÁGINAS CLARO - LIMA'),('Atención al Cliente - Reclamos - LIMA'),('ATENCIÓN PREMIUM - LIMA'),('Atención Tecnológica Fija - LIMA'),('Atención Telefónica DTH - LIMA'),('Atención Telefónica HFC - LIMA'),('Back Office Call Center MDY - LIMA'),('Back Office Corporativo MDY - LIMA'),('BO Claro Empresa - LIMA'),('CAC ANGAMOS - LIMA'),('CAC ATOCONGO - LIMA'),('CAC BEGONIAS - LIMA'),('CAC BELLAVISTA - LIMA'),('CAC BRASIL - LIMA'),('CAC CENTRO CÍVICO - LIMA'),('CAC CHINCHA - LIMA'),('CAC CHORRILLOS - LIMA'),('CAC COLABORADORES - LIMA'),('CAC GAMARRA - LIMA'),('CAC JIRÓN DE LA UNIÓN 1 - LIMA'),('CAC Jirón de la Unión 2 - LIMA'),('CAC JOCKEY PLAZA - LIMA'),('CAC LA MOLINA - LIMA'),('CAC LARCO - LIMA'),('CAC LINCE - LIMA'),('CAC MAGDALENA - LIMA'),('CAC MALL DEL SUR- LIMA'),('CAC MEGAPLAZA - LIMA'),('CAC MINKA - LIMA'),('CAC PLAZA NORTE - LIMA'),('CAC PRIMAVERA - LIMA'),('CAC SALAVERRY - LIMA'),('CAC SAN BORJA - LIMA'),('CAC SAN JUAN LURIGANCHO - LIMA'),('CAC SAN MIGUEL - LIMA'),('CAC SANTA ANITA - LIMA'),('CAC SANTA CLARA - LIMA'),('CAC TORRE SAN ISIDRO - LIMA'),('CAC UNICACHI - LIMA'),('CAC VILLA EL SALVADOR - LIMA'),('Call Center-Boga - LIMA'),('CAV CENTRO CÍVICO II - LIMA'),('CAVE MEGA PLAZA - LIMA'),('CAVE STA ANITA- LIMA'),('Centro de Atención y Pagos- LIMA'),('Centro de Gestión ISP - LIMA'),('CNOC - LIMA'),('CNOC Backoffice - LIMA'),('Cobranzas  - LIMA'),('Comercial - LIMA'),('Conmutación - LIMA'),('Créditos - LIMA'),('Facturación - LIMA'),('Fidelización y Mantenimiento de Clientes -'),('Operaciones CDMA/GSM - LIMA'),('Operacione DTH - LIMA'),('Recarga Inalámbrica - LIMA'),('Recupero en Mora HFC - LIMA'),('RED BACKOFFICE CORE VOZ - LIMA'),('Retenciones Corporativo - LIMA'),('Retenciones Masivo- LIMA'),('Otros 1 - LIMA'),('Otros 2 - LIMA'),('Otros 3 - LIMA'),('Otros 4 - LIMA'),('Otros 5 - LIMA'),('Otros 6 - LIMA'),('Otros 7 - LIMA')
+
+if OBJECT_ID('getContactsAvailable') is not null drop procedure getContactsAvailable
+go
+create procedure getContactsAvailable
+--@idCliente varchar(15)
+as
+Select * from tb_usuarios_disponibles 
+go
+exec getContactsAvailable
+go
+--insert into tb_usuarios_disponibles (vc_usuario, vc_tipo_incidencia, vc_departamento) values('Luis Ponce', 'Incidencia-Cliente', 'Operacione DTH - LIMA')
+select * from tb_generar_incidencia
+select * from tb_incidencias_clientes_servicios
+select * from tb_incidencias_lista_general
+select * from tb_incidencias_reclamos
+go
+if OBJECT_ID('incidencias') is not null drop table incidencias
+go
+create table incidencias (
+id int primary key identity(10000001,1) ,
+idUsuario int foreign key references TB_USUARIO(in_UsuarioID),
+rptATC varchar(20),
+ticket int,
+prioridad int,
+ins datetime default getdate()
+)
+go
+if OBJECT_ID('getCurrentIncidenceByID') is not null drop procedure getCurrentIncidenceByID
+go
+create procedure getCurrentIncidenceByID
+@id int
+as
+Select * from incidencias where id = @id
+go
+exec getCurrentIncidenceByID 1
+go
+
+if OBJECT_ID('insIncidence') is not null drop procedure insIncidence
+go
+create procedure insIncidence
+@idUsuario int, @rptATC varchar(20), @ticket int, @prioridad int
+as
+insert into incidencias (idUsuario, rptATC, ticket, prioridad) values (@idUsuario, @rptATC, @ticket, @prioridad)
+go
+--exec insIncidence 1
+go
+
+if OBJECT_ID('insAndGetIncidence') is not null drop procedure insAndGetIncidence
+go
+create procedure insAndGetIncidence
+@idUsuario int = 0 --, @rptATC varchar(20), @prioridad int
+as
+declare @currentID int, @lastTicketID int, @ticket int = 1
+select @lastTicketID = MAX(ticket) from incidencias 
+if @lastTicketID is not null begin
+	set @ticket = @lastTicketID + 1
+end
+print @idUsuario
+if @idUsuario = 0 begin
+	set @idUsuario = 1
+end
+
+print @idUsuario
+
+--insert into incidencias (idUsuario, rptATC, ticket, prioridad) values (@idUsuario, @rptATC, @ticket, @prioridad)
+insert into incidencias (idUsuario, ticket) values (@idUsuario,  @ticket)
+set @currentID = @@IDENTITY
+select i.*, u.vc_Nombres + ' ' + u.vc_Apellidos as [usuario] from incidencias i join TB_USUARIO u on u.in_UsuarioID = i.idUsuario where id = @currentID
+go
+--exec insIncidence 1
+go
+
+--insert into incidencias (idUsuario, ticket) values (1,  5)
+
+--exec insAndGetIncidence 0
+
+--truncate table incidencias  
+--select * from incidencias 
+--select * from tb_generar_incidencia
+--update tb_generar_incidencia set vc_estadp = '1 - Generado'
+
+if OBJECT_ID('tipoTrabajo') is not null drop table tipoTrabajo
+go
+create table tipoTrabajo(
+id int primary key identity,
+nombre varchar(100),
+descripcion varchar(100) default '',
+estado bit default 1,
+ins datetime default getdate()
+)
+go
+insert into tipoTrabajo (nombre) values ('WMAX-MANTENIMIENTO CLARO EMPRESAS'),('HFC - RECLAMO MASIVO'),('HFC - BAJA TOTAL DE SERVICIO'),('HFC - BAJA TOTAL CLARO TOTAL'),('HFC - MANTENIMIENTO'),('HFC - RETENCION'),('HFC - MANTENIMIENTO PREVENTIVO'),('INALAMBRICO - PREVENTIVO DTH'),('HFC - MANTENIMIENTO CLARO EMPRESAS'),('DTH - RETENCION'),('HFC - MANTENIMIENTO BABY SITTING'),('HFC - FIDELIZACION'),('HFC - GARANTÍA MANTENIMIENTO'),('HFC - GARANTÍA DE INSTALACIÓN'),('HFC - RECLAMO CLARO EMPRESAS'),('WIMAX - RECLAMO MANTENIMIENTO CLARO EMPRESAS'),('DTH - RECLAMO'),('HFC - MATENIMIENTO CALIDAD'),('MANTENIMIENTO PEXT FO'),('WLL/SIAC - RECLAMOS'),('CORP-MANTO CORRECTIVO PINT'),('HFC ATENCION PREVENTIVA'),('CORP-MANTO PREV PEXT'),('CORP-MANTO PREV PINT'),('MANTENIMIENTO PEXT FO'),('INALÁMBRICO - EQUIPOS DAÑADOS'),('HFC - EQUIPOS DAÑADOS'),('WLL/SIAC - EQUIPOS DAÑADOS'),('CORP MANTO CORRECTIVO PEXT'),('INALÁMBRICO - MANTENIMIENTO DTH'),('INALÁMBRICO - DESINSTALACIÓN DECO ADICIONALDTI')
+
+
+go 
+select * from tipoTrabajo 
+go
+
+if OBJECT_ID('getWorkType') is not null drop procedure getWorkType
+go
+create procedure getWorkType
+as
+select 0 as [id],'' as [nombre] union
+select id, nombre from tipoTrabajo
+go
+exec getWorkType
+go
+
+
+if OBJECT_ID('motivo') is not null drop table motivo
+go
+create table motivo(
+id int primary key identity,
+nombre varchar(100),
+descripcion varchar(100) default '',
+estado bit default 1,
+ins datetime default getdate()
+)
+go
+insert into motivo(nombre) values 
+('TEL - SERIE TELEFONICA NO APERTURADA'),
+('TEL - SERIE TELEFONICA NO REGISTRADA'),
+('TEL - SIN SERVICIO -DA TONO DE OCUPADO'),
+('TEL - SIN SERVICIO -NO DA TONO'),
+('TEL - SOLICITUD DE CARRIER RELATIONS'),
+('INT - CAMBIO DE CABLE WEP KEY'),
+('INT - ENLACE INTERMITENTE'),
+('INT - ENLACE LENTE'),
+('INT - NO LLEGA A DETERMINADAS PAGINAS WEB'),
+('INT - PROBLEMA DE INTERCONEXIÓN'),
+('INT - PROBLEMA WIFI'),
+('INT - PROBLEMAS CON LA SALIDA A INTERNET'),
+('INT - PROBLEMAS DE COBERTURA WIFI'),
+('INT - PROBLEMAS DE CORREO'),
+('INT - ROUTER CON PROBLEMAS'),
+('INT - SIN SERVICIO'),
+('CATV - DECOS DESHABILITADOS'),
+('CATV - IMAGEN CONGELADA'),
+('CATV - IMAGEN LLUVIOSA O PIXELEADA'),
+('CATV - IMAGEN SOBREPUESTA'),
+('CATV - MALA SEÑAL'),
+('CATV - NO VISUALIZA ALGUNOS CANALES'),
+('CATV - PANTALLA NEGRA'),
+('CATV - PROBLEMAS CON CANALES NACIONALES'),
+('CATV - PROBLEMAS CON DECODIFICADOR'),
+('CATV - SIN SERVICIO'),
+('DTH - SIN SEÑAL'),
+('')
+go
+
+if OBJECT_ID('getMotivo') is not null drop procedure getMotivo
+go
+create procedure getMotivo
+as
+select 0 as [id],'' as [nombre] union
+select id, nombre from motivo
+go
+exec getMotivo
+go

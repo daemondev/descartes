@@ -15,20 +15,26 @@ Public Class Frm_Generar_Solicitud_OT
         Me.txt_nom_cliente_sot.Text = Modulo1.cliente_incidencia
         Me.txt_direccion_sot.Text = Modulo1.direccion_cliente
         Me.txt_distrito_sot.Text = Modulo1.distrito_cliente
-
+        txt_incidencia_sot.Text = Util.idincidencia.ToString()
         Me.txt_solicitante_sot.Text = Modulo1.usuario
 
+        ddl_tipo_trabajo_sot.DataSource = Manager.getWorkType()
+        ddl_tipo_trabajo_sot.DisplayMember = "nombre"
+        ddl_tipo_trabajo_sot.ValueMember = "id"
 
+        ddl_motivo_sot.DataSource = Manager.getMotivo()
+        ddl_motivo_sot.DisplayMember = "nombre"
+        ddl_motivo_sot.ValueMember = "id"
 
+        Util.incidenciaReady = False
 
+        'Me.txt_fecha_comp.Text = Format(Now, "Short Date") '+ "18:00:00"
 
+        Me.txt_fecha_comp.Text = Now.ToString("dd/MM/yy H:mm:ss")
 
-
-
-        Me.txt_fecha_comp.Text = Format(Now, "Short Date") '+ "18:00:00"
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnGenerarSOT.Click
 
         Dim result1 As Integer = MessageBox.Show("Seguro de ejecutar la SOT?", "Generar SOT", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)
         If result1 = DialogResult.Yes Then
@@ -37,13 +43,13 @@ Public Class Frm_Generar_Solicitud_OT
             guardar_solicitud_ot()
             guardar_detalle_solicitud_ot()
 
+            Util.incidenciaReady = True
+            'Me.Close()
 
-            Me.Close()
-
-            frm5.Visible = False
-            frm4.WindowState = FormWindowState.Maximized
-            frm4.tabMain.SelectedIndex = 9
-            frm4.TabControl4.SelectedIndex = 6
+            'frm5.Visible = False
+            'frm4.WindowState = FormWindowState.Maximized
+            'frm4.tabMain.SelectedIndex = 9
+            'frm4.TabControl4.SelectedIndex = 6
         End If
 
         'If Me.CheckBox10.Checked = True Then
@@ -149,8 +155,17 @@ Public Class Frm_Generar_Solicitud_OT
         End Try
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnCancelarSOT.Click
         Me.Close()
     End Sub
 
+    Private Sub ddl_tipo_trabajo_sot_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddl_tipo_trabajo_sot.SelectedIndexChanged
+        Try
+            Dim idTipoTrabajo As Integer = Convert.ToInt32(ddl_tipo_trabajo_sot.SelectedValue)
+
+        Catch ex As Exception
+
+        End Try
+
+    End Sub
 End Class

@@ -20,7 +20,7 @@
             Modulo1.contraseña = txt_contraseña1.Text
             Modulo1.nombres_usuario = txt_nombres1.Text
             Me.Visible() = False
-            Form1.Show()
+            FRM_INIT.Show()
         Else
             MessageBox.Show("Ingrese los datos Completos")
         End If

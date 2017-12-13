@@ -14,7 +14,7 @@
             usuario = txt_usuario.Text
             contraseña = txt_contraseña.Text
             Me.Visible() = False
-            Form1.Show()
+            FRM_INIT.Show()
         Else
             MessageBox.Show("Ingrese los datos Completos")
         End If

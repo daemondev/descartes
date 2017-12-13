@@ -15,15 +15,20 @@ Public Class Frm_tipo_incidencia
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         'Boton Seleccionar
+        Try
+            'Asignacion de lo seleccionado en el listbox a la variable lb_tipo_incidencia
+            Modulo1.lb_tipo_incidencia = lb_tipo_incidencia.SelectedItem.ToString
 
-        'Asignacion de lo seleccionado en el listbox a la variable lb_tipo_incidencia
-        Modulo1.lb_tipo_incidencia = lb_tipo_incidencia.SelectedItem.ToString
+            'Asignacion del valor de lb_tipo_incidencia a txt_tipo_incidencia5
+            txt_tipo_incidencia5.Text = Modulo1.lb_tipo_incidencia
 
-        'Asignacion del valor de lb_tipo_incidencia a txt_tipo_incidencia5
-        txt_tipo_incidencia5.Text = Modulo1.lb_tipo_incidencia
+            varf2 = txt_tipo_incidencia5.Text
+            'Frm_Generar_incidencia.txt_tipo_incidencia.Text = Modulo1.lb_tipo_incidencia
+        Catch ex As Exception
+            MessageBox.Show("Seleccionar un tipo de Incidencia")
+        End Try
 
-        varf2 = txt_tipo_incidencia5.Text
-        'Frm_Generar_incidencia.txt_tipo_incidencia.Text = Modulo1.lb_tipo_incidencia
+        
     End Sub
 
     Private Sub lb_tipo_incidencia_DoubleClick(sender As Object, e As EventArgs) Handles lb_tipo_incidencia.DoubleClick
@@ -68,7 +73,7 @@ Public Class Frm_tipo_incidencia
     End Sub
 
     Private Sub Frm_tipo_incidencia_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        lb_area_vinculada.SelectedIndex = 0
     End Sub
 
     Private Sub lb_area_vinculada_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lb_area_vinculada.SelectedIndexChanged

@@ -252,13 +252,38 @@ Public Class Frm_Generar_incidencia
 		End If
     End Sub
 
-    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles btnLauchIncidencia.Click
 
         Dim f4 As New Frm_contactos_incidencia()
         Dim res As DialogResult = f4.ShowDialog()
         If res = DialogResult.OK Then
             txt_asesor_derivacion.Text = f4.varf5
             txt_derivacion.Text = f4.varf4
+
+
+            Dim yesno As Integer = MessageBox.Show("Se registró la información. ¿Está seguro de Generar el ticket con estos datos?", "Generación de Ticket", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)
+            If yesno = DialogResult.Yes Then
+
+                Dim item As DataRow = Manager.insAndGetIncidence(Util.idUsuario).Rows(0)
+                txt_usuario.Text = item("usuario").ToString()
+                txt_incidencia.Text = item("id").ToString()
+                txt_ticket.Text = item("ticket").ToString()
+                txt_f_registro.Text = item("ins").ToString()
+                Util.idincidencia = Convert.ToInt32(item("id"))
+
+                MessageBox.Show("Se grabaron los datos", "SGA Atención de llamadas", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("N° " + txt_ticket.Text, "Número de Ticket", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("¿Desea Imprimir el Ticket?", "Impresión", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            End If
         End If
+    End Sub
+
+    Private Sub txt_estado_EnabledChanged(sender As Object, e As EventArgs) Handles txt_estado.EnabledChanged
+
+    End Sub
+
+    Private Sub Frm_Generar_incidencia_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        frm5.Visible = False
+        e.Cancel = True
     End Sub
 End Class

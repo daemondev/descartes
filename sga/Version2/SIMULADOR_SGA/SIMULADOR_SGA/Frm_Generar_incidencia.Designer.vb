@@ -63,7 +63,7 @@ Partial Class Frm_Generar_incidencia
         Me.CheckBox3 = New System.Windows.Forms.CheckBox()
         Me.CheckBox2 = New System.Windows.Forms.CheckBox()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.Button7 = New System.Windows.Forms.Button()
+        Me.btnLauchIncidencia = New System.Windows.Forms.Button()
         Me.txt_asesor_derivacion = New System.Windows.Forms.TextBox()
         Me.txt_derivacion = New System.Windows.Forms.TextBox()
         Me.txt_contacto = New System.Windows.Forms.TextBox()
@@ -89,6 +89,8 @@ Partial Class Frm_Generar_incidencia
         Me.txt_nombre_ingresado = New System.Windows.Forms.TextBox()
         Me.txt_cid_generado = New System.Windows.Forms.TextBox()
         Me.txt_producto_contratado = New System.Windows.Forms.TextBox()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.CheckBox4 = New System.Windows.Forms.CheckBox()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -120,8 +122,8 @@ Partial Class Frm_Generar_incidencia
         '
         'txt_incidencia
         '
-        Me.txt_incidencia.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_incidencia.ForeColor = System.Drawing.Color.White
+        Me.txt_incidencia.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_incidencia.ForeColor = System.Drawing.Color.Black
         Me.txt_incidencia.Location = New System.Drawing.Point(70, 5)
         Me.txt_incidencia.Name = "txt_incidencia"
         Me.txt_incidencia.Size = New System.Drawing.Size(102, 20)
@@ -140,11 +142,11 @@ Partial Class Frm_Generar_incidencia
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Label4.Location = New System.Drawing.Point(3, 109)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(54, 13)
+        Me.Label4.Size = New System.Drawing.Size(62, 13)
         Me.Label4.TabIndex = 6
         Me.Label4.Text = "Rep. ATC"
         '
@@ -232,8 +234,8 @@ Partial Class Frm_Generar_incidencia
         '
         'txt_ticket
         '
-        Me.txt_ticket.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_ticket.ForeColor = System.Drawing.Color.White
+        Me.txt_ticket.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_ticket.ForeColor = System.Drawing.Color.Black
         Me.txt_ticket.Location = New System.Drawing.Point(70, 143)
         Me.txt_ticket.Name = "txt_ticket"
         Me.txt_ticket.Size = New System.Drawing.Size(102, 20)
@@ -280,7 +282,7 @@ Partial Class Frm_Generar_incidencia
         '
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.Button3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Button3.Location = New System.Drawing.Point(6, 26)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(107, 22)
@@ -292,7 +294,7 @@ Partial Class Frm_Generar_incidencia
         '
         Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.Button5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Button5.Location = New System.Drawing.Point(6, 107)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(107, 22)
@@ -304,7 +306,7 @@ Partial Class Frm_Generar_incidencia
         '
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.Button4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Button4.Location = New System.Drawing.Point(6, 79)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(107, 22)
@@ -314,6 +316,7 @@ Partial Class Frm_Generar_incidencia
         '
         'ddl_tipo_servicio
         '
+        Me.ddl_tipo_servicio.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.ddl_tipo_servicio.FormattingEnabled = True
         Me.ddl_tipo_servicio.Items.AddRange(New Object() {"Acceso Dedicado a Internet", "Cable"})
         Me.ddl_tipo_servicio.Location = New System.Drawing.Point(123, 80)
@@ -337,6 +340,7 @@ Partial Class Frm_Generar_incidencia
         '
         'txt_tipo_caso
         '
+        Me.txt_tipo_caso.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txt_tipo_caso.Location = New System.Drawing.Point(123, 109)
         Me.txt_tipo_caso.Name = "txt_tipo_caso"
         Me.txt_tipo_caso.Size = New System.Drawing.Size(302, 20)
@@ -345,9 +349,10 @@ Partial Class Frm_Generar_incidencia
         'Label8
         '
         Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.Location = New System.Drawing.Point(3, 8)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(40, 13)
+        Me.Label8.Size = New System.Drawing.Size(46, 13)
         Me.Label8.TabIndex = 9
         Me.Label8.Text = "Estado"
         '
@@ -360,6 +365,7 @@ Partial Class Frm_Generar_incidencia
         '
         'txt_tipo_incidencia
         '
+        Me.txt_tipo_incidencia.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txt_tipo_incidencia.Location = New System.Drawing.Point(123, 27)
         Me.txt_tipo_incidencia.Name = "txt_tipo_incidencia"
         Me.txt_tipo_incidencia.Size = New System.Drawing.Size(204, 20)
@@ -368,18 +374,20 @@ Partial Class Frm_Generar_incidencia
         'Label10
         '
         Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.Location = New System.Drawing.Point(3, 57)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(72, 13)
+        Me.Label10.Size = New System.Drawing.Size(85, 13)
         Me.Label10.TabIndex = 7
         Me.Label10.Text = "Canal Ingreso"
         '
         'Label12
         '
         Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label12.Location = New System.Drawing.Point(3, 158)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(66, 13)
+        Me.Label12.Size = New System.Drawing.Size(78, 13)
         Me.Label12.TabIndex = 5
         Me.Label12.Text = "F. declarada"
         '
@@ -404,6 +412,7 @@ Partial Class Frm_Generar_incidencia
         'Panel3
         '
         Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel3.Controls.Add(Me.CheckBox4)
         Me.Panel3.Controls.Add(Me.Label2)
         Me.Panel3.Location = New System.Drawing.Point(775, 1)
         Me.Panel3.Name = "Panel3"
@@ -430,7 +439,8 @@ Partial Class Frm_Generar_incidencia
         Me.Tab_control.Controls.Add(Me.cuarto_tab)
         Me.Tab_control.Controls.Add(Me.quinto_tab)
         Me.Tab_control.Controls.Add(Me.sexto_tab)
-        Me.Tab_control.ItemSize = New System.Drawing.Size(150, 21)
+        Me.Tab_control.Controls.Add(Me.TabPage1)
+        Me.Tab_control.ItemSize = New System.Drawing.Size(183, 21)
         Me.Tab_control.Location = New System.Drawing.Point(1, 207)
         Me.Tab_control.Name = "Tab_control"
         Me.Tab_control.SelectedIndex = 0
@@ -454,7 +464,7 @@ Partial Class Frm_Generar_incidencia
         Me.segundo_tab.Controls.Add(Me.CheckBox3)
         Me.segundo_tab.Controls.Add(Me.CheckBox2)
         Me.segundo_tab.Controls.Add(Me.CheckBox1)
-        Me.segundo_tab.Controls.Add(Me.Button7)
+        Me.segundo_tab.Controls.Add(Me.btnLauchIncidencia)
         Me.segundo_tab.Controls.Add(Me.txt_asesor_derivacion)
         Me.segundo_tab.Controls.Add(Me.txt_derivacion)
         Me.segundo_tab.Controls.Add(Me.txt_contacto)
@@ -506,14 +516,14 @@ Partial Class Frm_Generar_incidencia
         Me.CheckBox1.Text = "Notificar"
         Me.CheckBox1.UseVisualStyleBackColor = True
         '
-        'Button7
+        'btnLauchIncidencia
         '
-        Me.Button7.Location = New System.Drawing.Point(506, 177)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(23, 23)
-        Me.Button7.TabIndex = 29
-        Me.Button7.Text = "--"
-        Me.Button7.UseVisualStyleBackColor = True
+        Me.btnLauchIncidencia.Location = New System.Drawing.Point(506, 177)
+        Me.btnLauchIncidencia.Name = "btnLauchIncidencia"
+        Me.btnLauchIncidencia.Size = New System.Drawing.Size(23, 23)
+        Me.btnLauchIncidencia.TabIndex = 29
+        Me.btnLauchIncidencia.Text = "--"
+        Me.btnLauchIncidencia.UseVisualStyleBackColor = True
         '
         'txt_asesor_derivacion
         '
@@ -658,7 +668,7 @@ Partial Class Frm_Generar_incidencia
         '
         Me.Panel4.Controls.Add(Me.Label16)
         Me.Panel4.Controls.Add(Me.Panel5)
-        Me.Panel4.Location = New System.Drawing.Point(772, 209)
+        Me.Panel4.Location = New System.Drawing.Point(950, 209)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(143, 16)
         Me.Panel4.TabIndex = 0
@@ -719,6 +729,24 @@ Partial Class Frm_Generar_incidencia
         Me.txt_producto_contratado.Size = New System.Drawing.Size(138, 20)
         Me.txt_producto_contratado.TabIndex = 24
         Me.txt_producto_contratado.Visible = False
+        '
+        'TabPage1
+        '
+        Me.TabPage1.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Size = New System.Drawing.Size(1300, 249)
+        Me.TabPage1.TabIndex = 6
+        Me.TabPage1.Text = "Conceptos Reclamados en Formulario"
+        Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'CheckBox4
+        '
+        Me.CheckBox4.AutoSize = True
+        Me.CheckBox4.Location = New System.Drawing.Point(108, 11)
+        Me.CheckBox4.Name = "CheckBox4"
+        Me.CheckBox4.Size = New System.Drawing.Size(15, 14)
+        Me.CheckBox4.TabIndex = 10
+        Me.CheckBox4.UseVisualStyleBackColor = True
         '
         'Frm_Generar_incidencia
         '
@@ -807,7 +835,7 @@ Partial Class Frm_Generar_incidencia
     Friend WithEvents Button6 As System.Windows.Forms.Button
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents txt_observaciones As System.Windows.Forms.TextBox
-    Friend WithEvents Button7 As System.Windows.Forms.Button
+    Friend WithEvents btnLauchIncidencia As System.Windows.Forms.Button
     Friend WithEvents txt_asesor_derivacion As System.Windows.Forms.TextBox
     Friend WithEvents txt_derivacion As System.Windows.Forms.TextBox
     Friend WithEvents CheckBox2 As System.Windows.Forms.CheckBox
@@ -821,4 +849,6 @@ Partial Class Frm_Generar_incidencia
     Friend WithEvents txt_cid_generado As System.Windows.Forms.TextBox
     Friend WithEvents txt_producto_contratado As System.Windows.Forms.TextBox
     Friend WithEvents CheckBox3 As System.Windows.Forms.CheckBox
+    Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
+    Friend WithEvents CheckBox4 As System.Windows.Forms.CheckBox
 End Class

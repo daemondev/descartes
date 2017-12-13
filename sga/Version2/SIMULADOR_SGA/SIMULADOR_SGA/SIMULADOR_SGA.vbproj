@@ -107,11 +107,11 @@
     <Compile Include="dev\Manager.vb" />
     <Compile Include="dev\Ngine.vb" />
     <Compile Include="dev\Util.vb" />
-    <Compile Include="Form1.vb">
+    <Compile Include="FRM_INIT.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="FRM_INIT.Designer.vb">
+      <DependentUpon>FRM_INIT.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Frm_Buscar_Cliente.Designer.vb">
@@ -198,8 +198,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <EmbeddedResource Include="FRM_INIT.resx">
+      <DependentUpon>FRM_INIT.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Buscar_Cliente.resx">
       <DependentUpon>Frm_Buscar_Cliente.vb</DependentUpon>

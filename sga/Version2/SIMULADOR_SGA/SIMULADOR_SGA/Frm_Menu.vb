@@ -41,9 +41,18 @@ Public Class Frm_Menu
         frm5.Generar_numero_ticket()
 
         'Grabar los cambios Despues que genera el numero de incidencia y numero de ticket
-
-        Dim result As Integer = MessageBox.Show("¿Desea grabar los cambios?",
+        Dim result As Integer
+        Dim comeFromIncidence As Boolean = False
+        If Util.incidenciaReady Then
+            Util.incidenciaReady = False
+            result = DialogResult.Yes
+            comeFromIncidence = True
+        Else
+            result = MessageBox.Show("¿Desea grabar los cambios?",
         "SIMULADOR SGA Atención de Llamadas", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question)
+        End If
+
+        
 
         If result = DialogResult.Yes Then
             Modulo1.observaciones_incidencia = frm5.txt_observaciones.Text
@@ -67,8 +76,11 @@ Public Class Frm_Menu
             frm5.txt_ticket.ForeColor = Color.Black
             frm5.txt_ticket.Enabled = False
             frm4.WindowState = FormWindowState.Maximized
-            frm4.tabMain.SelectedIndex = 9
-            frm4.TabControl4.SelectedIndex = 6
+            If Not comeFromIncidence Then
+                frm4.tabMain.SelectedIndex = 9
+                frm4.TabControl4.SelectedIndex = 6
+            End If
+            
         End If
         'If frm4.CheckBox1.Checked = True Then
         '    frm4.mostrar_incidencias_lista_general_por_codigo()

@@ -24,7 +24,7 @@ Partial Class Frm_Generar_Solicitud_OT
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Frm_Generar_Solicitud_OT))
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnGenerarSOT = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -46,7 +46,7 @@ Partial Class Frm_Generar_Solicitud_OT
         Me.Label9 = New System.Windows.Forms.Label()
         Me.TextBox10 = New System.Windows.Forms.TextBox()
         Me.TextBox9 = New System.Windows.Forms.TextBox()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.btnCancelarSOT = New System.Windows.Forms.Button()
         Me.MonthCalendar1 = New System.Windows.Forms.MonthCalendar()
         Me.ddl_tipo_trabajo_sot = New System.Windows.Forms.ComboBox()
         Me.CheckBox2 = New System.Windows.Forms.CheckBox()
@@ -54,7 +54,7 @@ Partial Class Frm_Generar_Solicitud_OT
         Me.CheckBox4 = New System.Windows.Forms.CheckBox()
         Me.CheckBox5 = New System.Windows.Forms.CheckBox()
         Me.CheckBox6 = New System.Windows.Forms.CheckBox()
-        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.panelHora1 = New System.Windows.Forms.Panel()
         Me.CheckBox10 = New System.Windows.Forms.CheckBox()
         Me.CheckBox9 = New System.Windows.Forms.CheckBox()
         Me.CheckBox8 = New System.Windows.Forms.CheckBox()
@@ -66,8 +66,11 @@ Partial Class Frm_Generar_Solicitud_OT
         Me.txt_solicitante_sot = New System.Windows.Forms.TextBox()
         Me.txt_num_solicitud_sot = New System.Windows.Forms.TextBox()
         Me.txt_dni_sot = New System.Windows.Forms.TextBox()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label11 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
-        Me.Panel1.SuspendLayout()
+        Me.panelHora1.SuspendLayout()
+        Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'CheckBox1
@@ -80,14 +83,15 @@ Partial Class Frm_Generar_Solicitud_OT
         Me.CheckBox1.Text = "09:00"
         Me.CheckBox1.UseVisualStyleBackColor = True
         '
-        'Button1
+        'btnGenerarSOT
         '
-        Me.Button1.Location = New System.Drawing.Point(164, 429)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(97, 35)
-        Me.Button1.TabIndex = 1
-        Me.Button1.Text = "Generar SOT"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnGenerarSOT.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnGenerarSOT.Location = New System.Drawing.Point(164, 429)
+        Me.btnGenerarSOT.Name = "btnGenerarSOT"
+        Me.btnGenerarSOT.Size = New System.Drawing.Size(97, 35)
+        Me.btnGenerarSOT.TabIndex = 1
+        Me.btnGenerarSOT.Text = "Generar SOT"
+        Me.btnGenerarSOT.UseVisualStyleBackColor = True
         '
         'Label1
         '
@@ -102,6 +106,7 @@ Partial Class Frm_Generar_Solicitud_OT
         '
         Me.TextBox1.Location = New System.Drawing.Point(101, 205)
         Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.ReadOnly = True
         Me.TextBox1.Size = New System.Drawing.Size(329, 20)
         Me.TextBox1.TabIndex = 3
         '
@@ -135,9 +140,10 @@ Partial Class Frm_Generar_Solicitud_OT
         'Label5
         '
         Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(12, 85)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(42, 13)
+        Me.Label5.Size = New System.Drawing.Size(49, 13)
         Me.Label5.TabIndex = 13
         Me.Label5.Text = "Motivo:"
         '
@@ -156,6 +162,7 @@ Partial Class Frm_Generar_Solicitud_OT
         Me.txt_incidencia_sot.Enabled = False
         Me.txt_incidencia_sot.Location = New System.Drawing.Point(101, 9)
         Me.txt_incidencia_sot.Name = "txt_incidencia_sot"
+        Me.txt_incidencia_sot.ReadOnly = True
         Me.txt_incidencia_sot.Size = New System.Drawing.Size(114, 20)
         Me.txt_incidencia_sot.TabIndex = 15
         '
@@ -164,6 +171,7 @@ Partial Class Frm_Generar_Solicitud_OT
         Me.txt_observaciones_sot.Location = New System.Drawing.Point(101, 106)
         Me.txt_observaciones_sot.Multiline = True
         Me.txt_observaciones_sot.Name = "txt_observaciones_sot"
+        Me.txt_observaciones_sot.ReadOnly = True
         Me.txt_observaciones_sot.Size = New System.Drawing.Size(329, 74)
         Me.txt_observaciones_sot.TabIndex = 16
         '
@@ -179,9 +187,10 @@ Partial Class Frm_Generar_Solicitud_OT
         'Label8
         '
         Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.Location = New System.Drawing.Point(228, 12)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(82, 13)
+        Me.Label8.Size = New System.Drawing.Size(95, 13)
         Me.Label8.TabIndex = 18
         Me.Label8.Text = "SOT Generado:"
         '
@@ -190,6 +199,7 @@ Partial Class Frm_Generar_Solicitud_OT
         Me.TextBox4.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox4.Location = New System.Drawing.Point(316, 9)
         Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.ReadOnly = True
         Me.TextBox4.Size = New System.Drawing.Size(114, 20)
         Me.TextBox4.TabIndex = 19
         '
@@ -198,6 +208,7 @@ Partial Class Frm_Generar_Solicitud_OT
         Me.txt_codigo_cliente_sot.BackColor = System.Drawing.SystemColors.Control
         Me.txt_codigo_cliente_sot.Location = New System.Drawing.Point(101, 33)
         Me.txt_codigo_cliente_sot.Name = "txt_codigo_cliente_sot"
+        Me.txt_codigo_cliente_sot.ReadOnly = True
         Me.txt_codigo_cliente_sot.Size = New System.Drawing.Size(76, 20)
         Me.txt_codigo_cliente_sot.TabIndex = 20
         '
@@ -206,13 +217,16 @@ Partial Class Frm_Generar_Solicitud_OT
         Me.txt_nom_cliente_sot.BackColor = System.Drawing.SystemColors.Control
         Me.txt_nom_cliente_sot.Location = New System.Drawing.Point(183, 33)
         Me.txt_nom_cliente_sot.Name = "txt_nom_cliente_sot"
+        Me.txt_nom_cliente_sot.ReadOnly = True
         Me.txt_nom_cliente_sot.Size = New System.Drawing.Size(250, 20)
         Me.txt_nom_cliente_sot.TabIndex = 21
         '
         'ddl_motivo_sot
         '
+        Me.ddl_motivo_sot.DropDownHeight = 90
         Me.ddl_motivo_sot.FormattingEnabled = True
-        Me.ddl_motivo_sot.Items.AddRange(New Object() {"TEL - SERIE TELEFONICA NO APERTURADA", "TEL - SERIE TELEFONICA NO REGISTRADA", "TEL - SIN SERVICIO -DA TONO DE OCUPADO", "TEL - SIN SERVICIO -NO DA TONO", "TEL - SOLICITUD DE CARRIER RELATIONS", "INT - CAMBIO DE CABLE WEP KEY", "INT - ENLACE INTERMITENTE", "INT - ENLACE LENTE", "INT - NO LLEGA A DETERMINADAS PAGINAS WEB", "INT - PROBLEMA DE INTERCONEXIÓN", "INT - PROBLEMA WIFI", "INT - PROBLEMAS CON LA SALIDA A INTERNET", "INT - PROBLEMAS DE COBERTURA WIFI", "INT - PROBLEMAS DE CORREO", "INT - ROUTER CON PROBLEMAS", "INT - SIN SERVICIO", "CATV - DECOS DESHABILITADOS", "CATV - IMAGEN CONGELADA", "CATV - IMAGEN LLUVIOSA O PIXELEADA", "CATV - IMAGEN SOBREPUESTA", "CATV - MALA SEÑAL", "CATV - NO VISUALIZA ALGUNOS CANALES", "CATV - PANTALLA NEGRA", "CATV - PROBLEMAS CON CANALES NACIONALES", "CATV - PROBLEMAS CON DECODIFICADOR", "CATV - SIN SERVICIO"})
+        Me.ddl_motivo_sot.IntegralHeight = False
+        Me.ddl_motivo_sot.ItemHeight = 13
         Me.ddl_motivo_sot.Location = New System.Drawing.Point(101, 81)
         Me.ddl_motivo_sot.Name = "ddl_motivo_sot"
         Me.ddl_motivo_sot.Size = New System.Drawing.Size(329, 21)
@@ -222,6 +236,7 @@ Partial Class Frm_Generar_Solicitud_OT
         '
         Me.txt_fecha_comp.Location = New System.Drawing.Point(101, 183)
         Me.txt_fecha_comp.Name = "txt_fecha_comp"
+        Me.txt_fecha_comp.ReadOnly = True
         Me.txt_fecha_comp.Size = New System.Drawing.Size(329, 20)
         Me.txt_fecha_comp.TabIndex = 24
         '
@@ -271,14 +286,15 @@ Partial Class Frm_Generar_Solicitud_OT
         Me.TextBox9.Size = New System.Drawing.Size(35, 20)
         Me.TextBox9.TabIndex = 27
         '
-        'Button2
+        'btnCancelarSOT
         '
-        Me.Button2.Location = New System.Drawing.Point(267, 429)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(97, 35)
-        Me.Button2.TabIndex = 26
-        Me.Button2.Text = "Cancelar"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btnCancelarSOT.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnCancelarSOT.Location = New System.Drawing.Point(267, 429)
+        Me.btnCancelarSOT.Name = "btnCancelarSOT"
+        Me.btnCancelarSOT.Size = New System.Drawing.Size(97, 35)
+        Me.btnCancelarSOT.TabIndex = 26
+        Me.btnCancelarSOT.Text = "Cerrar"
+        Me.btnCancelarSOT.UseVisualStyleBackColor = True
         '
         'MonthCalendar1
         '
@@ -288,8 +304,10 @@ Partial Class Frm_Generar_Solicitud_OT
         '
         'ddl_tipo_trabajo_sot
         '
+        Me.ddl_tipo_trabajo_sot.DropDownHeight = 90
         Me.ddl_tipo_trabajo_sot.FormattingEnabled = True
-        Me.ddl_tipo_trabajo_sot.Items.AddRange(New Object() {"WMAX-MANTENIMIENTO CLARO EMPRESAS", "HFC - RECLAMO MASIVO", "HFC - BAJA TOTAL DE SERVICIO", "HFC - BAJA TOTAL CLARO TOTAL", "HFC - MANTENIMIENTO", "HFC - RETENCION", "HFC - MANTENIMIENTO PREVENTIVO", "HFC - MANTENIMIENTO CLARO EMPRESAS", "CLARO CORP - VISITA DE INSPECCIÓN", "CLARO CORP - MANTENIMIENTO PREVENTIVO", "HFC - MANTENIMIENTO BABY SITTING"})
+        Me.ddl_tipo_trabajo_sot.IntegralHeight = False
+        Me.ddl_tipo_trabajo_sot.ItemHeight = 13
         Me.ddl_tipo_trabajo_sot.Location = New System.Drawing.Point(101, 55)
         Me.ddl_tipo_trabajo_sot.Name = "ddl_tipo_trabajo_sot"
         Me.ddl_tipo_trabajo_sot.Size = New System.Drawing.Size(329, 21)
@@ -345,24 +363,25 @@ Partial Class Frm_Generar_Solicitud_OT
         Me.CheckBox6.Text = "14:00"
         Me.CheckBox6.UseVisualStyleBackColor = True
         '
-        'Panel1
+        'panelHora1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.White
-        Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel1.Controls.Add(Me.CheckBox10)
-        Me.Panel1.Controls.Add(Me.CheckBox9)
-        Me.Panel1.Controls.Add(Me.CheckBox8)
-        Me.Panel1.Controls.Add(Me.CheckBox7)
-        Me.Panel1.Controls.Add(Me.CheckBox3)
-        Me.Panel1.Controls.Add(Me.CheckBox6)
-        Me.Panel1.Controls.Add(Me.CheckBox1)
-        Me.Panel1.Controls.Add(Me.CheckBox5)
-        Me.Panel1.Controls.Add(Me.CheckBox2)
-        Me.Panel1.Controls.Add(Me.CheckBox4)
-        Me.Panel1.Location = New System.Drawing.Point(238, 238)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(169, 185)
-        Me.Panel1.TabIndex = 35
+        Me.panelHora1.BackColor = System.Drawing.Color.White
+        Me.panelHora1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.panelHora1.Controls.Add(Me.CheckBox10)
+        Me.panelHora1.Controls.Add(Me.CheckBox9)
+        Me.panelHora1.Controls.Add(Me.CheckBox8)
+        Me.panelHora1.Controls.Add(Me.CheckBox7)
+        Me.panelHora1.Controls.Add(Me.CheckBox3)
+        Me.panelHora1.Controls.Add(Me.CheckBox6)
+        Me.panelHora1.Controls.Add(Me.CheckBox1)
+        Me.panelHora1.Controls.Add(Me.CheckBox5)
+        Me.panelHora1.Controls.Add(Me.CheckBox2)
+        Me.panelHora1.Controls.Add(Me.CheckBox4)
+        Me.panelHora1.Location = New System.Drawing.Point(515, 447)
+        Me.panelHora1.Name = "panelHora1"
+        Me.panelHora1.Size = New System.Drawing.Size(169, 185)
+        Me.panelHora1.TabIndex = 35
+        Me.panelHora1.Visible = False
         '
         'CheckBox10
         '
@@ -462,11 +481,33 @@ Partial Class Frm_Generar_Solicitud_OT
         Me.txt_dni_sot.TabIndex = 42
         Me.txt_dni_sot.Visible = False
         '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.White
+        Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel2.Controls.Add(Me.Label11)
+        Me.Panel2.Location = New System.Drawing.Point(238, 238)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.Panel2.Size = New System.Drawing.Size(169, 185)
+        Me.Panel2.TabIndex = 39
+        '
+        'Label11
+        '
+        Me.Label11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label11.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Label11.Location = New System.Drawing.Point(-1, -1)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(85, 23)
+        Me.Label11.TabIndex = 0
+        Me.Label11.Text = "Hora"
+        '
         'Frm_Generar_Solicitud_OT
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.ClientSize = New System.Drawing.Size(551, 468)
+        Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.txt_dni_sot)
         Me.Controls.Add(Me.txt_num_solicitud_sot)
         Me.Controls.Add(Me.txt_solicitante_sot)
@@ -474,10 +515,10 @@ Partial Class Frm_Generar_Solicitud_OT
         Me.Controls.Add(Me.txt_distrito_sot)
         Me.Controls.Add(Me.txt_direccion_sot)
         Me.Controls.Add(Me.txt_area)
-        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.panelHora1)
         Me.Controls.Add(Me.ddl_tipo_trabajo_sot)
         Me.Controls.Add(Me.MonthCalendar1)
-        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.btnCancelarSOT)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.txt_fecha_comp)
         Me.Controls.Add(Me.ddl_motivo_sot)
@@ -495,21 +536,22 @@ Partial Class Frm_Generar_Solicitud_OT
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btnGenerarSOT)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Frm_Generar_Solicitud_OT"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Generar Solicitud de OT"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
+        Me.panelHora1.ResumeLayout(False)
+        Me.panelHora1.PerformLayout()
+        Me.Panel2.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
     Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents btnGenerarSOT As System.Windows.Forms.Button
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
@@ -531,7 +573,7 @@ Partial Class Frm_Generar_Solicitud_OT
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents TextBox10 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox9 As System.Windows.Forms.TextBox
-    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents btnCancelarSOT As System.Windows.Forms.Button
     Friend WithEvents MonthCalendar1 As System.Windows.Forms.MonthCalendar
     Friend WithEvents ddl_tipo_trabajo_sot As System.Windows.Forms.ComboBox
     Friend WithEvents CheckBox2 As System.Windows.Forms.CheckBox
@@ -539,7 +581,7 @@ Partial Class Frm_Generar_Solicitud_OT
     Friend WithEvents CheckBox4 As System.Windows.Forms.CheckBox
     Friend WithEvents CheckBox5 As System.Windows.Forms.CheckBox
     Friend WithEvents CheckBox6 As System.Windows.Forms.CheckBox
-    Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents panelHora1 As System.Windows.Forms.Panel
     Friend WithEvents CheckBox10 As System.Windows.Forms.CheckBox
     Friend WithEvents CheckBox9 As System.Windows.Forms.CheckBox
     Friend WithEvents CheckBox8 As System.Windows.Forms.CheckBox
@@ -551,4 +593,6 @@ Partial Class Frm_Generar_Solicitud_OT
     Friend WithEvents txt_solicitante_sot As System.Windows.Forms.TextBox
     Friend WithEvents txt_num_solicitud_sot As System.Windows.Forms.TextBox
     Friend WithEvents txt_dni_sot As System.Windows.Forms.TextBox
+    Friend WithEvents Panel2 As System.Windows.Forms.Panel
+    Friend WithEvents Label11 As System.Windows.Forms.Label
 End Class

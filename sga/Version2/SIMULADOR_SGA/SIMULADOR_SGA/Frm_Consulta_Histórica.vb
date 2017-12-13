@@ -33,10 +33,17 @@ Public Class Frm_Consulta_Histórica
             txt_doc_cliente.Text = "44880188"
             CheckBox3.Checked = True
             ddldocumento.SelectedText = "DNI/LE"
-            tabMain.SelectedTab = tabTVSatelitalContainner
-            tabTVSatelital.SelectedTab = tabInalambrico
+
+            'tabMain.SelectedTab = tabTVSatelitalContainner
+            'tabTVSatelital.SelectedTab = tabInalambrico
+
+            btn_buscar_cliente_Click(sender, e)
+            tabMain.SelectedTab = tabServiciosContratados
+            btn_generar_incidencia_Click(sender, e)
         End If
 
+        Manager.disableTextbox(gbxTVSCliente, gbxTVSContrato, gbxTVSFactInst, gbxTVSLeft, gbxTVSMotVenta, gbxTVSRecargas, gbxDCDatosBasicos)
+        txtcategoria.ForeColor = Color.Red
         'Orden de los datagriedview
         dg_datos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
         dg_datos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
@@ -2090,9 +2097,9 @@ Public Class Frm_Consulta_Histórica
         nombre = txtrazon_social.Text
         Modulo1.servicio = txt_1.Text
         Modulo1.codigo = txtcodigo1.Text
-        Dim result As Integer = MessageBox.Show("Cliente:" + nombre + " Servicio: " + Modulo1.servicio + " ¿Desea Continuar?",
-       "Generación de Incidencias desde Consulta Histórica", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question)
-        If result = DialogResult.Yes Then
+        'Dim result As Integer = MessageBox.Show("Cliente:" + nombre + " Servicio: " + Modulo1.servicio + " ¿Desea Continuar?", "Generación de Incidencias desde Consulta Histórica", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question)
+
+        If DialogResult.Yes = DialogResult.Yes Then
             'Frm_Generar_incidencia.Show()
             frm5.MdiParent = Frm_Menu
             frm5.WindowState = FormWindowState.Normal
@@ -3525,6 +3532,10 @@ Public Class Frm_Consulta_Histórica
 
     Private Sub Frm_Consulta_Histórica_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         'Me.Close()
+    End Sub
+
+    Private Sub txtcategoria_EnabledChanged(sender As Object, e As EventArgs) Handles txtcategoria.EnabledChanged
+        DirectCast(sender, TextBox).ForeColor = Color.Red
     End Sub
 End Class
 
