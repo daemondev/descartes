@@ -36,7 +36,7 @@ Partial Class Frm_Generar_Solicitud_OT
         Me.txt_observaciones_sot = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.txtNuevoSOT = New System.Windows.Forms.TextBox()
         Me.txt_codigo_cliente_sot = New System.Windows.Forms.TextBox()
         Me.txt_nom_cliente_sot = New System.Windows.Forms.TextBox()
         Me.ddl_motivo_sot = New System.Windows.Forms.ComboBox()
@@ -107,7 +107,7 @@ Partial Class Frm_Generar_Solicitud_OT
         Me.TextBox1.Location = New System.Drawing.Point(101, 205)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.ReadOnly = True
-        Me.TextBox1.Size = New System.Drawing.Size(329, 20)
+        Me.TextBox1.Size = New System.Drawing.Size(149, 20)
         Me.TextBox1.TabIndex = 3
         '
         'Label2
@@ -194,14 +194,14 @@ Partial Class Frm_Generar_Solicitud_OT
         Me.Label8.TabIndex = 18
         Me.Label8.Text = "SOT Generado:"
         '
-        'TextBox4
+        'txtNuevoSOT
         '
-        Me.TextBox4.BackColor = System.Drawing.SystemColors.Control
-        Me.TextBox4.Location = New System.Drawing.Point(316, 9)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.ReadOnly = True
-        Me.TextBox4.Size = New System.Drawing.Size(114, 20)
-        Me.TextBox4.TabIndex = 19
+        Me.txtNuevoSOT.BackColor = System.Drawing.SystemColors.Control
+        Me.txtNuevoSOT.Location = New System.Drawing.Point(316, 9)
+        Me.txtNuevoSOT.Name = "txtNuevoSOT"
+        Me.txtNuevoSOT.ReadOnly = True
+        Me.txtNuevoSOT.Size = New System.Drawing.Size(114, 20)
+        Me.txtNuevoSOT.TabIndex = 19
         '
         'txt_codigo_cliente_sot
         '
@@ -237,7 +237,7 @@ Partial Class Frm_Generar_Solicitud_OT
         Me.txt_fecha_comp.Location = New System.Drawing.Point(101, 183)
         Me.txt_fecha_comp.Name = "txt_fecha_comp"
         Me.txt_fecha_comp.ReadOnly = True
-        Me.txt_fecha_comp.Size = New System.Drawing.Size(329, 20)
+        Me.txt_fecha_comp.Size = New System.Drawing.Size(149, 20)
         Me.txt_fecha_comp.TabIndex = 24
         '
         'GroupBox1
@@ -524,7 +524,7 @@ Partial Class Frm_Generar_Solicitud_OT
         Me.Controls.Add(Me.ddl_motivo_sot)
         Me.Controls.Add(Me.txt_nom_cliente_sot)
         Me.Controls.Add(Me.txt_codigo_cliente_sot)
-        Me.Controls.Add(Me.TextBox4)
+        Me.Controls.Add(Me.txtNuevoSOT)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.txt_observaciones_sot)
@@ -563,7 +563,7 @@ Partial Class Frm_Generar_Solicitud_OT
     Friend WithEvents txt_observaciones_sot As System.Windows.Forms.TextBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
+    Friend WithEvents txtNuevoSOT As System.Windows.Forms.TextBox
     Friend WithEvents txt_codigo_cliente_sot As System.Windows.Forms.TextBox
     Friend WithEvents txt_nom_cliente_sot As System.Windows.Forms.TextBox
     Friend WithEvents ddl_motivo_sot As System.Windows.Forms.ComboBox

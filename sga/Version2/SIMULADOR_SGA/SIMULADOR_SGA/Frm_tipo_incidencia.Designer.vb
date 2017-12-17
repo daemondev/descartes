@@ -43,14 +43,14 @@ Partial Class Frm_tipo_incidencia
         Me.chkExisteCliente = New System.Windows.Forms.CheckBox()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtAbr = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.txt_tipo_incidencia5 = New System.Windows.Forms.TextBox()
         Me.txt_tipo_incidencia_2_click = New System.Windows.Forms.TextBox()
-        Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.SuspendLayout()
@@ -81,7 +81,7 @@ Partial Class Frm_tipo_incidencia
         Me.lb_tipo_incidencia.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lb_tipo_incidencia.FormattingEnabled = True
         Me.lb_tipo_incidencia.ItemHeight = 15
-        Me.lb_tipo_incidencia.Items.AddRange(New Object() {"SOLUCION 1ER - NIVEL -Descartes", "ATENCION TECNOLOGICA FIJA -Descartes", "INFORMACIÓN-Información", "SOLICITUD-Cliente", "RECLAMO-Multicarrier", "REPORTE PREVIO-Calidad", "Incidencia-Cliente", "REPORTE PREVIO-AVERIA DE RED", "REPORTE PREVIO-Prepago", "REPORTE PREVIO TP-Telefonia Publica", "REPORTE-Reporte Equipos", "TP-Incidencia", "GESTION INTERNA-Incidencia"})
+        Me.lb_tipo_incidencia.Items.AddRange(New Object() {"INFORMACIÓN-Información", "ATENCION TECNOLOGICA FIJA-Descartes", "SOLUCION 1ER - NIVEL-Descartes", "SOLICITUD-Cliente", "Incidencia-Cliente", "REPORTE PREVIO-Calidad", "REPORTE PREVIO-AVERIA DE RED", "REPORTE-Reporte Equipos", "TP-Incidencia", "GESTION INTERNA-Incidencia", "DEMO-Incidencia"})
         Me.lb_tipo_incidencia.Location = New System.Drawing.Point(6, 119)
         Me.lb_tipo_incidencia.Name = "lb_tipo_incidencia"
         Me.lb_tipo_incidencia.Size = New System.Drawing.Size(321, 229)
@@ -102,7 +102,7 @@ Partial Class Frm_tipo_incidencia
         Me.lb_area_vinculada.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lb_area_vinculada.FormattingEnabled = True
         Me.lb_area_vinculada.ItemHeight = 15
-        Me.lb_area_vinculada.Items.AddRange(New Object() {"Atención Telefónica HFC - LIMA"})
+        Me.lb_area_vinculada.Items.AddRange(New Object() {"Atención Telefónica DTH - LIMA"})
         Me.lb_area_vinculada.Location = New System.Drawing.Point(6, 26)
         Me.lb_area_vinculada.Name = "lb_area_vinculada"
         Me.lb_area_vinculada.Size = New System.Drawing.Size(321, 49)
@@ -137,7 +137,7 @@ Partial Class Frm_tipo_incidencia
         Me.TabPage1.Controls.Add(Me.chkExisteCliente)
         Me.TabPage1.Controls.Add(Me.TextBox2)
         Me.TabPage1.Controls.Add(Me.Label3)
-        Me.TabPage1.Controls.Add(Me.TextBox1)
+        Me.TabPage1.Controls.Add(Me.txtAbr)
         Me.TabPage1.Controls.Add(Me.Label2)
         Me.TabPage1.Controls.Add(Me.CheckBox1)
         Me.TabPage1.Location = New System.Drawing.Point(4, 25)
@@ -296,14 +296,14 @@ Partial Class Frm_tipo_incidencia
         Me.Label3.TabIndex = 3
         Me.Label3.Text = "Inst:"
         '
-        'TextBox1
+        'txtAbr
         '
-        Me.TextBox1.Location = New System.Drawing.Point(50, 6)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(151, 20)
-        Me.TextBox1.TabIndex = 2
-        Me.TextBox1.Text = "SOL. 1NVL"
-        Me.TextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtAbr.Location = New System.Drawing.Point(50, 6)
+        Me.txtAbr.Name = "txtAbr"
+        Me.txtAbr.Size = New System.Drawing.Size(151, 20)
+        Me.txtAbr.TabIndex = 2
+        Me.txtAbr.Text = "INF.INF"
+        Me.txtAbr.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label2
         '
@@ -317,14 +317,15 @@ Partial Class Frm_tipo_incidencia
         '
         'CheckBox1
         '
-        Me.CheckBox1.AutoSize = True
         Me.CheckBox1.Checked = True
         Me.CheckBox1.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.CheckBox1.Location = New System.Drawing.Point(68, 32)
+        Me.CheckBox1.Location = New System.Drawing.Point(6, 30)
         Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(79, 17)
+        Me.CheckBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.CheckBox1.Size = New System.Drawing.Size(152, 17)
         Me.CheckBox1.TabIndex = 0
         Me.CheckBox1.Text = "Tipo activo"
+        Me.CheckBox1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.CheckBox1.UseVisualStyleBackColor = True
         '
         'TabPage2
@@ -337,6 +338,15 @@ Partial Class Frm_tipo_incidencia
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Est. Servicios"
         Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'TabPage3
+        '
+        Me.TabPage3.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage3.Name = "TabPage3"
+        Me.TabPage3.Size = New System.Drawing.Size(203, 259)
+        Me.TabPage3.TabIndex = 2
+        Me.TabPage3.Text = "Servicios"
+        Me.TabPage3.UseVisualStyleBackColor = True
         '
         'Button2
         '
@@ -363,15 +373,6 @@ Partial Class Frm_tipo_incidencia
         Me.txt_tipo_incidencia_2_click.Size = New System.Drawing.Size(101, 20)
         Me.txt_tipo_incidencia_2_click.TabIndex = 11
         Me.txt_tipo_incidencia_2_click.Visible = False
-        '
-        'TabPage3
-        '
-        Me.TabPage3.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(203, 259)
-        Me.TabPage3.TabIndex = 2
-        Me.TabPage3.Text = "Servicios"
-        Me.TabPage3.UseVisualStyleBackColor = True
         '
         'Frm_tipo_incidencia
         '
@@ -421,7 +422,7 @@ Partial Class Frm_tipo_incidencia
     Friend WithEvents chkExisteCliente As System.Windows.Forms.CheckBox
     Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents txtAbr As System.Windows.Forms.TextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
     Friend WithEvents txt_tipo_incidencia5 As System.Windows.Forms.TextBox

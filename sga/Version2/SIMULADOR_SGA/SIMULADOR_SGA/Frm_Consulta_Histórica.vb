@@ -27,23 +27,71 @@ Public Class Frm_Consulta_Histórica
     Private dt As New DataTable
     Public varf8 As String
     Public varf9 As String
+
+    Sub resizeGridColumns()
+        Try
+            dgvTVSServicios.Columns(0).Width = 70
+            dgvTVSServicios.Columns(1).Width = 150
+            dgvTVSServicios.Columns(2).Width = 150
+            dgvTVSServicios.Columns(3).Width = 150
+            dgvTVSServicios.Columns(4).Width = 50
+            dgvTVSServicios.Columns(8).Width = 123
+            dgvTVSServicios.Columns(10).Width = 200
+
+
+
+            dgvTVSEquipos.Columns(0).Width = 60
+            dgvTVSEquipos.Columns(1).Width = 40
+            dgvTVSEquipos.Columns(2).Width = 200
+            dgvTVSEquipos.Columns(3).Width = 200
+            dgvTVSEquipos.Columns(6).Width = 200
+            dgvTVSEquipos.Columns(4).Width = 50
+            dgvTVSEquipos.Columns(7).Width = 50
+            dgvTVSEquipos.Columns(8).Width = 40
+        Catch ex As Exception
+            MessageBox.Show("No hay Datos para mostrar")
+        End Try
+        
+    End Sub
+
     Private Sub Frm_Consulta_Histórica_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         If Util.debug Then
-            txt_doc_cliente.Text = "44880188"
-            CheckBox3.Checked = True
+            txt_doc_cliente.Text = Util.clieDoc
+            chkBNroDocIdentidad.Checked = True
             ddldocumento.SelectedText = "DNI/LE"
 
             'tabMain.SelectedTab = tabTVSatelitalContainner
             'tabTVSatelital.SelectedTab = tabInalambrico
 
             btn_buscar_cliente_Click(sender, e)
-            tabMain.SelectedTab = tabServiciosContratados
-            btn_generar_incidencia_Click(sender, e)
-        End If
+            'tabMain.SelectedTab = tabServiciosContratados
+            'btn_generar_incidencia_Click(sender, e)
 
-        Manager.disableTextbox(gbxTVSCliente, gbxTVSContrato, gbxTVSFactInst, gbxTVSLeft, gbxTVSMotVenta, gbxTVSRecargas, gbxDCDatosBasicos)
+            tabTVSatelital.SelectedTab = tabServiciosContratados
+        End If
+        dgvTVSEquipos.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        dgvTVSServicios.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+
+
+
+        Me.dgvTVSEquipos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvTVSEquipos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
+        dgvTVSEquipos.AllowUserToAddRows = False
+        dgvTVSEquipos.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+        dgvTVSEquipos.RowHeadersVisible = False
+
+        Me.dgvTVSServicios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvTVSServicios.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
+        dgvTVSServicios.AllowUserToAddRows = False
+        dgvTVSServicios.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+        dgvTVSServicios.RowHeadersVisible = False
+
+
+
+        Manager.disableTextbox(gbxTVSCliente, gbxTVSContrato, gbxTVSFactInst, gbxTVSLeft, gbxTVSMotVenta, gbxTVSRecargas, gbxDCDatosBasicos, panel_solicitud_ot, gbxDCObservaciones)
         txtcategoria.ForeColor = Color.Red
+        txt_incidencia_ot.ForeColor = Color.Black
         'Orden de los datagriedview
         dg_datos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
         dg_datos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
@@ -57,11 +105,11 @@ Public Class Frm_Consulta_Histórica
         dg_anotaciones_ot.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
         dg_anotaciones_ot.RowHeadersVisible = False
 
-        Me.dg_contactos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-        Me.dg_contactos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
-        dg_contactos.AllowUserToAddRows = False
-        dg_contactos.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
-        dg_contactos.RowHeadersVisible = False
+        Me.dgvDCcontactos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvDCcontactos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
+        dgvDCcontactos.AllowUserToAddRows = False
+        dgvDCcontactos.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+        dgvDCcontactos.RowHeadersVisible = False
 
         dg_detalle_ot.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
         dg_detalle_ot.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
@@ -107,11 +155,11 @@ Public Class Frm_Consulta_Histórica
         dg_incidencias_seguimiento.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
         dg_incidencias_seguimiento.RowHeadersVisible = False
 
-        dg_servicios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-        dg_servicios.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
-        dg_servicios.AllowUserToAddRows = False
-        dg_servicios.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
-        dg_servicios.RowHeadersVisible = False
+        dgvSCservicios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        dgvSCservicios.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
+        dgvSCservicios.AllowUserToAddRows = False
+        dgvSCservicios.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+        dgvSCservicios.RowHeadersVisible = False
 
         Me.dg_transacciones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
         dg_transacciones.AllowUserToAddRows = False
@@ -147,7 +195,7 @@ Public Class Frm_Consulta_Histórica
     Private Sub btn_buscar_cliente_Click(sender As Object, e As EventArgs) Handles btn_buscar_cliente.Click
         If CheckBox1.Checked = True And txt_codigo_cliente.Text <> "" And txt_estado_cliente.Text <> "" Then
 
-            ddlestado_servicio.SelectedItem = "Suspendido"
+            cboSCestado_servicio.SelectedItem = "Suspendido"
 
             mostrar_datos_clientes_por_codigo()
             mostrar_contactos_clientes_por_codigo()
@@ -171,17 +219,23 @@ Public Class Frm_Consulta_Histórica
             mostrar_cobranza_por_codigo()
 
 
-            ddlestado_servicio.SelectedItem = "Activo"
+            cboSCestado_servicio.SelectedItem = "Activo"
 
-        ElseIf CheckBox3.Checked = True And txt_doc_cliente.Text <> "" Then
+        ElseIf chkBNroDocIdentidad.Checked = True And txt_doc_cliente.Text <> "" Then
             'Here
 
-            ddlestado_servicio.SelectedItem = "Suspendido"
+            cboSCestado_servicio.SelectedItem = "Suspendido"
             showTVSClientData()
+            'If Not Util.haveData Then
+            '    Return
+            'End If
+
             mostrar_datos_clientes_por_doc()
             mostrar_contactos_clientes_por_doc()
-            mostrar_solicitudes_ot_por_doc()
-            mostrar_detalle_ot_por_doc_mouse()
+
+            'xxx 
+            mostrar_solicitudes_ot_por_doc(txt_doc_cliente.Text)
+            mostrar_detalle_ot_por_doc_mouse(txt_doc_cliente.Text)
             mostrar_anotaciones_ot_por_doc()
             mostrar_incidencias_reclamos_por_doc()
             mostrar_incidencias_clientes_servicios_por_doc()
@@ -200,13 +254,13 @@ Public Class Frm_Consulta_Histórica
 
             mostrar_cobranza_por_doc()
 
-            ddlestado_servicio.SelectedItem = "Activo"
+            cboSCestado_servicio.SelectedItem = "Activo"
 
             tabMain.SelectedIndex = 1
 
         ElseIf CheckBox9.Checked = True And txt_nservicio_cliente.Text <> "" Then
 
-            ddlestado_servicio.SelectedItem = "Suspendido"
+            cboSCestado_servicio.SelectedItem = "Suspendido"
 
 
             mostrar_datos_clientes_por_nservicio()
@@ -230,7 +284,7 @@ Public Class Frm_Consulta_Histórica
 
             mostrar_cobranza_por_nservicio()
 
-            ddlestado_servicio.SelectedItem = "Activo"
+            cboSCestado_servicio.SelectedItem = "Activo"
 
             tabMain.SelectedIndex = 1
 
@@ -246,7 +300,16 @@ Public Class Frm_Consulta_Histórica
     End Sub
 
     Sub showTVSClientData()
-        Dim dtCliente As DataRow = Manager.getClientData(Integer.Parse(txt_doc_cliente.Text)).Rows(0)
+
+        Dim dtCliente As DataRow = Nothing
+        Try
+            dtCliente = Manager.getClientData(Integer.Parse(txt_doc_cliente.Text)).Rows(0)
+        Catch ex As Exception
+            Util.haveData = False
+            Return
+        End Try
+
+        Util.haveData = True
 
         txtTVSNroRegistro.Text = dtCliente("nroRegistro").ToString()
         txtTVSEstadoRegistro.Text = dtCliente("estRegistro").ToString()
@@ -296,6 +359,10 @@ Public Class Frm_Consulta_Histórica
 
         dgvTVSServicios.DataSource = Manager.getTVSServices(dtCliente("vc_documento").ToString())
         dgvTVSEquipos.DataSource = Manager.getTVSEquipo(id)
+
+        If dgvTVSEquipos.RowCount > 1 Then
+            'resizeGridColumns()
+        End If
 
     End Sub
 
@@ -992,14 +1059,28 @@ Public Class Frm_Consulta_Histórica
         End Try
     End Sub
 
-    Public Sub mostrar_solicitudes_ot_por_doc()
+    Public Sub mostrar_solicitudes_ot_por_doc(ByVal search As String)
         Try
             ' Obtenemos un objeto DataRow correspondiente con
             ' el ID escrito en un control TextBox
             '
             Dim dto As New DL.DL_cliente
 
-            Dim row As DataRow = dto.Buscar_solicitudes_ot_por_doc(txt_doc_cliente.Text)
+
+
+            Dim row As DataRow = Nothing
+
+
+            If Not Util.sot.Equals(0) Then
+                Try
+                    row = Manager.getCurrentSOT(search).Rows(0)
+                Catch ex As Exception
+                    row = Nothing
+                End Try
+
+            Else
+                row = dto.Buscar_solicitudes_ot_por_doc(search)
+            End If
 
             If (row Is Nothing) Then
 
@@ -1103,7 +1184,7 @@ Public Class Frm_Consulta_Histórica
             dt = func._mostrar_servicios_contratados_por_codigo(dts)
             If dt.Rows.Count <> 0 Then
                 '     MessageBox.Show("codigo valido", "Guardando registros", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                dg_servicios.DataSource = dt
+                dgvSCservicios.DataSource = dt
             Else
                 '  MessageBox.Show("Error", "Guardando registros", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
@@ -1124,7 +1205,7 @@ Public Class Frm_Consulta_Histórica
             dt = func._mostrar_servicios_contratados_por_codigo(dts)
             If dt.Rows.Count <> 0 Then
                 '     MessageBox.Show("codigo valido", "Guardando registros", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                dg_servicios.DataSource = dt
+                dgvSCservicios.DataSource = dt
             Else
                 '  MessageBox.Show("Error", "Guardando registros", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
@@ -1142,10 +1223,10 @@ Public Class Frm_Consulta_Histórica
                 .n_doc = txt_doc_cliente.Text
             End With
             'enviamos los datos
-            dt = func._mostrar_servicios_contratados_por_n_doc(dts)
+            dt = func._mostrar_servicios_contratados_por_n_doc(dts, cboSCestado_servicio.SelectedItem.ToString())
             If dt.Rows.Count <> 0 Then
                 '     MessageBox.Show("codigo valido", "Guardando registros", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                dg_servicios.DataSource = dt
+                dgvSCservicios.DataSource = dt
             Else
                 '  MessageBox.Show("Error", "Guardando registros", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
@@ -1166,7 +1247,7 @@ Public Class Frm_Consulta_Histórica
             dt = func._mostrar_servicios_contratados_por_n_servicio(dts)
             If dt.Rows.Count <> 0 Then
                 '     MessageBox.Show("codigo valido", "Guardando registros", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                dg_servicios.DataSource = dt
+                dgvSCservicios.DataSource = dt
             Else
                 '  MessageBox.Show("Error", "Guardando registros", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
@@ -1245,8 +1326,12 @@ Public Class Frm_Consulta_Histórica
             Dim dto As New DL.DL_cliente
 
             'Dim row As DataRow = dto.Buscar_datos_clientes_por_doc(txt_doc_cliente.Text)
-            Dim row As DataRow = R.get("getClientByDOC", txt_doc_cliente.Text).Rows(0)
-
+            Dim row As DataRow = Nothing
+            Try
+                row = R.get("getClientByDOC", txt_doc_cliente.Text).Rows(0)
+            Catch ex As Exception
+                Return
+            End Try
 
             If (row Is Nothing) Then
                 MessageBox.Show("No hay registros que coincidan con el ID especificado.")
@@ -2008,8 +2093,8 @@ Public Class Frm_Consulta_Histórica
             MsgBox(ex.Message)
         End Try
     End Sub
-    Private Sub CheckBox3_CheckedChanged_1(sender As Object, e As EventArgs) Handles CheckBox3.CheckedChanged
-        If CheckBox3.Checked = True And txt_doc_cliente.Text <> "" Then
+    Private Sub CheckBox3_CheckedChanged_1(sender As Object, e As EventArgs) Handles chkBNroDocIdentidad.CheckedChanged
+        If chkBNroDocIdentidad.Checked = True And txt_doc_cliente.Text <> "" Then
             mostrar_por_n_doc()
         End If
     End Sub
@@ -2027,7 +2112,7 @@ Public Class Frm_Consulta_Histórica
             dt = func._mostrar_contactos_clientes_por_codigo(dts)
             If dt.Rows.Count <> 0 Then
                 '     MessageBox.Show("codigo valido", "Guardando registros", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                dg_contactos.DataSource = dt
+                dgvDCcontactos.DataSource = dt
             Else
                 '  MessageBox.Show("Error", "Guardando registros", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
@@ -2048,7 +2133,7 @@ Public Class Frm_Consulta_Histórica
             dt = func._mostrar_contactos_clientes_por_doc(dts)
             If dt.Rows.Count <> 0 Then
                 '     MessageBox.Show("codigo valido", "Guardando registros", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                dg_contactos.DataSource = dt
+                dgvDCcontactos.DataSource = dt
             Else
                 '  MessageBox.Show("Error", "Guardando registros", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
@@ -2069,7 +2154,7 @@ Public Class Frm_Consulta_Histórica
             dt = func._mostrar_contactos_clientes_por_n_servicio(dts)
             If dt.Rows.Count <> 0 Then
                 '     MessageBox.Show("codigo valido", "Guardando registros", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                dg_contactos.DataSource = dt
+                dgvDCcontactos.DataSource = dt
             Else
                 '  MessageBox.Show("Error", "Guardando registros", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
@@ -2078,18 +2163,20 @@ Public Class Frm_Consulta_Histórica
         End Try
     End Sub
 
-    Private Sub ddlestado_servicio_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddlestado_servicio.SelectedIndexChanged
-        If ddlestado_servicio.SelectedItem.ToString = "Activo" And CheckBox1.Checked = True Then
+    Private Sub ddlestado_servicio_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboSCestado_servicio.SelectedIndexChanged
+        If cboSCestado_servicio.SelectedItem.ToString = "Activo" And CheckBox1.Checked = True Then
             mostrar_servicios_contratados_por_codigo()
-        ElseIf frm9.txt_5.Text <> "" And ddlestado_servicio.SelectedItem.ToString = "Activo" Then
+        ElseIf frm9.txt_5.Text <> "" And cboSCestado_servicio.SelectedItem.ToString = "Activo" Then
             mostrar_servicios_contratados_por_codigo1()
-        ElseIf ddlestado_servicio.SelectedItem.ToString = "Activo" And CheckBox3.Checked = True Then
+            'ElseIf cboSCestado_servicio.SelectedItem.ToString = "Activo" And chkBNroDocIdentidad.Checked = True Then
+        ElseIf chkBNroDocIdentidad.Checked = True Then
             mostrar_servicios_contratados_por_n_doc()
-        ElseIf ddlestado_servicio.SelectedItem.ToString = "Activo" And CheckBox9.Checked = True Then
+        ElseIf cboSCestado_servicio.SelectedItem.ToString = "Activo" And CheckBox9.Checked = True Then
             mostrar_servicios_contratados_por_nservicio()
         Else
-            dg_servicios.DataSource = Nothing
+            dgvSCservicios.DataSource = Nothing
             dg_transacciones.DataSource = Nothing
+
         End If
     End Sub
     Private Sub btn_generar_incidencia_Click(sender As Object, e As EventArgs) Handles btn_generar_incidencia.Click
@@ -2101,19 +2188,38 @@ Public Class Frm_Consulta_Histórica
 
         If DialogResult.Yes = DialogResult.Yes Then
             'Frm_Generar_incidencia.Show()
-            frm5.MdiParent = Frm_Menu
-            frm5.WindowState = FormWindowState.Normal
+            frmGenerarIncidencia.MdiParent = Frm_Menu
+            frmGenerarIncidencia.WindowState = FormWindowState.Normal
             Me.WindowState = FormWindowState.Minimized
-            frm5.Limpiar_incidencias()
-            frm5.Show()
-            frm5.generar()
+            frmGenerarIncidencia.Limpiar_incidencias()
+            frmGenerarIncidencia.Show()
+            frmGenerarIncidencia.txt_estado.Text = "0 - Sin Valor"
+            frmGenerarIncidencia.pnlHideDocRel.Visible = True
+            frmGenerarIncidencia.ddl_tipo_servicio.Text = ""
+            frmGenerarIncidencia.txt_tipo_atencion.Text = ""
+            frmGenerarIncidencia.dgvGIIncidencias.DataSource = Nothing
+
+            Util.tipo_servicio = ""
+
+            frmGenerarIncidencia.txt_incidencia.Text = ""
+
+            Util.idincidencia = 0
+            Util.idTicket = 0
+
+
+            frmGenerarIncidencia.txt_usuario.Text = ""
+            frmGenerarIncidencia.txt_ticket.Text = ""
+            frmGenerarIncidencia.txt_f_registro.Text = "00/00/0000 00:00"
+
+
+            frmGenerarIncidencia.generar()
             Frm_Menu.ToolStrip2.Visible = True
         End If
     End Sub
-    Private Sub dg_servicios_SelectionChanged(sender As Object, e As EventArgs) Handles dg_servicios.SelectionChanged
-        If Me.dg_servicios.SelectedRows.Count > 0 Then
-            Me.txt_1.Text = CStr(dg_servicios.Item("Numero servicio", dg_servicios.SelectedRows(0).Index).Value)
-            Me.txt_2_2.Text = CStr(dg_servicios.Item("Producto", dg_servicios.SelectedRows(0).Index).Value)
+    Private Sub dg_servicios_SelectionChanged(sender As Object, e As EventArgs) Handles dgvSCservicios.SelectionChanged
+        If Me.dgvSCservicios.SelectedRows.Count > 0 Then
+            Me.txt_1.Text = CStr(dgvSCservicios.Item("Numero servicio", dgvSCservicios.SelectedRows(0).Index).Value)
+            Me.txt_2_2.Text = CStr(dgvSCservicios.Item("Producto", dgvSCservicios.SelectedRows(0).Index).Value)
 
             Modulo1.producto_contratado = txt_2_2.Text
             If CheckBox1.Checked = True Then
@@ -2122,7 +2228,7 @@ Public Class Frm_Consulta_Histórica
                 mostrar_servicios_contratados_transacciones_por_codigo1()
             End If
 
-            If CheckBox3.Checked = True Then
+            If chkBNroDocIdentidad.Checked = True Then
                 mostrar_servicios_contratados_transacciones_por_n_doc()
             End If
 
@@ -2152,7 +2258,7 @@ Public Class Frm_Consulta_Histórica
         txt_count.Text = CStr(VScrollBar3.Value)
         If CheckBox1.Checked = True Then
             mostrar_solicitudes_ot_por_codigo_mouse()
-        ElseIf CheckBox3.Checked = True Then
+        ElseIf chkBNroDocIdentidad.Checked = True Then
             mostrar_solicitudes_ot_por_doc_mouse()
         ElseIf CheckBox9.Checked = True Then
             mostrar_solicitudes_ot_por_nservicio_por_mouse()
@@ -2183,7 +2289,7 @@ Public Class Frm_Consulta_Histórica
                     mostrar_detalle_factura_por_cod1_mouse()
                     mostrar_detalle_factura_por_codigo2_mouse()
                     mostrar_pagos_aplicaciones_factura_por_codigo_mouse()
-                ElseIf CheckBox3.Checked = True Then
+                ElseIf chkBNroDocIdentidad.Checked = True Then
                     mostrar_facturas_por_doc_mouse()
                     mostrar_detalle_factura_por_doc1_mouse()
                     mostrar_detalle_factura_por_doc2_mouse()
@@ -2224,7 +2330,7 @@ Public Class Frm_Consulta_Histórica
                     mostrar_detalle_factura_por_cod1_mouse()
                     mostrar_detalle_factura_por_codigo2_mouse()
                     mostrar_pagos_aplicaciones_factura_por_codigo_mouse()
-                ElseIf CheckBox3.Checked = True Then
+                ElseIf chkBNroDocIdentidad.Checked = True Then
                     mostrar_facturas_por_doc_mouse()
                     mostrar_detalle_factura_por_doc1_mouse()
                     mostrar_detalle_factura_por_doc2_mouse()
@@ -2265,9 +2371,9 @@ Public Class Frm_Consulta_Histórica
                     mostrar_cambios_estado_solicitudes_ot_por_codigo_mouse()
                     mostrar_tarea_solicitudes_ot_por_codigo_mouse()
 
-                ElseIf CheckBox3.Checked = True Then
+                ElseIf chkBNroDocIdentidad.Checked = True Then
                     mostrar_solicitudes_ot_por_doc_mouse()
-                    mostrar_detalle_ot_por_doc_mouse()
+                    mostrar_detalle_ot_por_doc_mouse(txt_doc_cliente.Text)
                     mostrar_anotaciones_ot_por_doc_mouse()
                     mostrar_cambios_estado_solicitudes_ot_por_doc_mouse()
                     mostrar_tarea_solicitudes_ot_por_doc_mouse()
@@ -2311,9 +2417,9 @@ Public Class Frm_Consulta_Histórica
                     mostrar_cambios_estado_solicitudes_ot_por_codigo_mouse()
                     mostrar_tarea_solicitudes_ot_por_codigo_mouse()
 
-                ElseIf CheckBox3.Checked = True Then
+                ElseIf chkBNroDocIdentidad.Checked = True Then
                     mostrar_solicitudes_ot_por_doc_mouse()
-                    mostrar_detalle_ot_por_doc_mouse()
+                    mostrar_detalle_ot_por_doc_mouse(txt_doc_cliente.Text)
                     mostrar_anotaciones_ot_por_doc_mouse()
                     mostrar_cambios_estado_solicitudes_ot_por_doc_mouse()
                     mostrar_tarea_solicitudes_ot_por_doc_mouse()
@@ -2507,17 +2613,30 @@ Public Class Frm_Consulta_Histórica
         End Try
     End Sub
 
-    Public Sub mostrar_detalle_ot_por_doc_mouse()
+    Public Sub mostrar_detalle_ot_por_doc_mouse(ByVal search As String)
         Try
             Dim dts As New SOT.TB_solicitudes_ot
             Dim func As New DL.DL_cliente 'instanciamos a la clase DL_CLIENTE de la tabla tb_datos
 
             With dts
-                .vc_n_doc = txt_doc_cliente.Text
+                .vc_n_doc = search
+                '.vc_n_doc = txt_doc_cliente.Text
                 .vc_solicitud = Me.txt_solicitud_ot.Text
             End With
             'enviamos los datos
-            dt = func._mostrar_detalle_ot_por_n_doc_mouse(dts)
+
+            If Not Util.sot.Equals(0) Then
+                dt = R.get("getDetSOT", search)
+            Else
+                dt = func._mostrar_detalle_ot_por_n_doc_mouse(dts)
+            End If
+
+
+
+
+
+
+
             If dt.Rows.Count <> 0 Then
                 '     MessageBox.Show("codigo valido", "Guardando registros", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Me.dg_detalle_ot.DataSource = dt
@@ -3526,7 +3645,7 @@ Public Class Frm_Consulta_Histórica
 
     Private Sub Frm_Consulta_Histórica_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         'Me.Close()
-        frm4.Hide()
+        frmConsultaHistorica.Hide()
         e.Cancel = True
     End Sub
 

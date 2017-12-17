@@ -48,6 +48,13 @@ Public Class Frm_Generar_incidencia
 
         Frm_Tipificacion.txt_numero_servicio_tipo_caso.Text = Modulo1.servicio
 
+        Manager.disableTextbox(txt_derivacion, txt_asesor_derivacion, Panel1, Panel2, txt_codigo_cliente, txt_contacto, txt_contacto_cliente, txt_cliente, txt_segmento_negocio)
+
+        txt_tipo_caso.ForeColor = Color.Blue
+        txt_tipo_incidencia.ForeColor = Color.Blue
+        ddl_tipo_servicio.ForeColor = Color.Blue
+
+
         Me.txt_usuario_ingresado.Text = Modulo1.usuario
         Me.txt_nombre_ingresado.Text = Modulo1.nombres_usuario
         Me.txt_cid_generado.Text = Modulo1.servicio
@@ -55,18 +62,18 @@ Public Class Frm_Generar_incidencia
         txt_codigo5_incidencia.Text = Modulo1.codigo
 
 
-        Me.dg_generacion_incidencias.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-        dg_generacion_incidencias.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
-        dg_generacion_incidencias.AllowUserToAddRows = False
-        dg_generacion_incidencias.ReadOnly = False
-        dg_generacion_incidencias.RowHeadersVisible = False
+        Me.dgvGIIncidencias.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        dgvGIIncidencias.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
+        dgvGIIncidencias.AllowUserToAddRows = False
+        dgvGIIncidencias.ReadOnly = False
+        dgvGIIncidencias.RowHeadersVisible = False
 
         mostrar_contactos_incidencias()
         mostrar_datos_incidencias()
-        mostrar_clientes_incidencias()
+
         ddl_canal_ingreso.SelectedItem = "Telefono"
 
-        ddl_tipo_servicio.Text = "Cable"
+        txt_tipo_atencion.Text = ""
     End Sub
     Public Sub Generar_numero_incidencia()
         Try
@@ -133,7 +140,7 @@ Public Class Frm_Generar_incidencia
 
             dt = func._mostrar_clientes_incidencias(dts)
             If dt.Rows.Count <> 0 Then
-                Me.dg_generacion_incidencias.DataSource = dt
+                Me.dgvGIIncidencias.DataSource = dt
             Else
             End If
         Catch ex As Exception
@@ -224,7 +231,7 @@ Public Class Frm_Generar_incidencia
             End If
         End If
     End Sub
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles btnGITipoCaso.Click
 
         Dim frmTipificacion As New Frm_Tipificacion()
         frmTipificacion.tipoGestion = ddl_tipo_servicio.Text
@@ -238,6 +245,7 @@ Public Class Frm_Generar_incidencia
 
         If res = DialogResult.OK Then
             txt_tipo_caso.Text = frmTipificacion.varf3
+            txt_tipo_atencion.Text = "General"
         End If
 
     End Sub
@@ -253,7 +261,7 @@ Public Class Frm_Generar_incidencia
     End Sub
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles btnLauchIncidencia.Click
-
+        Util.comentario = txt_observaciones.Text
         Dim f4 As New Frm_contactos_incidencia()
         Dim res As DialogResult = f4.ShowDialog()
         If res = DialogResult.OK Then
@@ -265,13 +273,19 @@ Public Class Frm_Generar_incidencia
             If yesno = DialogResult.Yes Then
 
                 Dim item As DataRow = Manager.insAndGetIncidence(Util.idUsuario).Rows(0)
-                txt_usuario.Text = item("usuario").ToString()
+                
                 txt_incidencia.Text = item("id").ToString()
-                txt_ticket.Text = item("ticket").ToString()
-                txt_f_registro.Text = item("ins").ToString()
+                
                 Util.idincidencia = Convert.ToInt32(item("id"))
+                Util.idTicket = Convert.ToInt32(item("ticket"))
+
+
 
                 MessageBox.Show("Se grabaron los datos", "SGA Atención de llamadas", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                txt_usuario.Text = item("usuario").ToString()
+                txt_ticket.Text = item("ticket").ToString()
+                txt_f_registro.Text = item("ins").ToString()
+                Util.tipo_servicio = ddl_tipo_servicio.Text
                 MessageBox.Show("N° " + txt_ticket.Text, "Número de Ticket", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 MessageBox.Show("¿Desea Imprimir el Ticket?", "Impresión", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
             End If
@@ -283,7 +297,7 @@ Public Class Frm_Generar_incidencia
     End Sub
 
     Private Sub Frm_Generar_incidencia_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        frm5.Visible = False
+        frmGenerarIncidencia.Visible = False
         e.Cancel = True
     End Sub
 End Class

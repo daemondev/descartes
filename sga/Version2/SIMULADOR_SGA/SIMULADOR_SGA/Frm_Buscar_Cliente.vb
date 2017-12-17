@@ -75,7 +75,7 @@ Public Class Frm_Buscar_Cliente
         mostrar_detalle_factura_por_codigo11()
         mostrar_detalle_factura_por_codigo21()
 
-        frm4.tabMain.SelectedIndex = 1
+        frmConsultaHistorica.tabMain.SelectedIndex = 1
 
         Me.Close()
 
@@ -99,23 +99,23 @@ Public Class Frm_Buscar_Cliente
             ' Rellenamos los correspondientes controles TextBox
             ' con los datos existentes en el objeto DataRow
             ' obtenido.
-            frm4.txt_organizacion_2.Text = Convert.ToString(row("vc_organizacion"))
-            frm4.txt_desc_2.Text = Convert.ToString(row("vc_desc_item"))
-            frm4.txt_tipo_detalle_2.Text = Convert.ToString(row("vc_tipo_detalle"))
-            frm4.txt_puertos_2.Text = Convert.ToString(row("vc_puertos"))
-            frm4.txt_descuento_2.Text = Convert.ToString(row("vc_descuento"))
-            frm4.txt_tipo_servicio_2.Text = Convert.ToString(row("vc_tipo_servicio"))
-            frm4.txt_precio_unit_2.Text = Convert.ToString(row("vc_precio_unit"))
-            frm4.txt_desde_2.Text = Convert.ToString(row("vc_desde"))
-            frm4.txt_valor_venta_2.Text = Convert.ToString(row("vc_valor_venta"))
-            frm4.txt_servicio_2.Text = Convert.ToString(row("vc_servicio"))
-            frm4.txt_cantidad_2.Text = Convert.ToString(row("vc_cantidad"))
-            frm4.txt_hasta_2.Text = Convert.ToString(row("vc_hasta"))
-            frm4.txt_igv_2.Text = Convert.ToString(row("vc_igv"))
-            frm4.txt_equipo_2.Text = Convert.ToString(row("vc_equipo"))
-            frm4.txt_pago_2.Text = Convert.ToString(row("vc_pago"))
-            frm4.txt_dias_2.Text = Convert.ToString(row("vc_dias"))
-            frm4.txt_total_2.Text = Convert.ToString(row("vc_total_item"))
+            frmConsultaHistorica.txt_organizacion_2.Text = Convert.ToString(row("vc_organizacion"))
+            frmConsultaHistorica.txt_desc_2.Text = Convert.ToString(row("vc_desc_item"))
+            frmConsultaHistorica.txt_tipo_detalle_2.Text = Convert.ToString(row("vc_tipo_detalle"))
+            frmConsultaHistorica.txt_puertos_2.Text = Convert.ToString(row("vc_puertos"))
+            frmConsultaHistorica.txt_descuento_2.Text = Convert.ToString(row("vc_descuento"))
+            frmConsultaHistorica.txt_tipo_servicio_2.Text = Convert.ToString(row("vc_tipo_servicio"))
+            frmConsultaHistorica.txt_precio_unit_2.Text = Convert.ToString(row("vc_precio_unit"))
+            frmConsultaHistorica.txt_desde_2.Text = Convert.ToString(row("vc_desde"))
+            frmConsultaHistorica.txt_valor_venta_2.Text = Convert.ToString(row("vc_valor_venta"))
+            frmConsultaHistorica.txt_servicio_2.Text = Convert.ToString(row("vc_servicio"))
+            frmConsultaHistorica.txt_cantidad_2.Text = Convert.ToString(row("vc_cantidad"))
+            frmConsultaHistorica.txt_hasta_2.Text = Convert.ToString(row("vc_hasta"))
+            frmConsultaHistorica.txt_igv_2.Text = Convert.ToString(row("vc_igv"))
+            frmConsultaHistorica.txt_equipo_2.Text = Convert.ToString(row("vc_equipo"))
+            frmConsultaHistorica.txt_pago_2.Text = Convert.ToString(row("vc_pago"))
+            frmConsultaHistorica.txt_dias_2.Text = Convert.ToString(row("vc_dias"))
+            frmConsultaHistorica.txt_total_2.Text = Convert.ToString(row("vc_total_item"))
 
 
 
@@ -145,23 +145,23 @@ Public Class Frm_Buscar_Cliente
             ' con los datos existentes en el objeto DataRow
             ' obtenido.
 
-            frm4.txt_organizacion_1.Text = Convert.ToString(row("vc_organizacion"))
-            frm4.txt_desc_1.Text = Convert.ToString(row("vc_desc_item"))
-            frm4.txt_tipo_detalle_1.Text = Convert.ToString(row("vc_tipo_detalle"))
-            frm4.txt_puertos_1.Text = Convert.ToString(row("vc_puertos"))
-            frm4.txt_descuento_1.Text = Convert.ToString(row("vc_descuento"))
-            frm4.txt_tipo_servicio_1.Text = Convert.ToString(row("vc_tipo_servicio"))
-            frm4.txt_prec_unit_1.Text = Convert.ToString(row("vc_precio_unit"))
-            frm4.txt_desde_1.Text = Convert.ToString(row("vc_desde"))
-            frm4.txt_valor_venta.Text = Convert.ToString(row("vc_valor_venta"))
-            frm4.txt_servicio_1.Text = Convert.ToString(row("vc_servicio"))
-            frm4.txt_cantidad_1.Text = Convert.ToString(row("vc_cantidad"))
-            frm4.txt_hasta_1.Text = Convert.ToString(row("vc_hasta"))
-            frm4.txt_igv_1.Text = Convert.ToString(row("vc_igv"))
-            frm4.txt_equipo_1.Text = Convert.ToString(row("vc_equipo"))
-            frm4.txt_pago_1.Text = Convert.ToString(row("vc_pago"))
-            frm4.txt_dias_1.Text = Convert.ToString(row("vc_dias"))
-            frm4.txt_total_1.Text = Convert.ToString(row("vc_total_item"))
+            frmConsultaHistorica.txt_organizacion_1.Text = Convert.ToString(row("vc_organizacion"))
+            frmConsultaHistorica.txt_desc_1.Text = Convert.ToString(row("vc_desc_item"))
+            frmConsultaHistorica.txt_tipo_detalle_1.Text = Convert.ToString(row("vc_tipo_detalle"))
+            frmConsultaHistorica.txt_puertos_1.Text = Convert.ToString(row("vc_puertos"))
+            frmConsultaHistorica.txt_descuento_1.Text = Convert.ToString(row("vc_descuento"))
+            frmConsultaHistorica.txt_tipo_servicio_1.Text = Convert.ToString(row("vc_tipo_servicio"))
+            frmConsultaHistorica.txt_prec_unit_1.Text = Convert.ToString(row("vc_precio_unit"))
+            frmConsultaHistorica.txt_desde_1.Text = Convert.ToString(row("vc_desde"))
+            frmConsultaHistorica.txt_valor_venta.Text = Convert.ToString(row("vc_valor_venta"))
+            frmConsultaHistorica.txt_servicio_1.Text = Convert.ToString(row("vc_servicio"))
+            frmConsultaHistorica.txt_cantidad_1.Text = Convert.ToString(row("vc_cantidad"))
+            frmConsultaHistorica.txt_hasta_1.Text = Convert.ToString(row("vc_hasta"))
+            frmConsultaHistorica.txt_igv_1.Text = Convert.ToString(row("vc_igv"))
+            frmConsultaHistorica.txt_equipo_1.Text = Convert.ToString(row("vc_equipo"))
+            frmConsultaHistorica.txt_pago_1.Text = Convert.ToString(row("vc_pago"))
+            frmConsultaHistorica.txt_dias_1.Text = Convert.ToString(row("vc_dias"))
+            frmConsultaHistorica.txt_total_1.Text = Convert.ToString(row("vc_total_item"))
         Catch ex As Exception
             ' Se ha producido un error
             MessageBox.Show(ex.Message)
@@ -186,48 +186,48 @@ Public Class Frm_Buscar_Cliente
             ' Rellenamos los correspondientes controles TextBox
             ' con los datos existentes en el objeto DataRow
             ' obtenido.
-            frm4.txt_id_factura.Text = Convert.ToString(row("id_factura"))
-            frm4.txt_cliente.Text = Convert.ToString(row("vc_cliente"))
-            frm4.txt_direccion.Text = Convert.ToString(row("vc_direccion"))
-            frm4.txt_documento.Text = Convert.ToString(row("vc_documento"))
-            frm4.txt_impuesto.Text = Convert.ToString(row("vc_impuesto"))
-            frm4.txt_moneda.Text = Convert.ToString(row("vc_moneda"))
-            frm4.txt_f_emision.Text = Convert.ToString(row("vc_f_emision"))
-            frm4.txt_f_vencimiento.Text = Convert.ToString(row("vc_f_vencim"))
-            frm4.txt_f_canc.Text = Convert.ToString(row("vc_f_can"))
+            frmConsultaHistorica.txt_id_factura.Text = Convert.ToString(row("id_factura"))
+            frmConsultaHistorica.txt_cliente.Text = Convert.ToString(row("vc_cliente"))
+            frmConsultaHistorica.txt_direccion.Text = Convert.ToString(row("vc_direccion"))
+            frmConsultaHistorica.txt_documento.Text = Convert.ToString(row("vc_documento"))
+            frmConsultaHistorica.txt_impuesto.Text = Convert.ToString(row("vc_impuesto"))
+            frmConsultaHistorica.txt_moneda.Text = Convert.ToString(row("vc_moneda"))
+            frmConsultaHistorica.txt_f_emision.Text = Convert.ToString(row("vc_f_emision"))
+            frmConsultaHistorica.txt_f_vencimiento.Text = Convert.ToString(row("vc_f_vencim"))
+            frmConsultaHistorica.txt_f_canc.Text = Convert.ToString(row("vc_f_can"))
 
-            frm4.txt_periodo_1.Text = Convert.ToString(row("vc_periodo_1"))
-            frm4.txt_periodo_2.Text = Convert.ToString(row("vc_periodo_2"))
-            frm4.txt_f_generacion.Text = Convert.ToString(row("vc_f_generacion"))
-            frm4.txt_observacion.Text = Convert.ToString(row("vc_observacion"))
-            frm4.txt_distrito.Text = Convert.ToString(row("vc_distrito"))
-            frm4.txt_ciclo.Text = Convert.ToString(row("vc_ciclo"))
-            frm4.txt_nfacturacion.Text = Convert.ToString(row("vc_nfacturacion"))
-            frm4.txt_cuenta.Text = Convert.ToString(row("vc_cuenta"))
-            frm4.txt_estado.Text = Convert.ToString(row("vc_estado"))
-            frm4.txt_cid_telefono.Text = Convert.ToString(row("vc_cid_telefono"))
-            frm4.txt_usuario_emision.Text = Convert.ToString(row("vc_u_emision"))
-            frm4.txt_total.Text = Convert.ToString(row("vc_total_periodo"))
-            frm4.txt_saldo_anterior.Text = Convert.ToString(row("vc_saldo_anterior"))
+            frmConsultaHistorica.txt_periodo_1.Text = Convert.ToString(row("vc_periodo_1"))
+            frmConsultaHistorica.txt_periodo_2.Text = Convert.ToString(row("vc_periodo_2"))
+            frmConsultaHistorica.txt_f_generacion.Text = Convert.ToString(row("vc_f_generacion"))
+            frmConsultaHistorica.txt_observacion.Text = Convert.ToString(row("vc_observacion"))
+            frmConsultaHistorica.txt_distrito.Text = Convert.ToString(row("vc_distrito"))
+            frmConsultaHistorica.txt_ciclo.Text = Convert.ToString(row("vc_ciclo"))
+            frmConsultaHistorica.txt_nfacturacion.Text = Convert.ToString(row("vc_nfacturacion"))
+            frmConsultaHistorica.txt_cuenta.Text = Convert.ToString(row("vc_cuenta"))
+            frmConsultaHistorica.txt_estado.Text = Convert.ToString(row("vc_estado"))
+            frmConsultaHistorica.txt_cid_telefono.Text = Convert.ToString(row("vc_cid_telefono"))
+            frmConsultaHistorica.txt_usuario_emision.Text = Convert.ToString(row("vc_u_emision"))
+            frmConsultaHistorica.txt_total.Text = Convert.ToString(row("vc_total_periodo"))
+            frmConsultaHistorica.txt_saldo_anterior.Text = Convert.ToString(row("vc_saldo_anterior"))
 
-            frm4.txt_tipo_c.Text = Convert.ToString(row("vc_tipo"))
-            frm4.txt_valor_venta.Text = Convert.ToString(row("vc_valor_venta"))
-            frm4.txt_descuentos.Text = Convert.ToString(row("vc_descuentos"))
-            frm4.txt_impuestos.Text = Convert.ToString(row("vc_impuestos"))
-            frm4.txt_mora.Text = Convert.ToString(row("vc_mora"))
-            frm4.txt_redondeo.Text = Convert.ToString(row("vc_redondeo"))
-            frm4.txt_total_empresa.Text = Convert.ToString(row("vc_total_empresa"))
+            frmConsultaHistorica.txt_tipo_c.Text = Convert.ToString(row("vc_tipo"))
+            frmConsultaHistorica.txt_valor_venta.Text = Convert.ToString(row("vc_valor_venta"))
+            frmConsultaHistorica.txt_descuentos.Text = Convert.ToString(row("vc_descuentos"))
+            frmConsultaHistorica.txt_impuestos.Text = Convert.ToString(row("vc_impuestos"))
+            frmConsultaHistorica.txt_mora.Text = Convert.ToString(row("vc_mora"))
+            frmConsultaHistorica.txt_redondeo.Text = Convert.ToString(row("vc_redondeo"))
+            frmConsultaHistorica.txt_total_empresa.Text = Convert.ToString(row("vc_total_empresa"))
 
-            frm4.txt_saldo_empresa.Text = Convert.ToString(row("vc_saldo_empresa"))
+            frmConsultaHistorica.txt_saldo_empresa.Text = Convert.ToString(row("vc_saldo_empresa"))
 
-            frm4.txt_total_fco.Text = Convert.ToString(row("vc_total_fco"))
-            frm4.txt_saldo_fco.Text = Convert.ToString(row("vc_saldo_fco"))
+            frmConsultaHistorica.txt_total_fco.Text = Convert.ToString(row("vc_total_fco"))
+            frmConsultaHistorica.txt_saldo_fco.Text = Convert.ToString(row("vc_saldo_fco"))
 
-            frm4.txt_total_financiamiento.Text = Convert.ToString(row("vc_total_financiamiento"))
-            frm4.txt_saldo_financiamiento.Text = Convert.ToString(row("vc_saldo_financiamiento"))
+            frmConsultaHistorica.txt_total_financiamiento.Text = Convert.ToString(row("vc_total_financiamiento"))
+            frmConsultaHistorica.txt_saldo_financiamiento.Text = Convert.ToString(row("vc_saldo_financiamiento"))
 
-            frm4.txt_total_factura.Text = Convert.ToString(row("vc_total"))
-            frm4.txt_saldo_factura.Text = Convert.ToString(row("vc_saldo"))
+            frmConsultaHistorica.txt_total_factura.Text = Convert.ToString(row("vc_total"))
+            frmConsultaHistorica.txt_saldo_factura.Text = Convert.ToString(row("vc_saldo"))
 
 
 
@@ -251,7 +251,7 @@ Public Class Frm_Buscar_Cliente
             dt = func._mostrar_incidencias_lista_general_por_codigo(dts)
             If dt.Rows.Count <> 0 Then
                 '     MessageBox.Show("codigo valido", "Guardando registros", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                frm4.dg_incidencias_lista_general.DataSource = dt
+                frmConsultaHistorica.dg_incidencias_lista_general.DataSource = dt
             Else
                 '  MessageBox.Show("Error", "Guardando registros", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
@@ -272,7 +272,7 @@ Public Class Frm_Buscar_Cliente
             dt = func._mostrar_incidencias_clientes_servicios_por_codigo(dts)
             If dt.Rows.Count <> 0 Then
                 '     MessageBox.Show("codigo valido", "Guardando registros", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                frm4.dg_incidencias_clientes.DataSource = dt
+                frmConsultaHistorica.dg_incidencias_clientes.DataSource = dt
             Else
                 '  MessageBox.Show("Error", "Guardando registros", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
@@ -293,7 +293,7 @@ Public Class Frm_Buscar_Cliente
             dt = func._mostrar_incidencias_reclamos_por_codigo(dts)
             If dt.Rows.Count <> 0 Then
                 '     MessageBox.Show("codigo valido", "Guardando registros", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                frm4.dg_incidencias_reclamos.DataSource = dt
+                frmConsultaHistorica.dg_incidencias_reclamos.DataSource = dt
             Else
                 '  MessageBox.Show("Error", "Guardando registros", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
@@ -313,7 +313,7 @@ Public Class Frm_Buscar_Cliente
             dt = func._mostrar_anotaciones_ot_por_codigo(dts)
             If dt.Rows.Count <> 0 Then
                 '     MessageBox.Show("codigo valido", "Guardando registros", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                frm4.dg_anotaciones_ot.DataSource = dt
+                frmConsultaHistorica.dg_anotaciones_ot.DataSource = dt
             Else
                 '  MessageBox.Show("Error", "Guardando registros", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
@@ -340,37 +340,37 @@ Public Class Frm_Buscar_Cliente
             ' Rellenamos los correspondientes controles TextBox
             ' con los datos existentes en el objeto DataRow
             ' obtenido.
-            frm4.txttipo_persona.Text = Convert.ToString(row("vc_tipo_persona"))
-            frm4.txtseg_negocio.Text = Convert.ToString(row("vc_segmento_negocio"))
-            frm4.txtcodigo1.Text = Convert.ToString(row("vc_codigo"))
-            frm4.txttipo_cliente.Text = Convert.ToString(row("vc_tipo_cliente"))
-            frm4.txtsec_negocio.Text = Convert.ToString(row("vc_sector_negocio"))
-            frm4.txttipo_doc.Text = Convert.ToString(row("vc_documento_tipo"))
-            frm4.txtdoc.Text = Convert.ToString(row("vc_documento"))
-            frm4.txtsub_negocio.Text = Convert.ToString(row("vc_subsector_negocio"))
-            frm4.txtrazon_social.Text = Convert.ToString(row("vc_razon_social"))
-            frm4.txttipo_empresa.Text = Convert.ToString(row("vc_tipo_empresa"))
-            frm4.txtabreviado.Text = Convert.ToString(row("vc_abreviado"))
-            frm4.txtgrupo_economico.Text = Convert.ToString(row("vc_grupo_economico"))
-            frm4.txtdireccion.Text = Convert.ToString(row("vc_direccion"))
-            frm4.txtcategoria.Text = Convert.ToString(row("vc_categoria"))
-            frm4.txtdistrito.Text = Convert.ToString(row("vc_distrito"))
-            frm4.txtejectutivo_datos.Text = Convert.ToString(row("vc_ejecutivo_datos"))
-            frm4.txtciudad.Text = Convert.ToString(row("vc_ciudad"))
-            frm4.txtpais.Text = Convert.ToString(row("vc_pais"))
-            frm4.txtintegrador.Text = Convert.ToString(row("vc_integrador"))
-            frm4.txtemail.Text = Convert.ToString(row("vc_email"))
-            frm4.txtadm_proyecto.Text = Convert.ToString(row("vc_adm_proyecto"))
-            frm4.txtweb.Text = Convert.ToString(row("vc_web"))
-            frm4.txtgestor_cobranza.Text = Convert.ToString(row("vc_gestor_cobranza"))
-            frm4.txtIM.Text = Convert.ToString(row("vc_IM"))
-            frm4.txtIE.Text = Convert.ToString(row("vc_IE"))
-            frm4.txtactividad_economica.Text = Convert.ToString(row("vc_act_economica"))
+            frmConsultaHistorica.txttipo_persona.Text = Convert.ToString(row("vc_tipo_persona"))
+            frmConsultaHistorica.txtseg_negocio.Text = Convert.ToString(row("vc_segmento_negocio"))
+            frmConsultaHistorica.txtcodigo1.Text = Convert.ToString(row("vc_codigo"))
+            frmConsultaHistorica.txttipo_cliente.Text = Convert.ToString(row("vc_tipo_cliente"))
+            frmConsultaHistorica.txtsec_negocio.Text = Convert.ToString(row("vc_sector_negocio"))
+            frmConsultaHistorica.txttipo_doc.Text = Convert.ToString(row("vc_documento_tipo"))
+            frmConsultaHistorica.txtdoc.Text = Convert.ToString(row("vc_documento"))
+            frmConsultaHistorica.txtsub_negocio.Text = Convert.ToString(row("vc_subsector_negocio"))
+            frmConsultaHistorica.txtrazon_social.Text = Convert.ToString(row("vc_razon_social"))
+            frmConsultaHistorica.txttipo_empresa.Text = Convert.ToString(row("vc_tipo_empresa"))
+            frmConsultaHistorica.txtabreviado.Text = Convert.ToString(row("vc_abreviado"))
+            frmConsultaHistorica.txtgrupo_economico.Text = Convert.ToString(row("vc_grupo_economico"))
+            frmConsultaHistorica.txtdireccion.Text = Convert.ToString(row("vc_direccion"))
+            frmConsultaHistorica.txtcategoria.Text = Convert.ToString(row("vc_categoria"))
+            frmConsultaHistorica.txtdistrito.Text = Convert.ToString(row("vc_distrito"))
+            frmConsultaHistorica.txtejectutivo_datos.Text = Convert.ToString(row("vc_ejecutivo_datos"))
+            frmConsultaHistorica.txtciudad.Text = Convert.ToString(row("vc_ciudad"))
+            frmConsultaHistorica.txtpais.Text = Convert.ToString(row("vc_pais"))
+            frmConsultaHistorica.txtintegrador.Text = Convert.ToString(row("vc_integrador"))
+            frmConsultaHistorica.txtemail.Text = Convert.ToString(row("vc_email"))
+            frmConsultaHistorica.txtadm_proyecto.Text = Convert.ToString(row("vc_adm_proyecto"))
+            frmConsultaHistorica.txtweb.Text = Convert.ToString(row("vc_web"))
+            frmConsultaHistorica.txtgestor_cobranza.Text = Convert.ToString(row("vc_gestor_cobranza"))
+            frmConsultaHistorica.txtIM.Text = Convert.ToString(row("vc_IM"))
+            frmConsultaHistorica.txtIE.Text = Convert.ToString(row("vc_IE"))
+            frmConsultaHistorica.txtactividad_economica.Text = Convert.ToString(row("vc_act_economica"))
 
-            frm4.txtobservaciones.Text = Convert.ToString(row("vc_observaciones"))
+            frmConsultaHistorica.txtobservaciones.Text = Convert.ToString(row("vc_observaciones"))
 
-            frm4.txttipo_act.Text = Convert.ToString(row("vc_tipo_act"))
-            frm4.txt_fecha.Text = CStr(Convert.ToDateTime(row("dt_fecha")))
+            frmConsultaHistorica.txttipo_act.Text = Convert.ToString(row("vc_tipo_act"))
+            frmConsultaHistorica.txt_fecha.Text = CStr(Convert.ToDateTime(row("dt_fecha")))
 
         Catch ex As Exception
             ' Se ha producido un error
@@ -390,7 +390,7 @@ Public Class Frm_Buscar_Cliente
             dt = func._mostrar_contactos_clientes_por_codigo(dts)
             If dt.Rows.Count <> 0 Then
                 '     MessageBox.Show("codigo valido", "Guardando registros", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                frm4.dg_contactos.DataSource = dt
+                frmConsultaHistorica.dgvDCcontactos.DataSource = dt
             Else
                 '  MessageBox.Show("Error", "Guardando registros", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
@@ -463,7 +463,7 @@ Public Class Frm_Buscar_Cliente
             dt = func._mostrar_detalle_ot_por_codigo(dts)
             If dt.Rows.Count <> 0 Then
                 '     MessageBox.Show("codigo valido", "Guardando registros", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                frm4.dg_detalle_ot.DataSource = dt
+                frmConsultaHistorica.dg_detalle_ot.DataSource = dt
             Else
                 '  MessageBox.Show("Error", "Guardando registros", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If

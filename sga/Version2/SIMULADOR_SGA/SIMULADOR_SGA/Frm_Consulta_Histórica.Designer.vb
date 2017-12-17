@@ -46,6 +46,8 @@ Partial Class Frm_Consulta_Histórica
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Frm_Consulta_Histórica))
         Me.tabMain = New System.Windows.Forms.TabControl()
         Me.TabPage10 = New System.Windows.Forms.TabPage()
+        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.CheckBox22 = New System.Windows.Forms.CheckBox()
         Me.dg_datos = New System.Windows.Forms.DataGridView()
         Me.ddldocumento = New System.Windows.Forms.ComboBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -77,7 +79,7 @@ Partial Class Frm_Consulta_Histórica
         Me.TextBox6 = New System.Windows.Forms.TextBox()
         Me.CheckBox4 = New System.Windows.Forms.CheckBox()
         Me.txt_doc_cliente = New System.Windows.Forms.TextBox()
-        Me.CheckBox3 = New System.Windows.Forms.CheckBox()
+        Me.chkBNroDocIdentidad = New System.Windows.Forms.CheckBox()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.CheckBox2 = New System.Windows.Forms.CheckBox()
         Me.txt_estado_cliente = New System.Windows.Forms.TextBox()
@@ -88,20 +90,20 @@ Partial Class Frm_Consulta_Histórica
         Me.Button2 = New System.Windows.Forms.Button()
         Me.btn_buscar_cliente = New System.Windows.Forms.Button()
         Me.TabPage_datos = New System.Windows.Forms.TabPage()
+        Me.txtpais = New System.Windows.Forms.TextBox()
+        Me.Label50 = New System.Windows.Forms.Label()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.Label26 = New System.Windows.Forms.Label()
         Me.txttipo_act = New System.Windows.Forms.TextBox()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.txt_fecha = New System.Windows.Forms.TextBox()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.gbxDCObservaciones = New System.Windows.Forms.GroupBox()
         Me.txtobservaciones = New System.Windows.Forms.TextBox()
         Me.TabControl2 = New System.Windows.Forms.TabControl()
         Me.TabPage25 = New System.Windows.Forms.TabPage()
-        Me.dg_contactos = New System.Windows.Forms.DataGridView()
+        Me.dgvDCcontactos = New System.Windows.Forms.DataGridView()
         Me.TabPage26 = New System.Windows.Forms.TabPage()
         Me.gbxDCDatosBasicos = New System.Windows.Forms.GroupBox()
-        Me.txtpais = New System.Windows.Forms.TextBox()
-        Me.Label50 = New System.Windows.Forms.Label()
         Me.txtdistrito = New System.Windows.Forms.TextBox()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.txtactividad_economica = New System.Windows.Forms.TextBox()
@@ -126,8 +128,6 @@ Partial Class Frm_Consulta_Histórica
         Me.Label14 = New System.Windows.Forms.Label()
         Me.txtseg_negocio = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
-        Me.txtIE = New System.Windows.Forms.TextBox()
-        Me.Label12 = New System.Windows.Forms.Label()
         Me.txtIM = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.txtweb = New System.Windows.Forms.TextBox()
@@ -138,9 +138,6 @@ Partial Class Frm_Consulta_Histórica
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txttipo_persona = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.txttipo_cliente = New System.Windows.Forms.TextBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.TextBox25 = New System.Windows.Forms.TextBox()
         Me.txtdoc = New System.Windows.Forms.TextBox()
         Me.txtdireccion = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -156,13 +153,18 @@ Partial Class Frm_Consulta_Histórica
         Me.Button8 = New System.Windows.Forms.Button()
         Me.Button7 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.txttipo_cliente = New System.Windows.Forms.TextBox()
+        Me.TextBox25 = New System.Windows.Forms.TextBox()
+        Me.txtIE = New System.Windows.Forms.TextBox()
+        Me.Label12 = New System.Windows.Forms.Label()
         Me.tabServiciosContratados = New System.Windows.Forms.TabPage()
         Me.txt_2_2 = New System.Windows.Forms.TextBox()
         Me.txt_1 = New System.Windows.Forms.TextBox()
         Me.dg_transacciones = New System.Windows.Forms.DataGridView()
-        Me.dg_servicios = New System.Windows.Forms.DataGridView()
+        Me.dgvSCservicios = New System.Windows.Forms.DataGridView()
         Me.CheckBox15 = New System.Windows.Forms.CheckBox()
-        Me.ddlestado_servicio = New System.Windows.Forms.ComboBox()
+        Me.cboSCestado_servicio = New System.Windows.Forms.ComboBox()
         Me.Button16 = New System.Windows.Forms.Button()
         Me.Button15 = New System.Windows.Forms.Button()
         Me.Button14 = New System.Windows.Forms.Button()
@@ -614,24 +616,22 @@ Partial Class Frm_Consulta_Histórica
         Me.TabPage33 = New System.Windows.Forms.TabPage()
         Me.TabPage34 = New System.Windows.Forms.TabPage()
         Me.TabPage35 = New System.Windows.Forms.TabPage()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
-        Me.CheckBox22 = New System.Windows.Forms.CheckBox()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.tabMain.SuspendLayout()
         Me.TabPage10.SuspendLayout()
         CType(Me.dg_datos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.TabPage_datos.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
-        Me.GroupBox3.SuspendLayout()
+        Me.gbxDCObservaciones.SuspendLayout()
         Me.TabControl2.SuspendLayout()
         Me.TabPage25.SuspendLayout()
-        CType(Me.dg_contactos, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvDCcontactos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbxDCDatosBasicos.SuspendLayout()
         Me.tabServiciosContratados.SuspendLayout()
         CType(Me.dg_transacciones, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.dg_servicios, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvSCservicios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage14.SuspendLayout()
         Me.TabControl8.SuspendLayout()
         Me.TabPage58.SuspendLayout()
@@ -695,10 +695,10 @@ Partial Class Frm_Consulta_Histórica
         Me.gbxTVSContrato.SuspendLayout()
         Me.gbxTVSFactInst.SuspendLayout()
         Me.gbxTVSMotVenta.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'tabMain
@@ -770,7 +770,7 @@ Partial Class Frm_Consulta_Histórica
         Me.TabPage10.Controls.Add(Me.TextBox6)
         Me.TabPage10.Controls.Add(Me.CheckBox4)
         Me.TabPage10.Controls.Add(Me.txt_doc_cliente)
-        Me.TabPage10.Controls.Add(Me.CheckBox3)
+        Me.TabPage10.Controls.Add(Me.chkBNroDocIdentidad)
         Me.TabPage10.Controls.Add(Me.TextBox3)
         Me.TabPage10.Controls.Add(Me.CheckBox2)
         Me.TabPage10.Controls.Add(Me.txt_estado_cliente)
@@ -786,6 +786,23 @@ Partial Class Frm_Consulta_Histórica
         Me.TabPage10.Size = New System.Drawing.Size(1299, 606)
         Me.TabPage10.TabIndex = 0
         Me.TabPage10.Text = "Buscar"
+        '
+        'TextBox4
+        '
+        Me.TextBox4.Location = New System.Drawing.Point(375, 30)
+        Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.Size = New System.Drawing.Size(96, 20)
+        Me.TextBox4.TabIndex = 42
+        '
+        'CheckBox22
+        '
+        Me.CheckBox22.AutoSize = True
+        Me.CheckBox22.Location = New System.Drawing.Point(272, 34)
+        Me.CheckBox22.Name = "CheckBox22"
+        Me.CheckBox22.Size = New System.Drawing.Size(84, 17)
+        Me.CheckBox22.TabIndex = 41
+        Me.CheckBox22.Text = "Customer ID"
+        Me.CheckBox22.UseVisualStyleBackColor = True
         '
         'dg_datos
         '
@@ -812,7 +829,7 @@ Partial Class Frm_Consulta_Histórica
         Me.GroupBox1.Enabled = False
         Me.GroupBox1.Location = New System.Drawing.Point(580, 73)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(199, 155)
+        Me.GroupBox1.Size = New System.Drawing.Size(117, 152)
         Me.GroupBox1.TabIndex = 38
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Criterio"
@@ -1056,15 +1073,15 @@ Partial Class Frm_Consulta_Histórica
         Me.txt_doc_cliente.Size = New System.Drawing.Size(119, 20)
         Me.txt_doc_cliente.TabIndex = 12
         '
-        'CheckBox3
+        'chkBNroDocIdentidad
         '
-        Me.CheckBox3.AutoSize = True
-        Me.CheckBox3.Location = New System.Drawing.Point(3, 82)
-        Me.CheckBox3.Name = "CheckBox3"
-        Me.CheckBox3.Size = New System.Drawing.Size(113, 17)
-        Me.CheckBox3.TabIndex = 10
-        Me.CheckBox3.Text = "Nro Doc Identidad"
-        Me.CheckBox3.UseVisualStyleBackColor = True
+        Me.chkBNroDocIdentidad.AutoSize = True
+        Me.chkBNroDocIdentidad.Location = New System.Drawing.Point(3, 82)
+        Me.chkBNroDocIdentidad.Name = "chkBNroDocIdentidad"
+        Me.chkBNroDocIdentidad.Size = New System.Drawing.Size(113, 17)
+        Me.chkBNroDocIdentidad.TabIndex = 10
+        Me.chkBNroDocIdentidad.Text = "Nro Doc Identidad"
+        Me.chkBNroDocIdentidad.UseVisualStyleBackColor = True
         '
         'TextBox3
         '
@@ -1156,7 +1173,7 @@ Partial Class Frm_Consulta_Histórica
         Me.TabPage_datos.Controls.Add(Me.txtpais)
         Me.TabPage_datos.Controls.Add(Me.Label50)
         Me.TabPage_datos.Controls.Add(Me.GroupBox4)
-        Me.TabPage_datos.Controls.Add(Me.GroupBox3)
+        Me.TabPage_datos.Controls.Add(Me.gbxDCObservaciones)
         Me.TabPage_datos.Controls.Add(Me.TabControl2)
         Me.TabPage_datos.Controls.Add(Me.gbxDCDatosBasicos)
         Me.TabPage_datos.Controls.Add(Me.Button5)
@@ -1166,6 +1183,8 @@ Partial Class Frm_Consulta_Histórica
         Me.TabPage_datos.Controls.Add(Me.Label6)
         Me.TabPage_datos.Controls.Add(Me.txttipo_cliente)
         Me.TabPage_datos.Controls.Add(Me.TextBox25)
+        Me.TabPage_datos.Controls.Add(Me.txtIE)
+        Me.TabPage_datos.Controls.Add(Me.Label12)
         Me.TabPage_datos.Location = New System.Drawing.Point(4, 49)
         Me.TabPage_datos.Name = "TabPage_datos"
         Me.TabPage_datos.Padding = New System.Windows.Forms.Padding(3)
@@ -1173,6 +1192,24 @@ Partial Class Frm_Consulta_Histórica
         Me.TabPage_datos.TabIndex = 1
         Me.TabPage_datos.Text = "Datos del Cliente"
         Me.TabPage_datos.UseVisualStyleBackColor = True
+        '
+        'txtpais
+        '
+        Me.txtpais.Location = New System.Drawing.Point(846, 200)
+        Me.txtpais.Name = "txtpais"
+        Me.txtpais.Size = New System.Drawing.Size(118, 20)
+        Me.txtpais.TabIndex = 51
+        Me.txtpais.Visible = False
+        '
+        'Label50
+        '
+        Me.Label50.AutoSize = True
+        Me.Label50.Location = New System.Drawing.Point(813, 203)
+        Me.Label50.Name = "Label50"
+        Me.Label50.Size = New System.Drawing.Size(27, 13)
+        Me.Label50.TabIndex = 50
+        Me.Label50.Text = "Pais"
+        Me.Label50.Visible = False
         '
         'GroupBox4
         '
@@ -1220,15 +1257,16 @@ Partial Class Frm_Consulta_Histórica
         Me.txt_fecha.Size = New System.Drawing.Size(100, 20)
         Me.txt_fecha.TabIndex = 0
         '
-        'GroupBox3
+        'gbxDCObservaciones
         '
-        Me.GroupBox3.Controls.Add(Me.txtobservaciones)
-        Me.GroupBox3.Location = New System.Drawing.Point(9, 337)
-        Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(386, 55)
-        Me.GroupBox3.TabIndex = 12
-        Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "Observacion"
+        Me.gbxDCObservaciones.Controls.Add(Me.txtobservaciones)
+        Me.gbxDCObservaciones.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbxDCObservaciones.Location = New System.Drawing.Point(9, 337)
+        Me.gbxDCObservaciones.Name = "gbxDCObservaciones"
+        Me.gbxDCObservaciones.Size = New System.Drawing.Size(386, 55)
+        Me.gbxDCObservaciones.TabIndex = 12
+        Me.gbxDCObservaciones.TabStop = False
+        Me.gbxDCObservaciones.Text = "Observacion"
         '
         'txtobservaciones
         '
@@ -1252,7 +1290,7 @@ Partial Class Frm_Consulta_Histórica
         'TabPage25
         '
         Me.TabPage25.BackColor = System.Drawing.Color.Transparent
-        Me.TabPage25.Controls.Add(Me.dg_contactos)
+        Me.TabPage25.Controls.Add(Me.dgvDCcontactos)
         Me.TabPage25.Location = New System.Drawing.Point(4, 25)
         Me.TabPage25.Name = "TabPage25"
         Me.TabPage25.Padding = New System.Windows.Forms.Padding(3)
@@ -1260,17 +1298,17 @@ Partial Class Frm_Consulta_Histórica
         Me.TabPage25.TabIndex = 0
         Me.TabPage25.Text = "Contactos"
         '
-        'dg_contactos
+        'dgvDCcontactos
         '
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft
-        Me.dg_contactos.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        Me.dg_contactos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dg_contactos.GridColor = System.Drawing.Color.White
-        Me.dg_contactos.Location = New System.Drawing.Point(0, 5)
-        Me.dg_contactos.Name = "dg_contactos"
-        Me.dg_contactos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dg_contactos.Size = New System.Drawing.Size(1259, 115)
-        Me.dg_contactos.TabIndex = 0
+        Me.dgvDCcontactos.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.dgvDCcontactos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvDCcontactos.GridColor = System.Drawing.Color.White
+        Me.dgvDCcontactos.Location = New System.Drawing.Point(0, 5)
+        Me.dgvDCcontactos.Name = "dgvDCcontactos"
+        Me.dgvDCcontactos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvDCcontactos.Size = New System.Drawing.Size(1259, 115)
+        Me.dgvDCcontactos.TabIndex = 0
         '
         'TabPage26
         '
@@ -1308,8 +1346,6 @@ Partial Class Frm_Consulta_Histórica
         Me.gbxDCDatosBasicos.Controls.Add(Me.Label14)
         Me.gbxDCDatosBasicos.Controls.Add(Me.txtseg_negocio)
         Me.gbxDCDatosBasicos.Controls.Add(Me.Label13)
-        Me.gbxDCDatosBasicos.Controls.Add(Me.txtIE)
-        Me.gbxDCDatosBasicos.Controls.Add(Me.Label12)
         Me.gbxDCDatosBasicos.Controls.Add(Me.txtIM)
         Me.gbxDCDatosBasicos.Controls.Add(Me.Label11)
         Me.gbxDCDatosBasicos.Controls.Add(Me.txtweb)
@@ -1338,24 +1374,6 @@ Partial Class Frm_Consulta_Histórica
         Me.gbxDCDatosBasicos.TabIndex = 10
         Me.gbxDCDatosBasicos.TabStop = False
         Me.gbxDCDatosBasicos.Text = "Datos Basicos"
-        '
-        'txtpais
-        '
-        Me.txtpais.Location = New System.Drawing.Point(846, 200)
-        Me.txtpais.Name = "txtpais"
-        Me.txtpais.Size = New System.Drawing.Size(118, 20)
-        Me.txtpais.TabIndex = 51
-        Me.txtpais.Visible = False
-        '
-        'Label50
-        '
-        Me.Label50.AutoSize = True
-        Me.Label50.Location = New System.Drawing.Point(813, 203)
-        Me.Label50.Name = "Label50"
-        Me.Label50.Size = New System.Drawing.Size(27, 13)
-        Me.Label50.TabIndex = 50
-        Me.Label50.Text = "Pais"
-        Me.Label50.Visible = False
         '
         'txtdistrito
         '
@@ -1538,6 +1556,7 @@ Partial Class Frm_Consulta_Histórica
         '
         'txtseg_negocio
         '
+        Me.txtseg_negocio.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtseg_negocio.Location = New System.Drawing.Point(504, 8)
         Me.txtseg_negocio.Name = "txtseg_negocio"
         Me.txtseg_negocio.Size = New System.Drawing.Size(214, 20)
@@ -1551,22 +1570,6 @@ Partial Class Frm_Consulta_Histórica
         Me.Label13.Size = New System.Drawing.Size(98, 13)
         Me.Label13.TabIndex = 26
         Me.Label13.Text = "Segmento Negocio"
-        '
-        'txtIE
-        '
-        Me.txtIE.Location = New System.Drawing.Point(263, 260)
-        Me.txtIE.Name = "txtIE"
-        Me.txtIE.Size = New System.Drawing.Size(105, 20)
-        Me.txtIE.TabIndex = 25
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(194, 270)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(17, 13)
-        Me.Label12.TabIndex = 24
-        Me.Label12.Text = "IE"
         '
         'txtIM
         '
@@ -1648,38 +1651,13 @@ Partial Class Frm_Consulta_Histórica
         Me.Label7.TabIndex = 14
         Me.Label7.Text = "Tipo Persona"
         '
-        'txttipo_cliente
-        '
-        Me.txttipo_cliente.Location = New System.Drawing.Point(851, 227)
-        Me.txttipo_cliente.Name = "txttipo_cliente"
-        Me.txttipo_cliente.Size = New System.Drawing.Size(100, 20)
-        Me.txttipo_cliente.TabIndex = 13
-        Me.txttipo_cliente.Visible = False
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(777, 230)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(63, 13)
-        Me.Label6.TabIndex = 12
-        Me.Label6.Text = "Tipo Cliente"
-        Me.Label6.Visible = False
-        '
-        'TextBox25
-        '
-        Me.TextBox25.Location = New System.Drawing.Point(816, 270)
-        Me.TextBox25.Name = "TextBox25"
-        Me.TextBox25.Size = New System.Drawing.Size(125, 20)
-        Me.TextBox25.TabIndex = 11
-        Me.TextBox25.Visible = False
-        '
         'txtdoc
         '
         Me.txtdoc.Location = New System.Drawing.Point(130, 61)
         Me.txtdoc.Name = "txtdoc"
         Me.txtdoc.Size = New System.Drawing.Size(107, 20)
         Me.txtdoc.TabIndex = 10
+        Me.txtdoc.Visible = False
         '
         'txtdireccion
         '
@@ -1747,10 +1725,12 @@ Partial Class Frm_Consulta_Histórica
         '
         'txtcodigo1
         '
+        Me.txtcodigo1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtcodigo1.Location = New System.Drawing.Point(81, 12)
         Me.txtcodigo1.Name = "txtcodigo1"
         Me.txtcodigo1.Size = New System.Drawing.Size(100, 20)
         Me.txtcodigo1.TabIndex = 1
+        Me.txtcodigo1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label1
         '
@@ -1802,15 +1782,59 @@ Partial Class Frm_Consulta_Histórica
         Me.Button6.Text = "Registros en Línea"
         Me.Button6.UseVisualStyleBackColor = True
         '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(777, 230)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(63, 13)
+        Me.Label6.TabIndex = 12
+        Me.Label6.Text = "Tipo Cliente"
+        Me.Label6.Visible = False
+        '
+        'txttipo_cliente
+        '
+        Me.txttipo_cliente.Location = New System.Drawing.Point(851, 227)
+        Me.txttipo_cliente.Name = "txttipo_cliente"
+        Me.txttipo_cliente.Size = New System.Drawing.Size(100, 20)
+        Me.txttipo_cliente.TabIndex = 13
+        Me.txttipo_cliente.Visible = False
+        '
+        'TextBox25
+        '
+        Me.TextBox25.Location = New System.Drawing.Point(816, 270)
+        Me.TextBox25.Name = "TextBox25"
+        Me.TextBox25.Size = New System.Drawing.Size(125, 20)
+        Me.TextBox25.TabIndex = 11
+        Me.TextBox25.Visible = False
+        '
+        'txtIE
+        '
+        Me.txtIE.Location = New System.Drawing.Point(851, 311)
+        Me.txtIE.Name = "txtIE"
+        Me.txtIE.Size = New System.Drawing.Size(105, 20)
+        Me.txtIE.TabIndex = 25
+        Me.txtIE.Visible = False
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(782, 321)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(17, 13)
+        Me.Label12.TabIndex = 24
+        Me.Label12.Text = "IE"
+        Me.Label12.Visible = False
+        '
         'tabServiciosContratados
         '
         Me.tabServiciosContratados.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.tabServiciosContratados.Controls.Add(Me.txt_2_2)
         Me.tabServiciosContratados.Controls.Add(Me.txt_1)
         Me.tabServiciosContratados.Controls.Add(Me.dg_transacciones)
-        Me.tabServiciosContratados.Controls.Add(Me.dg_servicios)
+        Me.tabServiciosContratados.Controls.Add(Me.dgvSCservicios)
         Me.tabServiciosContratados.Controls.Add(Me.CheckBox15)
-        Me.tabServiciosContratados.Controls.Add(Me.ddlestado_servicio)
+        Me.tabServiciosContratados.Controls.Add(Me.cboSCestado_servicio)
         Me.tabServiciosContratados.Controls.Add(Me.Button16)
         Me.tabServiciosContratados.Controls.Add(Me.Button15)
         Me.tabServiciosContratados.Controls.Add(Me.Button14)
@@ -1852,18 +1876,18 @@ Partial Class Frm_Consulta_Histórica
         Me.dg_transacciones.Size = New System.Drawing.Size(1280, 308)
         Me.dg_transacciones.TabIndex = 18
         '
-        'dg_servicios
+        'dgvSCservicios
         '
-        Me.dg_servicios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dg_servicios.GridColor = System.Drawing.Color.White
-        Me.dg_servicios.Location = New System.Drawing.Point(3, 33)
-        Me.dg_servicios.Name = "dg_servicios"
-        Me.dg_servicios.RowHeadersVisible = False
+        Me.dgvSCservicios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvSCservicios.GridColor = System.Drawing.Color.White
+        Me.dgvSCservicios.Location = New System.Drawing.Point(3, 33)
+        Me.dgvSCservicios.Name = "dgvSCservicios"
+        Me.dgvSCservicios.RowHeadersVisible = False
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter
-        Me.dg_servicios.RowsDefaultCellStyle = DataGridViewCellStyle2
-        Me.dg_servicios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dg_servicios.Size = New System.Drawing.Size(1280, 173)
-        Me.dg_servicios.TabIndex = 17
+        Me.dgvSCservicios.RowsDefaultCellStyle = DataGridViewCellStyle2
+        Me.dgvSCservicios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvSCservicios.Size = New System.Drawing.Size(1280, 173)
+        Me.dgvSCservicios.TabIndex = 17
         '
         'CheckBox15
         '
@@ -1875,14 +1899,14 @@ Partial Class Frm_Consulta_Histórica
         Me.CheckBox15.Text = "Ficha Técnica"
         Me.CheckBox15.UseVisualStyleBackColor = True
         '
-        'ddlestado_servicio
+        'cboSCestado_servicio
         '
-        Me.ddlestado_servicio.FormattingEnabled = True
-        Me.ddlestado_servicio.Items.AddRange(New Object() {"Activo", "Suspendido", "Cancelado", "Sin activar"})
-        Me.ddlestado_servicio.Location = New System.Drawing.Point(935, 3)
-        Me.ddlestado_servicio.Name = "ddlestado_servicio"
-        Me.ddlestado_servicio.Size = New System.Drawing.Size(121, 21)
-        Me.ddlestado_servicio.TabIndex = 15
+        Me.cboSCestado_servicio.FormattingEnabled = True
+        Me.cboSCestado_servicio.Items.AddRange(New Object() {"Activo", "Suspendido", "Cancelado", "Sin activar"})
+        Me.cboSCestado_servicio.Location = New System.Drawing.Point(935, 3)
+        Me.cboSCestado_servicio.Name = "cboSCestado_servicio"
+        Me.cboSCestado_servicio.Size = New System.Drawing.Size(121, 21)
+        Me.cboSCestado_servicio.TabIndex = 15
         '
         'Button16
         '
@@ -4712,10 +4736,11 @@ Partial Class Frm_Consulta_Histórica
         '
         'TextBox71
         '
-        Me.TextBox71.Location = New System.Drawing.Point(580, 198)
+        Me.TextBox71.Location = New System.Drawing.Point(1007, 96)
         Me.TextBox71.Name = "TextBox71"
         Me.TextBox71.Size = New System.Drawing.Size(44, 20)
         Me.TextBox71.TabIndex = 61
+        Me.TextBox71.Visible = False
         '
         'txt_solicitud_ot
         '
@@ -4727,11 +4752,12 @@ Partial Class Frm_Consulta_Histórica
         'Label49
         '
         Me.Label49.AutoSize = True
-        Me.Label49.Location = New System.Drawing.Point(486, 201)
+        Me.Label49.Location = New System.Drawing.Point(913, 99)
         Me.Label49.Name = "Label49"
         Me.Label49.Size = New System.Drawing.Size(88, 13)
         Me.Label49.TabIndex = 60
         Me.Label49.Text = "Charging_area 3:"
+        Me.Label49.Visible = False
         '
         'Label28
         '
@@ -4813,7 +4839,7 @@ Partial Class Frm_Consulta_Histórica
         '
         'txt_act_instalacion_ot
         '
-        Me.txt_act_instalacion_ot.Location = New System.Drawing.Point(373, 227)
+        Me.txt_act_instalacion_ot.Location = New System.Drawing.Point(373, 200)
         Me.txt_act_instalacion_ot.Name = "txt_act_instalacion_ot"
         Me.txt_act_instalacion_ot.Size = New System.Drawing.Size(110, 20)
         Me.txt_act_instalacion_ot.TabIndex = 54
@@ -4828,7 +4854,7 @@ Partial Class Frm_Consulta_Histórica
         'Label46
         '
         Me.Label46.AutoSize = True
-        Me.Label46.Location = New System.Drawing.Point(281, 230)
+        Me.Label46.Location = New System.Drawing.Point(281, 203)
         Me.Label46.Name = "Label46"
         Me.Label46.Size = New System.Drawing.Size(86, 13)
         Me.Label46.TabIndex = 53
@@ -4845,7 +4871,7 @@ Partial Class Frm_Consulta_Histórica
         '
         'txt_ffin_ot
         '
-        Me.txt_ffin_ot.Location = New System.Drawing.Point(346, 201)
+        Me.txt_ffin_ot.Location = New System.Drawing.Point(346, 174)
         Me.txt_ffin_ot.Name = "txt_ffin_ot"
         Me.txt_ffin_ot.Size = New System.Drawing.Size(137, 20)
         Me.txt_ffin_ot.TabIndex = 52
@@ -4863,7 +4889,7 @@ Partial Class Frm_Consulta_Histórica
         'Label39
         '
         Me.Label39.AutoSize = True
-        Me.Label39.Location = New System.Drawing.Point(281, 204)
+        Me.Label39.Location = New System.Drawing.Point(281, 177)
         Me.Label39.Name = "Label39"
         Me.Label39.Size = New System.Drawing.Size(33, 13)
         Me.Label39.TabIndex = 51
@@ -4881,8 +4907,9 @@ Partial Class Frm_Consulta_Histórica
         'CheckBox17
         '
         Me.CheckBox17.AutoSize = True
-        Me.CheckBox17.Location = New System.Drawing.Point(515, 223)
+        Me.CheckBox17.Location = New System.Drawing.Point(554, 223)
         Me.CheckBox17.Name = "CheckBox17"
+        Me.CheckBox17.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.CheckBox17.Size = New System.Drawing.Size(69, 17)
         Me.CheckBox17.TabIndex = 50
         Me.CheckBox17.Text = "Derivado"
@@ -4900,8 +4927,9 @@ Partial Class Frm_Consulta_Histórica
         'CheckBox16
         '
         Me.CheckBox16.AutoSize = True
-        Me.CheckBox16.Location = New System.Drawing.Point(489, 72)
+        Me.CheckBox16.Location = New System.Drawing.Point(527, 72)
         Me.CheckBox16.Name = "CheckBox16"
+        Me.CheckBox16.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.CheckBox16.Size = New System.Drawing.Size(96, 17)
         Me.CheckBox16.TabIndex = 49
         Me.CheckBox16.Text = "Flag Penalidad"
@@ -4987,13 +5015,15 @@ Partial Class Frm_Consulta_Histórica
         '
         'txt_pcontable_ot
         '
-        Me.txt_pcontable_ot.Location = New System.Drawing.Point(346, 146)
+        Me.txt_pcontable_ot.Location = New System.Drawing.Point(756, 149)
         Me.txt_pcontable_ot.Name = "txt_pcontable_ot"
         Me.txt_pcontable_ot.Size = New System.Drawing.Size(137, 20)
         Me.txt_pcontable_ot.TabIndex = 44
+        Me.txt_pcontable_ot.Visible = False
         '
         'txt_incidencia_ot
         '
+        Me.txt_incidencia_ot.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_incidencia_ot.Location = New System.Drawing.Point(346, 70)
         Me.txt_incidencia_ot.Name = "txt_incidencia_ot"
         Me.txt_incidencia_ot.Size = New System.Drawing.Size(137, 20)
@@ -5002,11 +5032,12 @@ Partial Class Frm_Consulta_Histórica
         'Label43
         '
         Me.Label43.AutoSize = True
-        Me.Label43.Location = New System.Drawing.Point(281, 149)
+        Me.Label43.Location = New System.Drawing.Point(691, 152)
         Me.Label43.Name = "Label43"
         Me.Label43.Size = New System.Drawing.Size(62, 13)
         Me.Label43.TabIndex = 43
         Me.Label43.Text = "P.Contable:"
+        Me.Label43.Visible = False
         '
         'txt_tipo_ot
         '
@@ -5017,7 +5048,7 @@ Partial Class Frm_Consulta_Histórica
         '
         'txt_solicitante_ot
         '
-        Me.txt_solicitante_ot.Location = New System.Drawing.Point(346, 174)
+        Me.txt_solicitante_ot.Location = New System.Drawing.Point(346, 145)
         Me.txt_solicitante_ot.Name = "txt_solicitante_ot"
         Me.txt_solicitante_ot.Size = New System.Drawing.Size(137, 20)
         Me.txt_solicitante_ot.TabIndex = 42
@@ -5032,7 +5063,7 @@ Partial Class Frm_Consulta_Histórica
         'Label42
         '
         Me.Label42.AutoSize = True
-        Me.Label42.Location = New System.Drawing.Point(281, 177)
+        Me.Label42.Location = New System.Drawing.Point(281, 148)
         Me.Label42.Name = "Label42"
         Me.Label42.Size = New System.Drawing.Size(59, 13)
         Me.Label42.TabIndex = 41
@@ -5319,7 +5350,8 @@ Partial Class Frm_Consulta_Histórica
         '
         'Button19
         '
-        Me.Button19.Location = New System.Drawing.Point(272, 3)
+        Me.Button19.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button19.Location = New System.Drawing.Point(271, 3)
         Me.Button19.Name = "Button19"
         Me.Button19.Size = New System.Drawing.Size(164, 23)
         Me.Button19.TabIndex = 10
@@ -5328,7 +5360,8 @@ Partial Class Frm_Consulta_Histórica
         '
         'Button18
         '
-        Me.Button18.Location = New System.Drawing.Point(107, 3)
+        Me.Button18.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button18.Location = New System.Drawing.Point(111, 3)
         Me.Button18.Name = "Button18"
         Me.Button18.Size = New System.Drawing.Size(159, 23)
         Me.Button18.TabIndex = 9
@@ -5337,7 +5370,8 @@ Partial Class Frm_Consulta_Histórica
         '
         'Button17
         '
-        Me.Button17.Location = New System.Drawing.Point(3, 3)
+        Me.Button17.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button17.Location = New System.Drawing.Point(12, 3)
         Me.Button17.Name = "Button17"
         Me.Button17.Size = New System.Drawing.Size(98, 23)
         Me.Button17.TabIndex = 8
@@ -5397,6 +5431,7 @@ Partial Class Frm_Consulta_Histórica
         '
         'tabDTHHistorico
         '
+        Me.tabDTHHistorico.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.tabDTHHistorico.Location = New System.Drawing.Point(4, 25)
         Me.tabDTHHistorico.Name = "tabDTHHistorico"
         Me.tabDTHHistorico.Size = New System.Drawing.Size(1291, 577)
@@ -5406,6 +5441,7 @@ Partial Class Frm_Consulta_Histórica
         '
         'tabInalambrico
         '
+        Me.tabInalambrico.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.tabInalambrico.Controls.Add(Me.TableLayoutPanel7)
         Me.tabInalambrico.Location = New System.Drawing.Point(4, 25)
         Me.tabInalambrico.Name = "tabInalambrico"
@@ -5437,7 +5473,7 @@ Partial Class Frm_Consulta_Histórica
         Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 108.0!))
         Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 188.0!))
         Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65.0!))
-        Me.TableLayoutPanel7.Size = New System.Drawing.Size(1285, 571)
+        Me.TableLayoutPanel7.Size = New System.Drawing.Size(1281, 567)
         Me.TableLayoutPanel7.TabIndex = 0
         '
         'TabControl10
@@ -5450,7 +5486,7 @@ Partial Class Frm_Consulta_Histórica
         Me.TabControl10.Location = New System.Drawing.Point(3, 375)
         Me.TabControl10.Name = "TabControl10"
         Me.TabControl10.SelectedIndex = 0
-        Me.TabControl10.Size = New System.Drawing.Size(1279, 193)
+        Me.TabControl10.Size = New System.Drawing.Size(1275, 189)
         Me.TabControl10.TabIndex = 0
         '
         'tabEquipos
@@ -5460,18 +5496,18 @@ Partial Class Frm_Consulta_Histórica
         Me.tabEquipos.Location = New System.Drawing.Point(4, 25)
         Me.tabEquipos.Name = "tabEquipos"
         Me.tabEquipos.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabEquipos.Size = New System.Drawing.Size(1271, 164)
+        Me.tabEquipos.Size = New System.Drawing.Size(1267, 160)
         Me.tabEquipos.TabIndex = 0
         Me.tabEquipos.Text = "Equipos"
         Me.tabEquipos.UseVisualStyleBackColor = True
         '
         'dgvTVSEquipos
         '
-        Me.dgvTVSEquipos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvTVSEquipos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvTVSEquipos.Location = New System.Drawing.Point(3, 3)
         Me.dgvTVSEquipos.Name = "dgvTVSEquipos"
-        Me.dgvTVSEquipos.Size = New System.Drawing.Size(1265, 158)
+        Me.dgvTVSEquipos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
+        Me.dgvTVSEquipos.Size = New System.Drawing.Size(1261, 154)
         Me.dgvTVSEquipos.TabIndex = 0
         '
         'tabServicios
@@ -5481,7 +5517,7 @@ Partial Class Frm_Consulta_Histórica
         Me.tabServicios.Location = New System.Drawing.Point(4, 25)
         Me.tabServicios.Name = "tabServicios"
         Me.tabServicios.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabServicios.Size = New System.Drawing.Size(1271, 164)
+        Me.tabServicios.Size = New System.Drawing.Size(1267, 160)
         Me.tabServicios.TabIndex = 1
         Me.tabServicios.Text = "Servicios"
         Me.tabServicios.UseVisualStyleBackColor = True
@@ -5492,7 +5528,7 @@ Partial Class Frm_Consulta_Histórica
         Me.dgvTVSServicios.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvTVSServicios.Location = New System.Drawing.Point(3, 3)
         Me.dgvTVSServicios.Name = "dgvTVSServicios"
-        Me.dgvTVSServicios.Size = New System.Drawing.Size(1265, 158)
+        Me.dgvTVSServicios.Size = New System.Drawing.Size(1261, 154)
         Me.dgvTVSServicios.TabIndex = 0
         '
         'gbxTVSLeft
@@ -5699,7 +5735,7 @@ Partial Class Frm_Consulta_Histórica
         Me.gbxTVSCliente.Location = New System.Drawing.Point(132, 3)
         Me.gbxTVSCliente.Name = "gbxTVSCliente"
         Me.TableLayoutPanel7.SetRowSpan(Me.gbxTVSCliente, 3)
-        Me.gbxTVSCliente.Size = New System.Drawing.Size(513, 366)
+        Me.gbxTVSCliente.Size = New System.Drawing.Size(509, 366)
         Me.gbxTVSCliente.TabIndex = 2
         Me.gbxTVSCliente.TabStop = False
         Me.gbxTVSCliente.Text = "Cliente"
@@ -6008,7 +6044,7 @@ Partial Class Frm_Consulta_Histórica
         Me.gbxTVSRecargas.Dock = System.Windows.Forms.DockStyle.Fill
         Me.gbxTVSRecargas.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gbxTVSRecargas.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.gbxTVSRecargas.Location = New System.Drawing.Point(651, 187)
+        Me.gbxTVSRecargas.Location = New System.Drawing.Point(647, 187)
         Me.gbxTVSRecargas.Name = "gbxTVSRecargas"
         Me.gbxTVSRecargas.Size = New System.Drawing.Size(631, 182)
         Me.gbxTVSRecargas.TabIndex = 3
@@ -6136,7 +6172,7 @@ Partial Class Frm_Consulta_Histórica
         Me.gbxTVSContrato.Dock = System.Windows.Forms.DockStyle.Fill
         Me.gbxTVSContrato.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gbxTVSContrato.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.gbxTVSContrato.Location = New System.Drawing.Point(651, 3)
+        Me.gbxTVSContrato.Location = New System.Drawing.Point(647, 3)
         Me.gbxTVSContrato.Name = "gbxTVSContrato"
         Me.gbxTVSContrato.Size = New System.Drawing.Size(272, 70)
         Me.gbxTVSContrato.TabIndex = 4
@@ -6194,7 +6230,7 @@ Partial Class Frm_Consulta_Histórica
         Me.gbxTVSFactInst.Dock = System.Windows.Forms.DockStyle.Fill
         Me.gbxTVSFactInst.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gbxTVSFactInst.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.gbxTVSFactInst.Location = New System.Drawing.Point(651, 79)
+        Me.gbxTVSFactInst.Location = New System.Drawing.Point(647, 79)
         Me.gbxTVSFactInst.Name = "gbxTVSFactInst"
         Me.gbxTVSFactInst.Size = New System.Drawing.Size(272, 102)
         Me.gbxTVSFactInst.TabIndex = 5
@@ -6274,7 +6310,7 @@ Partial Class Frm_Consulta_Histórica
         Me.gbxTVSMotVenta.Dock = System.Windows.Forms.DockStyle.Fill
         Me.gbxTVSMotVenta.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gbxTVSMotVenta.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.gbxTVSMotVenta.Location = New System.Drawing.Point(929, 3)
+        Me.gbxTVSMotVenta.Location = New System.Drawing.Point(925, 3)
         Me.gbxTVSMotVenta.Name = "gbxTVSMotVenta"
         Me.TableLayoutPanel7.SetRowSpan(Me.gbxTVSMotVenta, 2)
         Me.gbxTVSMotVenta.Size = New System.Drawing.Size(353, 178)
@@ -6364,6 +6400,7 @@ Partial Class Frm_Consulta_Histórica
         '
         'tabRecargas
         '
+        Me.tabRecargas.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.tabRecargas.Location = New System.Drawing.Point(4, 25)
         Me.tabRecargas.Name = "tabRecargas"
         Me.tabRecargas.Size = New System.Drawing.Size(1291, 577)
@@ -6373,6 +6410,7 @@ Partial Class Frm_Consulta_Histórica
         '
         'tabPromociones
         '
+        Me.tabPromociones.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.tabPromociones.Location = New System.Drawing.Point(4, 25)
         Me.tabPromociones.Name = "tabPromociones"
         Me.tabPromociones.Size = New System.Drawing.Size(1291, 577)
@@ -6407,15 +6445,6 @@ Partial Class Frm_Consulta_Histórica
         Me.TabPage35.Text = "Red Inteligente"
         Me.TabPage35.UseVisualStyleBackColor = True
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.SIMULADOR_SGA.My.Resources.Resources.vinoculares
-        Me.PictureBox1.Location = New System.Drawing.Point(3, 14)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(23, 20)
-        Me.PictureBox1.TabIndex = 41
-        Me.PictureBox1.TabStop = False
-        '
         'SplitContainer1
         '
         Me.SplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill
@@ -6431,22 +6460,14 @@ Partial Class Frm_Consulta_Histórica
         Me.SplitContainer1.SplitterDistance = 665
         Me.SplitContainer1.TabIndex = 0
         '
-        'CheckBox22
+        'PictureBox1
         '
-        Me.CheckBox22.AutoSize = True
-        Me.CheckBox22.Location = New System.Drawing.Point(272, 34)
-        Me.CheckBox22.Name = "CheckBox22"
-        Me.CheckBox22.Size = New System.Drawing.Size(84, 17)
-        Me.CheckBox22.TabIndex = 41
-        Me.CheckBox22.Text = "Customer ID"
-        Me.CheckBox22.UseVisualStyleBackColor = True
-        '
-        'TextBox4
-        '
-        Me.TextBox4.Location = New System.Drawing.Point(375, 30)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(96, 20)
-        Me.TextBox4.TabIndex = 42
+        Me.PictureBox1.Image = Global.SIMULADOR_SGA.My.Resources.Resources.vinoculares
+        Me.PictureBox1.Location = New System.Drawing.Point(3, 14)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(23, 20)
+        Me.PictureBox1.TabIndex = 41
+        Me.PictureBox1.TabStop = False
         '
         'Frm_Consulta_Histórica
         '
@@ -6456,7 +6477,7 @@ Partial Class Frm_Consulta_Histórica
         Me.Controls.Add(Me.SplitContainer1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Frm_Consulta_Histórica"
-        Me.Text = "Frm_Consulta_Histórica"
+        Me.Text = "Consulta Histórica"
         Me.tabMain.ResumeLayout(False)
         Me.TabPage10.ResumeLayout(False)
         Me.TabPage10.PerformLayout()
@@ -6467,17 +6488,17 @@ Partial Class Frm_Consulta_Histórica
         Me.TabPage_datos.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
-        Me.GroupBox3.ResumeLayout(False)
-        Me.GroupBox3.PerformLayout()
+        Me.gbxDCObservaciones.ResumeLayout(False)
+        Me.gbxDCObservaciones.PerformLayout()
         Me.TabControl2.ResumeLayout(False)
         Me.TabPage25.ResumeLayout(False)
-        CType(Me.dg_contactos, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvDCcontactos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gbxDCDatosBasicos.ResumeLayout(False)
         Me.gbxDCDatosBasicos.PerformLayout()
         Me.tabServiciosContratados.ResumeLayout(False)
         Me.tabServiciosContratados.PerformLayout()
         CType(Me.dg_transacciones, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.dg_servicios, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvSCservicios, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage14.ResumeLayout(False)
         Me.TabControl8.ResumeLayout(False)
         Me.TabPage58.ResumeLayout(False)
@@ -6559,10 +6580,10 @@ Partial Class Frm_Consulta_Histórica
         Me.gbxTVSFactInst.PerformLayout()
         Me.gbxTVSMotVenta.ResumeLayout(False)
         Me.gbxTVSMotVenta.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.Panel1.ResumeLayout(False)
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -6599,7 +6620,7 @@ Partial Class Frm_Consulta_Histórica
     Friend WithEvents TextBox6 As System.Windows.Forms.TextBox
     Friend WithEvents CheckBox4 As System.Windows.Forms.CheckBox
     Friend WithEvents txt_doc_cliente As System.Windows.Forms.TextBox
-    Friend WithEvents CheckBox3 As System.Windows.Forms.CheckBox
+    Friend WithEvents chkBNroDocIdentidad As System.Windows.Forms.CheckBox
     Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
     Friend WithEvents CheckBox2 As System.Windows.Forms.CheckBox
     Friend WithEvents txt_estado_cliente As System.Windows.Forms.TextBox
@@ -6615,11 +6636,11 @@ Partial Class Frm_Consulta_Histórica
     Friend WithEvents txttipo_act As System.Windows.Forms.TextBox
     Friend WithEvents Label25 As System.Windows.Forms.Label
     Friend WithEvents txt_fecha As System.Windows.Forms.TextBox
-    Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
+    Friend WithEvents gbxDCObservaciones As System.Windows.Forms.GroupBox
     Friend WithEvents txtobservaciones As System.Windows.Forms.TextBox
     Friend WithEvents TabControl2 As System.Windows.Forms.TabControl
     Friend WithEvents TabPage25 As System.Windows.Forms.TabPage
-    Friend WithEvents dg_contactos As System.Windows.Forms.DataGridView
+    Friend WithEvents dgvDCcontactos As System.Windows.Forms.DataGridView
     Friend WithEvents TabPage26 As System.Windows.Forms.TabPage
     Friend WithEvents gbxDCDatosBasicos As System.Windows.Forms.GroupBox
     Friend WithEvents txtpais As System.Windows.Forms.TextBox
@@ -6682,9 +6703,9 @@ Partial Class Frm_Consulta_Histórica
     Friend WithEvents txt_2_2 As System.Windows.Forms.TextBox
     Friend WithEvents txt_1 As System.Windows.Forms.TextBox
     Friend WithEvents dg_transacciones As System.Windows.Forms.DataGridView
-    Friend WithEvents dg_servicios As System.Windows.Forms.DataGridView
+    Friend WithEvents dgvSCservicios As System.Windows.Forms.DataGridView
     Friend WithEvents CheckBox15 As System.Windows.Forms.CheckBox
-    Friend WithEvents ddlestado_servicio As System.Windows.Forms.ComboBox
+    Friend WithEvents cboSCestado_servicio As System.Windows.Forms.ComboBox
     Friend WithEvents Button16 As System.Windows.Forms.Button
     Friend WithEvents Button15 As System.Windows.Forms.Button
     Friend WithEvents Button14 As System.Windows.Forms.Button

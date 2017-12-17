@@ -24,10 +24,11 @@ Public Class Frm_tipo_incidencia
 
             varf2 = txt_tipo_incidencia5.Text
             'Frm_Generar_incidencia.txt_tipo_incidencia.Text = Modulo1.lb_tipo_incidencia
+            whenClose()
         Catch ex As Exception
             MessageBox.Show("Seleccionar un tipo de Incidencia")
         End Try
-
+        'frmGenerarIncidencia.
         
     End Sub
 
@@ -45,10 +46,18 @@ Public Class Frm_tipo_incidencia
 
         ' Al presionar doble debe pasar al formulario
         'Frm_Generar_incidencia.txt_tipo_incidencia.Text = Modulo1.lb_tipo_incidencia
-
+        whenClose()
         Me.Close()
 
     End Sub
+
+    Sub whenClose()
+        frmGenerarIncidencia.ddl_tipo_servicio.Text = "Cable"
+        frmGenerarIncidencia.pnlHideDocRel.Visible = False
+        frmGenerarIncidencia.mostrar_clientes_incidencias()
+
+    End Sub
+
 
     Private Sub lb_tipo_incidencia_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lb_tipo_incidencia.SelectedIndexChanged
         If "Incidencia-Cliente" = lb_tipo_incidencia.SelectedItem.ToString() Then
@@ -59,6 +68,7 @@ Public Class Frm_tipo_incidencia
             chkFacturas.Checked = True
             chkProcesar.Checked = True
             chkEligeServicio.Checked = False
+            txtAbr.Text = "Inc-CLI"
         Else
             chkExisteCliente.Checked = False
             chkEligeCliente.Checked = False
@@ -67,6 +77,7 @@ Public Class Frm_tipo_incidencia
             chkFacturas.Checked = False
             chkProcesar.Checked = False
             chkEligeServicio.Checked = False
+            txtAbr.Text = "INF-INF"
         End If
 
 

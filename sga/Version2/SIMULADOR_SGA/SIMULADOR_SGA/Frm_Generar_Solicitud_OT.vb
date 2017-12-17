@@ -17,11 +17,11 @@ Public Class Frm_Generar_Solicitud_OT
         Me.txt_distrito_sot.Text = Modulo1.distrito_cliente
         txt_incidencia_sot.Text = Util.idincidencia.ToString()
         Me.txt_solicitante_sot.Text = Modulo1.usuario
-
+        Me.txt_observaciones_sot.Text = Util.comentario
         ddl_tipo_trabajo_sot.DataSource = Manager.getWorkType()
         ddl_tipo_trabajo_sot.DisplayMember = "nombre"
         ddl_tipo_trabajo_sot.ValueMember = "id"
-
+        txt_tipo_servicio_sot.Text = Util.tipo_servicio
         ddl_motivo_sot.DataSource = Manager.getMotivo()
         ddl_motivo_sot.DisplayMember = "nombre"
         ddl_motivo_sot.ValueMember = "id"
@@ -40,6 +40,9 @@ Public Class Frm_Generar_Solicitud_OT
         If result1 = DialogResult.Yes Then
 
             generar_numero_solicitud_ot()
+            If Not Util.sot.Equals(0) Then
+                txtNuevoSOT.Text = Util.sot.ToString()
+            End If
             guardar_solicitud_ot()
             guardar_detalle_solicitud_ot()
 
@@ -50,6 +53,8 @@ Public Class Frm_Generar_Solicitud_OT
             'frm4.WindowState = FormWindowState.Maximized
             'frm4.tabMain.SelectedIndex = 9
             'frm4.TabControl4.SelectedIndex = 6
+            frmConsultaHistorica.mostrar_solicitudes_ot_por_doc(Util.sot.ToString())
+            frmConsultaHistorica.mostrar_detalle_ot_por_doc_mouse(Util.sot.ToString())
         End If
 
         'If Me.CheckBox10.Checked = True Then
@@ -87,7 +92,7 @@ Public Class Frm_Generar_Solicitud_OT
 
             txt_num_solicitud_sot.Text = Convert.ToString(row("solicitud"))
             Modulo1.num_solicitud_actual = txt_num_solicitud_sot.Text
-
+            Util.sot = Convert.ToInt32(row("solicitud"))
 
         Catch ex As Exception
             ' Se ha producido un error
@@ -108,8 +113,12 @@ Public Class Frm_Generar_Solicitud_OT
             dts.vc_direccion = txt_direccion_sot.Text
             dts.vc_distrito = txt_distrito_sot.Text
             dts.vc_incidencia = txt_incidencia_sot.Text
-            dts.vc_tipo = ddl_tipo_trabajo_sot.SelectedItem.ToString
-            dts.vc_motivo = ddl_motivo_sot.SelectedItem.ToString
+            'dts.vc_tipo = ddl_tipo_trabajo_sot.SelectedItem.ToString
+            'dts.vc_motivo = ddl_motivo_sot.SelectedItem.ToString
+
+            dts.vc_tipo = ddl_tipo_trabajo_sot.Text
+            dts.vc_motivo = ddl_motivo_sot.Text
+
             dts.vc_tipo_servicio = txt_tipo_servicio_sot.Text
             dts.vc_area = txt_area.Text
             dts.vc_f_comp = txt_fecha_comp.Text

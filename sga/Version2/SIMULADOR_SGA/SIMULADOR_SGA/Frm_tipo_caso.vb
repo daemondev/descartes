@@ -126,11 +126,15 @@ Public Class Frm_Tipificacion
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Modulo1.tipo_caso = Me.txt_3.Text
         varf3 = txt_3.Text
+        frmGenerarIncidencia.txt_estado.Text = "1 - Generado"
+
     End Sub
     Private Sub dg_tipo_caso_DoubleClick(sender As Object, e As EventArgs) Handles dg_tipo_caso.DoubleClick
         If Me.dg_tipo_caso.SelectedRows.Count > 0 Then
             Me.txt_3.Text = CStr(dg_tipo_caso.Item("Caso de atención", dg_tipo_caso.SelectedRows(0).Index).Value)
             varf3 = txt_3.Text
+            frmGenerarIncidencia.txt_estado.Text = "1 - Generado"
+            frmGenerarIncidencia.txt_tipo_atencion.Text = "General"
             Me.Close()
         End If
     End Sub

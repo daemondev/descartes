@@ -11,8 +11,8 @@ Imports System.Data.SqlTypes
 Imports System.Data.OleDb
 
 Module Modulo1
-    Public frm5 As New Frm_Generar_incidencia()
-    Public frm4 As New Frm_Consulta_Histórica()
+    Public frmGenerarIncidencia As New Frm_Generar_incidencia()
+    Public frmConsultaHistorica As New Frm_Consulta_Histórica()
     Public frm9 As New Frm_Buscar_Cliente()
 
     Public con As New SqlConnection(ConfigurationManager.ConnectionStrings("dbConexion").ConnectionString)
@@ -76,12 +76,12 @@ Module Modulo1
     Public num_solicitud_actual As String
 
 
-Public codigo As String
-Public n_doc As String
+    Public codigo As String
+    Public n_doc As String
     Public n_servicio As String
 
     Public Sub maximizar_consulta_historica()
-        frm5.WindowState = FormWindowState.Maximized
+        frmGenerarIncidencia.WindowState = FormWindowState.Maximized
     End Sub
 
 

@@ -65,10 +65,11 @@ Public Class Frm_contactos_incidencia
             varf5 = txt_usuario_seleccionado.Text
             varf4 = txt_departamento_seleccionado.Text
             ' Me.Visible = False
-            
+            'Util.comentario = 
 
         Catch ex As Exception
             MessageBox.Show("Seleccionar una opción válida")
+
         End Try
         
 

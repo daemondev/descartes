@@ -764,6 +764,7 @@ Namespace DL
             Dim returnValue As DataRow = Nothing
             con.Open()
             Dim cmd As SqlCommand = con.CreateCommand()
+
             cmd.CommandText = "select * from tb_solicitudes_ot where vc_n_doc=@documento"
             cmd.Parameters.AddWithValue("@documento", id)
             Dim da As New SqlDataAdapter(cmd)
@@ -900,7 +901,7 @@ Namespace DL
             End Try
         End Function
 
-        Public Function _mostrar_servicios_contratados_por_n_doc(ByVal dts As SOT.TB_servicios_contratados) As DataTable
+        Public Function _mostrar_servicios_contratados_por_n_doc(ByVal dts As SOT.TB_servicios_contratados, ByVal estado As String) As DataTable
             Dim cmd As New SqlCommand
             Try
                 con.Open()
@@ -908,6 +909,7 @@ Namespace DL
                 cmd.CommandType = CommandType.StoredProcedure
                 cmd.Connection = con
                 cmd.Parameters.AddWithValue("@n_doc", dts.n_doc)
+                cmd.Parameters.AddWithValue("@estado", estado)
                 If cmd.ExecuteNonQuery Then
                     Dim dt As New DataTable
                     Dim da As New SqlDataAdapter(cmd)

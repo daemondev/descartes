@@ -1,3 +1,17 @@
+/*
+delete tb_datos_cliente  where vc_codigo = '01002990'
+delete tb_datos_cliente  where vc_documento = '20988151'
+update tb_datos_cliente set dt_fecha = GETDATE() -15  where vc_documento = '20988151'
+
+select * from tb_datos_cliente 
+insert into tb_datos_cliente (vc_documento,vc_codigo, vc_tipo_persona, vc_documento_tipo, vc_razon_social, vc_abreviado, vc_direccion, vc_distrito, vc_ciudad, vc_segmento_negocio, vc_tipo_empresa, vc_categoria, vc_ejecutivo_datos, dt_fecha) values
+('20988151','01002990','Residencial','DNI/LE', 'PARAGUAY MERCADO DAVID','PARAGUAY MERCADO DAVID', 'CENTRO POBLADO VILLA FLAVIA MZ.. LT.. SEC.. .A', 'MAZAMARI | SATIPO | JUNIN', 'JUNIN', 'CLIENTE C','NACIONAL', 'Estandar', 'Sin Definir',GETDATE()-15)
+
+insert into TB_contactos(vc_codigo, vc_tipo_contacto, vc_contacto, vc_cargo, vc_cargo_especifico, tipo_doc, n_doc, n_servicio) values
+('01002990','PROPIETARIO', 'DAVID PARAGUAY MERCADO','Propietario', 'Propietario', 'DNI/LE','20988151','1852876')
+---*/
+
+
 if OBJECT_ID('getClientByID') is not null drop procedure getClientByID
 go
 create procedure getClientByID
@@ -106,10 +120,10 @@ insert into tvSatelital(idCliente,idContratista, idTipoContrato, nroRegistro, es
 		,cliPre, contacto, telefono1, telefono2, paquete,dirInstPre, dirInstPost, dirFacPre, dirFacPost, observacion
 		,contNroDocumento, facTipoDoc, facSerie, facNumero, motLugarVenta, motTipoCliente, motCompetidor, motTipoFacturacion
 		,recCodigo, recEnSistema, recFecIniVigencia, recFecFinVigencia, recFecCorteProgramado, recNumeroUltimaRecarga) values
-		(1,1,1,'0005779215', 'ACTIVO', 1,'0000864657', 2387196
+		(6,1,1,'0005779215', 'ACTIVO', 1,'0000864657', 2387196
 		,'01002990' ,'DAVID PARAGUAY MERCADO','964741357','', 'CLARO TV SAT PLAN BÁSICO VN', '0000866109', 'CENTRO POBLADO VILLA FLAVIA MZ. 51 LT. 10 EN EL CERCADO','0000866109', 'CENTRO POBLADO VILLA FLAVIA MZ. 51 LT. 10 EN EL CERCADO',''
 		,'DT452454','BOLETA','014', '003134', 'CANALES - AGENTES', 'Cliente Nuevo', '', 'S/. 75.00 Pago de Instalación al Contado'
-		,90988151,1,'20170827','20170926','20170927',136761)
+		,20988151,1,'20170827','20170926','20170927',136761)
 go
 select * from tvSatelital
 go
@@ -142,7 +156,35 @@ go
 select * from [TB_servicios_contratados]
 go
 
---alter table [TB_servicios_contratados] add bouquets varchar(50), fecInicio date, fecFin date, fecActivacion date
+--###
+--alter table [TB_servicios_contratados] add bouquets varchar(200), fecInicio date, fecFin date, fecActivacion date
+--alter table [TB_servicios_contratados] drop column bouquets varchar(50)
+
+--update [TB_servicios_contratados] set bouquets = '110, 112, 114, 115, 116, 121, 122, 124, 128, 129, 141, 144' where 
+--select * from [TB_servicios_contratados] where vc_numero_servicio =  'SID.1852876'
+
+--update [TB_servicios_contratados] set bouquets = ''
+--delete [TB_servicios_contratados] where vc_numero_servicio =  'SID.1852876'
+--delete [TB_servicios_contratados] where n_doc =  '20988151'
+--insert into   [TB_servicios_contratados] (vc_tipo_servicio, vc_producto)
+--sp_help [TB_servicios_contratados]
+
+/*
+
+alter table [TB_servicios_contratados] alter column vc_direccion varchar(400)
+insert into   [TB_servicios_contratados] (n_doc, vc_codigo, vc_tipo_servicio, vc_producto, vc_servicio, vc_numero_servicio, vc_estado, bouquets, fecInicio, vc_direccion, vc_distrito) values
+('20988151','1852876','Cable', 'Claro TV - Sat Plan Básico VN','Claro TV - Sat Plan Básico VN','SID.1852876','Activo', '110, 112, 114, 115, 116, 121, 122, 124, 128, 129, 141, 144', '28/12/2010','CENTRO POBLADO VILLA FLAVIA MZ. 51 LT. 10-B EN EL MISMO GRIFO VILLA FLAVIA. ALTURA DEL KILÓMETRO 19 DE LA CARRETERA MARGINAL SATIPO MAZAMARI', 'MAZAMARI | SATIPO | JUNIN')
+,('20988151','7417399','Cable', 'Claro TV - Sat Plan Básico SC','Claro TV - Sat Plan Básico SC','CID.7417399','Suspendido', '', '28/12/2010','CA ANTONIO PORTUGAL 703 702 PISO 1 ALTURA DE LA CARRETERA CENTRAL DONDE SE ENCUENTRAN LOS CENTROS BANCARIOS','SANTA ANITA | LIMA | LIMA')
+,('20988151','7150038','', 'Claro TV - Sat Plan Básico SC','SID.7150038','','Suspendido', '', '28/12/2010','CA ANTONIO PORTUGAL 703 702 PISO 1 ALTURA DE LA CARRETERA CENTRAL DONDE SE ENCUENTRAN LOS CENTROS BANCARIOS','SANTA ANITA | LIMA | LIMA')
+,('20988151','','Cable', 'Claro TV - Sat Plan Básico VN','Claro TV - Sat Plan Básico VN','SID.1856365','Cancelado', '', '28/12/2010','AV VICTOR ROJAS SN FRENTE AL CENTRO EDUCATIVO SAGRADO CORAZÓN DE JESÚS DEL DISTRITO DE VILCABAMBA .... A 2 CUADRAS DE LA PLAZA DE ARMAS DEL DISTRITO DE VILCABAMBA','VILCABAMBA | GRAU | AP')
+
+,('20988151','','Cable', 'Claro TV - Sat Plan Plus','Claro TV - Sat Plan Plus','9237989','Sin Activar', '', '28/12/2010','AV ANDRES AVELINA CÁCERES 0 SIN NOMBRE PASAJE LOS POZOS 000 ALL LADO DE LA INSTITUCIÓN EDUCATIVA JUAN XXIII AL FRENTE DEL GOBIERNO REGIONAL - 946701958','MOQUEGUA| MARISCAL NI')
+,('20988151','','', 'Claro TV - Sat Plan Plus','','SID.5211052','Sin Activar', '', '28/12/2010','-- S/N COOPERATIVA VA BELAUNDE  MZ. H LT. 9-1 PEDRA SANTA CASA 2 PISOS BLANCO CON ROJO REJAS NEGRAS','YANAHURA | AREQUIPA |')
+
+
+
+--*/
+
 
 if OBJECT_ID('getTVSServices') is not null drop procedure getTVSServices
 go
@@ -152,11 +194,12 @@ as
 select sc.vc_codigo as [SID], sc.vc_tipo_servicio as [Tipo Servicio], sc.vc_producto as [Producto], sc.vc_numero_servicio as [Número Servicio], sc.vc_estado as [Estado], sc.bouquets as [Bouquets], sc.fecInicio as [Fecha inicio], sc.fecFin as [Fecha fin], sc.fecActivacion as [Fecha Activación], sc.vc_motivo as [Motivo], sc.vc_direccion as [Dirección]
 	from [TB_servicios_contratados] sc  --where sc.n_doc = '44880188'
 	--join tb_solicitudes_ot so on sc.vc_numero_servicio = so.vc_n_servicio
-where sc.n_doc = @idCliente
+where sc.n_doc = @idCliente and sc.vc_estado = 'Activo'
+
 --where sc.vc_numero_servicio = @idCliente
 go
 
-exec getTVSServices 44880188
+exec getTVSServices 20988151
 --exec getTVSServices 16482223
 go
 
@@ -184,10 +227,10 @@ ins datetime default getdate()
 )
 go
 insert into equipo (nombre, descripcion, SOT, orden, idCliente, etapa, equipo, codSap, solic, req, nSerie, unitAddress, cantidad) values 
-('','AZ-60RS-STM, Antena parabólica de 60cm, AC',2387196,1,1,'CLIENTE-CPE',7112, '', 1,0, '','',1.00 ),
-('','CONECTOR DE COMPRESIÓN SLCU-6',2387196,2,1,'CLIENTE INSTALACIÓN DE EQUIPOS-MANUAL 1',6414, '', 1,0, '','',2.00 ),
-('','CONECTOR DE COMPRESIÓN SLCU-6',2387196,3,1,'CLIENTE INSTALACIÓN DE EQUIPOS-MANUAL 1',6414, '', 1,0, '','',2.00 ),
-('','CABLE COAXIAL NEGRO RG-6 S/MENSAJERO',2387196,4,1,'CLIENTE-INSTALACIÓN DE ACOMETIDA',8046, '', 1,0, '','',2.00 )
+('','AZ-60RS-STM, Antena parabólica de 60cm, AC',2387196,1,6,'CLIENTE-CPE',7112, '', 1,0, '','',1.00 ),
+('','CONECTOR DE COMPRESIÓN SLCU-6',2387196,2,6,'CLIENTE INSTALACIÓN DE EQUIPOS-MANUAL 1',6414, '', 1,0, '','',2.00 ),
+('','CONECTOR DE COMPRESIÓN SLCU-6',2387196,3,6,'CLIENTE INSTALACIÓN DE EQUIPOS-MANUAL 1',6414, '', 1,0, '','',2.00 ),
+('','CABLE COAXIAL NEGRO RG-6 S/MENSAJERO',2387196,4,6,'CLIENTE-INSTALACIÓN DE ACOMETIDA',8046, '', 1,0, '','',2.00 )
 go
 select * from equipo
 go

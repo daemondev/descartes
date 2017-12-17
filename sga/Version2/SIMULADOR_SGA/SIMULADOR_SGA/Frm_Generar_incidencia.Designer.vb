@@ -42,7 +42,7 @@ Partial Class Frm_Generar_incidencia
         Me.txt_usuario = New System.Windows.Forms.TextBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
+        Me.btnGITipoCaso = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.ddl_tipo_servicio = New System.Windows.Forms.ComboBox()
         Me.txt_f_declarada = New System.Windows.Forms.TextBox()
@@ -56,7 +56,8 @@ Partial Class Frm_Generar_incidencia
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.dg_generacion_incidencias = New System.Windows.Forms.DataGridView()
+        Me.CheckBox4 = New System.Windows.Forms.CheckBox()
+        Me.dgvGIIncidencias = New System.Windows.Forms.DataGridView()
         Me.Tab_control = New System.Windows.Forms.TabControl()
         Me.primer_tab = New System.Windows.Forms.TabPage()
         Me.segundo_tab = New System.Windows.Forms.TabPage()
@@ -81,6 +82,7 @@ Partial Class Frm_Generar_incidencia
         Me.cuarto_tab = New System.Windows.Forms.TabPage()
         Me.quinto_tab = New System.Windows.Forms.TabPage()
         Me.sexto_tab = New System.Windows.Forms.TabPage()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Panel5 = New System.Windows.Forms.Panel()
@@ -89,16 +91,17 @@ Partial Class Frm_Generar_incidencia
         Me.txt_nombre_ingresado = New System.Windows.Forms.TextBox()
         Me.txt_cid_generado = New System.Windows.Forms.TextBox()
         Me.txt_producto_contratado = New System.Windows.Forms.TextBox()
-        Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.CheckBox4 = New System.Windows.Forms.CheckBox()
+        Me.pnlHideDocRel = New System.Windows.Forms.Panel()
+        Me.Label17 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
-        CType(Me.dg_generacion_incidencias, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvGIIncidencias, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Tab_control.SuspendLayout()
         Me.primer_tab.SuspendLayout()
         Me.segundo_tab.SuspendLayout()
         Me.Panel4.SuspendLayout()
+        Me.pnlHideDocRel.SuspendLayout()
         Me.SuspendLayout()
         '
         'Button1
@@ -260,7 +263,7 @@ Partial Class Frm_Generar_incidencia
         '
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel2.Controls.Add(Me.Button3)
-        Me.Panel2.Controls.Add(Me.Button5)
+        Me.Panel2.Controls.Add(Me.btnGITipoCaso)
         Me.Panel2.Controls.Add(Me.Button4)
         Me.Panel2.Controls.Add(Me.ddl_tipo_servicio)
         Me.Panel2.Controls.Add(Me.txt_f_declarada)
@@ -290,17 +293,17 @@ Partial Class Frm_Generar_incidencia
         Me.Button3.Text = "1. Tipo Incidencia"
         Me.Button3.UseVisualStyleBackColor = True
         '
-        'Button5
+        'btnGITipoCaso
         '
-        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Button5.Location = New System.Drawing.Point(6, 107)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(107, 22)
-        Me.Button5.TabIndex = 21
-        Me.Button5.Text = "3. Tipo de caso"
-        Me.Button5.UseVisualStyleBackColor = True
+        Me.btnGITipoCaso.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnGITipoCaso.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGITipoCaso.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btnGITipoCaso.Location = New System.Drawing.Point(6, 107)
+        Me.btnGITipoCaso.Name = "btnGITipoCaso"
+        Me.btnGITipoCaso.Size = New System.Drawing.Size(107, 22)
+        Me.btnGITipoCaso.TabIndex = 21
+        Me.btnGITipoCaso.Text = "3. Tipo de caso"
+        Me.btnGITipoCaso.UseVisualStyleBackColor = True
         '
         'Button4
         '
@@ -419,16 +422,25 @@ Partial Class Frm_Generar_incidencia
         Me.Panel3.Size = New System.Drawing.Size(142, 39)
         Me.Panel3.TabIndex = 18
         '
-        'dg_generacion_incidencias
+        'CheckBox4
         '
-        Me.dg_generacion_incidencias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dg_generacion_incidencias.Location = New System.Drawing.Point(4, 3)
-        Me.dg_generacion_incidencias.Name = "dg_generacion_incidencias"
+        Me.CheckBox4.AutoSize = True
+        Me.CheckBox4.Location = New System.Drawing.Point(108, 11)
+        Me.CheckBox4.Name = "CheckBox4"
+        Me.CheckBox4.Size = New System.Drawing.Size(15, 14)
+        Me.CheckBox4.TabIndex = 10
+        Me.CheckBox4.UseVisualStyleBackColor = True
+        '
+        'dgvGIIncidencias
+        '
+        Me.dgvGIIncidencias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvGIIncidencias.Location = New System.Drawing.Point(4, 3)
+        Me.dgvGIIncidencias.Name = "dgvGIIncidencias"
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dg_generacion_incidencias.RowsDefaultCellStyle = DataGridViewCellStyle1
-        Me.dg_generacion_incidencias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dg_generacion_incidencias.Size = New System.Drawing.Size(1086, 234)
-        Me.dg_generacion_incidencias.TabIndex = 3
+        Me.dgvGIIncidencias.RowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.dgvGIIncidencias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvGIIncidencias.Size = New System.Drawing.Size(1086, 234)
+        Me.dgvGIIncidencias.TabIndex = 3
         '
         'Tab_control
         '
@@ -450,7 +462,7 @@ Partial Class Frm_Generar_incidencia
         '
         'primer_tab
         '
-        Me.primer_tab.Controls.Add(Me.dg_generacion_incidencias)
+        Me.primer_tab.Controls.Add(Me.dgvGIIncidencias)
         Me.primer_tab.Location = New System.Drawing.Point(4, 25)
         Me.primer_tab.Name = "primer_tab"
         Me.primer_tab.Padding = New System.Windows.Forms.Padding(3)
@@ -489,6 +501,7 @@ Partial Class Frm_Generar_incidencia
         'CheckBox3
         '
         Me.CheckBox3.AutoSize = True
+        Me.CheckBox3.Enabled = False
         Me.CheckBox3.Location = New System.Drawing.Point(283, 208)
         Me.CheckBox3.Name = "CheckBox3"
         Me.CheckBox3.Size = New System.Drawing.Size(117, 17)
@@ -499,6 +512,7 @@ Partial Class Frm_Generar_incidencia
         'CheckBox2
         '
         Me.CheckBox2.AutoSize = True
+        Me.CheckBox2.Enabled = False
         Me.CheckBox2.Location = New System.Drawing.Point(142, 208)
         Me.CheckBox2.Name = "CheckBox2"
         Me.CheckBox2.Size = New System.Drawing.Size(118, 17)
@@ -509,6 +523,7 @@ Partial Class Frm_Generar_incidencia
         'CheckBox1
         '
         Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Enabled = False
         Me.CheckBox1.Location = New System.Drawing.Point(22, 208)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(65, 17)
@@ -541,37 +556,37 @@ Partial Class Frm_Generar_incidencia
         '
         'txt_contacto
         '
-        Me.txt_contacto.Location = New System.Drawing.Point(196, 30)
+        Me.txt_contacto.Location = New System.Drawing.Point(151, 27)
         Me.txt_contacto.Name = "txt_contacto"
-        Me.txt_contacto.Size = New System.Drawing.Size(304, 20)
+        Me.txt_contacto.Size = New System.Drawing.Size(349, 20)
         Me.txt_contacto.TabIndex = 26
         '
         'txt_cliente
         '
-        Me.txt_cliente.Location = New System.Drawing.Point(196, 8)
+        Me.txt_cliente.Location = New System.Drawing.Point(151, 5)
         Me.txt_cliente.Name = "txt_cliente"
-        Me.txt_cliente.Size = New System.Drawing.Size(304, 20)
+        Me.txt_cliente.Size = New System.Drawing.Size(349, 20)
         Me.txt_cliente.TabIndex = 25
         '
         'txt_segmento_negocio
         '
-        Me.txt_segmento_negocio.Location = New System.Drawing.Point(135, 56)
+        Me.txt_segmento_negocio.Location = New System.Drawing.Point(151, 56)
         Me.txt_segmento_negocio.Name = "txt_segmento_negocio"
-        Me.txt_segmento_negocio.Size = New System.Drawing.Size(365, 20)
+        Me.txt_segmento_negocio.Size = New System.Drawing.Size(349, 20)
         Me.txt_segmento_negocio.TabIndex = 24
         '
         'txt_contacto_cliente
         '
-        Me.txt_contacto_cliente.Location = New System.Drawing.Point(85, 29)
+        Me.txt_contacto_cliente.Location = New System.Drawing.Point(64, 27)
         Me.txt_contacto_cliente.Name = "txt_contacto_cliente"
-        Me.txt_contacto_cliente.Size = New System.Drawing.Size(100, 20)
+        Me.txt_contacto_cliente.Size = New System.Drawing.Size(81, 20)
         Me.txt_contacto_cliente.TabIndex = 23
         '
         'txt_codigo_cliente
         '
-        Me.txt_codigo_cliente.Location = New System.Drawing.Point(85, 8)
+        Me.txt_codigo_cliente.Location = New System.Drawing.Point(64, 6)
         Me.txt_codigo_cliente.Name = "txt_codigo_cliente"
-        Me.txt_codigo_cliente.Size = New System.Drawing.Size(100, 20)
+        Me.txt_codigo_cliente.Size = New System.Drawing.Size(81, 20)
         Me.txt_codigo_cliente.TabIndex = 22
         '
         'Label15
@@ -664,6 +679,15 @@ Partial Class Frm_Generar_incidencia
         Me.sexto_tab.Text = "CDRs"
         Me.sexto_tab.UseVisualStyleBackColor = True
         '
+        'TabPage1
+        '
+        Me.TabPage1.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Size = New System.Drawing.Size(1300, 249)
+        Me.TabPage1.TabIndex = 6
+        Me.TabPage1.Text = "Conceptos Reclamados en Formulario"
+        Me.TabPage1.UseVisualStyleBackColor = True
+        '
         'Panel4
         '
         Me.Panel4.Controls.Add(Me.Label16)
@@ -730,29 +754,35 @@ Partial Class Frm_Generar_incidencia
         Me.txt_producto_contratado.TabIndex = 24
         Me.txt_producto_contratado.Visible = False
         '
-        'TabPage1
+        'pnlHideDocRel
         '
-        Me.TabPage1.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Size = New System.Drawing.Size(1300, 249)
-        Me.TabPage1.TabIndex = 6
-        Me.TabPage1.Text = "Conceptos Reclamados en Formulario"
-        Me.TabPage1.UseVisualStyleBackColor = True
+        Me.pnlHideDocRel.Controls.Add(Me.Label17)
+        Me.pnlHideDocRel.Location = New System.Drawing.Point(396, 209)
+        Me.pnlHideDocRel.Name = "pnlHideDocRel"
+        Me.pnlHideDocRel.Size = New System.Drawing.Size(146, 15)
+        Me.pnlHideDocRel.TabIndex = 33
         '
-        'CheckBox4
+        'Label17
         '
-        Me.CheckBox4.AutoSize = True
-        Me.CheckBox4.Location = New System.Drawing.Point(108, 11)
-        Me.CheckBox4.Name = "CheckBox4"
-        Me.CheckBox4.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox4.TabIndex = 10
-        Me.CheckBox4.UseVisualStyleBackColor = True
+        Me.Label17.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label17.AutoSize = True
+        Me.Label17.Enabled = False
+        Me.Label17.ForeColor = System.Drawing.SystemColors.ScrollBar
+        Me.Label17.Location = New System.Drawing.Point(9, 1)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(130, 13)
+        Me.Label17.TabIndex = 0
+        Me.Label17.Text = "Documentos realcionados"
+        Me.Label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Frm_Generar_incidencia
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1321, 491)
+        Me.Controls.Add(Me.pnlHideDocRel)
         Me.Controls.Add(Me.txt_producto_contratado)
         Me.Controls.Add(Me.txt_cid_generado)
         Me.Controls.Add(Me.txt_nombre_ingresado)
@@ -773,13 +803,15 @@ Partial Class Frm_Generar_incidencia
         Me.Panel2.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
-        CType(Me.dg_generacion_incidencias, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvGIIncidencias, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Tab_control.ResumeLayout(False)
         Me.primer_tab.ResumeLayout(False)
         Me.segundo_tab.ResumeLayout(False)
         Me.segundo_tab.PerformLayout()
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
+        Me.pnlHideDocRel.ResumeLayout(False)
+        Me.pnlHideDocRel.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -801,7 +833,7 @@ Partial Class Frm_Generar_incidencia
     Friend WithEvents txt_rep_atc As System.Windows.Forms.TextBox
     Friend WithEvents txt_usuario As System.Windows.Forms.TextBox
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
-    Friend WithEvents Button5 As System.Windows.Forms.Button
+    Friend WithEvents btnGITipoCaso As System.Windows.Forms.Button
     Friend WithEvents Button4 As System.Windows.Forms.Button
     Friend WithEvents ddl_tipo_servicio As System.Windows.Forms.ComboBox
     Friend WithEvents txt_f_declarada As System.Windows.Forms.TextBox
@@ -815,7 +847,7 @@ Partial Class Frm_Generar_incidencia
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
-    Friend WithEvents dg_generacion_incidencias As System.Windows.Forms.DataGridView
+    Friend WithEvents dgvGIIncidencias As System.Windows.Forms.DataGridView
     Friend WithEvents Tab_control As System.Windows.Forms.TabControl
     Friend WithEvents primer_tab As System.Windows.Forms.TabPage
     Friend WithEvents segundo_tab As System.Windows.Forms.TabPage
@@ -851,4 +883,6 @@ Partial Class Frm_Generar_incidencia
     Friend WithEvents CheckBox3 As System.Windows.Forms.CheckBox
     Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
     Friend WithEvents CheckBox4 As System.Windows.Forms.CheckBox
+    Friend WithEvents pnlHideDocRel As System.Windows.Forms.Panel
+    Friend WithEvents Label17 As System.Windows.Forms.Label
 End Class

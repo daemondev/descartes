@@ -126,7 +126,7 @@
         'AddHandler t.Elapsed, AddressOf hidde
 
         If Util.debug Then
-            Modulo1.usuario = "TIM\E827566"
+            Modulo1.usuario = "E123456"
             Modulo1.contraseña = "123456"
             Modulo1.nombres_usuario = "@daemonDEV"
             t.Start()
