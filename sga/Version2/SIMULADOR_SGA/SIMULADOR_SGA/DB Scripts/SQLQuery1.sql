@@ -471,3 +471,45 @@ select id, nombre from motivo
 go
 exec getMotivo
 go
+
+/*
+--sp_helptext Usp_select_servicios_contratados_transacciones_por_n_doc
+alter procedure [dbo].[Usp_select_servicios_contratados_transacciones_por_n_doc]
+@n_doc varchar(100),
+@cid varchar(100)
+as
+begin
+select vc_codtrs as 'Codtrs',vc_sid as 'SID',vc_solicitud as 'Solicitud',vc_tipo as 'Tipo',vc_estado as 'Estado',vc_estado_facturacion as 'Estado Facturacion',vc_proyecto as 'Proyecto',vc_ftransaccion as 'F.Transaccion',vc_descripcion as 'Descripcion',
+vc_faprobacion as 'F.Aprobacion',vc_aprobadopor as 'Aprobado por',vc_estSID AS 'Est SID',vc_numpto as 'Numpto',
+vc_idadd as 'idadd',vc_tipo_det as 'Tipo Det' from  tb_servicios_contratados_transacciones
+where vc_n_doc=@n_doc and vc_cid=@cid
+END
+
+select * from tb_servicios_contratados_transacciones where vc_n_doc = '20988151' and estado = 'Activo'
+delete tb_servicios_contratados_transacciones where vc_n_doc = '20988151' and estado = 'Activo'
+
+--alter table tb_servicios_contratados_transacciones add estado varchar(15) default 'Activo'
+--alter table tb_servicios_contratados_transacciones add ins datetime default getdate()
+insert into tb_servicios_contratados_transacciones (vc_codtrs, vc_sid, vc_solicitud, vc_tipo, vc_estado,vc_estado_facturacion,vc_proyecto, vc_ftransaccion, vc_descripcion
+,vc_faprobacion, vc_aprobadopor, vc_estSID, vc_numpto
+,vc_idadd, vc_tipo_det,vc_n_doc) values 
+('17231292','1852876','2387196','Activacion', 'Ejecutado', 'Transferido a Billing y Adm. Contratos','0000864657','28/12/2010','COMODATO (S/.)','28/12/2010','E801807','','0001'         ,'','','20988151'),
+('17231293','1852876','2387196','Activacion', 'Ejecutado', 'Transferido a Billing y Adm. Contratos','0000864657','28/12/2010','COMODATO (S/.)','28/12/2010','E801807','','0002'         ,'','','20988151'),
+('17231294','1852876','2387196','Activacion', 'Ejecutado', 'Transferido a Billing y Adm. Contratos','0000864657','28/12/2010','COMODATO (S/.)','28/12/2010','E801807','','0003'         ,'','','20988151'),
+('17231295','1852876','2387196','Activacion', 'Ejecutado', 'Transferido a Billing y Adm. Contratos','0000864657','28/12/2010','COMODATO (S/.)','28/12/2010','E801807','','0004'         ,'','','20988151'),
+('17231296','1852876','2387196','Activacion', 'Ejecutado', 'Transferido a Billing y Adm. Contratos','0000864657','28/12/2010','COMODATO (S/.)','28/12/2010','E801807','','0005'         ,'','','20988151'),
+('17231297','1852876','2387196','Activacion', 'Ejecutado', 'Transferido a Billing y Adm. Contratos','0000864657','28/12/2010','COMODATO (S/.)','28/12/2010','E801807','','0006'         ,'','','20988151'),
+('17231298','1852876','2387196','Activacion', 'Ejecutado', 'Transferido a Billing y Adm. Contratos','0000864657','28/12/2010','COMODATO (S/.)','28/12/2010','E801807','','0007'         ,'','','20988151'),
+('17231299','1852876','2387196','Activacion', 'Ejecutado', 'Transferido a Billing y Adm. Contratos','0000864657','28/12/2010','COMODATO (S/.)','28/12/2010','E801807','','0008'         ,'','','20988151'),
+('17231300','1852876','2387196','Activacion', 'Ejecutado', 'Transferido a Billing y Adm. Contratos','0000864657','28/12/2010','COMODATO (S/.)','28/12/2010','E801807','','0009'         ,'','','20988151'),
+('17231301','1852876','2387196','Activacion', 'Ejecutado', 'Transferido a Billing y Adm. Contratos','0000864657','28/12/2010','COMODATO (S/.)','28/12/2010','E801807','','0010'         ,'','','20988151'),
+('17231302','1852876','2387196','Activacion', 'Ejecutado', 'Transferido a Billing y Adm. Contratos','0000864657','28/12/2010','COMODATO (S/.)','28/12/2010','E801807','','0011'         ,'','','20988151'),
+('17231303','1852876','2387196','Activacion', 'Ejecutado', 'Transferido a Billing y Adm. Contratos','0000864657','28/12/2010','COMODATO (S/.)','28/12/2010','E801807','','0012'         ,'','','20988151'),
+('17231304','1852876','2387196','Activacion', 'Ejecutado', 'Transferido a Billing y Adm. Contratos','0000864657','28/12/2010','COMODATO (S/.)','28/12/2010','E801807','','0013'         ,'','','20988151'),
+
+('23710547','1852876','3550484','Suspension', 'Ejecutado', 'Transferido a Billing','','19/04/2011','Claro TV - Sat Plan Básico VN','19/04/2011','ADMINJOB','',''         ,'','','20988151'),
+('23710549','1852876','3550484','Suspension', 'Ejecutado', 'Transferido a Billing','','19/04/2011','Claro TV - Sat Plan Básico VN','19/04/2011','ADMINJOB','',''         ,'','','20988151'),
+('23710543','1852876','3550484','Suspension', 'Ejecutado', 'Transferido a Billing','','19/04/2011','Claro TV - Sat Plan Básico VN','19/04/2011','ADMINJOB','',''         ,'','','20988151'),
+('23710545','1852876','3550484','Suspension', 'Ejecutado', 'Transferido a Billing','','19/04/2011','Claro TV - Sat Plan Básico VN','19/04/2011','ADMINJOB','',''         ,'','','20988151'),
+
+*/

@@ -30,7 +30,8 @@ Public Class Frm_Generar_Solicitud_OT
 
         'Me.txt_fecha_comp.Text = Format(Now, "Short Date") '+ "18:00:00"
 
-        Me.txt_fecha_comp.Text = Now.ToString("dd/MM/yy H:mm:ss")
+        Me.txt_fecha_comp.Text = Now.ToString("dd/MM/yyyy H:mm:ss")
+        txt_observaciones_sot.ReadOnly = False
 
     End Sub
 
@@ -54,7 +55,12 @@ Public Class Frm_Generar_Solicitud_OT
             'frm4.tabMain.SelectedIndex = 9
             'frm4.TabControl4.SelectedIndex = 6
             frmConsultaHistorica.mostrar_solicitudes_ot_por_doc(Util.sot.ToString())
+
             frmConsultaHistorica.mostrar_detalle_ot_por_doc_mouse(Util.sot.ToString())
+
+            'frmConsultaHistorica.cboSCestado_servicio.Text = "Sin Activar"
+            'frmConsultaHistorica.dgvSCservicios.Columns(0).Visible = False
+
         End If
 
         'If Me.CheckBox10.Checked = True Then
@@ -121,7 +127,8 @@ Public Class Frm_Generar_Solicitud_OT
 
             dts.vc_tipo_servicio = txt_tipo_servicio_sot.Text
             dts.vc_area = txt_area.Text
-            dts.vc_f_comp = txt_fecha_comp.Text
+            dts.vc_f_comp = DateTime.Parse(txt_fecha_comp.Text).ToString("dd/MM/yyyy")
+
             dts.vc_solicitante = txt_solicitante_sot.Text
             dts.vc_observacion = txt_observaciones_sot.Text
             'dts.vc_n_doc = Modulo1.n_doc

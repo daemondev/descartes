@@ -161,7 +161,7 @@ Partial Class Frm_Consulta_Histórica
         Me.tabServiciosContratados = New System.Windows.Forms.TabPage()
         Me.txt_2_2 = New System.Windows.Forms.TextBox()
         Me.txt_1 = New System.Windows.Forms.TextBox()
-        Me.dg_transacciones = New System.Windows.Forms.DataGridView()
+        Me.dgvSCTransacciones = New System.Windows.Forms.DataGridView()
         Me.dgvSCservicios = New System.Windows.Forms.DataGridView()
         Me.CheckBox15 = New System.Windows.Forms.CheckBox()
         Me.cboSCestado_servicio = New System.Windows.Forms.ComboBox()
@@ -630,7 +630,7 @@ Partial Class Frm_Consulta_Histórica
         CType(Me.dgvDCcontactos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbxDCDatosBasicos.SuspendLayout()
         Me.tabServiciosContratados.SuspendLayout()
-        CType(Me.dg_transacciones, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvSCTransacciones, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvSCservicios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage14.SuspendLayout()
         Me.TabControl8.SuspendLayout()
@@ -1831,7 +1831,7 @@ Partial Class Frm_Consulta_Histórica
         Me.tabServiciosContratados.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.tabServiciosContratados.Controls.Add(Me.txt_2_2)
         Me.tabServiciosContratados.Controls.Add(Me.txt_1)
-        Me.tabServiciosContratados.Controls.Add(Me.dg_transacciones)
+        Me.tabServiciosContratados.Controls.Add(Me.dgvSCTransacciones)
         Me.tabServiciosContratados.Controls.Add(Me.dgvSCservicios)
         Me.tabServiciosContratados.Controls.Add(Me.CheckBox15)
         Me.tabServiciosContratados.Controls.Add(Me.cboSCestado_servicio)
@@ -1866,15 +1866,15 @@ Partial Class Frm_Consulta_Histórica
         Me.txt_1.TabIndex = 19
         Me.txt_1.Visible = False
         '
-        'dg_transacciones
+        'dgvSCTransacciones
         '
-        Me.dg_transacciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dg_transacciones.GridColor = System.Drawing.Color.White
-        Me.dg_transacciones.Location = New System.Drawing.Point(6, 239)
-        Me.dg_transacciones.Name = "dg_transacciones"
-        Me.dg_transacciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dg_transacciones.Size = New System.Drawing.Size(1280, 308)
-        Me.dg_transacciones.TabIndex = 18
+        Me.dgvSCTransacciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvSCTransacciones.GridColor = System.Drawing.Color.White
+        Me.dgvSCTransacciones.Location = New System.Drawing.Point(6, 239)
+        Me.dgvSCTransacciones.Name = "dgvSCTransacciones"
+        Me.dgvSCTransacciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvSCTransacciones.Size = New System.Drawing.Size(1280, 308)
+        Me.dgvSCTransacciones.TabIndex = 18
         '
         'dgvSCservicios
         '
@@ -6497,7 +6497,7 @@ Partial Class Frm_Consulta_Histórica
         Me.gbxDCDatosBasicos.PerformLayout()
         Me.tabServiciosContratados.ResumeLayout(False)
         Me.tabServiciosContratados.PerformLayout()
-        CType(Me.dg_transacciones, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvSCTransacciones, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvSCservicios, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage14.ResumeLayout(False)
         Me.TabControl8.ResumeLayout(False)
@@ -6702,7 +6702,7 @@ Partial Class Frm_Consulta_Histórica
     Friend WithEvents tabServiciosContratados As System.Windows.Forms.TabPage
     Friend WithEvents txt_2_2 As System.Windows.Forms.TextBox
     Friend WithEvents txt_1 As System.Windows.Forms.TextBox
-    Friend WithEvents dg_transacciones As System.Windows.Forms.DataGridView
+    Friend WithEvents dgvSCTransacciones As System.Windows.Forms.DataGridView
     Friend WithEvents dgvSCservicios As System.Windows.Forms.DataGridView
     Friend WithEvents CheckBox15 As System.Windows.Forms.CheckBox
     Friend WithEvents cboSCestado_servicio As System.Windows.Forms.ComboBox

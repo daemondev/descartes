@@ -161,11 +161,11 @@ Public Class Frm_Consulta_Histórica
         dgvSCservicios.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
         dgvSCservicios.RowHeadersVisible = False
 
-        Me.dg_transacciones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-        dg_transacciones.AllowUserToAddRows = False
-        dg_transacciones.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
-        dg_transacciones.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
-        dg_transacciones.RowHeadersVisible = False
+        Me.dgvSCTransacciones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        dgvSCTransacciones.AllowUserToAddRows = False
+        dgvSCTransacciones.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+        dgvSCTransacciones.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
+        dgvSCTransacciones.RowHeadersVisible = False
 
         Me.dg_cambio_estado_solicitudes_ot.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
         Me.dg_cambio_estado_solicitudes_ot.AllowUserToAddRows = False
@@ -223,8 +223,8 @@ Public Class Frm_Consulta_Histórica
 
         ElseIf chkBNroDocIdentidad.Checked = True And txt_doc_cliente.Text <> "" Then
             'Here
-
-            cboSCestado_servicio.SelectedItem = "Suspendido"
+            Util.sot = 0
+            'cboSCestado_servicio.SelectedItem = "Suspendido"
             showTVSClientData()
             'If Not Util.haveData Then
             '    Return
@@ -1227,6 +1227,7 @@ Public Class Frm_Consulta_Histórica
             If dt.Rows.Count <> 0 Then
                 '     MessageBox.Show("codigo valido", "Guardando registros", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 dgvSCservicios.DataSource = dt
+                'dgvSCservicios.Columns(0).Visible = False
             Else
                 '  MessageBox.Show("Error", "Guardando registros", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
@@ -1938,9 +1939,9 @@ Public Class Frm_Consulta_Histórica
             dt = func._mostrar_servicios_contratados_transacciones_por_codigo(dts)
             If dt.Rows.Count <> 0 Then
                 '     MessageBox.Show("codigo valido", "Guardando registros", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Me.dg_transacciones.DataSource = dt
+                Me.dgvSCTransacciones.DataSource = dt
             Else
-                Me.dg_transacciones.DataSource = dt
+                Me.dgvSCTransacciones.DataSource = dt
                 '  MessageBox.Show("Error", "Guardando registros", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
         Catch ex As Exception
@@ -1962,9 +1963,9 @@ Public Class Frm_Consulta_Histórica
             dt = func._mostrar_servicios_contratados_transacciones_por_codigo(dts)
             If dt.Rows.Count <> 0 Then
                 '     MessageBox.Show("codigo valido", "Guardando registros", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Me.dg_transacciones.DataSource = dt
+                Me.dgvSCTransacciones.DataSource = dt
             Else
-                Me.dg_transacciones.DataSource = dt
+                Me.dgvSCTransacciones.DataSource = dt
                 '  MessageBox.Show("Error", "Guardando registros", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
         Catch ex As Exception
@@ -1972,6 +1973,7 @@ Public Class Frm_Consulta_Histórica
         End Try
     End Sub
 
+    'Public Sub mostrar_servicios_contratados_transacciones_por_n_doc(ByVal search As String)
     Public Sub mostrar_servicios_contratados_transacciones_por_n_doc()
         Try
             Dim dts As New SOT.TB_servicios_contratados
@@ -1982,12 +1984,30 @@ Public Class Frm_Consulta_Histórica
                 .vc_cid = Me.txt_1.Text
             End With
             'enviamos los datos
-            dt = func._mostrar_servicios_contratados_transacciones_por_n_doc(dts)
+
+
+            'txt_doc_cliente.Text
+
+            If Not Util.sot.Equals(0) Then
+                'Try
+                '    dt = Manager.getTransactionSOT(txt_doc_cliente.Text, cboSCestado_servicio.Text)
+                'Catch ex As Exception
+                '    dt = Nothing
+                'End Try
+                dt = Nothing
+            Else
+                'dt = func._mostrar_servicios_contratados_transacciones_por_n_doc(dts)
+                dt = Manager.getTransactionSOT(txt_doc_cliente.Text, cboSCestado_servicio.Text)
+
+            End If
+
+
+
             If dt.Rows.Count <> 0 Then
                 '     MessageBox.Show("codigo valido", "Guardando registros", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Me.dg_transacciones.DataSource = dt
+                Me.dgvSCTransacciones.DataSource = dt
             Else
-                Me.dg_transacciones.DataSource = dt
+                Me.dgvSCTransacciones.DataSource = dt
                 '  MessageBox.Show("Error", "Guardando registros", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
         Catch ex As Exception
@@ -2008,9 +2028,9 @@ Public Class Frm_Consulta_Histórica
             dt = func._mostrar_servicios_contratados_transacciones_por_n_servicio(dts)
             If dt.Rows.Count <> 0 Then
                 '     MessageBox.Show("codigo valido", "Guardando registros", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Me.dg_transacciones.DataSource = dt
+                Me.dgvSCTransacciones.DataSource = dt
             Else
-                Me.dg_transacciones.DataSource = dt
+                Me.dgvSCTransacciones.DataSource = dt
                 '  MessageBox.Show("Error", "Guardando registros", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
         Catch ex As Exception
@@ -2175,7 +2195,7 @@ Public Class Frm_Consulta_Histórica
             mostrar_servicios_contratados_por_nservicio()
         Else
             dgvSCservicios.DataSource = Nothing
-            dg_transacciones.DataSource = Nothing
+            dgvSCTransacciones.DataSource = Nothing
 
         End If
     End Sub

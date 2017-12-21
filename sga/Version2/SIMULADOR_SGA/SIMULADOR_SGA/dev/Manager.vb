@@ -14,6 +14,10 @@
         Return R.get("getCurrentSOT", search)
     End Function
 
+    Public Shared Function getTransactionSOT(ByVal search As String, ByVal estado As String) As DataTable
+        Return R.get("getCurrentTransactionSOT", search, estado)
+    End Function
+
 
     Public Shared Function getWorkType() As DataTable
         Return R.get("getWorkType")
